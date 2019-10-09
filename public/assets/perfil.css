@@ -1,0 +1,82 @@
+{
+    background: #ffffff
+;
+}
+
+#arrowback {
+    position: fixed;
+    top: 115px;
+    left: 50px;
+    z-index: 1;
+}
+
+.info-container {
+    margin-bottom: 10px;
+    text-align: right;
+    height: 21px;
+}
+
+.info-container .input-message {
+    color: #ffffff !important;
+    margin: 3px;
+    border-radius: 29px;
+    float: right;
+    padding: 0 6px !important;
+}
+
+.input-field {
+    padding: 13px 30px !important;
+    border-radius: 25px;
+    color: white !important;
+    background-color: rgba(255, 255, 255, .5) !important;
+    opacity: 1 !important;
+}
+
+.loginbtn {
+    float: initial !important;
+    margin: auto !important;
+    display: block !important;
+    padding: 15px 70px !important;
+    border-radius: 25px !important;
+    width: 215px !important;
+}
+
+#cadastro-image1 {
+    width: 150px;
+    height: 150px;
+    margin: 90px auto 0;
+    position: relative;
+}
+
+#cadastro-image2 {
+    overflow: hidden;
+    width: 150px;
+    height: 150px;
+    margin: auto;
+    border-radius: 50%;
+    z-index: 1;
+    float: left;
+    /*box-shadow: 0 0 60px 40px rgba(49, 47, 19, 0.49)*/
+}
+
+#cadastro-image2 i {
+    font-size: 150px;
+    margin-left: 0;
+    margin-top: 4px;
+}
+
+#add_circle {
+    position: absolute;
+    bottom: -13px;
+    right: 12px;
+}
+
+#add_circle span {
+    font-size: 16px;
+}
+
+#add_circle i {
+    color: #5e90c2;
+    font-size: 16px;
+    padding: 9px 0 9px 15px;
+}

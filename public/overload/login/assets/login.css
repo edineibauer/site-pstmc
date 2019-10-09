@@ -1,0 +1,93 @@
+#background-login {
+    background-image: url("public/assets/img/background-login.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    position: absolute;
+    height: 100%;
+    top: 0;
+    left: 0;
+    filter: blur(27px);
+    z-index: 0;
+}
+
+#core-header {
+    display: none!important;
+}
+
+#core-content {
+    margin:0;
+}
+
+#logoLogin {
+    margin-bottom: 0!important;
+}
+
+.body-login {
+    position: relative;
+    z-index: 1;
+}
+
+#body-login {
+    padding-top: 128px;
+    max-width: 420px;
+    margin: auto
+}
+
+#loginbtn {
+    float: initial;
+    margin: auto;
+    display: block;
+    padding: 12px 70px;
+    border-radius: 25px !important;
+}
+
+.login-input {
+    padding: 13px 30px !important;
+    border-radius: 25px;
+    background: rgba(255,255,255, .6)!important;
+}
+
+.link-login {
+    text-decoration: none;
+}
+
+.link-login:hover {
+    text-decoration: underline !important;
+}
+
+#login-barra {
+    float: right;
+    background: white;
+    opacity: 0.5;
+    width: 3px;
+    border-radius: 10px;
+    height: 290px;
+    top: 40%;
+    position: absolute;
+    right: 0;
+}
+
+#login-title h1 {
+    padding-top: 190px;
+    font-size: 70px;
+    width: 450px;
+    margin: auto
+}
+
+#login-title p {
+    font-size: 21px;
+    width: 450px;
+    margin: auto;
+    float: initial
+}
+
+#login-card {
+    padding: 0 15px;
+    border-radius: 3px
+}
+
+#loginbtn {
+    border-radius: 3px
+}

@@ -1,0 +1,7 @@
+{
+  "title": "Cadastre seu Endereço",
+  "type": "page",
+  "css": ["w3"],
+  "header": false,
+  "navbar": false
+}

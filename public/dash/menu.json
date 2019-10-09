@@ -1,0 +1,26 @@
+[
+  {
+    "href": "dashboard' data-animation='forward",
+    "rel": "dashboard",
+    "class": "s-hide menu-ep",
+    "text": "<i class='material-icons left'>home</i> Início"
+},
+  {
+    "href": "pacientes' data-animation='forward",
+    "rel": "pacientes",
+    "class": "s-hide menu-ep",
+    "text": "<i class='material-icons left'>hdr_strong</i> Pacientes"
+  },
+  {
+    "href": "perfil' data-animation='forward",
+    "rel": "perfil",
+    "class": "s-hide menu-ep",
+    "text": "<i class='material-icons left'>person</i> Seu perfil"
+  },
+  {
+    "href": "ajustes' data-animation='forward",
+    "rel": "ajustes",
+    "class": "s-hide menu-ep",
+    "text": "<i class='material-icons left'>settings_applications</i> Ajustes"
+  }
+]

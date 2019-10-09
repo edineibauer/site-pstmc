@@ -1,0 +1,85 @@
+#background-login {
+    background-image: url("public/assets/img/background-login.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    position: absolute;
+    height: 100%;
+    top: 0;
+    left: 0;
+    filter: blur(27px);
+    z-index: 0;
+}
+
+#logoLogin {
+    margin-bottom: 0!important;
+}
+
+.body-login {
+    position: relative;
+    z-index: 1;
+}
+
+#body-login {
+    max-width: 600px;
+    margin: auto
+}
+
+.arrowback {
+    position: fixed;
+    top: 140px;
+    left: 50px;
+    z-index: 3;
+}
+
+.arrowback:hover div {
+    text-decoration: underline !important;
+}
+
+#loginbtn {
+    float: initial;
+    margin: auto;
+    display: block;
+    padding: 13px 70px;
+    border-radius: 25px !important;
+}
+
+.login-input {
+    padding: 13px 30px !important;
+    border-radius: 25px;
+    background: rgba(255,255,255, .6)!important;
+}
+
+.link-login {
+    text-decoration: none;
+}
+
+.link-login:hover {
+    text-decoration: underline !important;
+}
+
+#login-barra {
+    float: right;
+    background: white;
+    opacity: 0.5;
+    width: 3px;
+    border-radius: 10px;
+    height: 290px;
+    top: 47%;
+    position: absolute;
+    right: 0;
+}
+
+#login-title h1 {
+    padding-top: 190px;
+    font-size: 84px;
+    width: 542px;
+    margin: auto
+}
+
+#login-title p {
+    width: 542px;
+    margin: auto;
+    float: initial
+}

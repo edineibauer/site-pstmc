@@ -1,0 +1,95 @@
+#arrowback {
+    position: fixed;
+    top: 140px;
+    left: 50px;
+    z-index: 1;
+}
+
+#cadastro-image1 {
+    width: 190px;
+    height: 190px;
+    margin: 40px auto 0;
+    position: relative;
+    border: solid 2px white;
+}
+
+#cadastro-image2 {
+    overflow: hidden;
+    width: 160px;
+    height: 160px;
+    margin: auto;
+    border-radius: 50%;
+    z-index: 1;
+    float: left;
+    margin-left: 13px;
+    margin-top: 13px;
+}
+
+#cadastro-image2 i {
+    font-size: 200px;
+    margin-left: -25px;
+    margin-top: -8px;
+}
+
+#add_circle {
+    position: absolute;
+    bottom: -5px;
+    right: -5px;
+}
+
+#add_circle i{
+    color: #5e90c2;
+    font-size: 70px;
+    float: left;
+}
+
+.info-container {
+    margin-bottom: 10px;
+    text-align: right;
+    height: 50px;
+}
+
+.info-container .input-message{
+    background: rgba(255,0,0,.6);
+    border-radius: 29px;
+    width: 160px;
+    text-align: center;
+    margin: 5px auto;
+    float: initial;
+    display: block;
+}
+
+.info-container .input-message.active {
+    padding: 10px!important;
+}
+
+#background-login {
+    background-image: url(public/assets/img/background-login.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    position: absolute;
+    height: 100%;
+    top: 0;
+    left: 0;
+    filter: blur(27px);
+    z-index: 0
+}
+
+.input-field {
+    padding: 13px 30px !important;
+    border-radius: 25px;
+    color: white !important;
+    background-color: rgba(255, 255, 255, .5) !important;
+    opacity: 1 !important
+}
+
+.loginbtn {
+    float: initial !important;
+    margin: auto !important;
+    display: block !important;
+    padding: 15px 70px !important;
+    border-radius: 25px !important;
+    width: 215px !important
+}
