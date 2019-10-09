@@ -75,9 +75,9 @@
     </div>
 
 </div>
-<div class="hide" id="convite-paciente">
+<div class="hide col" id="convite-paciente" style="margin-top: -650px">
     <div id="add-paciente-opaco"></div>
-    <div class="padding-small pointer arrowback easefadein" data-fade-delay="1200">
+    <div class="padding-small pointer arrowback">
         <i class="material-icons font-xxxlarge left color-text-white">arrow_back</i>
         <div class="left font-xlarge padding-medium color-text-white">Retornar</div>
     </div>
@@ -98,7 +98,7 @@
             <h2 class="align-center color-text-white font-light" id="convite-nome"></h2>
         </div>
 
-        <div class="col easefadein" data-fade-delay="300">
+        <div class="col">
             <button onclick="closeConvite()" class="loginbtn s-font-large btn color-white">
                 Concluir
             </button>

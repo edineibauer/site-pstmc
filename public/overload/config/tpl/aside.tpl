@@ -3,9 +3,6 @@
         <span class="hide" id="core-sidebar-imagem"></span>
         <span class="hide" id="core-sidebar-nome"></span>
         <span class="hide" id="core-sidebar-edit"></span>
-        <div id="login-aside">
-            <i class="material-icons">exit_to_app</i>
-        </div>
     </div>
 </div>
 
@@ -14,13 +11,9 @@
     <ul id="core-sidebar-menu" class="core-class-container"></ul>
 </div>
 
-<div style="position: absolute;bottom: 0px;left: 0px;width: 250px;height: 50px;padding: 8px;background: #ffffff;box-shadow: 0px 9px 12px 0px;">
-    <div onclick="updateCache();" class="theme theme-border-l update-site-btn">
-        <i class="material-icons">refresh</i>
-        <span>Atualizar</span>
-    </div>
-
-    <div onclick="subscribeUser();" class="theme theme-border-l update-site-btn site-btn-push" style="padding:2px 5px; margin-left: 2px;cursor:pointer">
-        <i class="material-icons">notifications_active</i>
+<div style="position: absolute;bottom: 0px;left: 0px;width: 250px;height: 50px;padding: 8px;background: #ffffff;border-top: solid 1px #eee">
+    <div id="login-aside">
+        <i class="material-icons" style="float: right; padding-left: 5px">exit_to_app</i>
+        <div style="float:right;padding:3px">sair</div>
     </div>
 </div>

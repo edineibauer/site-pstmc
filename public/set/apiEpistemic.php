@@ -85,8 +85,11 @@ if (!empty($return)) {
             }
 
         } else {
+            if($return['data'] === "User not found")
+                $return['data'] = "Paciente não encontrado";
+
             $data['data'] = "";
-            $data['error'] = $return['data']['error'];
+            $data['error'] = $return['data']['error'] ?? $return['data'] ?? "Erro desconhecido";
             $data['response'] = 2;
         }
     }

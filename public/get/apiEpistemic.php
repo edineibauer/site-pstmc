@@ -86,7 +86,7 @@ if (!empty($return)) {
 
         } else {
             $data['data'] = "";
-            $data['error'] = $return['data']['error'];
+            $data['error'] = $return['data']['error'] ?? $return['data'] ?? "Erro desconhecido";
             $data['response'] = 2;
         }
     }

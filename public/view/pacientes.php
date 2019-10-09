@@ -68,7 +68,7 @@
         </div>
 
         <div class='row font-large' id="cadastro-login"
-             style="max-width: 500px; margin: auto;position: relative;z-index: 4;">
+             style="max-width: 500px; margin: auto;position: relative;z-index: 4;margin-top: -450px">
             <div class="color-text-white font-xlarge align-center" style="margin: auto;">
                 <div class="col">Parabéns!</div>
                 <div class="col">Seu paciente foi adicionado com sucesso.</div>
