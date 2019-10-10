@@ -14,7 +14,7 @@ function login() {
 
         $("#login-card").loading();
         loginFree = !1;
-        toast("Validando dados!", 15000);
+        toast("Validando dados!", 35000);
         post('site-pstmc', 'login', {email:  $("#emaillog").val(), password: $("#passlog").val()}, function (g) {
             loginFree = !0;
 
@@ -38,7 +38,20 @@ function login() {
 }
 
 function saibamais() {
-    lightbox("<img src='"+ HOME +"public/assets/img/epistemic1.png' class='col'>");
+    $('html, body').animate({
+        scrollTop: $("#saibamais-content").offset().top
+    }, 700);
+}
+
+function goToLogin() {
+    $("#login-acessar").remove();
+    $("#login-sitename").removeClass("titleLogin");
+    $("#div-saibamais").removeClass("saibamais");
+    $("#background-login").css("filter", "blur(27px)");
+    $("#login-title").addClass("m6");
+    $("#login-card").find(".hide").removeClass("hide");
+    animateFade("#login-card");
+    $("#emaillog").focus();
 }
 
 $(function () {
@@ -61,4 +74,25 @@ $(function () {
             },100);
         }, 400);
     }
-})
+
+    $("#login-card, #login-title").css("min-height", window.innerHeight + "px");
+    $("#saibamais-content").css("margin-bottom", window.innerHeight + "px");
+
+    $(window).scroll(function (event) {
+        var scroll = $(window).scrollTop();
+        if(scroll > 2500) {
+            $("#login-container").css({"position": "fixed", "bottom": 0, "left": 0});
+            $("#saibamais-content").css("margin-top", window.innerHeight + "px");
+
+            let heightTop = $("#login-card")[0].clientHeight / 2;
+            $(".imgsaibamais").each(function (i, e) {
+                heightTop += $(e)[0].clientHeight;
+            });
+            if(scroll > heightTop && $("#login-sitename").hasClass("titleLogin"))
+                goToLogin();
+        } else {
+            $("#login-container").css({"position": "relative"});
+            $("#saibamais-content").css("margin-top", 0);
+        }
+    });
+});

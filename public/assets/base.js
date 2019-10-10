@@ -120,6 +120,70 @@ function menuHeader() {
     })
 }
 
+function idade(stringdate) {
+    let a = stringdate.split("-");
+    let ano_aniversario = parseInt(a[0]);
+    let mes_aniversario = parseInt(a[1]);
+    let dia_aniversario = parseInt(a[2]);
+    var d = new Date,
+        ano_atual = d.getFullYear(),
+        mes_atual = d.getMonth() + 1,
+        dia_atual = d.getDate(),
+        quantos_anos = ano_atual - ano_aniversario;
+
+    if (mes_atual < mes_aniversario || mes_atual == mes_aniversario && dia_atual < dia_aniversario)
+        quantos_anos--;
+
+    return quantos_anos < 0 ? 0 : quantos_anos;
+}
+
+function clearFadeIn(content) {
+    $(content).find(".easefadein")
+        .addClass("notransition")
+        .css("opacity", 0)
+        .css("transform", "translateY(-20px)")
+        .removeClass("notransition");
+}
+
+function animateFade(content) {
+    clearFadeIn(content);
+    $(content).find(".easefadein").each(function(i, e) {
+        if($(this).hasAttr("data-fade-delay")) {
+            let delay = parseInt($(this).attr("data-fade-delay"));
+            setTimeout(function () {
+                $(e).css("opacity", 1).css("transform", "translateY(0)");
+            }, delay);
+        } else {
+            setTimeout(function () {
+                $(e).css("opacity", 1).css("transform", "translateY(0)");
+            }, 15);
+        }
+    });
+}
+
+function animateFadeReverse(content) {
+    let d = 0;
+    let $fade = $(content).find(".easefadein");
+    $fade.each(function(i, e) {
+        if($(this).hasAttr("data-fade-delay")) {
+            let delay = parseInt($(this).attr("data-fade-delay"));
+            d = (delay > d ? delay : d);
+            setTimeout(function () {
+                $(e).css("opacity", 0).css("transform", "translateY(-20px)");
+            }, delay);
+        }
+    });
+
+    setTimeout(function () {
+        $fade.each(function(i, e) {
+            if (!$(e).hasAttr("data-fade-delay"))
+                $(e).css("opacity", 0).css("transform", "translateY(-20px)");
+        });
+    }, d);
+
+    return d;
+}
+
 $(function () {
     updatePerfilPage();
 

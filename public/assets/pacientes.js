@@ -182,7 +182,8 @@ $(function () {
            $("#lista-pacientes").html("");
            if(!isEmpty(p)) {
                $.each(p, function (i, e) {
-                   $("#lista-pacientes").append(Mustache.render(tpl.paciente, e));
+                   e.patient.idade = idade(e.patient.birthday);
+                   $("#lista-pacientes").append(Mustache.render(tpl.paciente, e.patient));
                });
            } else {
                $("#lista-pacientes").append(Mustache.render(tpl.pacienteEmpty, {}));
