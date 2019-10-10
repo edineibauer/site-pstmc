@@ -1,21 +1,25 @@
 <div class="col relative">
     <div class="col dashboard-panel">
-        <div class="col s12 l5 padding-right">
-            <div id="barra-right"></div>
-            <img src="public/assets/img/bemvindo.png" width="300" style="width:300px;" class="left" />
-            <div class="col padding-xlarge padding-8">
-                <h2 class="font-bold color-text-theme padding-right col padding-tiny padding-top">Olá, Dr. <?= $_SESSION['userlogin']['nome'] ?>!</h2>
-                <span class="padding-tiny col padding-right">Selecione um paciente na aba <b>Pacientes Recentes</b> ou clique sobre o <b>Pacientes</b> no menu superior para iniciar uma visualização.</span>
+        <div class="row margin-bottom">
+            <div class="col s12 l5 padding-right">
+                <div id="barra-right"></div>
+                <img src="public/assets/img/bemvindo.png" width="300" style="width:300px;" class="left" />
+                <div class="col padding-xlarge padding-8">
+                    <h2 class="font-bold color-text-theme padding-right col padding-tiny padding-top">Olá, Dr. <?= $_SESSION['userlogin']['nome'] ?>!</h2>
+                    <span class="padding-tiny col padding-right">Selecione um paciente na aba <b>Pacientes Recentes</b> ou clique sobre o <b>Pacientes</b> no menu superior para iniciar uma visualização.</span>
+                </div>
+            </div>
+            <div class="col s12 l7 padding-left">
+                <div class="padding-xxlarge padding-8">
+                    <h2 class="color-text-theme font-bold col padding-tiny font-xxlarge">Últimas Atualizações</h2>
+                    <span class="padding-tiny col" style="margin-top: -7px">Abaixo estão as últimas atualizações feitas por seus pacientes cadastrados</span>
+                    <div class="col margin-top padding-tiny padding-12" id="timeline">
+                        <h3 class="align-center font-light">Carregando...</h3>
+                    </div>
+                </div>
             </div>
         </div>
-        <div class="col s12 l7 padding-left">
-            <div class="padding-xxlarge padding-8">
-                <h2 class="color-text-theme font-bold col padding-tiny font-xxlarge">Últimas Atualizações</h2>
-                <span class="padding-tiny col" style="margin-top: -7px">Abaixo estão as últimas atualizações feitas por seus pacientes cadastrados</span>
-                <div class="col margin-top padding-tiny" id="timeline"></div>
-            </div>
-        </div>
-        <div class="col padding-xxlarge padding-32" id="pacientes">
+        <div class="col padding-xxlarge padding-32 margin-top" id="pacientes">
             <div class="left">
                 <h1 class="col color-text-white font-xlarge padding-0">Pacientes Recentes</h1>
             </div>
@@ -23,9 +27,9 @@
                     style="background: #3E1F55">Adicionar paciente
             </button>
 
-            <div class="col padding-48" id="lista-pacientes">
+            <div class="col padding-8" id="lista-pacientes">
                 <div class="col s12">
-                    <h2 class="align-center font-light color-text-white">Carregando lista de pacientes recentes.</h2>
+                    <h3 class="align-center font-light color-text-white">Carregando...</h3>
                 </div>
             </div>
         </div>

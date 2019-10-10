@@ -183,6 +183,9 @@ $(function () {
            if(!isEmpty(p)) {
                $.each(p, function (i, e) {
                    e.patient.idade = idade(e.patient.birthday);
+                   let image = (e.patient.gender === "F" ? "woman" : "man") + Math.floor((Math.random() * 9) + 1);
+                   e.patient.imagem = (typeof e.patient.photo_64 !== "undefined" && e.patient.photo_64 !== "null" && !isEmpty(e.patient.photo_64) ? e.patient.photo_64 : HOME + VENDOR + DOMINIO + "/public/assets/img/people/" + image + ".png");
+                   dbLocal.exeCreate('pacientes', e.patient);
                    $("#lista-pacientes").append(Mustache.render(tpl.paciente, e.patient));
                });
            } else {

@@ -10,10 +10,10 @@
         <input type="text" placeholder="Pesquisar Paciente" id="search-paciente" class="right padding-left radius-xxlarge padding-medium color-theme" />
         <i class="material-icons right color-text-white padding-small padding-8 pointer" id="btn-search">search</i>
 
-        <div class="col padding-128" id="lista-pacientes">
+        <div class="col padding-64" id="lista-pacientes">
             <div class="col s12">
 <!--                <img src="public/assets/img/bemvindo.png" width="500" style="margin: auto; float: initial; display: block;" />-->
-                <h2 class="align-center font-light color-text-white">Carregando lista de pacientes.</h2>
+                <h3 class="align-center font-light color-text-white">Carregando...</h3>
             </div>
         </div>
     </div>

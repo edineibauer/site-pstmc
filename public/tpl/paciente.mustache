@@ -1,10 +1,15 @@
 <div class="col s12 m6 l3">
-    <div class="col s6">
-        <img src="{{image}}" class="col" />
+    <div class="col s5">
+        <div class="col relative padding-right">
+            <img src="{{imagem}}" class="left radius-circle" height="115" width="115" style="width: 115px; height: 115px" />
+        </div>
     </div>
-    <div class="col s6 padding-32">
-        <h3 class="color-text-white font-bold">{{first_name}}</h3>
-        <span class="color-text-white">{{idade}} anos</span>
-        <a href="" class="font-small color-text-white">ver dados</a>
+    <div class="col s7 padding-32 padding-left">
+        <h3 class="col color-text-white font-bold font-medium padding-0">{{first_name}}</h3>
+        <span class="col color-text-white font-small">{{idade}} anos</span>
+        <a href="paciente/{{id}}" class="col font-tiny padding-8 color-text-white">
+            <div class="left">ver dados</div>
+            <i class="material-icons font-tiny left" style="margin: 3px 0 0 4px">double_arrow</i>
+        </a>
     </div>
 </div>

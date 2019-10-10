@@ -79,8 +79,8 @@
                        id="file" data-format="source" data-column="file" min="1" max="1" accept=".png,.jpg,.jpeg,.gif,.webp,.bmp"/>
             </div>
             <h1 class="align-center padding-24 color-text-white font-bold">
-                <div>Dr. </div>
-                <div class="perfil-name"></div>
+                <span>Dr. </span>
+                <span class="perfil-name"></span>
             </h1>
             <div class="col info-container" style="margin-top: -19px;font-size: 12px;" rel="foto">
                 <span class="rest input-message color-text-white" rel="foto"></span>

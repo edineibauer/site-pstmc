@@ -8,8 +8,8 @@ function clearFadeIn(content) {
 
 function animateFade(content) {
     clearFadeIn(content);
-    $(content).find(".easefadein").each(function(i, e) {
-        if($(this).hasAttr("data-fade-delay")) {
+    $(content).find(".easefadein").each(function (i, e) {
+        if ($(this).hasAttr("data-fade-delay")) {
             let delay = parseInt($(this).attr("data-fade-delay"));
             setTimeout(function () {
                 $(e).css("opacity", 1).css("transform", "translateY(0)");
@@ -25,8 +25,8 @@ function animateFade(content) {
 function animateFadeReverse(content) {
     let d = 0;
     let $fade = $(content).find(".easefadein");
-    $fade.each(function(i, e) {
-        if($(this).hasAttr("data-fade-delay")) {
+    $fade.each(function (i, e) {
+        if ($(this).hasAttr("data-fade-delay")) {
             let delay = parseInt($(this).attr("data-fade-delay"));
             d = (delay > d ? delay : d);
             setTimeout(function () {
@@ -36,7 +36,7 @@ function animateFadeReverse(content) {
     });
 
     setTimeout(function () {
-        $fade.each(function(i, e) {
+        $fade.each(function (i, e) {
             if (!$(e).hasAttr("data-fade-delay"))
                 $(e).css("opacity", 0).css("transform", "translateY(-20px)");
         });
@@ -46,7 +46,7 @@ function animateFadeReverse(content) {
 }
 
 function addPatient() {
-    if($("#add-paciente").hasClass("hide")) {
+    if ($("#add-paciente").hasClass("hide")) {
         openPaciente();
     } else {
         closePaciente();
@@ -74,8 +74,9 @@ function closeConvite() {
 }
 
 var envioStatus = !1;
+
 function enviarconvite() {
-    if(!envioStatus) {
+    if (!envioStatus) {
         envioStatus = !0;
         let medico = {
             "name": $("#nome").val(),
@@ -134,19 +135,20 @@ function clearError(id) {
 }
 
 var error = !1;
+
 function validateMedico(medico) {
     error = !1;
 
-    if(medico.name.length < 3)
+    if (medico.name.length < 3)
         showError("Nome muito curto", "nome");
 
-    if(medico.phone_number.length < 10)
+    if (medico.phone_number.length < 10)
         showError("Telefone inválido", "telefone");
 
-    if(typeof medico.name !== "string" || medico.name === "")
+    if (typeof medico.name !== "string" || medico.name === "")
         showError("Preencha este campo", "nome");
 
-    if(typeof medico.phone_number !== "string" || medico.phone_number === "")
+    if (typeof medico.phone_number !== "string" || medico.phone_number === "")
         showError("Preencha este campo", "telefone");
 
     return !error;
@@ -182,9 +184,12 @@ $(function () {
     get("read-pacientes").then(p => {
         dbLocal.exeRead("__template", 1).then(tpl => {
             $("#lista-pacientes").html("");
-            if(!isEmpty(p)) {
+            if (!isEmpty(p)) {
                 $.each(p, function (i, e) {
                     e.patient.idade = idade(e.patient.birthday);
+                    let image = (e.patient.gender === "F" ? "woman" : "man") + Math.floor((Math.random() * 9) + 1);
+                    e.patient.imagem = (typeof e.patient.photo_64 !== "undefined" && e.patient.photo_64 !== "null" && !isEmpty(e.patient.photo_64) ? e.patient.photo_64 : HOME + VENDOR + DOMINIO + "/public/assets/img/people/" + image + ".png");
+                    dbLocal.exeCreate('pacientes', e.patient);
                     $("#lista-pacientes").append(Mustache.render(tpl.paciente, e.patient));
                 });
             } else {
@@ -200,9 +205,17 @@ $(function () {
         console.log(p);
         dbLocal.exeRead("__template", 1).then(tpl => {
             $("#timeline").html("");
-            if(!isEmpty(p)) {
+            if (!isEmpty(p)) {
                 $.each(p, function (i, e) {
-                    $("#timeline").append(Mustache.render(tpl.pacientesUpdates, e));
+                    dbLocal.exeRead("pacientes", e.patientID).then(data => {
+                        e.patient = data;
+                        let d = e.date.created.split(" ");
+                        d = d[0].split("-");
+                        e.date = d[2] + "/" + d[1] + "/" + d[0];
+                        $("#timeline").append(Mustache.render(tpl.pacientesUpdates, e));
+                        $("#timeline").append(Mustache.render(tpl.pacientesUpdates, e));
+                        $("#timeline").append(Mustache.render(tpl.pacientesUpdates, e));
+                    })
                 });
             } else {
                 $("#timeline").append(Mustache.render(tpl.pacienteEmpty, {}));
