@@ -1,0 +1,25 @@
+{
+  "title": "Epistemic",
+  "js": [
+    "mustache",
+    "draggable",
+    "mask",
+    "grid",
+    "form",
+    "formValidate",
+    "base"
+  ],
+  "css": [
+    "normalize",
+    "toast",
+    "app",
+    "header",
+    "base"
+  ],
+  "font": [
+    "roboto"
+  ],
+  "icon": [
+    "material"
+  ]
+}
