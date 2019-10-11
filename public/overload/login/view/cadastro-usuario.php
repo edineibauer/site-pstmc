@@ -59,7 +59,7 @@ ob_start();
                     </div>
                 </label>
 
-                <div class="col" style="margin-bottom: 20px;background: rgba(255,255,255, .5); border-radius: 25px;padding-bottom: 1px;">
+                <div class="col" style="margin-bottom: 22px;background: rgba(255,255,255, .5); border-radius: 25px;padding-bottom: 1px;">
                     <label class="row">
                         <input id="senha" placeholder="Senha" type="password" disabled="disabled"
                                class="font-large opacity" style="margin: 20px 35px 0;padding-bottom: 15px;width: calc(100% - 70px)!important; border-bottom: solid 2px rgba(255,255,255,.6)">

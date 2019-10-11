@@ -3,7 +3,7 @@ function editPerfil() {
     $("#edit-perfil").removeClass("hide");
 
     $("#core-header, #core-content").addClass("transition").removeClass("theme").css("background", "#3B3B3B");
-    animateFade("#edit-perfil");
+    animateFadeEffect("#edit-perfil");
 }
 
 function closePerfil() {
@@ -14,30 +14,6 @@ function closePerfil() {
     setTimeout(function () {
         $("#core-header, #core-content").removeClass("transition");
     }, 300);
-}
-
-function clearFadeIn(content) {
-    $(content).find(".easefadein")
-        .addClass("notransition")
-        .css("opacity", 0)
-        .css("transform", "translateY(-20px)")
-        .removeClass("notransition");
-}
-
-function animateFade(content) {
-    clearFadeIn(content);
-    $(content).find(".easefadein").each(function (i, e) {
-        if ($(this).hasAttr("data-fade-delay")) {
-            let delay = parseInt($(this).attr("data-fade-delay"));
-            setTimeout(function () {
-                $(e).css("opacity", 1).css("transform", "translateY(0)");
-            }, delay);
-        } else {
-            setTimeout(function () {
-                $(e).css("opacity", 1).css("transform", "translateY(0)");
-            }, 15);
-        }
-    });
 }
 
 function changeField(id) {

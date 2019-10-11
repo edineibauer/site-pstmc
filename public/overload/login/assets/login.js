@@ -23,6 +23,9 @@ function login() {
                 localStorage.removeItem("medico2");
                 localStorage.removeItem("medico3");
 
+                dbLocal.clear("pacientes");
+                dbLocal.clear("pacientesUpdates");
+
                 toast("Seja Bem-vindo!", 2500, "toast-success");
                 app.setLoading();
                 setCookieUser(g).then(() => {
@@ -50,7 +53,7 @@ function goToLogin() {
     $("#background-login").css("filter", "blur(27px)");
     $("#login-title").addClass("m6");
     $("#login-card").find(".hide").removeClass("hide");
-    animateFade("#login-card");
+    animateFadeEffect("#login-card");
     $("#emaillog").focus();
 }
 

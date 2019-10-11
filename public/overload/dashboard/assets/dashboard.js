@@ -1,50 +1,3 @@
-function clearFadeIn(content) {
-    $(content).find(".easefadein")
-        .addClass("notransition")
-        .css("opacity", 0)
-        .css("transform", "translateY(-20px)")
-        .removeClass("notransition");
-}
-
-function animateFade(content) {
-    clearFadeIn(content);
-    $(content).find(".easefadein").each(function (i, e) {
-        if ($(this).hasAttr("data-fade-delay")) {
-            let delay = parseInt($(this).attr("data-fade-delay"));
-            setTimeout(function () {
-                $(e).css("opacity", 1).css("transform", "translateY(0)");
-            }, delay);
-        } else {
-            setTimeout(function () {
-                $(e).css("opacity", 1).css("transform", "translateY(0)");
-            }, 15);
-        }
-    });
-}
-
-function animateFadeReverse(content) {
-    let d = 0;
-    let $fade = $(content).find(".easefadein");
-    $fade.each(function (i, e) {
-        if ($(this).hasAttr("data-fade-delay")) {
-            let delay = parseInt($(this).attr("data-fade-delay"));
-            d = (delay > d ? delay : d);
-            setTimeout(function () {
-                $(e).css("opacity", 0).css("transform", "translateY(-20px)");
-            }, delay);
-        }
-    });
-
-    setTimeout(function () {
-        $fade.each(function (i, e) {
-            if (!$(e).hasAttr("data-fade-delay"))
-                $(e).css("opacity", 0).css("transform", "translateY(-20px)");
-        });
-    }, d);
-
-    return d;
-}
-
 function addPatient() {
     if ($("#add-paciente").hasClass("hide")) {
         openPaciente();
@@ -55,7 +8,7 @@ function addPatient() {
 
 function openPaciente() {
     $("#add-paciente").removeClass("hide");
-    animateFade("#add-paciente");
+    animateFadeEffect("#add-paciente");
 }
 
 function closePaciente() {
@@ -103,7 +56,7 @@ function enviarconvite() {
                     $("#convite-paciente").removeClass("hide");
                     $("#convite-nome").html(medico.name);
                     $("#add-paciente").addClass("hide");
-                    animateFade("#convite-paciente");
+                    animateFadeEffect("#convite-paciente");
                 }
             })
         } else {
@@ -154,6 +107,43 @@ function validateMedico(medico) {
     return !error;
 }
 
+/**
+ * Obter atualizações de pacientes
+ * */
+function readUpdatesPacientesServer() {
+    return get("read-pacientes-updates").then(p => {
+        return dbLocal.clear("pacientesUpdates").then(() => {
+            let a = [];
+            a.push(p);
+            $.each(p, function (i, e) {
+                dbLocal.exeRead("pacientes", e.patientID).then(data => {
+                    e.patient = data;
+                    let d = e.date.created.split(" ");
+                    d = d[0].split("-");
+                    e.date = d[2] + "/" + d[1] + "/" + d[0];
+                    e.id = i;
+                    a.push(dbLocal.exeCreate("pacientesUpdates", e));
+                })
+            });
+
+            return Promise.all(a).then(d => {
+                return d[0];
+            });
+        });
+    });
+}
+
+function readUpdatesPacientes() {
+    return dbLocal.exeRead("pacientesUpdates").then(data => {
+        if (!isEmpty(data)) {
+            readUpdatesPacientesServer();
+            return data;
+        } else {
+            return readUpdatesPacientesServer();
+        }
+    });
+}
+
 $(function () {
     updatePerfilPage();
 
@@ -181,45 +171,42 @@ $(function () {
     /**
      * Obter lista de pacientes
      * */
-    get("read-pacientes").then(p => {
+    readPacientes().then(pacientes => {
         dbLocal.exeRead("__template", 1).then(tpl => {
             $("#lista-pacientes").html("");
-            if (!isEmpty(p)) {
-                $.each(p, function (i, e) {
-                    e.patient.idade = idade(e.patient.birthday);
-                    let image = (e.patient.gender === "F" ? "woman" : "man") + Math.floor((Math.random() * 9) + 1);
-                    e.patient.imagem = (typeof e.patient.photo_64 !== "undefined" && e.patient.photo_64 !== "null" && !isEmpty(e.patient.photo_64) ? e.patient.photo_64 : HOME + VENDOR + DOMINIO + "/public/assets/img/people/" + image + ".png");
-                    dbLocal.exeCreate('pacientes', e.patient);
-                    $("#lista-pacientes").append(Mustache.render(tpl.paciente, e.patient));
+            if (!isEmpty(pacientes)) {
+                $.each(pacientes, function (i, e) {
+
+                    //limita a 8 pacientes
+                    if (i > 7)
+                        return false;
+
+                    $("#lista-pacientes").append(Mustache.render(tpl.paciente, e));
                 });
             } else {
                 $("#lista-pacientes").append(Mustache.render(tpl.pacienteEmpty, {}));
             }
         });
-    });
+    }).then(() => {
 
-    /**
-     * Obter atualizações de pacientes
-     * */
-    get("read-pacientes-updates").then(p => {
-        console.log(p);
-        dbLocal.exeRead("__template", 1).then(tpl => {
-            $("#timeline").html("");
-            if (!isEmpty(p)) {
-                $.each(p, function (i, e) {
-                    dbLocal.exeRead("pacientes", e.patientID).then(data => {
-                        e.patient = data;
-                        let d = e.date.created.split(" ");
-                        d = d[0].split("-");
-                        e.date = d[2] + "/" + d[1] + "/" + d[0];
+        /**
+         * Leitura das atualizações
+         */
+        readUpdatesPacientes().then(atualizacoes => {
+            return dbLocal.exeRead("__template", 1).then(tpl => {
+                $("#timeline").html("");
+                if (!isEmpty(atualizacoes)) {
+                    $.each(atualizacoes, function (i, e) {
                         $("#timeline").append(Mustache.render(tpl.pacientesUpdates, e));
                         $("#timeline").append(Mustache.render(tpl.pacientesUpdates, e));
                         $("#timeline").append(Mustache.render(tpl.pacientesUpdates, e));
-                    })
-                });
-            } else {
-                $("#timeline").append(Mustache.render(tpl.pacienteEmpty, {}));
-            }
-        });
+                    });
+                } else {
+                    let d = new Date();
+                    let img = d.getHours() > 6 && d.getHours() < 19 ? "dia" : "noite";
+                    $("#timeline").append(Mustache.render(tpl.pacientesUpdatesEmpty, {HOME: HOME, VENDOR:VENDOR, img: img}));
+                }
+            });
+        })
     });
 });

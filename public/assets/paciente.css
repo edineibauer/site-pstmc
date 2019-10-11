@@ -1,0 +1,25 @@
+.paciente-box {
+    box-shadow: 3px 3px 9px 0 #0000006b;
+}
+
+.indicador {
+    position: relative;
+}
+
+.indicador i {
+    opacity: 0;
+    position: absolute;
+    right: 0;
+    top: 15px;
+    border-radius: 50%;
+    background: #9CDA52;
+    color: white;
+    border: solid 4px #ffffff;
+    font-size: 18px;
+    font-weight: bold;
+    transition: all ease .15s;
+}
+
+.indicador.active i {
+    opacity: 1;
+}

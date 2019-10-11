@@ -50,16 +50,6 @@
     background: #E4E3E0;
     box-shadow: 0 0 18px 17px #0000006b;
 }
-
-#saibamais-content img{
-    user-drag: none;
-    user-select: none;
-    -moz-user-select: none;
-    -webkit-user-drag: none;
-    -webkit-user-select: none;
-    -ms-user-select: none;
-}
-
 #core-header {
     display: none!important;
 }

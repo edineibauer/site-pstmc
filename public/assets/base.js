@@ -50,6 +50,7 @@ function updatePerfilPage() {
 }
 
 function menuHeader() {
+    $("#core-sidebar").css("right", ((window.innerWidth - $("#core-header-container")[0].clientWidth) / 2) + "px");
     loginBtn();
     return dbLocal.exeRead("__template", 1).then(tpl => {
         menuBottom(tpl);
@@ -137,6 +138,65 @@ function idade(stringdate) {
     return quantos_anos < 0 ? 0 : quantos_anos;
 }
 
+/**
+ * Ler paciente específico
+ * @param id
+ * @param retry
+ */
+function readPaciente(id, retry) {
+    return dbLocal.exeRead("pacientes", id).then(d => {
+        if(!isEmpty(d)) {
+            return d;
+        } else if(typeof retry === "undefined") {
+            return getPacientes().then(() => {
+                return readPaciente(1);
+            })
+        } else {
+            toast("Id do paciente não encontrado!", 5000, "toast-warning");
+            return pageTransition(HOME + "pacientes", "route", "forward");
+        }
+    });
+}
+
+/**
+ * obter pacientes do servidor
+ * @returns {PromiseLike<any[]> | Promise<any[]> | *}
+ */
+function getPacientesServer() {
+    return get("read-pacientes").then(p => {
+        let aa = [];
+        let pp = [];
+        aa.push(p);
+        if(!isEmpty(p)) {
+            $.each(p, function (i, e) {
+                e.patient.idade = idade(e.patient.birthday);
+                let image = (e.patient.gender === "F" ? "woman" : "man") + Math.floor((Math.random() * 9) + 1);
+                e.patient.imagem = (typeof e.patient.photo_64 !== "undefined" && e.patient.photo_64 !== "null" && !isEmpty(e.patient.photo_64) ? e.patient.photo_64 : HOME + VENDOR + DOMINIO + "/public/assets/img/people/" + image + ".png");
+                pp.push(e.patient);
+                aa.push(dbLocal.exeCreate('pacientes', e.patient));
+            });
+        }
+        aa.push(pp);
+
+        return Promise.all(aa).then(d => { return d[d.length - 1]; });
+    });
+}
+
+/**
+ * Obter lista de pacientes Local then server
+ * @returns {PromiseLike<any> | Promise<any> | *}
+ */
+function readPacientes() {
+    return dbLocal.exeRead("pacientes").then(pacientes => {
+        if(!isEmpty(pacientes)) {
+            getPacientesServer();
+            return pacientes;
+        } else {
+            return getPacientesServer();
+        }
+    });
+}
+
 function clearFadeIn(content) {
     $(content).find(".easefadein")
         .addClass("notransition")
@@ -145,7 +205,7 @@ function clearFadeIn(content) {
         .removeClass("notransition");
 }
 
-function animateFade(content) {
+function animateFadeEffect(content) {
     clearFadeIn(content);
     $(content).find(".easefadein").each(function(i, e) {
         if($(this).hasAttr("data-fade-delay")) {
