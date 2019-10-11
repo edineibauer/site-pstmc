@@ -71,7 +71,20 @@ $(".arrowback").off("click").on("click", function () {
 });
 
 function search(val) {
-    console.log(val);
+    return dbLocal.exeRead("pacientes").then(pacientes => {
+        return pacientes.filter((e) => {return e.first_name.search(val.trim()) > -1 || e.first_name.toLowerCase().search(val.trim()) > -1;});
+    }).then(pacientes => {
+        dbLocal.exeRead("__template", 1).then(tpl => {
+            $("#lista-pacientes").html("");
+            if (!isEmpty(pacientes)) {
+                $.each(pacientes, function (i, e) {
+                    $("#lista-pacientes").append(Mustache.render(tpl.paciente, e));
+                });
+            } else {
+                $("#lista-pacientes").append(Mustache.render(tpl.pacienteEmpty, {}));
+            }
+        });
+    });
 }
 
 function showError(mensagem, id) {
@@ -105,6 +118,7 @@ function validateMedico(medico) {
     return !error;
 }
 
+var searchTime = null;
 $(function () {
     let SPMaskBehavior = function (val) {
         return val.replace(/\D/g, '').length === 11 ? '(00) 00000-0000' : '(00) 0000-00009'
@@ -120,10 +134,15 @@ $(function () {
     });
 
     $("#search-paciente").off("keyup").on("keyup", function () {
-        search($(this).val());
+        let v = $(this).val();
+        clearTimeout(searchTime);
+        searchTime = setTimeout(function () {
+            search(v);
+        }, 500);
     });
 
     $("#btn-search").off("click").on("click", function () {
+        clearTimeout(searchTime);
         search($("#search-paciente").val());
     });
 

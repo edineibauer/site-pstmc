@@ -81,9 +81,9 @@ $(function () {
     $("#login-card, #login-title").css("min-height", window.innerHeight + "px");
     $("#saibamais-content").css("margin-bottom", window.innerHeight + "px");
 
-    $(window).scroll(function (event) {
+    $(window).scroll(function () {
         var scroll = $(window).scrollTop();
-        if(scroll > 2500) {
+        if(scroll > $(document).height() - (window.innerHeight * 1.5)) {
             $("#login-container").css({"position": "fixed", "bottom": 0, "left": 0});
             $("#saibamais-content").css("margin-top", window.innerHeight + "px");
 

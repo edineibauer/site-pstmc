@@ -61,7 +61,7 @@ if (!empty($return)) {
         $data['data'] = "";
 
         if ($js['route']['action'] === 'recover-password') {
-            $data['error'] = "Email não encontrad";
+            $data['error'] = "Email não encontrado";
         } elseif ($js['route']['action'] === 'create' && $js['route']['module'] === 'doctor') {
             $data['error'] = "Erro no formulário";
         } elseif ($js['route']['action'] === 'pending' && $js['route']['module'] === 'doctor') {
