@@ -1,0 +1,17 @@
+{
+  "name": "ueb/site-pstmc",
+  "description": "Template base",
+  "type": "library",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Edinei J. Bauer",
+      "email": "edineibauer@gmail.com"
+    }
+  ],
+  "require": {
+    "ueb/dashboard": "*",
+    "php": "^7.1",
+    "ext-json": "*"
+  }
+}
