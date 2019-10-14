@@ -112,8 +112,6 @@ $(function () {
 
         if(medico.nao2)
             $("#nao2").trigger("click");
-    } else {
-        $("#nao1, #nao2").trigger("click");
     }
 
     $("input[type='checkbox']").off("change").on("change", function () {

@@ -22,18 +22,23 @@ function updatePerfilPage() {
     $(".perfil-email").html(localStorage.email && localStorage.email !== "null" ? localStorage.email : "");
     $(".perfil-phone_number").html(localStorage.phone_number && localStorage.phone_number !== "null" ? localStorage.phone_number : "");
 
-    if(localStorage.address1 && localStorage.address1 !== "null") {
+    if(localStorage.address1 && localStorage.address1 !== "null" && localStorage.address1 !== " - ") {
+        $("#block-address1").removeClass("hide");
         let a = localStorage.address1.split(" - ");
         let tel = a[a.length - 1].trim();
         $(".perfil-tel1").html(tel);
         $(".perfil-address1").html(localStorage.address1.replace(" - " + tel, ""));
+    } else {
+        $("#block-address1").addClass("hide");
     }
-
-    if(localStorage.address2 && localStorage.address2 !== "null") {
+    if(localStorage.address2 && localStorage.address2 !== "null" && localStorage.address2 !== " - ") {
+        $("#block-address2").removeClass("hide");
         a = localStorage.address2.split(" - ");
         tel = a[a.length - 1].trim();
         $(".perfil-tel2").html(tel);
         $(".perfil-address2").html(localStorage.address2.replace(" - " + tel, ""));
+    } else {
+        $("#block-address2").addClass("hide");
     }
 
     $(".perfil-phone_number, .perfil-tel1, .perfil-tel2").mask(SPMaskBehavior, spOptions);

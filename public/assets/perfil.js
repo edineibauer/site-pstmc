@@ -149,10 +149,11 @@ function setDataperfil() {
 
     $("input[type='tel']").mask(SPMaskBehavior, spOptions);
     $(".cpf").mask('999.999.999-99', {reverse: !0});
+    $(".date").mask('99/99/9999');
 
     setTimeout(function () {
-        $("input[type='tel'], .cpf").trigger("change");
-        $("input[type='tel'], .cpf").trigger("input");
+        $("input[type='tel'], .cpf, .date").trigger("change");
+        $("input[type='tel'], .cpf, .date").trigger("input");
     }, 100);
 }
 

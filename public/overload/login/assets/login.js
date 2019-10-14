@@ -67,34 +67,26 @@ $(function () {
         $("input").removeAttr("disabled");
     }, 300);
 
-    if(localStorage.loginData) {
-        setTimeout(function () {
-            $("#emaillog").val(localStorage.loginData.email);
-            $("#passlog").val(localStorage.loginData.senha);
-            setTimeout(function () {
-                localStorage.removeItem('loginData');
-            },100);
-        }, 400);
-    }
-
     $("#login-card, #login-title").css("min-height", window.innerHeight + "px");
     $("#saibamais-content").css("margin-bottom", window.innerHeight + "px");
 
     $(window).scroll(function () {
-        var scroll = $(window).scrollTop();
-        if(scroll > $(document).height() - (window.innerHeight * 1.5)) {
-            $("#login-container").css({"position": "fixed", "bottom": 0, "left": 0});
-            $("#saibamais-content").css("margin-top", window.innerHeight + "px");
+        if($("#core-content").hasClass("r-login")) {
+            var scroll = $(window).scrollTop();
+            if (scroll > $(document).height() - (window.innerHeight * 1.5)) {
+                $("#login-container").css({"position": "fixed", "bottom": 0, "left": 0});
+                $("#saibamais-content").css("margin-top", window.innerHeight + "px");
 
-            let heightTop = $("#login-card")[0].clientHeight / 2;
-            $(".imgsaibamais").each(function (i, e) {
-                heightTop += $(e)[0].clientHeight;
-            });
-            if(scroll > heightTop && $("#login-sitename").hasClass("titleLogin"))
-                goToLogin();
-        } else {
-            $("#login-container").css({"position": "relative"});
-            $("#saibamais-content").css("margin-top", 0);
+                let heightTop = $("#login-card")[0].clientHeight / 2;
+                $(".imgsaibamais").each(function (i, e) {
+                    heightTop += $(e)[0].clientHeight;
+                });
+                if (scroll > heightTop && $("#login-sitename").hasClass("titleLogin"))
+                    goToLogin();
+            } else {
+                $("#login-container").css({"position": "relative"});
+                $("#saibamais-content").css("margin-top", 0);
+            }
         }
     });
 });

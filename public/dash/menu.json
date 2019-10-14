@@ -7,7 +7,7 @@
     "class": "menu-ep",
     "href": "dashboard",
     "html": "<i class='material-icons left'>home</i> Início"
-},
+  },
   {
     "li": {
       "attr": "data-animation='forward' rel='pacientes'",
@@ -34,5 +34,13 @@
     "class": "menu-ep",
     "href": "ajustes",
     "html": "<i class='material-icons left'>settings_applications</i> Ajustes"
+  },
+  {
+    "li": {
+      "attr": "data-animation='forward' rel='ajustes'",
+      "class": "nomeHeader no-menu-li"
+    },
+    "class": "no-menu-li",
+    "html": "<div class='core-class-container' style='font-weight: bold'><div class='perfil-name' style='float: right'></div><div style='float: right;padding-right: 5px'>Dr. </div></div><div class='core-class-container'><div style='float:right;font-weight:bold;font-size: 11px'><div style='padding-right: 5px'>CRM </div><div class='perfil-crm'></div></div><div style='float:right;padding-right:15px' class='perfil-address1'></div></div>"
   }
 ]

@@ -44,12 +44,12 @@
                 </span>
             </div>
             <div class="col s12 m7">
-                <div class="col s12 m6 padding-xxlarge color-text-white">
+                <div class="col s12 m6 padding-xxlarge color-text-white hide" id="block-address1">
                     <h3 class="padding-0 border-bottom margin-bottom">Endereço 1</h3>
                     <span class="col padding-tiny perfil-address1"></span>
                     <span class="col padding-tiny perfil-tel1"></span>
                 </div>
-                <div class="col s12 m6 padding-xxlarge color-text-white">
+                <div class="col s12 m6 padding-xxlarge color-text-white hide" id="block-address2">
                     <h3 class="padding-0 border-bottom margin-bottom">Endereço 2</h3>
                     <span class="col padding-tiny perfil-address2"></span>
                     <span class="col padding-tiny perfil-tel2"></span>
@@ -100,8 +100,8 @@
                     </div>
                 </label>
                 <label class="row">
-                    <input id="nascimento" placeholder="Data de Nascimento" type="date"
-                           class="input-field color-white opacity">
+                    <input id="nascimento" placeholder="Data de Nascimento" type="text"
+                           class="input-field color-white opacity date" pattern="\d{2}\/\d{2}\/\d{4}">
                     <div class="col info-container" style="margin-top: -19px;font-size: 12px;" rel="nascimento">
                         <span class="rest input-message" rel="nascimento"></span>
                     </div>

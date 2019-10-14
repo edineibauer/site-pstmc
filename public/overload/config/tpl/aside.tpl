@@ -13,7 +13,7 @@
 
 <div style="position: absolute;bottom: 0px;left: 0px;width: 250px;height: 50px;padding: 8px;background: #ffffff;border-top: solid 1px #eee">
     <div id="login-aside">
+        <div>sair</div>
         <i class="material-icons" style="float: right; padding-left: 5px">exit_to_app</i>
-        <div style="float:right;padding:3px">sair</div>
     </div>
 </div>

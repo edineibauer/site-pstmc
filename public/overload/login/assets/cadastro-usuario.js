@@ -46,8 +46,8 @@ $(function () {
             $("#crm").val(medico.crm);
 
         setTimeout(function () {
-            $("input[type='tel'], .cpf").trigger("change");
-            $("input[type='tel'], .cpf").trigger("input");
+            $("input[type='tel'], .cpf, .date").trigger("change");
+            $("input[type='tel'], .cpf, .date").trigger("input");
         }, 100);
     }
 });

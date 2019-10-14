@@ -98,22 +98,37 @@ function avancar() {
         toast("Enviando dados...", 10000);
         post("site-pstmc", "medico-create", {medico: medico}, function (g) {
             if(g) {
-                localStorage.loginData = {
-                    email: medico.email,
-                    senha: medico.password
-                };
-
                 localStorage.removeItem('medico');
                 localStorage.removeItem('medico2');
                 localStorage.removeItem('medico3');
-
-                toast("Cadastro realizado!", 2500, "toast-success");
-                pageTransition(HOME + "login", "route", "forward");
+                autoLogin(medico);
             } else {
                 $(".loginbtn").html("Concluir");
             }
         });
     }
+}
+
+function autoLogin(medico) {
+    toast("Cadastro realizado! Acessando...", 5500, "toast-success");
+    post('site-pstmc', 'login', {email:  medico.email, password: medico.password}, function (g) {
+        if (g) {
+            dbLocal.clear("pacientes");
+            dbLocal.clear("pacientesUpdates");
+
+            toast("Seja Bem-vindo! Carregando...", 3500, "toast-success");
+            app.setLoading();
+            setCookieUser(g).then(() => {
+                app.removeLoading();
+                toast("", 1);
+                pageTransition(HOME + "dashboard", "route", "forward");
+            })
+        } else {
+            toast("Erro ao acessar! Tente fazer login", 3500, "toast-warning");
+            pageTransition(HOME + "login", "route", "forward");
+            navigator.vibrate(100);
+        }
+    })
 }
 
 var error = !1;
