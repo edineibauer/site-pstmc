@@ -7,15 +7,10 @@ var SPMaskBehavior = function (val) {
     }
 };
 
-var lightboxTop = null;
 function lightbox(content) {
     $(".core-overlay").css({"opacity": 1, "transform": "translateX(0)"});
     $("#core-overlay-content").html(content);
     $("#core-overlay-div").css({"opacity": 1, "transform": "translateX(0)"});
-    lightboxTop = setInterval(function () {
-        let top = (window.innerHeight - $("#core-overlay-content")[0].clientHeight) / 2;
-        $("#core-overlay-content").css("top", top + "px");
-    }, 50);
 }
 
 function updatePerfilPage() {
@@ -175,11 +170,9 @@ function animateFadeReverse(content) {
 $(function () {
     updatePerfilPage();
 
-    $("#core-overlay-div").off("click").on("click", function(e) {
+    $("#core-overlay-div, #core-overlay-close > i").off("click").on("click", function(e) {
         if (e.target !== this)
             return;
-
-        clearInterval(lightboxTop);
 
         $(".core-overlay").css({"opacity": 0, "transform": "translateX(-100%)"});
         $("#core-overlay-div").css({"opacity": 0, "transform": "translateX(-100%)"});

@@ -76,6 +76,10 @@ function validateMedico(medico) {
     if (typeof medico.birth_day !== "string" || medico.birth_day === "")
         showError("Preencha este campo", "nascimento");
 
+    let reg = new RegExp("^(0?[1-9]|[12][0-9]|3[01])[\\/\\-](0?[1-9]|1[012])[\\/\\-]\\d{4}$", "i");
+    if(!reg.test(medico.birth_day))
+        showError("Data inválida", "nascimento");
+
     if(medico.address1 !== "" && medico.address1.length < 5)
         showError("Endereço muito curto", "address1");
 
@@ -111,8 +115,7 @@ function setDataperfil() {
         $("#nome").val(localStorage.name);
 
     if(localStorage.birthday && localStorage.birthday !== "null" && !isEmpty(localStorage.birthday)) {
-        let a = localStorage.birthday.split('-');
-        $("#nascimento").val(a[2] + '-' + a[1] + '-' + a[0]);
+        $("#nascimento").val(localStorage.birthday.replace('-', '/').replace('-', '/'));
     }
 
     if(localStorage.email && localStorage.email !== "null" && !isEmpty(localStorage.email))
@@ -169,12 +172,11 @@ function sendDataToLocalStorage(medico) {
 
 function salvarPerfil() {
 
-    let birthday = $("#nascimento").val().split("-");
     let medico = {
         "name": $("#nome").val(),
         "email": $("#email").val(),
         "cpf": $("#cpf").cleanVal(),
-        "birth_day": ($("#nascimento").val() !== "" ? birthday[2] + "-" + birthday[1] + "-" + birthday[0] : ""),
+        "birth_day": $("#nascimento").val(),
         "phone_number": $("#telefone").cleanVal(),
         "crm": $("#crm").val(),
         "address1": $("#address1").val(),
@@ -188,6 +190,7 @@ function salvarPerfil() {
         medico.id = localStorage.id;
         medico.address1 += " - " + medico.tel1;
         medico.address2 += " - " + medico.tel2;
+        medico.birth_day = medico.birth_day.replace('/', '-').replace('/', '-');
         delete medico.tel1;
         delete medico.tel2;
 

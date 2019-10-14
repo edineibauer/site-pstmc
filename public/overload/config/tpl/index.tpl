@@ -18,6 +18,9 @@
 
     <div class="core-overlay"></div>
     <div id="core-overlay-div">
+        <div id="core-overlay-close">
+            <i class="material-icons">close</i>
+        </div>
         <div id="core-overlay-content"></div>
     </div>
     <section id="core-content" class="core-class-container"></section>

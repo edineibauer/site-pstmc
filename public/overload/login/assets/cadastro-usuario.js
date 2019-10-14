@@ -8,6 +8,7 @@ $(function () {
     };
     $("input[type='tel']").mask(SPMaskBehavior, spOptions);
     $(".cpf").mask('999.999.999-99', {reverse: !0});
+    $(".date").mask('99/99/9999');
 
     setTimeout(function () {
         $("input[type='email'], input[type='password']").removeAttr("disabled");
@@ -27,7 +28,7 @@ $(function () {
             $("#nome").val(medico.name);
 
         if(typeof medico.birth_day === "string")
-            $("#nascimento").val(medico.birth_day);
+            $("#nascimento").val(medico.birth_day.replace('-', '/').replace('-', '/'));
 
         if(typeof medico.email === "string")
             $("#email").val(medico.email);
@@ -69,8 +70,9 @@ function avancar() {
     }
 
     if (validateMedico(medico)) {
+        medico.birth_day = medico.birth_day.replace('/', '-').replace('/', '-');
         toast("validando informações...", 10000);
-        post("site-pstmc", "create-medico", {medico: {email: medico.email}}, function (g) {
+        post("site-pstmc", "medico-create", {medico: {email: medico.email}}, function (g) {
             if(g) {
                 showError(g, "email");
                 toast(g, 2500, "toast-error");
@@ -137,6 +139,10 @@ function validateMedico(medico) {
 
     if(typeof medico.birth_day !== "string" || medico.birth_day === "")
         showError("Preencha este campo", "nascimento");
+
+    let reg = new RegExp("^(0?[1-9]|[12][0-9]|3[01])[\\/\\-](0?[1-9]|1[012])[\\/\\-]\\d{4}$", "i");
+    if(!reg.test(medico.birth_day))
+        showError("Data inválida", "nascimento");
 
     return !error;
 }

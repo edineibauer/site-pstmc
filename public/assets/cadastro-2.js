@@ -1,56 +1,3 @@
-$(function () {
-    let SPMaskBehavior = function (val) {
-        return val.replace(/\D/g, '').length === 11 ? '(00) 00000-0000' : '(00) 0000-00009'
-    }, spOptions = {
-        onKeyPress: function (val, e, field, options) {
-            field.mask(SPMaskBehavior.apply({}, arguments), options)
-        }
-    };
-    $("input[type='tel']").mask(SPMaskBehavior, spOptions);
-    $(".cpf").mask('999.999.999-99', {reverse: !0});
-
-    $("input").off("change keyup").on("change keyup", function () {
-        changeField($(this).attr("id"));
-    });
-
-    $("#arrowback").off("click").on("click", function () {
-        history.back();
-    });
-
-    if(localStorage.medico2) {
-        let medico = JSON.parse(localStorage.medico2);
-        if(typeof medico.address1 === "string")
-            $("#address1").val(medico.address1);
-
-        if(typeof medico.tel1 === "string")
-            $("#tel1").val(medico.tel1);
-
-        if(typeof medico.address2 === "string")
-            $("#address2").val(medico.address2);
-
-        if(typeof medico.tel2 === "string")
-            $("#tel2").val(medico.tel2);
-
-        if(medico.nao1)
-            $("#nao1").prop("checked", !0);
-
-        if(medico.nao2)
-            $("#nao2").prop("checked", !0);
-
-    }
-
-    $("input[type='checkbox']").off("change").on("change", function () {
-        let id = $(this).attr("name");
-        if($(this).prop("checked")) {
-            $("#address" + id + ", #tel" + id).val("");
-            clearError("address" + id);
-            clearError("tel" + id);
-        }
-    });
-})
-
-
-
 function changeField(id) {
     if(id === "senha2")
         id = "senha";
@@ -116,6 +63,65 @@ function validateMedico(medico) {
     return !error;
 }
 
-/*
-"address1": "R. Teodoro Sampaio, 741 - Cj: 94 - Pinheiros, São Paulo - SP, 05405-050",
-"address2": "Rua Haddock Lobo, 131 - cj 1309 - Cerqueira César, São Paulo - SP, 01414-001"*/
+$(function () {
+    let SPMaskBehavior = function (val) {
+        return val.replace(/\D/g, '').length === 11 ? '(00) 00000-0000' : '(00) 0000-00009'
+    }, spOptions = {
+        onKeyPress: function (val, e, field, options) {
+            field.mask(SPMaskBehavior.apply({}, arguments), options)
+        }
+    };
+    $("input[type='tel']").mask(SPMaskBehavior, spOptions);
+    $(".cpf").mask('999.999.999-99', {reverse: !0});
+
+    $("input").off("change keyup").on("change keyup", function () {
+        changeField($(this).attr("id"));
+    });
+
+    $("#arrowback").off("click").on("click", function () {
+        history.back();
+    });
+
+    $("#nao1, #nao2").off("click").on("click", function () {
+        let id = $(this).attr("name");
+        if($(this).prop("checked")) {
+            $("#address" + id + ", #tel" + id).attr("disabled", "disabled").prop("disabled", !0).addClass("disabled");
+            $("label[for='address" + id + "']").addClass("opacity");
+        } else {
+            $("#address" + id + ", #tel" + id).removeAttr("disabled").prop("disabled", !1).removeClass("disabled");
+            $("label[for='address" + id + "']").removeClass("opacity");
+        }
+    });
+
+    if(localStorage.medico2) {
+        let medico = JSON.parse(localStorage.medico2);
+        if(typeof medico.address1 === "string")
+            $("#address1").val(medico.address1);
+
+        if(typeof medico.tel1 === "string")
+            $("#tel1").val(medico.tel1);
+
+        if(typeof medico.address2 === "string")
+            $("#address2").val(medico.address2);
+
+        if(typeof medico.tel2 === "string")
+            $("#tel2").val(medico.tel2);
+
+        if(medico.nao1)
+            $("#nao1").trigger("click");
+
+        if(medico.nao2)
+            $("#nao2").trigger("click");
+    } else {
+        $("#nao1, #nao2").trigger("click");
+    }
+
+    $("input[type='checkbox']").off("change").on("change", function () {
+        let id = $(this).attr("name");
+        if($(this).prop("checked")) {
+            $("#address" + id + ", #tel" + id).val("");
+            clearError("address" + id);
+            clearError("tel" + id);
+        }
+    });
+});

@@ -60,6 +60,22 @@ img{
     border-top-left-radius: 35px;
 }
 
+#core-overlay-close {
+    position: relative;
+    width: 100%;
+    max-width: 1200px;
+    margin: 10% auto 0;
+}
+
+#core-overlay-close i{
+    position: absolute;
+    top: 0;
+    right: 2%;
+    color: white;
+    font-size: 64px;
+    cursor: pointer;
+}
+
 #core-overlay-div {
     opacity: 0;
     transform: translateX(-100%);
@@ -90,7 +106,7 @@ img{
     z-index: 10001;
     color: white;
     margin: auto;
-    top: 20%;
+    top: 80px;
     transition: ease all .3s;
 }
 

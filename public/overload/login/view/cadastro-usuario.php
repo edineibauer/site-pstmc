@@ -29,8 +29,8 @@ ob_start();
                     </div>
                 </label>
                 <label class="row">
-                    <input id="nascimento" placeholder="Data de Nascimento" type="date"
-                           class="input-field color-white opacity">
+                    <input id="nascimento" placeholder="Data de Nascimento" type="text"
+                           class="input-field color-white opacity date" pattern="\d{2}\/\d{2}\/\d{4}">
                     <div class="col info-container" style="margin-top: -19px;font-size: 12px;" rel="nascimento">
                         <span class="rest input-message" rel="nascimento"></span>
                     </div>

@@ -31,11 +31,6 @@ $(function () {
     });
 
     $("#termos").off("change keyup").on("change keyup", function () {
-        if($(this).prop("checked"))
-            $(".loginbtn").removeAttr("disabled");
-        else
-            $(".loginbtn").attr("disabled", "disabled");
-
         clearError("termos");
     });
 
@@ -125,14 +120,8 @@ var error = !1;
 function validateMedico(medico) {
     error = !1;
 
-    if(medico.photo_64.length < 100)
-        showError("Valor em foto inválida", "foto");
-
-    if(typeof medico.photo_64 !== "string" || medico.photo_64 === "")
-        showError("Selecione uma imagem", "foto");
-
     if(!medico.termos) {
-        alert("Você precisa aceitar os termos");
+        showError("Você precisa aceitar os termos", "termos");
         error = !0;
     }
 

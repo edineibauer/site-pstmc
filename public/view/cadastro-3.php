@@ -30,8 +30,8 @@ ob_start();
                        id="file" data-format="source" data-column="file" min="1" max="1" accept=".png,.jpg,.jpeg,.gif,.webp,.bmp"/>
             </div>
             <h2 class="align-center color-text-white font-light">Selecione uma foto de perfil</h2>
-            <div class="col info-container" style="margin-top: -19px;font-size: 12px;" rel="foto">
-                <span class="rest input-message color-text-white" rel="foto"></span>
+            <div class="col info-container" style="margin-top: -19px;font-size: 12px;" rel="termos">
+                <span class="rest input-message color-text-white" rel="termos"></span>
             </div>
             <input type="hidden" id="foto" />
         </div>
@@ -44,7 +44,7 @@ ob_start();
         </div>
 
         <div class="row col padding-top">
-            <button onclick="avancar()" disabled="disabled" class="loginbtn s-font-large btn color-white theme-text">
+            <button onclick="avancar()" class="loginbtn s-font-large btn color-white theme-text">
                 Concluir
             </button>
         </div>
