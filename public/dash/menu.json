@@ -42,11 +42,10 @@
     "html": "<div class='core-class-container' style='font-weight: bold'><div class='perfil-name' style='float: right'></div><div style='float: right;padding-right: 5px'>Dr. </div></div><div class='core-class-container'><div style='float:right;font-weight:bold;font-size: 11px'><div style='padding-right: 5px'>CRM </div><div class='perfil-crm'></div></div><div style='float:right;width: 100%;' class='perfil-address1'></div></div>"
   },
   {
-    "funcao": "toggleSidebar",
     "li": {
       "class": "not-menu-li menu-ep"
     },
-    "style": "padding: 8px",
+    "style": "padding: 8px;cursor:default",
     "html": "<div id='core-header-perfil'></div>"
   }
 ]
