@@ -203,12 +203,11 @@ function salvarPerfil() {
         $(".loginbtn").html("enviando...");
         toast("Enviando dados...", 10000);
         post("site-pstmc", "medico-update", {medico: medico}, function (g) {
+            $(".loginbtn").html("Salvar");
             if (g) {
                 toast("Cadastro atualizado!", 2500, "toast-success");
                 updatePerfilPage();
                 closePerfil();
-            } else {
-                $(".loginbtn").html("Salvar");
             }
         });
     } else {

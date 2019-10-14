@@ -13,6 +13,11 @@ function lightbox(content) {
     $("#core-overlay-div").css({"opacity": 1, "transform": "translateX(0)"});
 }
 
+function logout() {
+    if(confirm("Sair do Sistema"))
+        logoutDashboard();
+}
+
 function updatePerfilPage() {
     $(".perfil-photo_64").attr("src", (!localStorage.photo_64 || localStorage.photo_64 === "null" || localStorage.photo_64 === "" ? HOME + "uploads/site/image-not-found.png" : localStorage.photo_64));
     $(".perfil-name").html(localStorage.name && localStorage.name !== "null" ? localStorage.name : "");

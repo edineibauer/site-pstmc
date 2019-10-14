@@ -149,6 +149,10 @@ img{
     font-weight: 500;
 }
 
+#core-header-nav li {
+    margin-right: 0!important;
+}
+
 .menu-ep {
     font-size: 16px !important;
     width: auto !important;
@@ -157,7 +161,7 @@ img{
     text-transform: none !important;
 }
 
-a.menu-ep {
+li.menu-ep > .menu-ep {
     padding: 20px !important;
 }
 
@@ -181,7 +185,7 @@ li.nomeHeader {
     width: 250px !important;
     text-transform: none !important;
     text-align: right !important;
-    padding: 10px 10px 10px 0 !important;
+    padding: 10px 0!important;
 }
 
 .nomeHeader > div {
