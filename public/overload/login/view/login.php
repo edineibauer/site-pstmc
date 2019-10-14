@@ -6,9 +6,9 @@ if (!empty($_SESSION['userlogin']['token'])) {
     ?>
     <div class="col transition-slow" id="background-login"></div>
     <div class="col" id="login-container">
-        <div class="row" id="login-card">
-            <div class="col s12 body-login padding-128" id="login-title">
-                <div id="login-barra" class="easefadein hide" data-fade-delay="400"></div>
+        <div class="row relative" id="login-card">
+            <div class="col s12 body-login padding-128 s-padding-0" id="login-title">
+                <div id="login-barra" class="hide s-hide"></div>
                 <div class="col">
                     <h1 class="color-text-white align-center titleLogin transition-slow" id="login-sitename">
                         <div class="font-bold left">Epistemic</div>
@@ -21,7 +21,7 @@ if (!empty($_SESSION['userlogin']['token'])) {
                     </button>
                 </div>
                 <div class="col">
-                    <p class="color-text-white font-bold col align-center margin-bottom padding-bottom easefadein hide" data-fade-delay="200">
+                    <p class="color-text-white col align-center margin-bottom padding-bottom easefadein hide" data-fade-delay="200">
                         Conheça a plataforma que conecta médicos a seus pacientes com epilepsia
                     </p>
                 </div>
@@ -36,13 +36,12 @@ if (!empty($_SESSION['userlogin']['token'])) {
                     </div>
                 </div>
             </div>
-            <div class="col s12 m6 body-login easefadein hide" data-fade-delay="700">
+            <div class="col s12 l6 body-login easefadein hide" data-fade-delay="700">
                 <div class='row container font-large' id="body-login">
-                    <div class="container align-center upper panel color-text-grey" id="logoLogin">
-                        <img src='<?= HOME . VENDOR ?>/site-pstmc/public/assets/img/logo-icon.png' height='120'
-                             style='height: 120px;float: initial;margin:initial'>
+                    <div class="container align-center s-padding-bottom s-margin-0 upper panel color-text-grey" id="logoLogin">
+                        <img src='<?= HOME . VENDOR ?>/site-pstmc/public/assets/img/logo-icon.png' class="s-hide" height='120'>
                     </div>
-                    <div class='container align-center font-xxlarge font-bold panel color-text-white'
+                    <div class='container align-center s-hide bemvindo font-bold panel color-text-white'
                          style="margin-top: 0!important;">Bem-Vindo
                     </div>
                     <div class="row padding-medium">

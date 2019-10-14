@@ -27,9 +27,9 @@
 <meta name="msapplication-square256x256logo" content="{$home}assetsPublic/img/favicon-256.png">
 <meta name="msapplication-TileImage" content="{$home}assetsPublic/img/favicon.png">
 
-<meta name="theme-color" content="{{$theme}}">
-<meta name="msapplication-TileColor" content="{{$theme}}">
-<meta name="msapplication-navbutton-color" content="{{$theme}}">
+<meta name="theme-color" content="#6F3E92">
+<meta name="msapplication-TileColor" content="#6F3E92">
+<meta name="msapplication-navbutton-color" content="#6F3E92">
 
 <link rel='stylesheet' href='{$home}assetsPublic/core.min.css'>
 <link rel='stylesheet' href='{$home}assetsPublic/fonts.min.css'>

@@ -3,33 +3,42 @@
     background-position: center;
     background-repeat: no-repeat;
     background-attachment: fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
     background-size: cover;
     position: absolute;
     height: 100%;
+    min-height: 100%;
     top: 0;
     left: 0;
     z-index: 0;
 }
 
-#login-acessar .btn{
-    font-size: 19px;
-    padding: 10px!important;
+html {
+    min-height: 100%;
 }
 
 #login-acessar {
-    margin-top: -12px;
+    margin-top: 0;
+    position: absolute;
+    top: 53%;
 }
 
-#login-sitename.titleLogin {
-    width: 780px!important;
-    font-size: 120px!important;
+#login-acessar .btn {
+    font-size: 19px;
+    padding: 10px !important;
 }
 
 #div-saibamais {
     transition: all ease .3s;
+    position: absolute;
+    bottom: 25px;
+    left: 0;
+    z-index: 5;
 }
 
-.saibamais{
+.saibamais {
     position: absolute;
     bottom: 50px;
     transform: scale(1.3);
@@ -42,33 +51,36 @@
     padding: 15px 70px !important;
     border-radius: 25px !important;
     width: 215px !important;
-    background: rgba(255,255,255, .6)!important;
-    color: #fff!important;
+    background: rgba(255, 255, 255, .6) !important;
+    color: #fff !important;
 }
 
 #saibamais-content {
     background: #E4E3E0;
     box-shadow: 0 0 18px 17px #0000006b;
 }
+
 #core-header {
-    display: none!important;
+    display: none !important;
 }
 
 #core-content {
-    margin:0;
+    margin: 0;
 }
 
 #logoLogin {
-    margin-bottom: 0!important;
+    margin-bottom: 0 !important;
+}
+
+.bemvindo {
+    font-size: 28px;
 }
 
 .body-login {
-    position: relative;
     z-index: 1;
 }
 
 #body-login {
-    padding-top: 128px;
     max-width: 420px;
     margin: auto
 }
@@ -84,7 +96,7 @@
 .login-input {
     padding: 13px 30px !important;
     border-radius: 25px;
-    background: rgba(255,255,255, .6)!important;
+    background: rgba(255, 255, 255, .6) !important;
 }
 
 .link-login {
@@ -100,23 +112,23 @@
     background: white;
     opacity: 0.5;
     width: 3px;
+    margin-right: -3px;
     border-radius: 10px;
     height: 290px;
-    top: 40%;
-    position: absolute;
-    right: 0;
+    margin-top: -290px;
+    transform: translateY(420px);
 }
 
 #login-title h1 {
-    padding-top: 190px;
-    font-size: 70px;
-    width: 450px;
+    font-size: 40px;
+    width: 260px;
     margin: auto
 }
 
 #login-title p {
-    font-size: 21px;
-    width: 450px;
+    font-size: 15px;
+    font-weight: 400;
+    width: 320px;
     margin: auto;
     float: initial
 }
@@ -128,4 +140,51 @@
 
 #loginbtn {
     border-radius: 3px
+}
+
+/*on mobile*/
+@media (max-width: 993px) {
+    .body-login {
+        min-height: auto !important;
+    }
+}
+
+/*on desktop*/
+@media (min-width: 993px) {
+    #body-login {
+        padding-top: 128px;
+    }
+
+    #login-title h1 {
+        padding-top: 190px;
+        font-size: 70px;
+        width: 450px;
+    }
+
+    #login-title p {
+        font-weight: 500;
+        font-size: 21px;
+        width: 450px;
+    }
+
+    #logoLogin img {
+        height: 120px;
+        float: initial;
+        margin: initial
+    }
+
+    .bemvindo {
+        font-size: 36px;
+    }
+
+    #login-sitename.titleLogin {
+        width: 780px;
+        font-size: 120px;
+    }
+
+    #login-acessar {
+        margin-top: -12px;
+        position: relative;
+        top: initial;
+    }
 }

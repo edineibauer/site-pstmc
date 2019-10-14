@@ -51,10 +51,9 @@ function goToLogin() {
     $("#login-sitename").removeClass("titleLogin");
     $("#div-saibamais").removeClass("saibamais");
     $("#background-login").css("filter", "blur(27px)");
-    $("#login-title").addClass("m6");
+    $("#login-title").addClass("l6");
     $("#login-card").find(".hide").removeClass("hide");
     animateFadeEffect("#login-card");
-    $("#emaillog").focus();
 }
 
 $(function () {
