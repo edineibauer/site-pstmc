@@ -19,7 +19,7 @@ function logout() {
 }
 
 function updatePerfilPage() {
-    $(".perfil-photo_64").attr("src", (!localStorage.photo_64 || localStorage.photo_64 === "null" || localStorage.photo_64 === "" ? HOME + "uploads/site/image-not-found.png" : localStorage.photo_64));
+    $(".perfil-photo_64, #core-header-perfil > img").attr("src", (!localStorage.photo_64 || localStorage.photo_64 === "null" || localStorage.photo_64 === "" ? HOME + "uploads/site/image-not-found.png" : localStorage.photo_64));
     $(".perfil-name").html(localStorage.name && localStorage.name !== "null" ? localStorage.name : "");
     $(".perfil-crm").html(localStorage.crm && localStorage.crm !== "null" ? localStorage.crm : "");
     $(".perfil-cpf").html(localStorage.cpf && localStorage.cpf !== "null" ? localStorage.cpf : "");

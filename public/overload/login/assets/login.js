@@ -34,6 +34,7 @@ function login() {
                     pageTransition(HOME + "dashboard", "route", "forward");
                 })
             } else {
+                toast("Usuário ou senha inválido", 3500, "toast-warning");
                 navigator.vibrate(100);
             }
         })

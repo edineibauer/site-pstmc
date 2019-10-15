@@ -16,7 +16,7 @@ if (!empty($_SESSION['userlogin']['token'])) {
                     </h1>
                 </div>
                 <div class="col" id="login-acessar">
-                    <button onclick="goToLogin()" class="loginbtn s-font-large btn pointer relative">
+                    <button onclick="goToLogin()" class="color-text-theme font-bold loginbtn s-font-large btn pointer relative">
                         Acessar
                     </button>
                 </div>
@@ -29,7 +29,7 @@ if (!empty($_SESSION['userlogin']['token'])) {
                     <div class="color-text-white col align-center font-light padding-top pointer link-login pointer" style="width: 80px;margin: auto; float: initial;" onclick="saibamais()">
                         Saiba mais
                         <div>
-                            <div class="radius-circle color-white" style="width: 23px;height: 23px;margin: 7px auto;">
+                            <div class="radius-circle z-depth-4 color-white" style="width: 23px;height: 23px;margin: 7px auto;">
                                 <i class="material-icons">keyboard_arrow_down</i>
                             </div>
                         </div>

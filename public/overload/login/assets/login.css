@@ -51,8 +51,7 @@ html {
     padding: 15px 70px !important;
     border-radius: 25px !important;
     width: 215px !important;
-    background: rgba(255, 255, 255, .6) !important;
-    color: #fff !important;
+    background: rgba(255, 255, 255, .8) !important;
 }
 
 #saibamais-content {
@@ -101,6 +100,7 @@ html {
 
 .link-login {
     text-decoration: none;
+    text-shadow: 0 0 3px #000000c9;
 }
 
 .link-login:hover {
@@ -140,6 +140,14 @@ html {
 
 #loginbtn {
     border-radius: 3px
+}
+
+#login-sitename.titleLogin {
+    text-shadow: 2px 4px 4px #00000070;
+}
+
+.loginbtn {
+    box-shadow: 4px 4px 5px -1px #0000007d;
 }
 
 /*on mobile*/
