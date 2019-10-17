@@ -196,9 +196,8 @@ $(function () {
             return dbLocal.exeRead("__template", 1).then(tpl => {
                 $("#timeline").html("");
                 if (!isEmpty(atualizacoes)) {
+                    atualizacoes.reverse();
                     $.each(atualizacoes, function (i, e) {
-                        $("#timeline").append(Mustache.render(tpl.pacientesUpdates, e));
-                        $("#timeline").append(Mustache.render(tpl.pacientesUpdates, e));
                         $("#timeline").append(Mustache.render(tpl.pacientesUpdates, e));
                     });
                 } else {

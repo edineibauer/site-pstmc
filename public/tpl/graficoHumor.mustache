@@ -1,0 +1,44 @@
+<div id="aux-graficos">
+    <div class="opt opt1" title="Feliz"></div>
+    <div class="opt opt2" title="Contente"></div>
+    <div class="opt opt3" title="Normal"></div>
+    <div class="opt opt4" title="Chateado"></div>
+    <div class="opt opt5" title="Triste"></div>
+</div>
+
+<div class="graficoArrow pointer opacity hover-opacity-off graficoArrowforward" onclick="humorGrafico(2)">
+    <i class="material-icons font-jumbo color-text-gray">keyboard_arrow_right</i>
+</div>
+
+<style>
+    #aux-graficos > .opt {
+        position: absolute;
+        width: 29px;
+        height: 30px;
+        background-size: cover;
+        background-image: url(../vendor/ueb/site-pstmc/public/assets/img/graficos/status.png);
+    }
+    #aux-graficos > .opt1 {
+        background-position: 0 0;
+        top: 5px;
+    }
+    #aux-graficos > .opt2 {
+        background-position: -29px 0;
+        top: 41px;
+    }
+    #aux-graficos > .opt3 {
+        background-position: -58px 0;
+        width: 30px;
+        top: 79px;
+
+    }
+    #aux-graficos > .opt4 {
+        background-position: -88px 0;
+        width: 30px;
+        top: 118px;
+    }
+    #aux-graficos > .opt5 {
+        background-position: -118px 0;
+        top: 156px;
+    }
+</style>
