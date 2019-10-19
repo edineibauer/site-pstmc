@@ -1,7 +1,7 @@
 <?php
 
 $paciente = filter_input(INPUT_POST, "paciente", FILTER_DEFAULT, FILTER_REQUIRE_ARRAY);
-$interval = filter_input(INPUT_POST, "interval", FILTER_DEFAULT);
+//$interval = filter_input(INPUT_POST, "interval", FILTER_DEFAULT);
 
 $js = [
     "route" => [
@@ -11,7 +11,7 @@ $js = [
     "data" => [
         "patient_name" => $paciente['first_name'],
         "patient_id" => (int) $paciente['id'],
-        "interval" => $interval,
+        "interval" => "year",
         "intensity" => 1
     ]
 ];
