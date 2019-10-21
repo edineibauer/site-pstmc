@@ -25,7 +25,7 @@ img{
 #core-header {
     z-index: 2;
     width: 100%;
-    padding: 30px 8px 95px;
+    padding: 0 8px 95px;
     height: 110px;
     -webkit-touch-callout: none;
     -webkit-user-select: none;
@@ -46,7 +46,7 @@ img{
 }
 
 #core-header-container {
-    padding: 10px 0
+    padding: 0
 }
 
 #core-header-container, #dashboard {
