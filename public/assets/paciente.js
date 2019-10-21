@@ -38,6 +38,8 @@ Chart.controllers.pie = Chart.controllers.pie.extend({
     }
 });
 
+Chart.elements.Rectangle.prototype.draw=function(){function t(t){return s[(f+t)%4]}var r,e,i,o,_,h,l,a,b=this._chart.ctx,d=this._view,n=d.borderWidth,u=this._chart.config.options.cornerRadius;if(u<0&&(u=0),void 0===u&&(u=0),d.horizontal?(r=d.base,e=d.x,i=d.y-d.height/2,o=d.y+d.height/2,_=e>r?1:-1,h=1,l=d.borderSkipped||"left"):(r=d.x-d.width/2,e=d.x+d.width/2,i=d.y,_=1,h=(o=d.base)>i?1:-1,l=d.borderSkipped||"bottom"),n){var T=Math.min(Math.abs(r-e),Math.abs(i-o)),v=(n=n>T?T:n)/2,g=r+("left"!==l?v*_:0),c=e+("right"!==l?-v*_:0),C=i+("top"!==l?v*h:0),w=o+("bottom"!==l?-v*h:0);g!==c&&(i=C,o=w),C!==w&&(r=g,e=c)}b.beginPath(),b.fillStyle=d.backgroundColor,b.strokeStyle=d.borderColor,b.lineWidth=n;var s=[[r,o],[r,i],[e,i],[e,o]],f=["bottom","left","top","right"].indexOf(l,0);-1===f&&(f=0);var q=t(0);b.moveTo(q[0],q[1]);for(var m=1;m<4;m++)q=t(m),nextCornerId=m+1,4==nextCornerId&&(nextCornerId=0),nextCorner=t(nextCornerId),width=s[2][0]-s[1][0],height=s[0][1]-s[1][1],x=s[1][0],y=s[1][1],(a=u)>Math.abs(height)/2&&(a=Math.floor(Math.abs(height)/2)),a>Math.abs(width)/2&&(a=Math.floor(Math.abs(width)/2)),height<0?(x_tl=x,x_tr=x+width,y_tl=y+height,y_tr=y+height,x_bl=x,x_br=x+width,y_bl=y,y_br=y,b.moveTo(x_bl+a,y_bl),b.lineTo(x_br-a,y_br),b.quadraticCurveTo(x_br,y_br,x_br,y_br-a),b.lineTo(x_tr,y_tr+a),b.quadraticCurveTo(x_tr,y_tr,x_tr-a,y_tr),b.lineTo(x_tl+a,y_tl),b.quadraticCurveTo(x_tl,y_tl,x_tl,y_tl+a),b.lineTo(x_bl,y_bl-a),b.quadraticCurveTo(x_bl,y_bl,x_bl+a,y_bl)):width<0?(x_tl=x+width,x_tr=x,y_tl=y,y_tr=y,x_bl=x+width,x_br=x,y_bl=y+height,y_br=y+height,b.moveTo(x_bl+a,y_bl),b.lineTo(x_br-a,y_br),b.quadraticCurveTo(x_br,y_br,x_br,y_br-a),b.lineTo(x_tr,y_tr+a),b.quadraticCurveTo(x_tr,y_tr,x_tr-a,y_tr),b.lineTo(x_tl+a,y_tl),b.quadraticCurveTo(x_tl,y_tl,x_tl,y_tl+a),b.lineTo(x_bl,y_bl-a),b.quadraticCurveTo(x_bl,y_bl,x_bl+a,y_bl)):(b.moveTo(x+a,y),b.lineTo(x+width-a,y),b.quadraticCurveTo(x+width,y,x+width,y+a),b.lineTo(x+width,y+height-a),b.quadraticCurveTo(x+width,y+height,x+width-a,y+height),b.lineTo(x+a,y+height),b.quadraticCurveTo(x,y+height,x,y+height-a),b.lineTo(x,y+a),b.quadraticCurveTo(x,y,x+a,y));b.fill(),n&&b.stroke()};
+
 function getXvalue(fieldX) {
     let dateCheck = new RegExp("^\\d{4}-\\d{2}-\\d{2}(\\s\\d{2}:\\d{2}:\\d{2})*$", "i");
     let x = fieldX;
@@ -60,6 +62,10 @@ function getXvalue(fieldX) {
     return x;
 }
 
+function roundStep(number, increment) {
+    return Math.round((number - increment) / increment ) * increment + increment;
+}
+
 function privateChartGetDataMakerXY(chart) {
     let dadosTabela = [];
     let count = [];
@@ -73,6 +79,10 @@ function privateChartGetDataMakerXY(chart) {
         if(chartFilter.interval === "year" && chart.fieldDate) {
             let xx = x.split('-');
             x = xx[0] + "-" + xx[1] + "-15";
+        } else if(chartFilter.interval === "day" && chart.fieldDate) {
+            let dateCheck = new RegExp("^\\d{4}-\\d{2}-\\d{2}\\s\\d{2}:\\d{2}:\\d{2}$", "i");
+            if(!dateCheck.test(x))
+                x += " " + zeroEsquerda(i) + ":00";
         }
 
         if (chart.operacao === "sum" || chart.operacao === "media") {
@@ -96,7 +106,6 @@ function privateChartGetDataMakerXY(chart) {
                 dadosTabela[x].push(y);
             }
         }
-
     });
 
     if (chart.operacao === "media") {
@@ -106,8 +115,9 @@ function privateChartGetDataMakerXY(chart) {
          */
         for (let x in dadosTabela) {
             if (!isNaN(dadosTabela[x]))
-                dadosTabela[x] = Math.round(dadosTabela[x] / count[x]);
+                dadosTabela[x] = (chart.roundValueStepY ? roundStep(dadosTabela[x] / count[x], chart.stepY) : dadosTabela[x] / count[x]);
         }
+
 
     } else if (chart.operacao === "maioria") {
 
@@ -284,8 +294,9 @@ function chartGetDataMaker(chart) {
         let dataResult = [];
         for(let x in dadosTabela) {
             if(x !== "pushTo" && x !== "removeItem") {
-                dataResult.push({x: x, y: chart.functionLabelY(dadosTabela[x])});
-                chart.labels.push(x);
+                let y = chart.functionValueY(dadosTabela[x]);
+                dataResult.push({x: chart.functionValueX(x), y: y});
+                chart.labels.push(chart.functionTooltips(chart.functionValueX(x), y));
             }
         }
 
@@ -447,6 +458,7 @@ function operatorChartConvertDataType(data, fieldY, fieldX, type, funcaoX, funca
 window.ChartMaker = function () {
     return {
         data: [],
+        title: "",
         type: ["bar"],
         fieldX: null,
         fieldY: null,
@@ -455,17 +467,29 @@ window.ChartMaker = function () {
         labels: [],
         stepY: 1,
         stepX: 1,
+        roundValueStepX: !1,
+        roundValueStepY: !1,
         minX: 0,
         minY: 0,
         maxX: null,
         maxY: null,
+        hideLineY: !1,
+        hideLineX: !1,
+        hideLabelY: !1,
+        hideLabelX: !1,
         backgroundColor: null,
+        functionValueX: null,
+        functionValueY: null,
         functionLabelX: null,
         functionLabelY: null,
         functionTooltips: null,
         functionColor: null,
         borderWidth: 1,
         paddings: null,
+        setTitle: title => {
+            if (typeof title === "string")
+                this.title = title;
+        },
         setData: data => {
             if (typeof data !== "undefined" && data !== null && data.constructor === Array)
                 this.data = data;
@@ -507,6 +531,12 @@ window.ChartMaker = function () {
             if (!isNaN(step))
                 this.stepY = step;
         },
+        setRoundValueStepX: () => {
+            this.roundValueStepX = !0;
+        },
+        setRoundValueStepY: () => {
+            this.roundValueStepY = !0;
+        },
         setMinX: min => {
             if (!isNaN(min))
                 this.minX = min;
@@ -522,6 +552,18 @@ window.ChartMaker = function () {
         setMaxY: max => {
             if (!isNaN(max))
                 this.maxY = max;
+        },
+        setHideLineY: () => {
+            this.hideLineY = !0;
+        },
+        setHideLineX: () => {
+            this.hideLineX = !0;
+        },
+        setHideLabelY: () => {
+            this.hideLabelY = !0;
+        },
+        setHideLabelX: () => {
+            this.hideLabelX = !0;
         },
         setBoderWidth: b => {
             if (!isNaN(b))
@@ -539,6 +581,14 @@ window.ChartMaker = function () {
                 if (!isNaN(p.left))
                     this.paddings.left = p.left;
             }
+        },
+        setFunctionValueX: f => {
+            if (typeof f === "function")
+                this.functionValueX = f;
+        },
+        setFunctionValueY: f => {
+            if (typeof f === "function")
+                this.functionValueY = f;
         },
         setFunctionLabelX: f => {
             if (typeof f === "function")
@@ -578,6 +628,18 @@ window.ChartMaker = function () {
                 };
             }
 
+            if (!$this.functionValueX) {
+                $this.functionValueX = (x) => {
+                    return x;
+                };
+            }
+
+            if (!$this.functionValueY) {
+                $this.functionValueY = (y) => {
+                    return y;
+                };
+            }
+
             $this.paddings = $this.paddings || {top: 30, right: 30, bottom: 30, left: 30};
             $this.functionTooltips = typeof $this.functionTooltips === "function" ? $this.functionTooltips : function (x, y) {
                 return y;
@@ -613,6 +675,7 @@ window.ChartMaker = function () {
             if (["radar", "pie", "doughnut", "polarArea"].indexOf($this.type[0]) > -1) {
 
                 //PIE
+                options.aspectRatio = 3;
                 options.tooltips.callbacks.label = function (tooltipItem, data) {
                     var dataset = data.datasets[tooltipItem.datasetIndex];
                     var meta = dataset._meta[Object.keys(dataset._meta)[0]];
@@ -630,9 +693,14 @@ window.ChartMaker = function () {
                     let value = context.dataset.data[context.dataIndex].y;
                     return $this.functionColor(value);
                 };
-                options.tooltips.callbacks.label = function (tooltipItem, data) {
-                    var dataset = data.datasets[tooltipItem.datasetIndex].data[tooltipItem.index];
-                    return ' ' + $this.functionTooltips(dataset.x, dataset.y);
+                options.tooltips.callbacks = {
+                    title: function (tooltipItem, data) {
+                        return $this.title || data.labels[tooltipItem[0].index];
+                    },
+                    label: function (tooltipItem, data) {
+                        var dataset = data.datasets[tooltipItem.datasetIndex].data[tooltipItem.index];
+                        return ' ' + $this.functionTooltips(dataset.x, dataset.y);
+                    }
                 };
 
                 options.legend = {
@@ -641,26 +709,48 @@ window.ChartMaker = function () {
 
                 options.responsive = true;
                 options.aspectRatio = 3;
+                // options.cornerRadius = 2;
                 options.scales = {
                     yAxes: [{
+                        gridLines: {
+                            display: typeof $this.hideLineY === "undefined",
+                            color: "#F5F5F5",
+                            drawBorder: typeof $this.hideLineX === "undefined",
+                            zeroLineWidth: 3,
+                            zeroLineColor: "#EEEEEE"
+                        },
                         ticks: {
+                            padding: 15,
                             max: $this.maxY || undefined,
                             min: $this.minY || undefined,
+                            beginAtZero: $this.minY == 0,
                             maxTicksLimit: $this.maxY || undefined,
                             stepSize: $this.stepY || undefined,
-                            display: !1
+                            callback: $this.functionLabelY,
+                            display: typeof $this.hideLabelY === "undefined"
                         }
                     }],
                     xAxes: [{
                         stacked: true,
                         type: 'time',
+                        gridLines: {
+                            display: typeof $this.hideLineX === "undefined",
+                            color: "#F5F5F5",
+                            drawBorder: typeof $this.hideLineY === "undefined",
+                            zeroLineWidth: 3,
+                            zeroLineColor: "#EEEEEE"
+                        },
                         ticks: {
-                            max: $this.maxY || undefined,
-                            min: $this.minY || undefined,
-                            maxTicksLimit: $this.maxY || undefined,
+                            padding: 10,
+                            max: $this.maxX || undefined,
+                            min: $this.minX || undefined,
+                            beginAtZero: $this.minX == 0,
+                            maxTicksLimit: $this.maxX || undefined,
                             source: 'data',
                             autoSkip: !1,
-                            stepSize: $this.stepX || undefined
+                            stepSize: $this.stepX || undefined,
+                            callback: $this.functionLabelX,
+                            display: typeof $this.hideLabelX === "undefined"
                         },
                         time: {
                             unit: chartFilter.interval,
@@ -689,7 +779,8 @@ window.ChartMaker = function () {
                         data: $this.data,
                         backgroundColor: $this.backgroundColor,
                         pointRadius: 10,
-                        pointHoverRadius: 12
+                        pointHoverRadius: 11,
+                        borderWidth: 0
                     }]
                 },
                 options: options
@@ -714,40 +805,73 @@ function graficoSono(registros) {
     grafico.setData(registros);
     grafico.setFieldDate("date");
     grafico.setFieldX("date");
-    grafico.setFieldY("quality");
+    grafico.setHideLineX();
     grafico.setOperacaoMedia();
+    grafico.setStepY(5);
 
-    grafico.setFunctionColor(function (color) {
-        if (color < 0)
-            return "#FF5159";
-        else if (color > 0)
-            return '#2D92CB';
+    if(modChart['sono'] === 1) {
 
-        return '#606060';
-    });
+        grafico.setFunctionColor(function (color) {
+            if (color < 0)
+                return "#BF0811";
+            else if (color > 0)
+                return '#2D92CB';
 
-    grafico.setFunctionLabelY(function (title) {
-        if (title < 0)
-            return "Ruim";
-        else if (title > 0)
-            return 'Bom';
+            return '#606060';
+        });
 
-        return 'Normal';
-    });
+        grafico.setFunctionLabelY(function (title) {
+            if (title < 0)
+                return "Ruim";
+            else if (title > 0)
+                return 'Bom';
 
-    grafico.setFunctionTooltips(function (x, y) {
-        if (y < 0)
-            return "Ruim";
-        else if (y > 0)
-            return 'Bom';
+            return 'Normal';
+        });
 
-        return 'Normal';
-    })
+        grafico.setFunctionTooltips(function (x, y) {
+            if (y < 0)
+                return "Ruim";
+            else if (y > 0)
+                return 'Bom';
 
-    grafico.setFunctionLabelY(function (y) {
-        return y - 5;
-    })
+            return 'Normal';
+        })
 
+        grafico.setFunctionValueY(function (y) {
+            return y - 5;
+        });
+
+        grafico.setMaxY(5);
+        grafico.setMinY(-5);
+        grafico.setRoundValueStepY();
+        grafico.setFieldY("quality");
+        grafico.setTitle("Qualidade do Sono");
+        $content.append(Mustache.render(tpl.graficoArrowForward, {indicador: 'sono', mod: 2}));
+    } else {
+
+        grafico.setFunctionColor(function (color) {
+            if (color < 6)
+                return "#BF0811";
+            else if (color > 7)
+                return '#2D92CB';
+
+            return '#606060';
+        });
+
+        grafico.setFunctionLabelY(function (y) {
+            return y + " hr";
+        });
+
+        grafico.setFunctionTooltips(function (x, y) {
+            return Math.floor(y) + ":" + Math.round(y%1 * 60) + " hr";
+        });
+
+        grafico.setMinY(0);
+        grafico.setFieldY("duration");
+        grafico.setTitle("Horas de Sono");
+        $content.append(Mustache.render(tpl.graficoArrowBack, {indicador: 'sono', mod: 1}));
+    }
 
     $content.append(grafico.getChart("bar"));
 
@@ -755,48 +879,57 @@ function graficoSono(registros) {
 }
 
 function graficoHumor(registros) {
-
     let $content = $("<div></div>");
     let grafico = new ChartMaker();
     grafico.setData(registros);
     grafico.setFieldDate("date");
     grafico.setFieldY("mood_type");
+    grafico.setMinY(0);
+    grafico.setMaxY(12.5);
+    grafico.setStepY(2.5);
+    grafico.setHideLineX();
+    grafico.setHideLabelY();
+    grafico.setOperacaoMedia();
+    grafico.setTitle("Humor");
     grafico.setFunctionTooltips(function (x, y) {
         y = typeof y === "undefined" && typeof x !== "undefined" ? x : y;
-        if (y < 1)
+        if (y < 2)
             return "triste";
-        else if (y < 3)
+        else if (y < 5)
             return 'chateado';
-        else if (y < 6)
+        else if (y < 7)
             return 'normal';
-        else if (y < 8)
+        else if (y < 9)
             return 'contente';
 
         return 'feliz';
     });
 
     grafico.setFunctionColor(function (color) {
-        if (color < 1)
+        if (color < 2)
             return "#6849B7";
-        else if (color < 3)
+        else if (color < 5)
             return '#FF5159';
-        else if (color < 6)
+        else if (color < 7)
             return '#606060';
-        else if (color < 8)
+        else if (color < 9)
             return '#7EC8BD';
 
         return '#2D92CB';
     });
+
+    grafico.setFunctionValueY(function (y) {
+        return y + 1.23;
+    })
 
     if (modChart['humor'] === 1) {
 
         /* SCATTER */
         $content.append(Mustache.render(tpl.graficoHumor, {}));
         grafico.setFieldX("date");
-        grafico.setStepY(2.5);
-        grafico.setPaddings({left: 50, right: 20, bottom: 10, top: 20});
+        grafico.setPaddings({left: 40, right: 20, bottom: 10, top: 20});
 
-        $content.append(grafico.getChart("bar"));
+        $content.append(grafico.getChart("scatter"));
     } else {
 
         /* PIE */
@@ -927,6 +1060,25 @@ function privateChartDateUpdateLimit(useStartDateInsteadDateEnd, ignoraControleM
     }
 }
 
+function privateChartGetDataFilter(data, indicador, mod) {
+    if(indicador === "sono") {
+        if(mod === 2) {
+            $.each(data, function (i, e) {
+                if(!isEmpty(e.start_time) && !isEmpty(e.end_time)) {
+                    let ss = e.start_time.split(":");
+                    let ee = e.end_time.split(":");
+                    let dayStart = moment(e.date + " " + e.start_time);
+                    let dayEnd = (parseInt(ss[0]) < parseInt(ee[0]) ? dayStart : moment(moment(e.date).add(1, 'day').format("YYYY-MM-DD") + " " + e.end_time));
+                    let duration = moment.duration(dayEnd.diff(dayStart));
+                    data[i].duration = duration.asHours();
+                }
+            });
+        }
+    }
+
+    return data;
+}
+
 $(function () {
     readPaciente(ID).then(paciente => {
         if (!isEmpty(paciente)) {
@@ -982,6 +1134,14 @@ $(function () {
         }
     });
 
+    $("#app").off("click", ".graficoArrow").on("click", ".graficoArrow", function () {
+        let indicador = $(this).attr("rel");
+        let mod = parseInt($(this).attr("data-mod"));
+        dbLocal.exeRead(indicador).then(g => {
+            $("#grafico-" + indicador).html(grafico(indicador, privateChartGetDataFilter(g, indicador, mod), mod));
+        });
+    });
+
     let now = new Date();
     let day = ("0" + now.getDate()).slice(-2);
     let month = ("0" + (now.getMonth() + 1)).slice(-2);
@@ -1005,4 +1165,4 @@ $(function () {
 
     });*/
 
-});
+})

@@ -1,3 +1,25 @@
+.grafico-header {
+    text-transform: capitalize;
+    color: #C03A4C
+}
+
+.grafico-header-sono {
+    color: #1C9CCA;
+}
+
+.graficoArrow {
+    position: absolute;
+    top: 60px;
+}
+
+.graficoArrowBack {
+    left: -60px;
+}
+
+.graficoArrowforward {
+    right: -60px;
+}
+
 .paciente-box {
     box-shadow: 3px 3px 9px 0 #0000006b;
 }
