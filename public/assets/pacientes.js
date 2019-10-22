@@ -32,8 +32,8 @@ function enviarconvite() {
         envioStatus = !0;
         let medico = {
             "name": $("#nome").val(),
-            "phone_number": $("#telefone").cleanVal(),
-        }
+            "phone_number": iti.getSelectedCountryData().dialCode + $("#telefone").cleanVal()
+        };
 
         if (validateMedico(medico)) {
             let pp = "...";
@@ -106,8 +106,8 @@ function validateMedico(medico) {
     if(medico.name.length < 3)
         showError("Nome muito curto", "nome");
 
-    if(medico.phone_number.length < 10)
-        showError("Telefone inválido", "telefone");
+    /*if(medico.phone_number.length < 10)
+        showError("Telefone inválido", "telefone");*/
 
     if(typeof medico.name !== "string" || medico.name === "")
         showError("Preencha este campo", "nome");
@@ -118,6 +118,7 @@ function validateMedico(medico) {
     return !error;
 }
 
+var iti = null;
 var searchTime = null;
 $(function () {
     let SPMaskBehavior = function (val) {
@@ -161,5 +162,30 @@ $(function () {
                 $("#lista-pacientes").append(Mustache.render(tpl.pacienteEmpty, {}));
             }
         });
+    });
+
+    let input = document.querySelector("#telefone");
+    iti = intlTelInput(input, {
+        // allowDropdown: false,
+        // autoHideDialCode: false,
+        // autoPlaceholder: "off",
+        dropdownContainer: document.body,
+        // excludeCountries: ["us"],
+        // formatOnDisplay: false,
+        // geoIpLookup: function(callback) {
+        //   $.get("http://ipinfo.io", function() {}, "jsonp").always(function(resp) {
+        //     var countryCode = (resp && resp.country) ? resp.country : "";
+        //     callback(countryCode);
+        //   });
+        // },
+        // hiddenInput: "full_number",
+        initialCountry: "br",
+        // localizedCountries: { 'de': 'Deutschland' },
+        // nationalMode: false,
+        // onlyCountries: ['us', 'gb', 'ch', 'ca', 'do'],
+        // placeholderNumberType: "MOBILE",
+        // preferredCountries: ['cn', 'jp'],
+        // separateDialCode: true,
+        utilsScript: HOME + VENDOR + "site-pstmc/public/assets/utils.js"
     });
 });

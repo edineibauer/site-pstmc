@@ -1,57 +1,3 @@
-$(function () {
-    let SPMaskBehavior = function (val) {
-        return val.replace(/\D/g, '').length === 11 ? '(00) 00000-0000' : '(00) 0000-00009'
-    }, spOptions = {
-        onKeyPress: function (val, e, field, options) {
-            field.mask(SPMaskBehavior.apply({}, arguments), options)
-        }
-    };
-    $("input[type='tel']").mask(SPMaskBehavior, spOptions);
-    $(".cpf").mask('999.999.999-99', {reverse: !0});
-    $(".date").mask('99/99/9999');
-
-    setTimeout(function () {
-        $("input[type='email'], input[type='password']").removeAttr("disabled");
-    },500);
-
-    $("input").off("change keyup").on("change keyup", function () {
-        changeField($(this).attr("id"));
-    });
-
-    $("#arrowback").off("click").on("click", function () {
-        history.back();
-    });
-
-    if(localStorage.medico) {
-        let medico = JSON.parse(localStorage.medico);
-        if(typeof medico.name === "string")
-            $("#nome").val(medico.name);
-
-        if(typeof medico.birth_day === "string")
-            $("#nascimento").val(medico.birth_day.replace('-', '/').replace('-', '/'));
-
-        if(typeof medico.email === "string")
-            $("#email").val(medico.email);
-
-        if(typeof medico.cpf === "string")
-            $("#cpf").val(medico.cpf);
-
-        if(typeof medico.password === "string")
-            $("#senha, #senha2").val(medico.password);
-
-        if(typeof medico.phone_number === "string")
-            $("#telefone").val(medico.phone_number);
-
-        if(typeof medico.crm === "string")
-            $("#crm").val(medico.crm);
-
-        setTimeout(function () {
-            $("input[type='tel'], .cpf, .date").trigger("change");
-            $("input[type='tel'], .cpf, .date").trigger("input");
-        }, 100);
-    }
-});
-
 function changeField(id) {
     if(id === "senha2")
         id = "senha";
@@ -65,7 +11,9 @@ function avancar() {
         "cpf": $("#cpf").cleanVal(),
         "password": $("#senha").val(),
         "birth_day": $("#nascimento").val(),
-        "phone_number": $("#telefone").cleanVal(),
+        "telpais": iti.getSelectedCountryData().dialCode,
+        "telsigla": iti.getSelectedCountryData().iso2,
+        "phone_number": iti.getSelectedCountryData().dialCode + $("#telefone").cleanVal(),
         "crm": $("#crm").val(),
     }
 
@@ -107,8 +55,8 @@ function validateMedico(medico) {
     if(medico.crm.length < 3)
         showError("CRM muito curto", "crm");
 
-    if(medico.phone_number.length < 10)
-        showError("Telefone inválido", "telefone");
+    /*if(medico.phone_number.length < 10)
+        showError("Telefone inválido", "telefone");*/
 
     if(!isEmail(medico.email))
         showError("Email inválido", "email");
@@ -146,3 +94,70 @@ function validateMedico(medico) {
 
     return !error;
 }
+var iti = null;
+$(function () {
+    let SPMaskBehavior = function (val) {
+        return val.replace(/\D/g, '').length === 11 ? '(00) 00000-0000' : '(00) 0000-00009'
+    }, spOptions = {
+        onKeyPress: function (val, e, field, options) {
+            field.mask(SPMaskBehavior.apply({}, arguments), options)
+        }
+    };
+    $("input[type='tel']").mask(SPMaskBehavior, spOptions);
+    $(".cpf").mask('999.999.999-99', {reverse: !0});
+    $(".date").mask('99/99/9999');
+
+    setTimeout(function () {
+        $("input[type='email'], input[type='password']").removeAttr("disabled");
+    },500);
+
+    $("input").off("change keyup").on("change keyup", function () {
+        changeField($(this).attr("id"));
+    });
+
+    $("#arrowback").off("click").on("click", function () {
+        history.back();
+    });
+
+    if(localStorage.medico) {
+        let medico = JSON.parse(localStorage.medico);
+        if(typeof medico.name === "string")
+            $("#nome").val(medico.name);
+
+        if(typeof medico.birth_day === "string")
+            $("#nascimento").val(medico.birth_day.replace('-', '/').replace('-', '/'));
+
+        if(typeof medico.email === "string")
+            $("#email").val(medico.email);
+
+        if(typeof medico.cpf === "string")
+            $("#cpf").val(medico.cpf);
+
+        if(typeof medico.password === "string")
+            $("#senha, #senha2").val(medico.password);
+
+        if(typeof medico.phone_number === "string" && medico.telpais)
+            $("#telefone").val(medico.phone_number.substr(medico.telpais.length));
+
+        if(typeof medico.crm === "string")
+            $("#crm").val(medico.crm);
+
+        setTimeout(function () {
+            $("input[type='tel'], .cpf, .date").trigger("change");
+            $("input[type='tel'], .cpf, .date").trigger("input");
+        }, 100);
+    }
+
+    let telsigla = "br";
+    if(localStorage.medico) {
+        let medico = JSON.parse(localStorage.medico);
+        if(medico.telsigla)
+            telsigla = medico.telsigla;
+    }
+
+    iti = intlTelInput(document.querySelector("#telefone"), {
+        dropdownContainer: document.body,
+        initialCountry: telsigla,
+        utilsScript: HOME + VENDOR + "site-pstmc/public/assets/utils.js"
+    });
+});

@@ -33,8 +33,8 @@ function enviarconvite() {
         envioStatus = !0;
         let medico = {
             "name": $("#nome").val(),
-            "phone_number": $("#telefone").cleanVal(),
-        }
+            "phone_number": iti.getSelectedCountryData().dialCode + $("#telefone").cleanVal()
+        };
 
         if (validateMedico(medico)) {
             let pp = "...";
@@ -95,8 +95,8 @@ function validateMedico(medico) {
     if (medico.name.length < 3)
         showError("Nome muito curto", "nome");
 
-    if (medico.phone_number.length < 10)
-        showError("Telefone inválido", "telefone");
+    /*if (medico.phone_number.length < 10)
+        showError("Telefone inválido", "telefone");*/
 
     if (typeof medico.name !== "string" || medico.name === "")
         showError("Preencha este campo", "nome");
@@ -144,6 +144,7 @@ function readUpdatesPacientes() {
     });
 }
 
+var iti = null;
 $(function () {
     updatePerfilPage();
 
@@ -207,5 +208,12 @@ $(function () {
                 }
             });
         })
+    });
+
+    let input = document.querySelector("#telefone");
+    iti = intlTelInput(input, {
+        dropdownContainer: document.body,
+        initialCountry: "br",
+        utilsScript: HOME + VENDOR + "site-pstmc/public/assets/utils.js"
     });
 });

@@ -108,24 +108,19 @@ function privateChartGetDataMakerXY(chart) {
         }
     });
 
-    if (chart.operacao === "media") {
+    for (let x in dadosTabela) {
+        if (x !== "pushTo" && x !== "removeItem") {
 
-        /**
-         * Tira a média do valor do campo
-         */
-        for (let x in dadosTabela) {
-            if (!isNaN(dadosTabela[x]))
+            if (chart.operacao === "media") {
+                /**
+                 * Tira a média do valor do campo
+                 */
                 dadosTabela[x] = (chart.roundValueStepY ? roundStep(dadosTabela[x] / count[x], chart.stepY) : dadosTabela[x] / count[x]);
-        }
 
-
-    } else if (chart.operacao === "maioria") {
-
-        /**
-         * Busca a informação do campo que mais apareceu no período
-         */
-        for (let x in dadosTabela) {
-            if (typeof dadosTabela[x] === "object") {
+            } else if (chart.operacao === "maioria") {
+                /**
+                 * Busca a informação do campo que mais apareceu no período
+                 */
                 let maioria = {y: "", valor: -1};
 
                 for (let y in dadosTabela[x]) {
@@ -136,11 +131,18 @@ function privateChartGetDataMakerXY(chart) {
                         maioria = {y: y, valor: dadosTabela[x][y]};
                 }
 
-                dadosTabela[x] = maioria.y;
+                dadosTabela[x] = (chart.roundValueStepY ? roundStep(maioria.y, chart.stepY) : maioria.y);
+
+            } else {
+                /**
+                 * Somente arredonda valor caso necessário
+                 */
+                dadosTabela[x] = (chart.roundValueStepY ? roundStep(dadosTabela[x], chart.stepY) : dadosTabela[x]);
             }
         }
-
     }
+
+    console.log(dadosTabela);
 
     return dadosTabela;
 }
@@ -1140,12 +1142,12 @@ $(function () {
             if (chartFilter.indicadores.length === 0)
                 $("#graficos").html(Mustache.render(tpl.pacienteGraficoEmpty, {HOME: HOME, VENDOR: VENDOR}));
         } else {
-            if (chartFilter.indicadores.length > 1) {
+            /*if (chartFilter.indicadores.length > 1) {
                 let id = chartFilter.indicadores[0];
                 $("#graficos-" + chartFilter.indicadores[0]).remove();
                 chartFilter.indicadores.splice(0, 1);
                 $(".indicador[rel='" + id + "']").removeClass("active")
-            }
+            }*/
             chartFilter.indicadores.push(v);
             $(this).addClass("active");
             graficos(v);

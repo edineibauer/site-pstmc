@@ -75,24 +75,17 @@ function avancar() {
             "password": medico1.password,
             "name": medico1.name,
             "birth_day": birthday[2] + "-" + birthday[1] + "-" + birthday[0],
+            "codeCountry": medico1.telsigla,
             "phone_number": medico1.phone_number,
             "crm": medico1.crm,
             "photo_64": medico3.photo_64
         }
 
         if(!medico2.nao1)
-            medico.address1 = medico2.address1 + " - " + medico2.tel1;
+            medico.address1 = medico2.address1 + " ## " + medico2.tel1sigla + " ## " + medico2.tel1;
 
         if(!medico2.nao2)
-            medico.address2 = medico2.address2 + " - " + medico2.tel2;
-
-        let data = {
-            "route": {
-                "action": "create",
-                "module": "doctor"
-            },
-            "data": medico
-        };
+            medico.address2 = medico2.address2 + " ## " + medico2.tel2sigla + " ## " + medico2.tel2;
 
         $(".loginbtn").html("enviando...");
         toast("Enviando dados...", 10000);

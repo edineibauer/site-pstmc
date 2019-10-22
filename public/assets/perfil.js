@@ -46,8 +46,8 @@ function validateMedico(medico) {
     if (medico.crm.length < 3)
         showError("CRM muito curto", "crm");
 
-    if (medico.phone_number.length < 10)
-        showError("Telefone inválido", "telefone");
+    /*if (medico.phone_number.length < 10)
+        showError("Telefone inválido", "telefone");*/
 
     if (!isEmail(medico.email))
         showError("Email inválido", "email");
@@ -86,11 +86,11 @@ function validateMedico(medico) {
     if(medico.address2 !== "" && medico.address2.length < 5)
         showError("Endereço muito curto", "address2");
 
-    if(medico.tel1 !== "" && medico.tel1.length < 10)
+    /*if(medico.tel1 !== "" && medico.tel1.length < 10)
         showError("Telefone inválido", "tel1");
 
     if(medico.tel2 !== "" && medico.tel2.length < 10)
-        showError("Telefone inválido", "tel2");
+        showError("Telefone inválido", "tel2");*/
 
     if(medico.address1 !== "" && medico.tel1 === "")
         showError("Preencha este campo", "tel1");
@@ -108,15 +108,22 @@ function validateMedico(medico) {
 }
 
 function setDataperfil() {
+
+    //inicia a bandeira em telefone do médico
+    iti = intlTelInput(document.querySelector("#telefone"), {
+        dropdownContainer: document.body,
+        initialCountry: localStorage.codeCountry || "br",
+        utilsScript: HOME + VENDOR + "site-pstmc/public/assets/utils.js"
+    });
+
     if(localStorage.imagem && localStorage.imagem !== "null" && !isEmpty(localStorage.imagem))
         $("#cadastro-image2").html("<img src='" + localStorage.imagem + "' width='150' height='150' style='height: 150px;width: 150px;' />");
 
     if(localStorage.name && localStorage.name !== "null" && !isEmpty(localStorage.name))
         $("#nome").val(localStorage.name);
 
-    if(localStorage.birthday && localStorage.birthday !== "null" && !isEmpty(localStorage.birthday)) {
+    if(localStorage.birthday && localStorage.birthday !== "null" && !isEmpty(localStorage.birthday))
         $("#nascimento").val(localStorage.birthday.replace('-', '/').replace('-', '/'));
-    }
 
     if(localStorage.email && localStorage.email !== "null" && !isEmpty(localStorage.email))
         $("#email").val(localStorage.email);
@@ -125,23 +132,43 @@ function setDataperfil() {
         $("#cpf").val(localStorage.cpf);
 
     if(localStorage.phone_number && localStorage.phone_number !== "null" && !isEmpty(localStorage.phone_number))
-        $("#telefone").val(localStorage.phone_number);
+        $("#telefone").val(localStorage.phone_number.substr(iti.getSelectedCountryData().dialCode.length));
 
     if(localStorage.crm && localStorage.crm !== "null" && !isEmpty(localStorage.crm))
         $("#crm").val(localStorage.crm);
 
     if(localStorage.address1 && localStorage.address1 !== "null" && !isEmpty(localStorage.address1)){
-        let a = localStorage.address1.split(" - ");
-        let tel = a[a.length - 1].trim();
-        $("#tel1").val(tel);
-        $("#address1").val(localStorage.address1.replace(" - " + tel, ""));
+        let a = localStorage.address1.split(" ## ");
+
+        //inicia a bandeira em telefone 1 de endereço
+        iti1 = intlTelInput(document.querySelector("#tel1"), {
+            dropdownContainer: document.body,
+            initialCountry: (!isEmpty(a[1]) ? a[1].trim() : "br"),
+            utilsScript: HOME + VENDOR + "site-pstmc/public/assets/utils.js"
+        });
+
+        if(typeof a[2] === "string") {
+            let tel = a[2].trim();
+            $("#tel1").val(tel.substr(iti1.getSelectedCountryData().dialCode.length));
+        }
+        $("#address1").val(a[0].trim());
     }
 
     if(localStorage.address2 && localStorage.address2 !== "null" && !isEmpty(localStorage.address2)){
-        let a = localStorage.address2.split(" - ");
-        let tel = a[a.length - 1].trim();
-        $("#tel2").val(tel);
-        $("#address2").val(localStorage.address2.replace(" - " + tel, ""));
+        let a = localStorage.address2.split(" ## ");
+
+        //inicia a bandeira em telefone 2 de endereço
+        iti2 = intlTelInput(document.querySelector("#tel2"), {
+            dropdownContainer: document.body,
+            initialCountry: (!isEmpty(a[1]) ? a[1].trim() : "br"),
+            utilsScript: HOME + VENDOR + "site-pstmc/public/assets/utils.js"
+        });
+
+        if(typeof a[2] === "string") {
+            let tel = a[2].trim();
+            $("#tel2").val(tel.substr(iti2.getSelectedCountryData().dialCode.length));
+        }
+        $("#address2").val(a[0].trim());
     }
 
     if(localStorage.photo_64 !== "")
@@ -165,6 +192,7 @@ function sendDataToLocalStorage(medico) {
     localStorage.email = medico.email;
     localStorage.birthday = medico.birth_day;
     localStorage.phone_number = medico.phone_number;
+    localStorage.codeCountry = medico.codeCountry;
     localStorage.crm = medico.crm;
     localStorage.cpf = medico.cpf;
     localStorage.address1 = medico.address1;
@@ -178,19 +206,20 @@ function salvarPerfil() {
         "email": $("#email").val(),
         "cpf": $("#cpf").cleanVal(),
         "birth_day": $("#nascimento").val(),
-        "phone_number": $("#telefone").cleanVal(),
+        "codeCountry": iti.getSelectedCountryData().iso2,
+        "phone_number": iti.getSelectedCountryData().dialCode + $("#telefone").cleanVal(),
         "crm": $("#crm").val(),
         "address1": $("#address1").val(),
         "address2": $("#address2").val(),
-        "tel1": $("#tel1").cleanVal(),
-        "tel2": $("#tel2").cleanVal(),
+        "tel1": (!isEmpty($("#tel1").cleanVal()) ? iti1.getSelectedCountryData().dialCode + $("#tel1").cleanVal() : ""),
+        "tel2": (!isEmpty($("#tel2").cleanVal()) ? iti2.getSelectedCountryData().dialCode + $("#tel2").cleanVal() : ""),
         "photo_64": $("#foto").val()
     };
 
     if(validateMedico(medico)) {
         medico.id = localStorage.id;
-        medico.address1 += " - " + medico.tel1;
-        medico.address2 += " - " + medico.tel2;
+        medico.address1 += " ## " + iti1.getSelectedCountryData().iso2 + " ## " + medico.tel1;
+        medico.address2 += " ## " + iti2.getSelectedCountryData().iso2 + " ## " + medico.tel2;
         medico.birth_day = medico.birth_day.replace('/', '-').replace('/', '-');
         delete medico.tel1;
         delete medico.tel2;
@@ -215,6 +244,9 @@ function salvarPerfil() {
     }
 }
 
+var iti = null;
+var iti1 = null;
+var iti2 = null;
 $(function () {
 
     //carrega dados de usuário para mostrar na página
