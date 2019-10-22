@@ -652,6 +652,7 @@ window.ChartMaker = function () {
             $this.labels = [];
             $this.backgroundColor = [];
             $this.data = chartGetDataMaker($this);
+            console.log($this.data);
 
             if($this.fieldDate && !$this.minX)
                 $this.minX = chartFilter.dateStart;
@@ -987,21 +988,39 @@ function graficos(ind) {
             $.each(chartFilter.indicadores, function (ii, indicador) {
                 if (!isEmpty(paciente) && (typeof ind === "undefined" || ind === indicador)) {
                     dbLocal.exeRead(indicador).then(g => {
-                        if (g) {
+                        post("site-pstmc", "read-" + indicador, {
+                            paciente: paciente
+                        }, function (t) {
+                            if (t) {
+                                $.each(t, function (i, e) {
+                                    if(indicador === "sono") {
+                                        if(isEmpty(e.duration) && !isEmpty(e.start_time) && !isEmpty(e.end_time)) {
+                                            let ss = e.start_time.split(":");
+                                            let ee = e.end_time.split(":");
+                                            let dayStart = moment(e.date + " " + e.start_time);
+                                            let dayEnd = (parseInt(ss[0]) < parseInt(ee[0]) ? dayStart : moment(moment(e.date).add(1, 'day').format("YYYY-MM-DD") + " " + e.end_time));
+                                            let duration = moment.duration(dayEnd.diff(dayStart));
+                                            e.duration = duration.asHours();
+                                        }
+                                    }
+                                    dbLocal.exeCreate(indicador, e);
+                                });
+                                if(isEmpty(g)) {
+                                    let $graficos = $("<div class='col relative' id='graficos-" + indicador + "'></div>").appendTo("#graficos");
+                                    $graficos.append(graficoHeader(indicador));
+                                    let $grafico = $("<div class='col relative' id='grafico-" + indicador + "'></div>").appendTo($graficos);
+                                    $graficos.append("<div class='col padding-8'></div></div>");
+                                    $grafico.html(grafico(indicador, t));
+                                }
+                            }
+                        });
+
+                        if (!isEmpty(g)) {
                             let $graficos = $("<div class='col relative' id='graficos-" + indicador + "'></div>").appendTo("#graficos");
                             $graficos.append(graficoHeader(indicador));
                             let $grafico = $("<div class='col relative' id='grafico-" + indicador + "'></div>").appendTo($graficos);
                             $graficos.append("<div class='col padding-8'></div></div>");
                             $grafico.html(grafico(indicador, g));
-                        }
-                    });
-                    post("site-pstmc", "read-" + indicador, {
-                        paciente: paciente
-                    }, function (g) {
-                        if (g) {
-                            $.each(g, function (i, e) {
-                                dbLocal.exeCreate(indicador, e);
-                            });
                         }
                     });
                 }
@@ -1138,7 +1157,7 @@ $(function () {
         let indicador = $(this).attr("rel");
         let mod = parseInt($(this).attr("data-mod"));
         dbLocal.exeRead(indicador).then(g => {
-            $("#grafico-" + indicador).html(grafico(indicador, privateChartGetDataFilter(g, indicador, mod), mod));
+            $("#grafico-" + indicador).html(grafico(indicador, g, mod));
         });
     });
 

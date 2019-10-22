@@ -3,9 +3,10 @@
         <div class="row margin-bottom">
             <div class="col s12 l5 padding-right">
                 <div id="barra-right"></div>
-                <img src="public/assets/img/bemvindo.png" width="300" style="width:300px;" class="left" />
+                <img src="public/assets/img/bemvindo.png" width="300" style="width:300px;" class="left"/>
                 <div class="col padding-xlarge padding-8">
-                    <h2 class="font-bold color-text-theme padding-right col padding-tiny padding-top">Olá, Dr. <?= $_SESSION['userlogin']['nome'] ?>!</h2>
+                    <h2 class="font-bold color-text-theme padding-right col padding-tiny padding-top">Olá,
+                        Dr. <?= $_SESSION['userlogin']['nome'] ?>!</h2>
                     <span class="padding-tiny col padding-right">Selecione um paciente na aba <b>Pacientes Recentes</b> ou clique sobre o <b>Pacientes</b> no menu superior para iniciar uma visualização.</span>
                 </div>
             </div>
@@ -35,7 +36,6 @@
         </div>
     </div>
 </div>
-
 
 <div class="hide" id="add-paciente">
     <div id="add-paciente-opaco" class="easefadein"></div>
@@ -77,7 +77,6 @@
         </div>
         <div class="row clear"><br><br><br><br></div>
     </div>
-
 </div>
 <div class="hide col" id="convite-paciente" style="margin-top: -650px">
     <div id="add-paciente-opaco"></div>
