@@ -112,7 +112,7 @@ function setDataperfil() {
     //inicia a bandeira em telefone do médico
     iti = intlTelInput(document.querySelector("#telefone"), {
         dropdownContainer: document.body,
-        initialCountry: localStorage.codeCountry || "br",
+        initialCountry: (localStorage.codeCountry && localStorage.codeCountry !== "null" && !isEmpty(localStorage.codeCountry) ? localStorage.codeCountry : "br"),
         utilsScript: HOME + VENDOR + "site-pstmc/public/assets/utils.js"
     });
 
