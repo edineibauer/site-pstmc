@@ -652,7 +652,6 @@ window.ChartMaker = function () {
             $this.labels = [];
             $this.backgroundColor = [];
             $this.data = chartGetDataMaker($this);
-            console.log($this.data);
 
             if($this.fieldDate && !$this.minX)
                 $this.minX = chartFilter.dateStart;
