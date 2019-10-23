@@ -145,8 +145,7 @@
                 </div>
 
                 <label class="col">
-                    <input id="telefone" placeholder="Telefone" type="tel"
-                           class="input-field color-white tel opacity">
+                    <input id="telefone" placeholder="Telefone" type="tel" class="input-field color-white tel opacity">
                     <div class="col info-container" style="margin-top: -19px;font-size: 12px;" rel="telefone">
                         <span class="rest input-message" rel="telefone"></span>
                     </div>

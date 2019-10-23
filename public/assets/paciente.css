@@ -1,6 +1,7 @@
 .grafico-header {
     text-transform: capitalize;
-    color: #C03A4C
+    color: #C03A4C;
+    margin-right: 20px;
 }
 
 .grafico-header-sono {
@@ -13,15 +14,16 @@
 }
 
 .graficoArrowBack {
-    left: -60px;
+    left: -40px;
 }
 
 .graficoArrowforward {
-    right: -60px;
+    right: -40px;
 }
 
 .paciente-box {
     box-shadow: 3px 3px 9px 0 #0000006b;
+    max-width: 470px;
 }
 
 .indicador {

@@ -14,8 +14,8 @@ function avancar() {
         "telpais": iti.getSelectedCountryData().dialCode,
         "telsigla": iti.getSelectedCountryData().iso2,
         "phone_number": iti.getSelectedCountryData().dialCode + $("#telefone").cleanVal(),
-        "crm": $("#crm").val(),
-    }
+        "crm": $("#crm").val()
+    };
 
     if (validateMedico(medico)) {
         medico.birth_day = medico.birth_day.replace('/', '-').replace('/', '-');

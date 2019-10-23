@@ -112,7 +112,7 @@ function setDataperfil() {
     //inicia a bandeira em telefone do médico
     iti = intlTelInput(document.querySelector("#telefone"), {
         dropdownContainer: document.body,
-        initialCountry: (localStorage.codeCountry && localStorage.codeCountry !== "null" && !isEmpty(localStorage.codeCountry) ? localStorage.codeCountry : "br"),
+        initialCountry: (localStorage.codeCountry && localStorage.codeCountry !== "null" && localStorage.codeCountry !== "0" && !isEmpty(localStorage.codeCountry) ? localStorage.codeCountry : "br"),
         utilsScript: HOME + VENDOR + "site-pstmc/public/assets/utils.js"
     });
 
@@ -152,6 +152,13 @@ function setDataperfil() {
             $("#tel1").val(tel.substr(iti1.getSelectedCountryData().dialCode.length));
         }
         $("#address1").val(a[0].trim());
+    } else {
+        //inicia a bandeira em telefone 1 de endereço
+        iti1 = intlTelInput(document.querySelector("#tel1"), {
+            dropdownContainer: document.body,
+            initialCountry: "br",
+            utilsScript: HOME + VENDOR + "site-pstmc/public/assets/utils.js"
+        });
     }
 
     if(localStorage.address2 && localStorage.address2 !== "null" && !isEmpty(localStorage.address2)){
@@ -169,6 +176,13 @@ function setDataperfil() {
             $("#tel2").val(tel.substr(iti2.getSelectedCountryData().dialCode.length));
         }
         $("#address2").val(a[0].trim());
+    } else {
+        //inicia a bandeira em telefone 2 de endereço
+        iti2 = intlTelInput(document.querySelector("#tel2"), {
+            dropdownContainer: document.body,
+            initialCountry: "br",
+            utilsScript: HOME + VENDOR + "site-pstmc/public/assets/utils.js"
+        });
     }
 
     if(localStorage.photo_64 !== "")

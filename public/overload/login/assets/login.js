@@ -69,7 +69,7 @@ $(function () {
     }, 300);
 
     $("#login-card, #login-title").css("min-height", window.innerHeight + "px");
-    $("#saibamais-content").css("margin-bottom", window.innerHeight + "px");
+    /*$("#saibamais-content").css("margin-bottom", window.innerHeight + "px");
 
     $(window).scroll(function () {
         if($("#core-content").hasClass("r-login")) {
@@ -89,5 +89,5 @@ $(function () {
                 $("#saibamais-content").css("margin-top", 0);
             }
         }
-    });
+    });*/
 });

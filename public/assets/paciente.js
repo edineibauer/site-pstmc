@@ -38,8 +38,6 @@ Chart.controllers.pie = Chart.controllers.pie.extend({
     }
 });
 
-Chart.elements.Rectangle.prototype.draw=function(){function t(t){return s[(f+t)%4]}var r,e,i,o,_,h,l,a,b=this._chart.ctx,d=this._view,n=d.borderWidth,u=this._chart.config.options.cornerRadius;if(u<0&&(u=0),void 0===u&&(u=0),d.horizontal?(r=d.base,e=d.x,i=d.y-d.height/2,o=d.y+d.height/2,_=e>r?1:-1,h=1,l=d.borderSkipped||"left"):(r=d.x-d.width/2,e=d.x+d.width/2,i=d.y,_=1,h=(o=d.base)>i?1:-1,l=d.borderSkipped||"bottom"),n){var T=Math.min(Math.abs(r-e),Math.abs(i-o)),v=(n=n>T?T:n)/2,g=r+("left"!==l?v*_:0),c=e+("right"!==l?-v*_:0),C=i+("top"!==l?v*h:0),w=o+("bottom"!==l?-v*h:0);g!==c&&(i=C,o=w),C!==w&&(r=g,e=c)}b.beginPath(),b.fillStyle=d.backgroundColor,b.strokeStyle=d.borderColor,b.lineWidth=n;var s=[[r,o],[r,i],[e,i],[e,o]],f=["bottom","left","top","right"].indexOf(l,0);-1===f&&(f=0);var q=t(0);b.moveTo(q[0],q[1]);for(var m=1;m<4;m++)q=t(m),nextCornerId=m+1,4==nextCornerId&&(nextCornerId=0),nextCorner=t(nextCornerId),width=s[2][0]-s[1][0],height=s[0][1]-s[1][1],x=s[1][0],y=s[1][1],(a=u)>Math.abs(height)/2&&(a=Math.floor(Math.abs(height)/2)),a>Math.abs(width)/2&&(a=Math.floor(Math.abs(width)/2)),height<0?(x_tl=x,x_tr=x+width,y_tl=y+height,y_tr=y+height,x_bl=x,x_br=x+width,y_bl=y,y_br=y,b.moveTo(x_bl+a,y_bl),b.lineTo(x_br-a,y_br),b.quadraticCurveTo(x_br,y_br,x_br,y_br-a),b.lineTo(x_tr,y_tr+a),b.quadraticCurveTo(x_tr,y_tr,x_tr-a,y_tr),b.lineTo(x_tl+a,y_tl),b.quadraticCurveTo(x_tl,y_tl,x_tl,y_tl+a),b.lineTo(x_bl,y_bl-a),b.quadraticCurveTo(x_bl,y_bl,x_bl+a,y_bl)):width<0?(x_tl=x+width,x_tr=x,y_tl=y,y_tr=y,x_bl=x+width,x_br=x,y_bl=y+height,y_br=y+height,b.moveTo(x_bl+a,y_bl),b.lineTo(x_br-a,y_br),b.quadraticCurveTo(x_br,y_br,x_br,y_br-a),b.lineTo(x_tr,y_tr+a),b.quadraticCurveTo(x_tr,y_tr,x_tr-a,y_tr),b.lineTo(x_tl+a,y_tl),b.quadraticCurveTo(x_tl,y_tl,x_tl,y_tl+a),b.lineTo(x_bl,y_bl-a),b.quadraticCurveTo(x_bl,y_bl,x_bl+a,y_bl)):(b.moveTo(x+a,y),b.lineTo(x+width-a,y),b.quadraticCurveTo(x+width,y,x+width,y+a),b.lineTo(x+width,y+height-a),b.quadraticCurveTo(x+width,y+height,x+width-a,y+height),b.lineTo(x+a,y+height),b.quadraticCurveTo(x,y+height,x,y+height-a),b.lineTo(x,y+a),b.quadraticCurveTo(x,y,x+a,y));b.fill(),n&&b.stroke()};
-
 function getXvalue(fieldX) {
     let dateCheck = new RegExp("^\\d{4}-\\d{2}-\\d{2}(\\s\\d{2}:\\d{2}:\\d{2})*$", "i");
     let x = fieldX;
@@ -63,6 +61,7 @@ function getXvalue(fieldX) {
 }
 
 function roundStep(number, increment) {
+    increment = increment || 1;
     return Math.round((number - increment) / increment ) * increment + increment;
 }
 
@@ -142,8 +141,6 @@ function privateChartGetDataMakerXY(chart) {
         }
     }
 
-    console.log(dadosTabela);
-
     return dadosTabela;
 }
 
@@ -175,10 +172,11 @@ function privateChartGetDataMakerY(chart) {
     let dadosTabela = [];
     let dd = [];
     $.each(chart.data, function (i, e) {
-        if (typeof dd[e[chart.fieldY]] === "undefined")
-            dd[e[chart.fieldY]] = 0;
+        let y = chart.functionValueY(chart.roundValueStepY ? roundStep(e[chart.fieldY], chart.stepY) : e[chart.fieldY]);
+        if (typeof dd[y] === "undefined")
+            dd[y] = 0;
 
-        dd[e[chart.fieldY]]++;
+        dd[y]++;
     });
 
     for(let x in dd) {
@@ -711,7 +709,6 @@ window.ChartMaker = function () {
 
                 options.responsive = true;
                 options.aspectRatio = 3;
-                // options.cornerRadius = 2;
                 options.scales = {
                     yAxes: [{
                         gridLines: {
@@ -726,7 +723,6 @@ window.ChartMaker = function () {
                             max: $this.maxY || undefined,
                             min: $this.minY || undefined,
                             beginAtZero: $this.minY == 0,
-                            maxTicksLimit: $this.maxY || undefined,
                             stepSize: $this.stepY || undefined,
                             callback: $this.functionLabelY,
                             display: typeof $this.hideLabelY === "undefined"
@@ -747,7 +743,6 @@ window.ChartMaker = function () {
                             max: $this.maxX || undefined,
                             min: $this.minX || undefined,
                             beginAtZero: $this.minX == 0,
-                            maxTicksLimit: $this.maxX || undefined,
                             source: 'data',
                             autoSkip: !1,
                             stepSize: $this.stepX || undefined,
@@ -794,12 +789,6 @@ window.ChartMaker = function () {
 };
 
 var modChart = {};
-function humorGrafico(mod) {
-    dbLocal.exeRead("humor").then(g => {
-        $("#grafico-humor").html(grafico('humor', g, mod));
-    });
-}
-
 function graficoSono(registros) {
 
     let $content = $("<div></div>");
@@ -816,32 +805,26 @@ function graficoSono(registros) {
         grafico.setFunctionColor(function (color) {
             if (color < 0)
                 return "#BF0811";
-            else if (color > 0)
-                return '#2D92CB';
 
-            return '#606060';
+            return '#2D92CB';
         });
 
         grafico.setFunctionLabelY(function (title) {
             if (title < 0)
                 return "Ruim";
-            else if (title > 0)
-                return 'Bom';
 
-            return 'Normal';
+            return 'Bom';
         });
 
         grafico.setFunctionTooltips(function (x, y) {
             if (y < 0)
                 return "Ruim";
-            else if (y > 0)
-                return 'Bom';
 
-            return 'Normal';
+            return 'Bom';
         })
 
         grafico.setFunctionValueY(function (y) {
-            return y - 5;
+            return y === 10 ? 5 : -5;
         });
 
         grafico.setMaxY(5);
@@ -887,41 +870,42 @@ function graficoHumor(registros) {
     grafico.setFieldDate("date");
     grafico.setFieldY("mood_type");
     grafico.setMinY(0);
-    grafico.setMaxY(12.5);
-    grafico.setStepY(2.5);
+    grafico.setMaxY(5);
+    grafico.setStepY(1);
+    grafico.setRoundValueStepY();
     grafico.setHideLineX();
     grafico.setHideLabelY();
     grafico.setOperacaoMedia();
     grafico.setTitle("Humor");
     grafico.setFunctionTooltips(function (x, y) {
         y = typeof y === "undefined" && typeof x !== "undefined" ? x : y;
-        if (y < 2)
+        if (y < 1)
             return "triste";
-        else if (y < 5)
+        else if (y < 2)
             return 'chateado';
-        else if (y < 7)
+        else if (y < 3)
             return 'normal';
-        else if (y < 9)
+        else if (y < 4)
             return 'contente';
 
         return 'feliz';
     });
 
     grafico.setFunctionColor(function (color) {
-        if (color < 2)
+        if (color < 1)
             return "#6849B7";
-        else if (color < 5)
+        else if (color < 2)
             return '#FF5159';
-        else if (color < 7)
+        else if (color < 3)
             return '#606060';
-        else if (color < 9)
+        else if (color < 4)
             return '#7EC8BD';
 
         return '#2D92CB';
     });
 
     grafico.setFunctionValueY(function (y) {
-        return y + 1.23;
+        return y - .5;
     })
 
     if (modChart['humor'] === 1) {
@@ -988,6 +972,12 @@ function graficos(ind) {
 
             $.each(chartFilter.indicadores, function (ii, indicador) {
                 if (!isEmpty(paciente) && (typeof ind === "undefined" || ind === indicador)) {
+                    let $graficos = $("<div class='col relative' id='graficos-" + indicador + "'></div>").appendTo("#graficos");
+                    $graficos.prepend(graficoHeader(indicador));
+                    let minHeight = (window.innerWidth > 1300 ? 243 : (window.innerWidth > 1100 ? 217 : 200));
+                    let $grafico = $("<div class='col relative' style='min-height: " + minHeight + "px' id='grafico-" + indicador + "'></div>").appendTo($graficos);
+                    $graficos.append("<div class='col padding-8'></div></div>");
+
                     dbLocal.exeRead(indicador).then(g => {
                         post("site-pstmc", "read-" + indicador, {
                             paciente: paciente
@@ -1006,23 +996,13 @@ function graficos(ind) {
                                     }
                                     dbLocal.exeCreate(indicador, e);
                                 });
-                                if(isEmpty(g)) {
-                                    let $graficos = $("<div class='col relative' id='graficos-" + indicador + "'></div>").appendTo("#graficos");
-                                    $graficos.append(graficoHeader(indicador));
-                                    let $grafico = $("<div class='col relative' id='grafico-" + indicador + "'></div>").appendTo($graficos);
-                                    $graficos.append("<div class='col padding-8'></div></div>");
+                                if(isEmpty(g))
                                     $grafico.html(grafico(indicador, t));
-                                }
                             }
                         });
 
-                        if (!isEmpty(g)) {
-                            let $graficos = $("<div class='col relative' id='graficos-" + indicador + "'></div>").appendTo("#graficos");
-                            $graficos.append(graficoHeader(indicador));
-                            let $grafico = $("<div class='col relative' id='grafico-" + indicador + "'></div>").appendTo($graficos);
-                            $graficos.append("<div class='col padding-8'></div></div>");
+                        if (!isEmpty(g))
                             $grafico.html(grafico(indicador, g));
-                        }
                     });
                 }
             });
@@ -1157,8 +1137,13 @@ $(function () {
     $("#app").off("click", ".graficoArrow").on("click", ".graficoArrow", function () {
         let indicador = $(this).attr("rel");
         let mod = parseInt($(this).attr("data-mod"));
+        let $g = $("#grafico-" + indicador);
+        $g.css({"height": $g[0].clientHeight + "px"});
         dbLocal.exeRead(indicador).then(g => {
-            $("#grafico-" + indicador).html(grafico(indicador, g, mod));
+            $g.html(grafico(indicador, g, mod));
+            setTimeout(function () {
+                $g.css({"height": "auto"});
+            },200);
         });
     });
 

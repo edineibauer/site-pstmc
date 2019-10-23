@@ -92,14 +92,14 @@ var error = !1;
 function validateMedico(medico) {
     error = !1;
 
-    if (medico.name.length < 3)
-        showError("Nome muito curto", "nome");
+    /*if (medico.name.length < 3)
+        showError("Nome muito curto", "nome");*/
 
     /*if (medico.phone_number.length < 10)
         showError("Telefone inválido", "telefone");*/
 
-    if (typeof medico.name !== "string" || medico.name === "")
-        showError("Preencha este campo", "nome");
+    /*if (typeof medico.name !== "string" || medico.name === "")
+        showError("Preencha este campo", "nome");*/
 
     if (typeof medico.phone_number !== "string" || medico.phone_number === "")
         showError("Preencha este campo", "telefone");
@@ -203,8 +203,8 @@ $(function () {
                     });
                 } else {
                     let d = new Date();
-                    let img = d.getHours() > 6 && d.getHours() < 19 ? "dia" : "noite";
-                    $("#timeline").append(Mustache.render(tpl.pacientesUpdatesEmpty, {HOME: HOME, VENDOR:VENDOR, img: img}));
+                    // let img = d.getHours() > 6 && d.getHours() < 19 ? "dia" : "noite";
+                    $("#timeline").append(Mustache.render(tpl.pacientesUpdatesEmpty, {HOME: HOME, VENDOR:VENDOR, img: "nothing"}));
                 }
             });
         })

@@ -22,11 +22,19 @@ img{
     background: #ffffff;
 }
 
+#core-header-container nav {
+    cursor: default!important;
+}
+
+.container-1200 {
+    max-width: 1400px!important;
+}
+
 #core-header {
     z-index: 2;
     width: 100%;
-    padding: 0 8px 95px;
-    height: 110px;
+    height: 80px;
+    padding: 0;
     -webkit-touch-callout: none;
     -webkit-user-select: none;
     -moz-user-select: none;
@@ -50,7 +58,7 @@ img{
 }
 
 #core-header-container, #dashboard {
-    max-width: 1200px !important;
+    max-width: 1400px !important;
     margin: auto !important;
     float: initial !important;
 }
@@ -63,7 +71,7 @@ img{
 #core-overlay-close {
     position: relative;
     width: 100%;
-    max-width: 1200px;
+    max-width: 1400px;
     margin: 5% auto 0;
 }
 
@@ -101,7 +109,7 @@ img{
     padding: 40px;
     background: rgba(0, 0, 0, .85);
     width: 100%;
-    max-width: 1200px;
+    max-width: 1400px;
     overflow: hidden;
     z-index: 10001;
     color: white;

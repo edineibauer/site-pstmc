@@ -28,18 +28,19 @@
   },
   {
     "li": {
-      "class": "menu-ep"
+      "attr": "data-animation='forward' rel='ajustes'",
+      "class": "s-hide menu-ep"
     },
-    "class": "menu-ep color-text-theme",
-    "funcao": "logout",
-    "html": "<i class='material-icons left'>exit_to_app</i> <div style='padding:4px'>Sair</div>"
+    "class": "menu-ep",
+    "href": "ajustes",
+    "html": "<i class='material-icons left'>settings_applications</i> Ajustes"
   },
   {
     "li": {
       "class": "nomeHeader no-menu-li"
     },
     "class": "no-menu-li",
-    "html": "<div class='core-class-container' style='font-weight: bold'><div class='perfil-name' style='float: right'></div><div style='float: right;padding-right: 5px'>Dr. </div></div><div class='core-class-container'><div style='float:right;font-weight:bold;font-size: 11px'><div style='padding-right: 5px'>CRM </div><div class='perfil-crm'></div></div><div style='float:right;width: 100%;' class='perfil-address1'></div></div>"
+    "html": "<div class='core-class-container' style='font-weight: bold'><div class='perfil-name' style='float: right'></div><div style='float: right;padding-right: 5px'>Dr. </div></div><div class='core-class-container'><div style='float:right;font-weight:bold;font-size: 11px'><div style='padding-right: 5px'>CRM </div><div class='perfil-crm'></div></div><div style='float:right;width: 100%'><div style='float:right;color:#5e3a8e;cursor:pointer;font-size:13px;font-weight:600' onclick='logout()'>Fazer Logout</div></div></div>"
   },
   {
     "li": {
