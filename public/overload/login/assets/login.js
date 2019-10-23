@@ -14,7 +14,7 @@ function login() {
 
         $("#login-card").loading();
         loginFree = !1;
-        toast("Validando dados!", 35000);
+        toast("Validando dados...", 35000);
         post('site-pstmc', 'login', {email:  $("#emaillog").val(), password: $("#passlog").val()}, function (g) {
             loginFree = !0;
 
