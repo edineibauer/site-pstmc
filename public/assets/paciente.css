@@ -1,11 +1,11 @@
 .grafico-header {
     text-transform: capitalize;
-    color: #C03A4C;
+    color: #1C9CCA;
     margin-right: 20px;
 }
 
-.grafico-header-sono {
-    color: #1C9CCA;
+.grafico-header-humor {
+    color: #C03A4C;
 }
 
 .graficoArrow {
