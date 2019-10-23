@@ -171,6 +171,10 @@ function privateChartGetDataMakerXYMult(chart) {
 function privateChartGetDataMakerY(chart) {
     let dadosTabela = [];
     let dd = [];
+
+    /**
+     * Coleta dos dados
+     */
     $.each(chart.data, function (i, e) {
         let y = chart.functionValueY(chart.roundValueStepY ? roundStep(e[chart.fieldY], chart.stepY) : e[chart.fieldY]);
         if (typeof dd[y] === "undefined")
@@ -179,11 +183,25 @@ function privateChartGetDataMakerY(chart) {
         dd[y]++;
     });
 
+    /**
+     * Ordenação dos dados
+     */
+    let ddd = [];
     for (let x in dd) {
         if (x !== "pushTo" && x !== "removeItem") {
-            chart.labels.push(x);
-            chart.backgroundColor.push(chart.functionColor(x));
-            dadosTabela.push(dd[x]);
+            ddd.push({x: x, y: dd[x]});
+        }
+    }
+    ddd = chartDataOrder(ddd, "x").reverse();
+
+    /**
+     * Exportação dos dados
+     */
+    for (let x in ddd) {
+        if (x !== "pushTo" && x !== "removeItem") {
+            chart.labels.push(ddd[x].x);
+            chart.backgroundColor.push(chart.functionColor(ddd[x].x));
+            dadosTabela.push(ddd[x].y);
         }
     }
 
@@ -540,17 +558,19 @@ function privateChartGenerateOptions($this) {
             return ' ' + percentage + '% (' + currentValue + ')';
         };
 
+        console.log(Object.assign({}, $this.labels));
         for (let i in $this.labels) {
-            if(i !== "pushTo" && i !== "removeItem")
+            if (i !== "pushTo" && i !== "removeItem")
                 $this.labels[i] = $this.functionLabelY($this.labels[i]);
         }
+        console.log(Object.assign({}, $this.labels));
 
         options.legend = {position: "left", reverse: !0};
     } else {
 
         if (chartFilter.interval === "day") {
             for (let i in $this.labels) {
-                if(i !== "pushTo" && i !== "removeItem")
+                if (i !== "pushTo" && i !== "removeItem")
                     $this.labels[i] = (parseInt(i) + 1) + "º";
             }
         }
