@@ -1,6 +1,13 @@
-<div class="col padding-small padding-bottom font-bold color-text-gray-dark">Intensidade das Crises</div>
-<div class="col border padding-small">
+<div class="col padding-8"></div>
+<div class="col margin-top padding-small padding-bottom font-bold color-text-gray-dark">Intensidade das Crises</div>
+<div class="col grafico-crises-intensidade margin-bottom" style="border:solid 1px #eeeeee;padding: 5px 28px 5px 96px;">
     {{#x}}
-        <img src="{{home}}{{vendor}}site-pstmc/public/assets/img/graficos/{{img}}.png" class="left margin-left margin-right" title="{{title}}" style="width: 30px;margin-bottom: 0" width="30" />
+        {{#img}}
+            <img src="{{home}}{{vendor}}site-pstmc/public/assets/img/graficos/{{img}}.png" class="left" title="{{title}}" style="width: 30px;margin-bottom: 0;{{{style}}}" width="30" />
+        {{/img}}
+    {{/x}}
+    {{^x}}
+        <div class='col'><h3 class='padding-4 align-center font-bold font-xlarge color-text-gray'>Nenhum registro</h3></div>
     {{/x}}
 </div>
+<div class="col padding-8"></div>

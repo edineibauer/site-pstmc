@@ -119,7 +119,6 @@ $id = (int)$link->getVariaveis()[0];
                     </div>
                     <span class="color-text-gray font-large font-light">para começar, escolha ao menos um Indicador do lado esquerdo.</span>
                     <div class="col padding-64"></div>
-                    <span class="padding-tiny col padding-left" style="margin-top: -7px">Os gráficos serão inseridos na terceira parte</span>
                     <img src="<?= HOME . VENDOR ?>/site-pstmc/public/assets/img/grafico.png" class="col" alt="gráfico"/>
                 </div>
             </div>
