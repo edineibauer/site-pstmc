@@ -1,0 +1,29 @@
+<div class="col">
+    <div class="row">
+        <div class="col align-center color-text-theme font-bold opacity" style="width: 13%; margin: 5px .63%">Dom</div>
+        <div class="col align-center color-text-theme font-bold opacity" style="width: 13%; margin: 5px .63%">Seg</div>
+        <div class="col align-center color-text-theme font-bold opacity" style="width: 13%; margin: 5px .63%">Ter</div>
+        <div class="col align-center color-text-theme font-bold opacity" style="width: 13%; margin: 5px .63%">Qua</div>
+        <div class="col align-center color-text-theme font-bold opacity" style="width: 13%; margin: 5px .63%">Qui</div>
+        <div class="col align-center color-text-theme font-bold opacity" style="width: 13%; margin: 5px .63%">Sex</div>
+        <div class="col align-center color-text-theme font-bold opacity" style="width: 13%; margin: 5px .63%">Sab</div>
+    </div>
+
+    {{#x}}
+        <div class="col align-center" style="width: 13%; margin: 5px .63%">
+            <div title="{{title}}" style="
+                width: 24px;
+                height: 24px;
+                border-radius: 50px;
+                padding: 1px;
+                margin: auto;
+                {{style}}
+            ">
+                {{dia}}
+            </div>
+        </div>
+    {{/x}}
+
+    <div class="col padding-12"></div>
+    <div class="col align-center padding-tiny">{{label}}</div>
+</div>
