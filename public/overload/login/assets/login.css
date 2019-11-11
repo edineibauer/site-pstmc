@@ -1,3 +1,7 @@
+html {
+    overflow-y: hidden!important;
+}
+
 #background-login {
     background-image: url("public/assets/img/background-login.jpg");
     background-position: center;
@@ -13,6 +17,160 @@
     top: 0;
     left: 0;
     z-index: 0;
+}
+
+#parent {
+    /* O elemento precisa ter uma altura definida para o efeito
+    funcionar.
+       100vh significa 100% da altura da view.
+    */
+    height: 100vh;
+
+    /* O tamanho das imagens irá criar uma barra de rolagem
+    horizontal. Iremos desativar isso */
+    overflow-x: hidden;
+
+    /* A propriedade perspective indica a "distância" entre o
+    usuário e o plano Z.
+    Quanto maior o valor, mais perto o elemento estará do usuário.
+    Se for um valor negativo,
+    mais distante esse elemento estará.
+    */
+    perspective: 2px;
+
+    /* O transform-style indica se os elementos filhos devem ser
+    transformados em um plano 2D ou 3D.
+    O valor preserve-3d indica que os elementos devem seguir o
+    espaço 3D indicado.
+    */
+    transform-style: preserve-3d;
+}
+
+.blocks {
+    /* Indicamos "relative" para depois podermos
+  posicionar os elementos filhos com "absolute" */
+    position: relative;
+    height: 700px;
+
+    /* Indicamos uma altura para a nossa seção. O valor não
+    importa muito.
+    Para garantir um bom efeito, coloquei também uma altura
+    mínima de 700px;
+    */
+    min-height: 700px;
+
+    /* Para manter a transformação em espaço 3D, indicamos o mesmo
+    valor do elemento pai (preserve-3d).
+    Para não precisar repetir o valor "preserve-3d", você pode usar
+    o valor "inherit", que fará
+    com que ele pegue o valor do elemento pai.
+    */
+    transform-style: inherit;
+}
+
+.blocks:nth-child(even) > .container-1200 > .col:nth-child(1), .blocks:nth-child(odd) > .container-1200 > .col:nth-child(2) {
+    position: static;
+    opacity: .1;
+    z-index: 0;
+}
+
+#core-content {
+    margin-bottom: 0!important;
+}
+
+.parallax-depth {
+    transform: translateZ(-.75px) scale(1.375)!important;
+}
+
+.blocks img {
+    position: absolute;
+    transition: width ease-in-out 3s, top ease-in-out 2.5s, right ease-in-out 2s, left ease-in-out 2s;
+    transform: translateZ(-.5px) scale(1.25);
+}
+
+.container-1200 {
+    max-width: 1200px!important;
+}
+
+.text1, .text2, .text3, .text4, .text5 {
+    max-width: 600px;
+    margin: auto;
+    float: initial;
+    padding-top: 100px!important;
+    padding-bottom: 210px!important;
+}
+
+.text3 {
+    padding-top: 350px!important;
+}
+
+.notebook1 {
+    right: 100px;
+    top: 165px;
+    width: 634px;
+}
+
+.notebook21 {
+    left: -90px;
+    top: 202px;
+    width: 510px;
+    z-index: 5;
+}
+
+.notebook22 {
+    left: 341px;
+    top: 230px;
+    width: 200px;
+    z-index: 4;
+}
+
+.notebook21.active {
+    left: 130px;
+    top: 357px;
+    width: 272px;
+}
+
+.notebook22.active {
+    left: 230px;
+    top: 170px;
+    width: 352px;
+}
+
+#block2 {
+    transform: translateY(-200px);
+}
+
+.title-block1, .title-block2, .title-block3, .title-block4, .title-block5 {
+    opacity: 0;
+}
+
+.notebook3 {
+    right: -40%;
+    width: 1000px;
+    top: 160px;
+}
+
+#block3 {
+    overflow: hidden;
+    box-shadow: 0 8px 5px 0 rgba(51, 51, 51, 0.24);
+    position: relative;
+    margin-top: -200px;
+}
+
+#block4 {
+    margin-top: -300px;
+}
+
+.notebook4 {
+    right: 0;
+    top: 92px;
+    width: 800px;
+}
+
+.notebook5 {
+    left: -110px;
+    top: 90px;
+    width: 662px;
 }
 
 html {
@@ -45,7 +203,7 @@ html {
 }
 
 .loginbtn {
-    float: initial !important;
+    float: initial;
     margin: auto !important;
     display: block !important;
     padding: 15px 70px !important;
@@ -150,6 +308,12 @@ html {
     box-shadow: 4px 4px 5px -1px #0000007d;
 }
 
+.titleLogin-bottom {
+    width: 235px;
+    margin: auto;
+    float: initial;
+}
+
 /*on mobile*/
 @media (max-width: 993px) {
     .body-login {
@@ -194,5 +358,30 @@ html {
         margin-top: -12px;
         position: relative;
         top: initial;
+    }
+
+    .loginbtn-bottom {
+        float: right;
+    }
+
+    .titleLogin-bottom {
+        margin: initial;
+        float: left;
+    }
+}
+
+@media (min-width: 1160px) {
+    .blocks:nth-child(even) > .container-1200 > .col:nth-child(1), .blocks:nth-child(odd) > .container-1200 > .col:nth-child(2) {
+        position: relative;
+        opacity: 1;
+    }
+
+    .text1, .text2, .text3, .text4, .text5 {
+        float: left;
+        padding-top: 230px !important;
+    }
+
+    .text1, .text4, .text3 {
+        transform: translateX(100px);
     }
 }
