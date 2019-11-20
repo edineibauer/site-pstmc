@@ -1,4 +1,6 @@
 {
     "title": "Pacientes | {$sitename}",
-    "css": ["w3"]
+    "css": ["w3"],
+    "!setor": "0",
+    "navbar": false
 }

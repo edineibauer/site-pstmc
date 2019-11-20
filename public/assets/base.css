@@ -188,9 +188,30 @@ li.menu-ep {
     background: #5e3a8e !important;
 }
 
+#core-sidebar {
+    top: 0!important;
+}
+
+#core-sidebar-perfil {
+    height: 0!important;
+}
+
+.menu-sidebar-li {
+    float: left;
+    width: 100%;
+    padding: 15px;
+    cursor: pointer;
+    opacity: .8;
+    font-size: 1.2em;
+}
+
+.menu-sidebar-li:hover {
+    opacity: 1;
+}
+
 li.nomeHeader {
     cursor: default!important;
-    width: 250px !important;
+    width: 165px !important;
     text-transform: none !important;
     text-align: right !important;
     padding: 10px 0!important;
@@ -264,4 +285,20 @@ li.nomeHeader {
     -ms-transition: all 0.3s ease-in-out;
     -o-transition: all 0.3s ease-in-out;
     transition: all 0.3s ease-in-out
+}
+
+#core-menu-custom {
+    padding: 8px;
+}
+
+@media (min-width: 990px) {
+    #core-menu-custom {
+        padding: 0;
+    }
+}
+
+@media (min-width: 1090px) {
+    li.nomeHeader {
+        width: 250px !important;
+    }
 }

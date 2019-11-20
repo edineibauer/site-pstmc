@@ -1,5 +1,6 @@
 {
   "title": "Dashboard",
   "css": ["w3"],
-  "!setor": "0"
+  "!setor": "0",
+  "navbar": false
 }

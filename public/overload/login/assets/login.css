@@ -1,5 +1,6 @@
 html {
     overflow-y: hidden!important;
+    min-height: 100%;
 }
 
 #background-login {
@@ -84,7 +85,7 @@ html {
 
 .blocks img {
     position: absolute;
-    transition: width ease-in-out 3s, top ease-in-out 2.5s, right ease-in-out 2s, left ease-in-out 2s;
+    transition: width ease-in-out 2s, top ease-in-out 1.5s, right ease-in-out 1s, left ease-in-out 1s;
     transform: translateZ(-.5px) scale(1.25);
 }
 
@@ -111,27 +112,27 @@ html {
 }
 
 .notebook21 {
-    left: -90px;
+    left: -170px;
     top: 202px;
     width: 510px;
     z-index: 5;
 }
 
 .notebook22 {
-    left: 341px;
+    left: 261px;
     top: 230px;
     width: 200px;
     z-index: 4;
 }
 
 .notebook21.active {
-    left: 130px;
+    left: 50px;
     top: 357px;
     width: 272px;
 }
 
 .notebook22.active {
-    left: 230px;
+    left: 150px;
     top: 170px;
     width: 352px;
 }
@@ -168,19 +169,21 @@ html {
 }
 
 .notebook5 {
-    left: -110px;
+    left: -200px;
     top: 90px;
     width: 662px;
 }
 
-html {
-    min-height: 100%;
+.footer {
+    padding-bottom: 60px!important;
+    background: #5e3a8ecf;
 }
 
 #login-acessar {
     margin-top: 0;
     position: absolute;
-    top: 53%;
+    top: 48%;
+    margin-left: -15px;
 }
 
 #login-acessar .btn {
@@ -314,6 +317,10 @@ html {
     float: initial;
 }
 
+#parent::-webkit-scrollbar {
+    width: 0
+}
+
 /*on mobile*/
 @media (max-width: 993px) {
     .body-login {
@@ -322,7 +329,7 @@ html {
 }
 
 /*on desktop*/
-@media (min-width: 993px) {
+@media (min-width: 1160px) {
     #body-login {
         padding-top: 128px;
     }
@@ -368,9 +375,11 @@ html {
         margin: initial;
         float: left;
     }
-}
 
-@media (min-width: 1160px) {
+    .footer {
+        padding-bottom: 16px!important;
+    }
+
     .blocks:nth-child(even) > .container-1200 > .col:nth-child(1), .blocks:nth-child(odd) > .container-1200 > .col:nth-child(2) {
         position: relative;
         opacity: 1;
@@ -381,7 +390,7 @@ html {
         padding-top: 230px !important;
     }
 
-    .text1, .text4, .text3 {
-        transform: translateX(100px);
+    #parent::-webkit-scrollbar {
+        width: 10px
     }
 }

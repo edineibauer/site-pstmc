@@ -56,6 +56,15 @@ function updatePerfilPage() {
             $(".perfil-phone_number, .perfil-tel1, .perfil-tel2, .perfil-cpf").trigger("input");
         }, 100);
     }
+    updateMenuSidebar();
+}
+
+function updateMenuSidebar() {
+    $("#core-sidebar-menu")
+        .html("<a href='" + HOME + "dashboard' class='menu-sidebar-li'>Início</a>")
+        .append("<a href='" + HOME + "pacientes' class='menu-sidebar-li'>Pacientes</a>")
+        .append("<a href='" + HOME + "perfil' class='menu-sidebar-li'>Seu Perfil</a>")
+        .append("<a href='" + HOME + "ajustes' class='menu-sidebar-li'>Ajustes</a>");
 }
 
 function idade(stringdate) {

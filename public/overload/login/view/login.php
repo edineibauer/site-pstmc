@@ -222,15 +222,15 @@ if (!empty($_SESSION['userlogin']['token'])) {
                 </div>
             </div>
 
-            <div class="col color-gray-dark padding-16">
+            <div class="col padding-16 footer">
                 <div class="container-1200">
-                    <div class="col s12 m4 padding-large">
+                    <div class="col s12 l4 padding-large">
                         <h1 class="col padding-0 color-text-white align-center titleLogin titleLogin-bottom transition-slow">
                             <div class="font-bold left">Epistemic</div>
                             <div class="left font-light">Web</div>
                         </h1>
                     </div>
-                    <div class="col s12 m8 padding-large">
+                    <div class="col s12 l8 padding-large">
                         <button onclick="goToLogin()"
                                 class="color-text-theme font-bold loginbtn-bottom loginbtn s-font-large btn pointer relative">
                             Acessar

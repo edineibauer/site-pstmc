@@ -37,10 +37,17 @@
   },
   {
     "li": {
-      "class": "nomeHeader no-menu-li"
+      "class": "nomeHeader no-menu-li s-hide"
     },
     "class": "no-menu-li",
     "html": "<div class='core-class-container' style='font-weight: bold'><div class='perfil-name' style='float: right'></div><div style='float: right;padding-right: 5px'>Dr. </div></div><div class='core-class-container'><div style='float:right;font-weight:bold;font-size: 11px'><div style='padding-right: 5px'>CRM </div><div class='perfil-crm'></div></div><div style='float:right;width: 100%'><div style='float:right;color:#5e3a8e;cursor:pointer;font-size:13px;font-weight:600' onclick='logout()'>Fazer Logout</div></div></div>"
+  },
+  {
+    "li": {
+      "class": "hide s-show no-menu-li"
+    },
+    "class": "no-menu-li",
+    "html": "<div style='padding:15px;cursor:pointer' onclick='openSidebar()'><i class='material-icons'>menu</i></div>"
   },
   {
     "li": {
