@@ -216,4 +216,5 @@ $(function () {
         initialCountry: "br",
         utilsScript: HOME + VENDOR + "site-pstmc/public/assets/utils.js"
     });
+    clearToast();
 });

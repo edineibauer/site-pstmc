@@ -5,23 +5,23 @@
             <img class="perfil-photo_64" width="150" height="150" style="height: 150px;width: 150px"/>
         </div>
 
-        <h1 class="col padding-top margin-top align-center color-text-gray-dark font-bold"
+        <h1 class="col padding-top margin-top align-center color-text-gray-dark font-bold s-font-xlarge"
             style="margin-bottom: -7px; padding-bottom: 0">
             <span>Dr. </span>
             <span class="perfil-name"></span>
         </h1>
-        <span class="col align-center font-small font-bold color-text-gray-dark">
+        <span class="col align-center font-small font-bold color-text-gray-dark s-margin-bottom">
             <span>CRM </span>
             <span class="perfil-crm"></span>
         </span>
 
-        <button class="btn right radius-xxlarge padding-large" onclick="editPerfil()"
+        <button class="btn right radius-xxlarge padding-large s-margin-top" onclick="editPerfil()"
                 style="background: #3E1F55">Editar Perfil
         </button>
         <div class="col padding-8"></div>
         <div class="col radius-xxlarge color-theme padding-large">
             <div class="col s12 m5 padding-xxlarge color-text-white">
-                <h2 class="padding-0 padding-bottom perfil-name"></h2>
+                <h2 class="padding-0 padding-bottom perfil-name s-font-xlarge"></h2>
                 <span class="col padding-tiny">
                     <span class="left" style="padding-right: 5px">Data de Nascimento: </span>
                     <span class="left font-light perfil-birthday"></span>

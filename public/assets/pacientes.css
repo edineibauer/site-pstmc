@@ -1,7 +1,7 @@
 #pacientes {
     background: #5e3a8e !important;
-    border-top-left-radius: 50px;
-    border-top-right-radius: 50px;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
 }
 
 {
@@ -19,7 +19,7 @@
 
 #search-paciente {
     border: solid 2px #ffffff;
-    width: 190px;
+    width: 140px;
     margin-top: 18px;
     margin-right: 13px;
     padding-left: 40px!important;
@@ -62,9 +62,9 @@
 
 .arrowback {
     position: fixed;
-    top: 140px;
-    left: 50px;
-    z-index: 3;
+    top: 60px;
+    left: 20px;
+    z-index: 13;
 }
 
 .arrowback:hover div {
@@ -108,4 +108,29 @@
     font-size: 200px;
     margin-left: -25px;
     margin-top: -8px;
+}
+
+.header-new-paciente {
+    margin: auto;
+    padding-top: 170px;
+}
+
+@media (min-width: 990px) {
+    #pacientes {
+        border-top-left-radius: 50px;
+        border-top-right-radius: 50px;
+    }
+
+    #search-paciente {
+        width: 190px;
+    }
+
+    .arrowback {
+        top: 100px;
+        left: 50px;
+    }
+
+    .header-new-paciente {
+        padding-top: 200px;
+    }
 }

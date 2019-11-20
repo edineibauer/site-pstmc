@@ -1,13 +1,15 @@
 <div class="container-1200">
-    <div class="col padding-xxlarge padding-32" id="pacientes">
+    <div class="col padding-xxlarge padding-32 s-padding-large s-padding-24" id="pacientes">
         <div class="left">
             <h1 class="col color-text-white font-xxlarge font-bold padding-0">Pacientes</h1>
-            <span class="col color-text-white">Selecione um paciente para ver os registros feitos a partir do app Epistemic</span>
+            <span class="col color-text-white s-font-small">Selecione um paciente para ver os registros feitos a partir do app Epistemic</span>
         </div>
-        <button class="btn right radius-xxlarge padding-large margin-top" onclick="addPatient()"
-                style="background: #3E1F55">Adicionar paciente
+        <button class="btn right radius-xxlarge padding-large margin-top s-margin-0 s-margin-top" onclick="addPatient()"
+                style="background: #3E1F55">
+            <div class="left" style="padding-right: 7px">Adicionar</div>
+            <div class="left s-hide">paciente</div>
         </button>
-        <input type="text" placeholder="Pesquisar Paciente" id="search-paciente" class="right padding-left radius-xxlarge padding-medium color-theme" />
+        <input type="text" placeholder="Pesquisar" id="search-paciente" class="right padding-left radius-xxlarge padding-medium color-theme" />
         <i class="material-icons right color-text-white padding-small padding-8 pointer" id="btn-search">search</i>
 
         <div class="col padding-64" id="lista-pacientes">
@@ -27,14 +29,11 @@
 
         <div class='row font-large' id="cadastro-login"
              style="max-width: 410px; margin: auto;position: relative;z-index: 3;">
-            <h1 class="color-text-white align-center easefadein" data-fade-delay="100"
-                style="margin: auto; padding-top: 200px;">
-                <div class="font-bold font-xxxlarge left">Adicionar Paciente</div>
+            <h1 class="color-text-white align-center easefadein header-new-paciente" data-fade-delay="100">
+                <div class="font-bold font-xxxlarge s-font-xxlarge">Adicionar Paciente</div>
             </h1>
 
-            <div class="row clear"><br></div>
-
-            <div class="col container-900 padding-top margin-top" style="margin-bottom: 40px;">
+            <div class="col container-900 padding-top margin-top padding-medium" style="margin-bottom: 40px;">
                 <label class="col easefadein" data-fade-delay="200">
                     <input id="nome" placeholder="Nome" type="text"
                            class="input-field color-white font-large opacity">
