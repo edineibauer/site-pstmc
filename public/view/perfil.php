@@ -20,7 +20,7 @@
         </button>
         <div class="col padding-8"></div>
         <div class="col radius-xxlarge color-theme padding-large">
-            <div class="col s12 m5 padding-xxlarge color-text-white">
+            <div class="col s12 m5 padding-xxlarge color-text-white s-padding-small s-padding-top">
                 <h2 class="padding-0 padding-bottom perfil-name s-font-xlarge"></h2>
                 <span class="col padding-tiny">
                     <span class="left" style="padding-right: 5px">Data de Nascimento: </span>
@@ -44,12 +44,12 @@
                 </span>
             </div>
             <div class="col s12 m7">
-                <div class="col s12 m6 padding-xxlarge color-text-white hide" id="block-address1">
+                <div class="col s12 m6 padding-xxlarge color-text-white hide s-padding-small s-padding-24" id="block-address1">
                     <h3 class="padding-0 border-bottom margin-bottom">Endereço 1</h3>
                     <span class="col padding-tiny perfil-address1"></span>
                     <span class="col padding-tiny perfil-tel1"></span>
                 </div>
-                <div class="col s12 m6 padding-xxlarge color-text-white hide" id="block-address2">
+                <div class="col s12 m6 padding-xxlarge color-text-white hide s-padding-small s-padding-24" id="block-address2">
                     <h3 class="padding-0 border-bottom margin-bottom">Endereço 2</h3>
                     <span class="col padding-tiny perfil-address2"></span>
                     <span class="col padding-tiny perfil-tel2"></span>
@@ -60,7 +60,7 @@
 </div>
 
 <div class="col hide" id="edit-perfil">
-    <div class="padding-small pointer opacity hover-opacity-off" id="arrowback">
+    <div class="padding-small pointer opacity hover-opacity-off s-padding-medium" id="arrowback">
         <i class="material-icons font-xxxlarge left color-text-white">arrow_back</i>
         <div class="left font-xlarge padding-medium color-text-white">Retornar</div>
     </div>
@@ -78,7 +78,7 @@
                 <input name="file" class="hide" type="file"
                        id="file" data-format="source" data-column="file" min="1" max="1" accept=".png,.jpg,.jpeg,.gif,.webp,.bmp"/>
             </div>
-            <h1 class="align-center padding-24 color-text-white font-bold">
+            <h1 class="align-center padding-24 color-text-white font-bold s-font-xlarge">
                 <span>Dr. </span>
                 <span class="perfil-name"></span>
             </h1>
@@ -91,7 +91,7 @@
         <div class="row clear"></div>
 
         <div class="row container-900">
-            <div class="col s12 m6 padding-right">
+            <div class="col s12 m6 padding-right s-padding-left">
                 <label class="row">
                     <input id="nome" placeholder="Nome" type="text"
                            class="input-field color-white opacity">
@@ -121,7 +121,7 @@
                     </div>
                 </label>
             </div>
-            <div class="col s12 m6 padding-left">
+            <div class="col s12 m6 padding-left s-padding-right">
                 <label class="row">
                     <input id="email" placeholder="E-mail" type="email" disabled="disabled"
                            class="input-field color-white opacity">
@@ -154,7 +154,7 @@
         </div>
 
         <div class="row container-900">
-            <div class="col s12 m6 padding-right">
+            <div class="col s12 m6 padding-right s-padding-left">
                 <label for="address1" class="font-xlarge padding-medium col color-text-white">Endereço 1</label>
                 <label class="row">
                     <input id="address1" placeholder="Clínica Santo Agostinho" type="text"
@@ -171,7 +171,7 @@
                     </div>
                 </label>
             </div>
-            <div class="col s12 m6 padding-left">
+            <div class="col s12 m6 padding-left s-padding-right">
                 <label for="address2" class="font-xlarge padding-medium col color-text-white">Endereço 2</label>
                 <label class="row">
                     <input id="address2" placeholder="Hospital das Clínicas" type="text"

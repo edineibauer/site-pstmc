@@ -1,13 +1,14 @@
 {
-    background: #ffffff
-;
+    background: #ffffff;
 }
 
 #arrowback {
     position: fixed;
-    top: 115px;
-    left: 50px;
-    z-index: 1;
+    top: 0;
+    left: 0;
+    z-index: 111;
+    background: #3B3B3B;
+    width: 100%;
 }
 
 .info-container {
@@ -79,4 +80,13 @@
     color: #5e90c2;
     font-size: 16px;
     padding: 9px 0 9px 15px;
+}
+
+@media (min-width: 990px) {
+    #arrowback {
+        top: 115px;
+        left: 50px;
+        z-index: 1;
+        width: auto;
+    }
 }

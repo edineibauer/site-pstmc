@@ -2,7 +2,8 @@ function editPerfil() {
     $("#perfil, #core-header-container").addClass("hide");
     $("#edit-perfil").removeClass("hide");
 
-    $("#core-header, #core-content").addClass("transition").removeClass("theme").css("background", "#3B3B3B");
+    $("html, #core-content").addClass("transition").removeClass("theme").css("background", "#3B3B3B");
+    $("#core-header").addClass("hide");
     animateFadeEffect("#edit-perfil");
 }
 
@@ -10,9 +11,10 @@ function closePerfil() {
     $("#edit-perfil").addClass("hide");
     $("#perfil, #core-header-container").removeClass("hide");
 
-    $("#core-header, #core-content").css("background", "#ffffff");
+    $("#core-header").removeClass("hide");
+    $("html, #core-content").css("background", "#ffffff");
     setTimeout(function () {
-        $("#core-header, #core-content").removeClass("transition");
+        $("html, #core-content").removeClass("transition");
     }, 300);
 }
 
