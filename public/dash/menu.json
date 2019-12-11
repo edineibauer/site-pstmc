@@ -28,12 +28,13 @@
   },
   {
     "li": {
-      "attr": "data-animation='forward' rel='ajustes'",
+      "attr": "",
       "class": "s-hide menu-ep"
     },
-    "class": "menu-ep",
-    "href": "ajustes",
-    "html": "<i class='material-icons left'>settings_applications</i> Ajustes"
+    "funcao": "openAjustes",
+    "class": "menu-ep color-text-theme pointer",
+    "style": "cursor: pointer",
+    "html": "<i class='material-icons left'>settings_applications</i> <div class='left' style='padding-top:4px'>Ajustes</div>"
   },
   {
     "li": {

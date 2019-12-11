@@ -164,6 +164,10 @@ $(function () {
         });
     });
 
+    getTemplates().then(tpl => {
+        $("#pacientes").append(Mustache.render(tpl.ajustes, {home: HOME}));
+    });
+
     let input = document.querySelector("#telefone");
     iti = intlTelInput(input, {
         // allowDropdown: false,

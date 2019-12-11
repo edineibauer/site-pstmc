@@ -291,9 +291,75 @@ li.nomeHeader {
     padding: 8px;
 }
 
+#edit-ajustes, #edit-ajustes-opaco {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 3;
+}
+
+#tela-ajustes{
+    max-width: 450px;
+    padding: 0 15px;
+    margin: auto;
+    position: relative;
+    z-index: 3;
+}
+
+#edit-ajustes-opaco {
+    background-color: #5e3a8e;
+    background-image: url("{$home}public/assets/img/opaco.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+.arrowback {
+    position: fixed;
+    top: 60px;
+    left: 20px;
+    z-index: 13;
+}
+
+.arrowback:hover div {
+    text-decoration: underline !important;
+}
+
+.header-edit-ajustes {
+    padding-top: 130px;
+}
+
+.select-pais, .btn-ajuste {
+    padding: 16px 25px!important;
+    border-radius: 32px!important;
+    background: rgba(255,255,255,0.6)!important;
+    border: none!important;
+    color: white!important;
+    margin-bottom: 10px!important;
+}
+
+.select-pais option{
+    color: black;
+}
+
+.btn-ajuste-concluir {
+    width: 200px;
+    margin: auto!important;
+    float: initial!important;
+    display: block!important;
+}
+
 @media (min-width: 990px) {
     #core-menu-custom {
         padding: 0;
+    }
+
+    .arrowback {
+        top: 100px;
+        left: 50px;
     }
 }
 

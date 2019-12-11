@@ -2,9 +2,9 @@
 $id = (int)$link->getVariaveis()[0];
 ?>
 
-<div class="container-1200">
+<div class="container-1200 paciente">
     <div class="col relative padding-24">
-        <div class="col s12 l5 padding-right">
+        <div class="col s12 l4 padding-right s-padding-right-0">
             <div class="col color-theme-l1 radius-top-right paciente-box">
                 <div id="paciente-info" class="row padding-xlarge padding-16">
                     <h3 class="align-center">carregando...</h3>
@@ -16,7 +16,7 @@ $id = (int)$link->getVariaveis()[0];
                         <div class="col s12 m6">
                             <div class="col padding-bottom">
                                 <div class="left padding-small radius-large" style="background: #6F3F99">
-                                    <div class="left padding-right padding-tiny font-light">De</div>
+                                    <div class="left padding-right padding-tiny font-light" style="width: 38px">De</div>
                                     <div class="left padding-tiny">
                                         <input type="date" id="date-start" class="color-text-white padding-0 margin-0"
                                                style="width: 130px; border-bottom: none"/>
@@ -25,7 +25,7 @@ $id = (int)$link->getVariaveis()[0];
                             </div>
                             <div class="col padding-bottom">
                                 <div class="left padding-small radius-large" style="background: #6F3F99">
-                                    <div class="left padding-right padding-tiny font-light">Até</div>
+                                    <div class="left padding-right padding-tiny font-light" style="width: 38px">Até</div>
                                     <div class="left padding-tiny">
                                         <input type="date" id="date-end" class="color-text-white padding-0 margin-0"
                                                style="width: 130px; border-bottom: none"/>
@@ -35,23 +35,23 @@ $id = (int)$link->getVariaveis()[0];
                         </div>
                         <div class="col s12 m6">
                             <div class="col s6 padding-bottom">
-                                <button class="btn radius-large time-week color-theme-l2" rel="day" style="width: 95px">
+                                <button class="btn radius-large time-week color-theme-l2" rel="day" style="width: 90px">
                                     Dia
                                 </button>
                             </div>
                             <div class="col s6 padding-bottom">
                                 <button class="btn radius-large time-week color-theme-l2" rel="week"
-                                        style="width: 95px">Semana
+                                        style="width: 90px">Semana
                                 </button>
                             </div>
                             <div class="col s6 padding-bottom">
                                 <button class="btn radius-large time-week color-theme-l2 active" rel="month"
-                                        style="width: 95px">Mês
+                                        style="width: 90px">Mês
                                 </button>
                             </div>
                             <div class="col s6 padding-bottom">
                                 <button class="btn radius-large time-week color-theme-l2" rel="year"
-                                        style="width: 95px">Ano
+                                        style="width: 90px">Ano
                                 </button>
                             </div>
                         </div>
@@ -62,46 +62,46 @@ $id = (int)$link->getVariaveis()[0];
                     <span class="col font-light font-small" style="margin: -5px 0 0 5px">Selecione os indicadores que deseja visualizar</span>
 
                     <div class="col padding-8">
-                        <div class="col s6 m3 l4 padding-small pointer scale transition-fast indicador"
+                        <div class="col s4 m3 l4 padding-small pointer scale transition-fast indicador"
                              rel="alimentacao">
                             <i class="material-icons">done</i>
                             <img src="<?= HOME . VENDOR ?>/site-pstmc/public/assets/img/indicadores/alimentacao.png"
                                  class="col"/>
                         </div>
-                        <div class="col s6 m3 l4 padding-small pointer scale transition-fast indicador" rel="egg">
+                        <div class="col s4 m3 l4 padding-small pointer scale transition-fast indicador" rel="egg">
                             <i class="material-icons">done</i>
                             <img src="<?= HOME . VENDOR ?>/site-pstmc/public/assets/img/indicadores/egg.png"
                                  class="col"/>
                         </div>
-                        <div class="col s6 m3 l4 padding-small pointer scale transition-fast indicador"
+                        <div class="col s4 m3 l4 padding-small pointer scale transition-fast indicador"
                              rel="medicamentos">
                             <i class="material-icons">done</i>
                             <img src="<?= HOME . VENDOR ?>/site-pstmc/public/assets/img/indicadores/medicamentos.png"
                                  class="col"/>
                         </div>
 
-                        <div class="col s6 m3 l4 padding-small pointer scale transition-fast indicador" rel="sintomas">
+                        <div class="col s4 m3 l4 padding-small pointer scale transition-fast indicador" rel="sintomas">
                             <i class="material-icons">done</i>
                             <img src="<?= HOME . VENDOR ?>/site-pstmc/public/assets/img/indicadores/sintomas.png"
                                  class="col"/>
                         </div>
-                        <div class="col s6 m3 l4 padding-small pointer scale transition-fast indicador" rel="sono">
+                        <div class="col s4 m3 l4 padding-small pointer scale transition-fast indicador" rel="sono">
                             <i class="material-icons">done</i>
                             <img src="<?= HOME . VENDOR ?>/site-pstmc/public/assets/img/indicadores/sono.png"
                                  class="col"/>
                         </div>
-                        <div class="col s6 m3 l4 padding-small pointer scale transition-fast indicador" rel="humor">
+                        <div class="col s4 m3 l4 padding-small pointer scale transition-fast indicador" rel="humor">
                             <i class="material-icons">done</i>
                             <img src="<?= HOME . VENDOR ?>/site-pstmc/public/assets/img/indicadores/humor.png"
                                  class="col"/>
                         </div>
 
-                        <div class="col s6 m3 l4 padding-small pointer scale transition-fast indicador" rel="crises">
+                        <div class="col s4 m3 l4 padding-small pointer scale transition-fast indicador" rel="crises">
                             <i class="material-icons">done</i>
                             <img src="<?= HOME . VENDOR ?>/site-pstmc/public/assets/img/indicadores/crises.png"
                                  class="col"/>
                         </div>
-                        <div class="col s6 m3 l4 padding-small pointer scale transition-fast indicador" rel="atividade">
+                        <div class="col s4 m3 l4 padding-small pointer scale transition-fast indicador" rel="atividade">
                             <i class="material-icons">done</i>
                             <img src="<?= HOME . VENDOR ?>/site-pstmc/public/assets/img/indicadores/atividade.png"
                                  class="col"/>
@@ -111,16 +111,9 @@ $id = (int)$link->getVariaveis()[0];
             </div>
 
         </div>
-        <div class="col s12 l7 padding-left">
-            <div class="col padding-xlarge padding-4 relative">
-                <div class="col margin-top padding-tiny relative" id="graficos">
-                    <div class="col padding-8">
-                        <h2 class="font-bold color-text-theme padding-0">Seja Bem-vindo ao Painel do Paciente!</h2>
-                    </div>
-                    <span class="color-text-gray font-large font-light">para começar, escolha ao menos um Indicador do lado esquerdo.</span>
-                    <div class="col padding-64"></div>
-                    <img src="<?= HOME . VENDOR ?>/site-pstmc/public/assets/img/grafico.png" class="col" alt="gráfico"/>
-                </div>
+        <div class="col s12 l8">
+            <div class="col padding-xlarge s-padding-small padding-4 relative">
+                <div class="col margin-top padding-tiny relative" id="graficos"></div>
             </div>
         </div>
     </div>

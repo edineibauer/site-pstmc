@@ -217,4 +217,8 @@ $(function () {
         utilsScript: HOME + VENDOR + "site-pstmc/public/assets/utils.js"
     });
     clearToast();
+
+    getTemplates().then(tpl => {
+        $("#dashboard").append(Mustache.render(tpl.ajustes, {home: HOME}));
+    });
 });

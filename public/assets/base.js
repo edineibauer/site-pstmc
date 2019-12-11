@@ -192,6 +192,27 @@ function animateFadeReverse(content) {
     return d;
 }
 
+function openAjustes() {
+    $("#edit-ajustes").removeClass("hide");
+    animateFadeEffect("#edit-ajustes");
+}
+
+function closeAjustes() {
+    let time = animateFadeReverse("#edit-ajustes");
+
+    setTimeout(function () {
+        $("#edit-ajustes").addClass("hide");
+    }, time + 500);
+}
+
+function termosUso() {
+    alert("Termos de Uso");
+}
+
+function sobreepistemic() {
+    alert("Sobre a Epistemic");
+}
+
 $(function () {
     updatePerfilPage();
 

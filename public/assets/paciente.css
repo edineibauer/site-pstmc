@@ -8,9 +8,19 @@
     color: #C03A4C;
 }
 
+.grafico-box {
+    overflow: auto;
+    padding-right: 40px;
+    padding-left: 20px;
+}
+
+.grafico-box::-webkit-scrollbar {
+    height: 10px!important;
+}
+
 .graficoArrow {
     position: absolute;
-    top: 60px;
+    top: 30%;
 }
 
 .graficoArrowBack {
@@ -23,7 +33,6 @@
 
 .paciente-box {
     box-shadow: 3px 3px 9px 0 #0000006b;
-    max-width: 470px;
 }
 
 .indicador {
@@ -46,4 +55,13 @@
 
 .indicador.active i {
     opacity: 1;
+}
+
+@media (min-width: 990px) and (max-width: 1300px) {
+    .l4 {
+        width: 41.66666%!important;
+    }
+    .l8 {
+        width: 58.33333%!important;
+    }
 }

@@ -27,8 +27,7 @@
             <div class="left font-xlarge padding-medium color-text-white">Retornar</div>
         </div>
 
-        <div class='row font-large' id="cadastro-login"
-             style="max-width: 410px; margin: auto;position: relative;z-index: 3;">
+        <div class='row font-large' id="cadastro-login" style="max-width: 410px; margin: auto;position: relative;z-index: 3;">
             <h1 class="color-text-white align-center easefadein header-new-paciente" data-fade-delay="100">
                 <div class="font-bold font-xxxlarge s-font-xxlarge">Adicionar Paciente</div>
             </h1>

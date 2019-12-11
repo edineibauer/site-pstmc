@@ -34,6 +34,7 @@
             </ul>
         </nav>
     </div>
+
 </div>
 {include 'analytics.tpl'}
 

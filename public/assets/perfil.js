@@ -296,6 +296,10 @@ $(function () {
         clearError("foto");
     });
 
+    getTemplates().then(tpl => {
+        $("#perfil").append(Mustache.render(tpl.ajustes, {home: HOME}));
+    });
+
     //carrega dados para edição
     setDataperfil();
 });

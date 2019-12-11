@@ -575,8 +575,6 @@ function privateChartGenerateOptions($this) {
     options.idChart = Date.now() + Math.floor((Math.random() * 10000) + 1);
     options.funcitonImage = (typeof $this.functionImage === "function");
 
-    console.log(options);
-
     if (["radar", "pie", "doughnut", "polarArea"].indexOf($this.type[0]) > -1) {
 
         //PIE
@@ -740,7 +738,261 @@ function privateChartGenerateImages($this, idChart) {
         });
     }
 }
+/*
+class ChartMaker {
+    data = [];
+    title = "";
+    type = ["bar"];
+    fieldX = null;
+    fieldY = null;
+    fieldDate = null;
+    operacao = "sum";
+    labels = [];
+    stepY = 1;
+    stepX = 1;
+    order = [];
+    roundValueStepX = !1;
+    roundValueStepY = !1;
+    minX = 0;
+    minY = 0;
+    maxX = null;
+    maxY = null;
+    hideLineY = !1;
+    hideLineX = !1;
+    hideLabelY = !1;
+    hideLabelX = !1;
+    backgroundColor = null;
+    functionValueX = null;
+    functionValueY = null;
+    functionLabelX = null;
+    functionLabelY = null;
+    functionAssocLabelY = null;
+    functionTooltips = null;
+    functionColor = null;
+    borderWidth = 1;
+    paddings = null;
 
+    setTitle(title) {
+        if (typeof title === "string")
+            this.title = title;
+    }
+
+    setData(data) {
+        if (typeof data !== "undefined" && data !== null && data.constructor === Array)
+            this.data = data;
+    }
+
+    setType(type) {
+        this.type = operatorChartSetType(type);
+    }
+
+    setOrder(order) {
+        if (typeof order === "object" && order.constructor === Array)
+            this.order = order;
+    }
+
+    setFieldX(x) {
+        if (typeof x === "string")
+            this.fieldX = x;
+    }
+
+    setFieldY(y) {
+        if (typeof y === "string" || (typeof y !== "undefined" && y !== null && y.constructor === Array))
+            this.fieldY = y;
+    }
+
+    setFieldDate(date) {
+        let dateCheck = new RegExp("^\\d{4}-\\d{2}-\\d{2}(\\s\\d{2}:\\d{2}:\\d{2})*$", "i");
+        if (dateCheck)
+            this.fieldDate = date;
+    }
+
+    setLabels(l) {
+        if (typeof l === "object" && l.constructor === Array)
+            this.labels = l;
+    }
+
+    setOperacaoSoma() {
+        this.operacao = "sum";
+    }
+
+    setOperacaoMedia() {
+        this.operacao = "media";
+    }
+
+    setOperacaoMaioria() {
+        this.operacao = "maioria";
+    }
+
+    setStepX(step) {
+        if (!isNaN(step))
+            this.stepX = step;
+    }
+
+    setStepY(step) {
+        if (!isNaN(step))
+            this.stepY = step;
+    }
+
+    setRoundValueStepX() {
+        this.roundValueStepX = !0;
+    }
+
+    setRoundValueStepY() {
+        this.roundValueStepY = !0;
+    }
+
+    setMinX(min) {
+        if (!isNaN(min))
+            this.minX = min;
+    }
+
+    setMaxX(max) {
+        if (!isNaN(max))
+            this.maxX = max;
+    }
+
+    setMinY(min) {
+        if (!isNaN(min))
+            this.minY = min;
+    }
+
+    setMaxY(max) {
+        if (!isNaN(max))
+            this.maxY = max;
+    }
+
+    setHideLineY() {
+        this.hideLineY = !0;
+    }
+
+    setHideLineX() {
+        this.hideLineX = !0;
+    }
+
+    setHideLabelY() {
+        this.hideLabelY = !0;
+    }
+
+    setHideLabelX() {
+        this.hideLabelX = !0;
+    }
+
+    setBoderWidth(b) {
+        if (!isNaN(b))
+            this.borderWidth = b;
+    }
+
+    setPaddings(p) {
+        this.paddings = {top: 30, right: 30, bottom: 30, left: 30};
+        if (typeof p === "object" && p.constructor === Object) {
+            if (!isNaN(p.top))
+                this.paddings.top = p.top;
+            if (!isNaN(p.right))
+                this.paddings.right = p.right;
+            if (!isNaN(p.bottom))
+                this.paddings.bottom = p.bottom;
+            if (!isNaN(p.left))
+                this.paddings.left = p.left;
+        }
+    }
+
+    setFunctionValueX(f) {
+        if (typeof f === "function")
+            this.functionValueX = f;
+    }
+
+    setFunctionValueY(f) {
+        if (typeof f === "function")
+            this.functionValueY = f;
+    }
+
+    setFunctionLabelX(f) {
+        if (typeof f === "function")
+            this.functionLabelX = f;
+    }
+
+    setFunctionLabelY(f) {
+        if (typeof f === "function")
+            this.functionLabelY = f;
+    }
+
+    setFunctionTooltips(f) {
+        if (typeof f === "function")
+            this.functionTooltips = f;
+    }
+
+    setFunctionColor(f) {
+        if (typeof f === "function")
+            this.functionColor = f;
+    }
+
+    setFunctionImage(f) {
+        if (typeof f === "function")
+            this.functionImage = f;
+    }
+
+    getData() {
+        let $this = this;
+
+        if (typeof $this.labels === "undefined" || isEmpty($this.labels))
+            $this = privateChartGenerateBase($this);
+
+        return $this.data;
+    }
+
+    getChart(type) {
+        let $this = this;
+
+        if (typeof $this.labels === "undefined" || isEmpty($this.labels))
+            $this = privateChartGenerateBase($this, type);
+        else if (typeof type !== "undefined")
+            $this.type = operatorChartSetType(type);
+
+        if (isEmpty($this.data)) {
+            return $("<div class='col'><h3 class='padding-64 align-center font-bold font-xlarge color-text-gray'>Nenhum registro</h3></div>");
+        } else {
+            let options = privateChartGenerateOptions($this);
+
+            privateChartGenerateImages($this, options.idChart);
+
+            let $canvas = $("<canvas></canvas>");
+            let ctx = $canvas[0].getContext('2d');
+
+            let isImage = new RegExp("^http", "i");
+
+            new Chart(ctx, {
+                type: $this.type[0],
+                data: {
+                    labels: $this.labels,
+                    datasets: [{
+                        data: $this.data,
+                        backgroundColor: $this.backgroundColor,
+                        pointBorderWidth: 0,
+                        pointBorderColor: "#FFFFFF",
+                        pointRadius: function (chart) {
+                            if (isEmpty(chart.dataset.data[chart.dataIndex].y) || chart.dataset.data[chart.dataIndex].y < chart.chart.options.scales.yAxes[0].ticks.min)
+                                return 0;
+
+                            return 10;
+                        },
+                        pointHoverRadius: function (chart) {
+                            if (isEmpty(chart.dataset.data[chart.dataIndex].y) || chart.dataset.data[chart.dataIndex].y < chart.chart.options.scales.yAxes[0].ticks.min)
+                                return 0;
+
+                            return 11;
+                        },
+                        tension: 5,
+                        borderWidth: 0
+                    }]
+                },
+                options: options
+            });
+
+            return $canvas;
+        }
+    }
+}*/
 window.ChartMaker = function () {
     return {
         data: [],
@@ -929,8 +1181,6 @@ window.ChartMaker = function () {
                 let $canvas = $("<canvas></canvas>");
                 let ctx = $canvas[0].getContext('2d');
 
-                console.log($this.data);
-
                 let isImage = new RegExp("^http", "i");
 
                 new Chart(ctx, {
@@ -970,7 +1220,7 @@ window.ChartMaker = function () {
 var modChart = {};
 
 function graficoCrises(registros) {
-    if(modChart['crises'] === 2)
+    if (modChart['crises'] === 2)
         return graficoCrises2(registros);
 
     let $content = $("<div></div>");
@@ -1064,14 +1314,14 @@ function privateChartGetDataCrisesCalendar(registros, isPrevius) {
     let startDate = chartFilter.dateStart;
     let endDate = chartFilter.dateEnd;
 
-    if(isPrevius) {
-        if(chartFilter.interval === "day") {
+    if (isPrevius) {
+        if (chartFilter.interval === "day") {
             chartFilter.dateStart = moment(chartFilter.dateStart).subtract(1, "days").format('YYYY-MM-DD');
             chartFilter.dateEnd = moment(chartFilter.dateEnd).subtract(1, "days").format('YYYY-MM-DD');
-        } else if(chartFilter.interval === "week") {
+        } else if (chartFilter.interval === "week") {
             chartFilter.dateStart = moment(chartFilter.dateStart).subtract(7, "days").format('YYYY-MM-DD');
             chartFilter.dateEnd = moment(chartFilter.dateEnd).subtract(7, "days").format('YYYY-MM-DD');
-        } else if(chartFilter.interval === "month") {
+        } else if (chartFilter.interval === "month") {
             chartFilter.dateStart = moment(chartFilter.dateStart).subtract(1, 'months').format('YYYY-MM-DD');
             chartFilter.dateEnd = moment(chartFilter.dateEnd).subtract(1, 'months').format('YYYY-MM-DD');
         }
@@ -1111,7 +1361,7 @@ function privateChartGetDataCrisesCalendar(registros, isPrevius) {
     let data = grafico.getData();
     data = chartDataOrder(data, "x").reverse();
 
-    if(chartFilter.interval === "week" || chartFilter.interval === "month") {
+    if (chartFilter.interval === "week" || chartFilter.interval === "month") {
         let d = data[0].x.split("-");
         let firstDate = d[0] + "-" + parseInt(d[1]) + "-" + parseInt(d[2]);
         let week = parseInt(moment(firstDate).format("d"));
@@ -1134,7 +1384,7 @@ function privateChartGetDataCrisesCalendar(registros, isPrevius) {
             }
         }
 
-    } else if(chartFilter.interval === "day") {
+    } else if (chartFilter.interval === "day") {
         for (let i in data) {
             if (i !== "pushTo" && i !== "removeItem") {
                 let v = data[i].y;
@@ -1168,21 +1418,21 @@ function privateChartGetDataCrisesCalendar(registros, isPrevius) {
 function privateChartGetLabelCalendar(isPrevius) {
     let date = chartFilter.dateStart;
 
-    if(typeof isPrevius !== "undefined" && isPrevius) {
-        if(chartFilter.interval === "day") {
+    if (typeof isPrevius !== "undefined" && isPrevius) {
+        if (chartFilter.interval === "day") {
             date = moment(chartFilter.dateStart).subtract(1, "days").format('YYYY-MM-DD');
-        } else if(chartFilter.interval === "week") {
+        } else if (chartFilter.interval === "week") {
             date = moment(chartFilter.dateStart).subtract(7, "days").format('YYYY-MM-DD');
-        } else if(chartFilter.interval === "month") {
+        } else if (chartFilter.interval === "month") {
             date = moment(chartFilter.dateStart).subtract(1, 'months').format('YYYY-MM-DD');
         }
     }
 
-    if(chartFilter.interval === "day") {
+    if (chartFilter.interval === "day") {
         return "dia " + moment(date).format("DD");
-    } else if(chartFilter.interval === "week") {
+    } else if (chartFilter.interval === "week") {
         return Math.ceil(moment(date).date() / 7) + "ª semana de " + moment(date).format("MMMM");
-    } else if(chartFilter.interval === "month") {
+    } else if (chartFilter.interval === "month") {
         return moment(date).format("MMMM");
     }
 
@@ -1192,15 +1442,29 @@ function privateChartGetLabelCalendar(isPrevius) {
 function graficoCrises2(registros) {
     let $content = $("<div></div>");
 
-    if(chartFilter.interval === "year") {
-        $content.append(Mustache.render(tpl.chartCalendarYearBubble, {x: privateChartGetDataCrisesCalendar(registros), label: privateChartGetLabelCalendar()}))
+    if (chartFilter.interval === "year") {
+        $content.append(Mustache.render(tpl.chartCalendarYearBubble, {
+            x: privateChartGetDataCrisesCalendar(registros),
+            label: privateChartGetLabelCalendar()
+        }))
 
     } else {
         let template = chartFilter.interval !== "day" ? tpl.chartCalendarBubble : tpl.chartCalendarDayBubble;
-        let calendar2 = Mustache.render(template, {x: privateChartGetDataCrisesCalendar(registros), label: privateChartGetLabelCalendar()});
-        let calendar1 = Mustache.render(template, {x: privateChartGetDataCrisesCalendar(registros, 1), label: privateChartGetLabelCalendar(1)});
+        let calendar2 = Mustache.render(template, {
+            x: privateChartGetDataCrisesCalendar(registros),
+            label: privateChartGetLabelCalendar()
+        });
+        let calendar1 = Mustache.render(template, {
+            x: privateChartGetDataCrisesCalendar(registros, 1),
+            label: privateChartGetLabelCalendar(1)
+        });
 
-        $content.append(Mustache.render(tpl.graficoCrisesCalendar, {home: HOME, vendor: VENDOR, calendar1: calendar1, calendar2: calendar2}))
+        $content.append(Mustache.render(tpl.graficoCrisesCalendar, {
+            home: HOME,
+            vendor: VENDOR,
+            calendar1: calendar1,
+            calendar2: calendar2
+        }))
     }
 
     $content.append(Mustache.render(tpl.graficoArrowBack, {indicador: 'crises', mod: 1, style: "top: 170px;"}));
@@ -1366,6 +1630,7 @@ function graficoHumor(registros) {
     grafico.setHideLabelY();
     grafico.setOperacaoMedia();
     grafico.setTitle("Humor");
+
     grafico.setFunctionTooltips(function (x, y) {
         y = typeof y === "undefined" && typeof x !== "undefined" ? x : y;
         // 1=feliz , 2=Bem, 3=Neutro, 4=Triste, 5=Irritado
@@ -1392,7 +1657,7 @@ function graficoHumor(registros) {
             return 'Bem';
 
         return 'Feliz';
-    })
+    });
 
     grafico.setFunctionColor(function (color) {
         if (color < 1)
@@ -1501,11 +1766,12 @@ function graficos(ind) {
 
             $.each(chartFilter.indicadores, function (ii, indicador) {
                 if (!isEmpty(paciente) && (typeof ind === "undefined" || ind === indicador)) {
-                    let $graficos = $("<div class='col relative' id='graficos-" + indicador + "'></div>").appendTo("#graficos");
+                    let $graficos = $("<div class='col relative grafico-box' id='graficos-" + indicador + "'></div>").appendTo("#graficos");
                     $graficos.prepend(graficoHeader(indicador));
                     let minHeight = (window.innerWidth > 1300 ? 243 : (window.innerWidth > 1100 ? 217 : 150));
-                    let $grafico = $("<div class='col relative' style='min-height: " + minHeight + "px' id='grafico-" + indicador + "'></div>").appendTo($graficos);
-                    $graficos.append("<div class='col padding-8'></div></div>");
+                    let $grafico = $("<div class='col relative' style='min-width: 650px; min-height: " + minHeight + "px' id='grafico-" + indicador + "'></div>").appendTo($graficos);
+                    $graficos.append("</div>");
+                    $("<div class='col padding-24'></div>").appendTo("#graficos");
 
                     dbLocal.exeRead(indicador).then(g => {
                         if (isEmpty(g) || typeof readIndicador[indicador] === "undefined") {
@@ -1684,9 +1950,18 @@ $(function () {
     let Oldmonth = ("0" + (old.getMonth() + 1)).slice(-2);
     let lastMonth = old.getFullYear() + "-" + (Oldmonth) + "-" + (Oldday);
 
-    $("#date-start").val(lastMonth).trigger("change");
-    $("#date-end").val(today).trigger("change");
+    // $("#date-start").val(lastMonth).trigger("change");
+    // $("#date-end").val(today).trigger("change");
+
+    //seta manualmente a data para testes
+    $("#date-start").val("2019-10-01").trigger("change");
+    $("#date-end").val("2019-10-31").trigger("change");
+
     graficos();
+
+    getTemplates().then(tpl => {
+        $(".paciente").append(Mustache.render(tpl.ajustes, {home: HOME}));
+    });
 
     /*jQuery(document).bind('DOMMouseScroll mousewheel', function(e, delta) {
         if($(e.target).hasClass("chartjs-render-monitor")) {
