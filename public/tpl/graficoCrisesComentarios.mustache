@@ -1,0 +1,16 @@
+<div class="col padding-8"></div>
+<div class="col margin-top padding-small padding-bottom font-bold color-text-gray-dark">Comentários do paciente</div>
+<div class="col grafico-crises-intensidade margin-bottom" style="border:solid 1px #eeeeee;padding: 5px 28px 5px 96px;">
+    {{#x}}
+        {{#.}}
+            <img src="{{home}}{{vendor}}site-pstmc/public/assets/img/graficos/crises/comment.svg" class="left" title="{{{.}}}" style="width: 30px;margin-bottom: 0;" width="30" />
+        {{/.}}
+        {{^.}}
+            <img src="{{home}}{{vendor}}site-pstmc/public/assets/img/graficos/crises/vazio.svg" class="left" style="width: 30px;margin-bottom: 0;" width="30" />
+        {{/.}}
+    {{/x}}
+    {{^x}}
+        <div class='col'><h3 class='padding-4 align-center font-bold font-xlarge color-text-gray'>Nenhum registro</h3></div>
+    {{/x}}
+</div>
+<div class="col padding-8"></div>

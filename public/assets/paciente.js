@@ -1270,18 +1270,32 @@ function graficoCrises(registros) {
     grafico.setMaxY(10);
     grafico.setMinY(0);
 
+    let listXComentarios = [];
+    for (let i in registros) {
+        if(typeof listXComentarios[registros[i].created] === "undefined")
+            listXComentarios[registros[i].created] = "";
+
+        if(!isEmpty(registros[i].comment))
+            listXComentarios[registros[i].created] += registros[i].comment;
+    }
+
     let listX = [];
     let data = grafico.getData();
     data = chartDataOrder(data, "x").reverse();
+
+    let xComments = [];
     for (let i in data) {
-        if (i !== "pushTo" && i !== "removeItem") {
-            let v = data[i].y;
-            listX.push({
-                img: "nivel" + (!isEmpty(v) ? (v === 0 ? "" : (v < 3 ? 1 : (v < 6 ? 2 : 3))) : 0),
-                style: (isEmpty(v) ? "padding-top: 5px;" : ""),
-                title: funcaoLabelY(v)
-            });
-        }
+        let v = data[i].y;
+        listX.push({
+            img: "nivel" + (!isEmpty(v) ? (v === 0 ? "" : (v < 3 ? 1 : (v < 6 ? 2 : 3))) : 0),
+            style: (isEmpty(v) ? "padding-top: 5px;" : ""),
+            title: funcaoLabelY(v)
+        });
+
+        if(typeof listXComentarios[data[i].x] === "string")
+            xComments.push(listXComentarios[data[i].x]);
+        else
+            xComments.push("");
     }
 
     $content.append(Mustache.render(tpl.graficoCrises, {home: HOME, vendor: VENDOR, x: listX}));
@@ -1305,6 +1319,8 @@ function graficoCrises(registros) {
 
     // $content.append(grafico.getChart("bar"));
     $content.append(graficoCrisesPeriodo(registros));
+
+    $content.append(Mustache.render(tpl.graficoCrisesComentarios, {home: HOME, vendor: VENDOR, x: xComments}));
 
     return $content;
 }
