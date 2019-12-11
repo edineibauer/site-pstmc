@@ -1785,7 +1785,7 @@ function graficos(ind) {
                     let $graficos = $("<div class='col relative grafico-box' id='graficos-" + indicador + "'></div>").appendTo("#graficos");
                     $graficos.prepend(graficoHeader(indicador));
                     let minHeight = (window.innerWidth > 1300 ? 243 : (window.innerWidth > 1100 ? 217 : 150));
-                    let $grafico = $("<div class='col relative' style='min-width: 650px; min-height: " + minHeight + "px' id='grafico-" + indicador + "'></div>").appendTo($graficos);
+                    let $grafico = $("<div class='col relative' style='min-width: 800px; min-height: " + minHeight + "px' id='grafico-" + indicador + "'></div>").appendTo($graficos);
                     $graficos.append("</div>");
                     $("<div class='col padding-24'></div>").appendTo("#graficos");
 
