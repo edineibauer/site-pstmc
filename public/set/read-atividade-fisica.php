@@ -5,7 +5,7 @@ $paciente = filter_input(INPUT_POST, "paciente", FILTER_DEFAULT, FILTER_REQUIRE_
 
 $js = [
     "route" => [
-        "action" => "medicine",
+        "action" => "activity",
         "module" => "doctor"
     ],
     "data" => [

@@ -1219,67 +1219,40 @@ window.ChartMaker = function () {
 
 var modChart = {};
 
+function graficoSintomas(registros) {
+    console.log(registros);
+}
+
 function graficoMedicamentos(registros) {
     console.log(registros);
 }
 
 function graficoAtividade(registros) {
 
-    console.log(registros);
+    for(let i in registros) {
+        let dh = registros[i]['date_hour'].split(" ");
+        registros[i].date = dh[0];
+        registros[i].hour = dh[1];
+    }
 
-    // if (modChart['crises'] === 2)
-    //     return graficoCrises2(registros);
-/*
     let $content = $("<div></div>");
     let grafico = new ChartMaker();
     grafico.setData(registros);
-    grafico.setFieldDate("created");
-    grafico.setFieldX("created");
-    grafico.setFieldY("seizure_intensity");
+    grafico.setFieldDate("date");
+    grafico.setFieldX("date");
+    grafico.setFieldY("kilo_burn");
     grafico.setHideLineX();
     grafico.setHideLabelY();
-    grafico.setOperacaoMedia();
-    grafico.setStepY(5);
-    grafico.setTitle("Crises");
-
-    let funcaoLabelY = title => {
-        if (isEmpty(title)) {
-            return "";
-        } else if (title === 0)
-            return "Sem Crise";
-        else if (title < 3)
-            return "Fraca";
-        else if (title < 6)
-            return "Média";
-
-        return 'Forte';
-    };
-
-    grafico.setFunctionTooltips(function (x, y) {
-        if (y === 10)
-            return "Forte";
-        else if (y === 5)
-            return "Média";
-
-        return "Fraca";
-    });
-
-    grafico.setFunctionColor(function (y) {
-        if (y < 3)
-            return "#FF6D6D";
-        else if (y < 6)
-            return "#CD3B3B";
-
-        return "#6F0000";
-    });
-
-    grafico.setFunctionLabelY(funcaoLabelY);
-    grafico.setMaxY(10);
+    grafico.setOperacaoSoma();
+    grafico.setTitle("Calorias");
     grafico.setMinY(0);
+    grafico.setFunctionColor(function (y) {
+        return "#c14973";
+    });
 
     $content.append(grafico.getChart("bar"));
 
-    return $content;*/
+    return $content;
 }
 
 function graficoCrises(registros) {
@@ -1802,11 +1775,14 @@ function grafico(indicador, registros, mod) {
         case 'crises':
             return graficoCrises(registros);
             break;
-        case 'atividade':
+        case 'atividade-fisica':
             return graficoAtividade(registros);
             break;
         case 'medicamentos':
             return graficoMedicamentos(registros);
+            break;
+        case 'sintomas':
+            return graficoSintomas(registros);
             break;
     }
 }
@@ -1830,6 +1806,7 @@ function graficoHeader(indicador) {
 
     return Mustache.render(tpl.graficoHeader, {
         indicador: indicador,
+        indicadorTitle: indicador.replace("-", " ").replace("_", " "),
         startDate: startDate,
         endDate: endDate,
         haveDate: haveDate,

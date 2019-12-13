@@ -101,7 +101,7 @@ $id = (int)$link->getVariaveis()[0];
                             <img src="<?= HOME . VENDOR ?>/site-pstmc/public/assets/img/indicadores/crises.png"
                                  class="col"/>
                         </div>
-                        <div class="col s4 m3 l4 padding-small pointer scale transition-fast indicador" rel="atividade">
+                        <div class="col s4 m3 l4 padding-small pointer scale transition-fast indicador" rel="atividade-fisica">
                             <i class="material-icons">done</i>
                             <img src="<?= HOME . VENDOR ?>/site-pstmc/public/assets/img/indicadores/atividade.png"
                                  class="col"/>

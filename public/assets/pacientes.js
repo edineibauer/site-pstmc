@@ -26,6 +26,14 @@ function closeConvite() {
     $("#convite-paciente").addClass("hide");
 }
 
+function closePendentes() {
+    let time = animateFadeReverse("#pedidos-pendentes");
+
+    setTimeout(function () {
+        $("#pedidos-pendentes").addClass("hide");
+    }, time + 500);
+}
+
 var envioStatus = !1;
 function enviarconvite() {
     if(!envioStatus) {
@@ -68,6 +76,7 @@ function enviarconvite() {
 $(".arrowback").off("click").on("click", function () {
     closePaciente();
     closeConvite();
+    closePendentes();
 });
 
 function search(val) {
@@ -116,6 +125,11 @@ function validateMedico(medico) {
         showError("Preencha este campo", "telefone");
 
     return !error;
+}
+
+function pedidosPendentes() {
+    $("#pedidos-pendentes").removeClass("hide");
+    animateFadeEffect("#pedidos-pendentes");
 }
 
 var iti = null;

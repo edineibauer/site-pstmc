@@ -8,7 +8,7 @@
     background: #ffffff;
 }
 
-#add-paciente, #add-paciente-opaco {
+#add-paciente, #add-paciente-opaco, #pedidos-pendentes-opaco {
     position: fixed;
     top: 0;
     left: 0;
@@ -51,7 +51,11 @@
     z-index: 2;
 }
 
-#add-paciente-opaco {
+#pedidos-pendentes {
+    z-index: 3;
+}
+
+#add-paciente-opaco, #pedidos-pendentes-opaco {
     background-color: #5e3a8e;
     background-image: url("public/assets/img/opaco.png");
     background-position: center;

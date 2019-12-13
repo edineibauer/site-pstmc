@@ -1,0 +1,18 @@
+<div class="col padding-large radius-large card">
+    <div class="col s4">
+        <img src="{{imagem}}" alt="{{nome}}" title="{{nome}}" class="col radius-circle" />
+    </div>
+    <div class="col s8">
+        <div class="col padding-small margin-bottom">
+            {{descricao}}
+        </div>
+        <div class="col padding-small">
+            <div class="col s6 padding-small">
+                <button class="col btn padding-large theme" onclick="aceitarConvite({{id}})">Aceitar</button>
+            </div>
+            <div class="col s6 padding-small">
+                <button class="col margin-right btn padding-large color-red" onclick="negarConvite({{id}})">Negar</button>
+            </div>
+        </div>
+    </div>
+</div>

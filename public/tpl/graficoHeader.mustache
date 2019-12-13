@@ -1,13 +1,13 @@
 <div class="col padding-8" style='min-width: 800px;'>
     <div class="left">
-        <h4 class="font-large font-bold margin-0 padding-0">Registros de {{indicador}}</h4>
+        <h4 class="font-large font-bold margin-0 padding-0">Registros de {{indicadorTitle}}</h4>
         {{#haveDate}}
             <div class="font-small color-text-gray" style="margin-top: -6px">de {{startDate.day}}
                 /{{startDate.month}} de {{startDate.year}} a {{endDate.day}}/{{endDate.month}} de {{endDate.year}}</div>
         {{/haveDate}}
     </div>
     <div class="right">
-        <h3 class="font-xlarge padding-0 font-bold grafico-header grafico-header-{{indicador}}">{{indicador}}</h3>
+        <h3 class="font-xlarge padding-0 font-bold grafico-header grafico-header-{{indicador}}">{{indicadorTitle}}</h3>
     </div>
     <div class="right padding-4 padding-right">
         {{{content}}}

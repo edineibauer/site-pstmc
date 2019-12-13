@@ -32,7 +32,7 @@
             <div class="left font-xlarge padding-medium color-text-white">Retornar</div>
         </div>
 
-        <div class='row font-large' id="cadastro-login" style="max-width: 410px; margin: auto;position: relative;z-index: 3;">
+        <div class='row font-large' style="max-width: 410px; margin: auto;position: relative;z-index: 3;">
             <h1 class="color-text-white align-center easefadein header-new-paciente" data-fade-delay="100">
                 <div class="font-bold font-xxxlarge s-font-xxlarge">Adicionar Paciente</div>
             </h1>
@@ -70,8 +70,7 @@
             <div class="left font-xlarge padding-medium color-text-white">Retornar</div>
         </div>
 
-        <div class='row font-large' id="cadastro-login"
-             style="max-width: 500px; margin: auto;position: relative;z-index: 4;margin-top: -450px">
+        <div class='row font-large' style="max-width: 500px; margin: auto;position: relative;z-index: 4;margin-top: -450px">
             <div class="color-text-white font-xlarge align-center" style="margin: auto;">
                 <div class="col">Parabéns!</div>
                 <div class="col">Seu paciente foi adicionado com sucesso.</div>
@@ -88,6 +87,33 @@
 
             <div class="col easefadein" data-fade-delay="300">
                 <button onclick="closeConvite()" class="loginbtn s-font-large btn color-white">
+                    Concluir
+                </button>
+            </div>
+            <div class="row clear"><br><br><br><br></div>
+        </div>
+
+    </div>
+
+    <div class="hide" id="pedidos-pendentes">
+        <div id="pedidos-pendentes-opaco"></div>
+        <div class="padding-small pointer arrowback easefadein" data-fade-delay="900">
+            <i class="material-icons font-xxxlarge left color-text-white">arrow_back</i>
+            <div class="left font-xlarge padding-medium color-text-white">Retornar</div>
+        </div>
+
+        <div class='row font-large' style="max-width: 500px; margin: auto;position: relative;z-index: 5;margin-top: -300px">
+            <div class="color-text-white font-xlarge align-center margin-bottom" style="margin: auto;">
+                <h1 class="col font-bold font-xxxlarge padding-tiny easefadein" data-fade-delay="200">Pacientes Pendentes</h1>
+                <div class="col font-medium easefadein" data-fade-delay="300">Você esta visualizando os pedidos pendentes de seus possíveis pacientes.</div>
+            </div>
+
+            <div class="col padding-64 easefadein" data-fade-delay="400">
+                fdafds
+            </div>
+
+            <div class="col easefadein" data-fade-delay="500">
+                <button onclick="closePendentes()" class="loginbtn s-font-large btn color-white">
                     Concluir
                 </button>
             </div>
