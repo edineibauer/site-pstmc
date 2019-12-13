@@ -62,17 +62,17 @@ $id = (int)$link->getVariaveis()[0];
                     <span class="col font-light font-small" style="margin: -5px 0 0 5px">Selecione os indicadores que deseja visualizar</span>
 
                     <div class="col padding-8">
-                        <div class="col s4 m3 l4 padding-small pointer scale transition-fast indicador"
+                        <!--<div class="col s4 m3 l4 padding-small pointer scale transition-fast indicador"
                              rel="alimentacao">
                             <i class="material-icons">done</i>
-                            <img src="<?= HOME . VENDOR ?>/site-pstmc/public/assets/img/indicadores/alimentacao.png"
+                            <img src="<?/*= HOME . VENDOR */?>/site-pstmc/public/assets/img/indicadores/alimentacao.png"
                                  class="col"/>
                         </div>
                         <div class="col s4 m3 l4 padding-small pointer scale transition-fast indicador" rel="egg">
                             <i class="material-icons">done</i>
-                            <img src="<?= HOME . VENDOR ?>/site-pstmc/public/assets/img/indicadores/egg.png"
+                            <img src="<?/*= HOME . VENDOR */?>/site-pstmc/public/assets/img/indicadores/egg.png"
                                  class="col"/>
-                        </div>
+                        </div>-->
                         <div class="col s4 m3 l4 padding-small pointer scale transition-fast indicador"
                              rel="medicamentos">
                             <i class="material-icons">done</i>

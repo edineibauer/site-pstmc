@@ -1219,6 +1219,69 @@ window.ChartMaker = function () {
 
 var modChart = {};
 
+function graficoMedicamentos(registros) {
+    console.log(registros);
+}
+
+function graficoAtividade(registros) {
+
+    console.log(registros);
+
+    // if (modChart['crises'] === 2)
+    //     return graficoCrises2(registros);
+/*
+    let $content = $("<div></div>");
+    let grafico = new ChartMaker();
+    grafico.setData(registros);
+    grafico.setFieldDate("created");
+    grafico.setFieldX("created");
+    grafico.setFieldY("seizure_intensity");
+    grafico.setHideLineX();
+    grafico.setHideLabelY();
+    grafico.setOperacaoMedia();
+    grafico.setStepY(5);
+    grafico.setTitle("Crises");
+
+    let funcaoLabelY = title => {
+        if (isEmpty(title)) {
+            return "";
+        } else if (title === 0)
+            return "Sem Crise";
+        else if (title < 3)
+            return "Fraca";
+        else if (title < 6)
+            return "Média";
+
+        return 'Forte';
+    };
+
+    grafico.setFunctionTooltips(function (x, y) {
+        if (y === 10)
+            return "Forte";
+        else if (y === 5)
+            return "Média";
+
+        return "Fraca";
+    });
+
+    grafico.setFunctionColor(function (y) {
+        if (y < 3)
+            return "#FF6D6D";
+        else if (y < 6)
+            return "#CD3B3B";
+
+        return "#6F0000";
+    });
+
+    grafico.setFunctionLabelY(funcaoLabelY);
+    grafico.setMaxY(10);
+    grafico.setMinY(0);
+
+    $content.append(grafico.getChart("bar"));
+
+    return $content;*/
+}
+
 function graficoCrises(registros) {
     if (modChart['crises'] === 2)
         return graficoCrises2(registros);
@@ -1276,7 +1339,7 @@ function graficoCrises(registros) {
             listXComentarios[registros[i].created] = "";
 
         if(!isEmpty(registros[i].comment))
-            listXComentarios[registros[i].created] += registros[i].comment;
+            listXComentarios[registros[i].created] += registros[i].comment + "<br><br>";
     }
 
     let listX = [];
@@ -1739,6 +1802,12 @@ function grafico(indicador, registros, mod) {
         case 'crises':
             return graficoCrises(registros);
             break;
+        case 'atividade':
+            return graficoAtividade(registros);
+            break;
+        case 'medicamentos':
+            return graficoMedicamentos(registros);
+            break;
     }
 }
 
@@ -1954,6 +2023,18 @@ $(function () {
                 $g.css({"height": "auto"});
             }, 200);
         });
+    }).off("click", ".comment-crise").on("click", ".comment-crise", function () {
+        let $comment = $("<div id='comment-crise'></div>").appendTo("#core-content");
+        let $content = $("<div id='comment-crise-box' class='col animate-top'>" + $(this).attr("rel") + "</div>").appendTo($comment);
+        setTimeout(function () {
+            $comment.css("opacity", 1);
+        },1);
+    }).off("click", "#comment-crise").on("click", "#comment-crise", function () {
+        $("#comment-crise-box").addClass("transition-easy").css("margin-top", 0).css("opacity", 0);
+        $("#comment-crise").addClass("transition-easy").css("opacity", 0);
+        setTimeout(function () {
+            $("#comment-crise").remove();
+        }, 200);
     });
 
     let now = new Date();

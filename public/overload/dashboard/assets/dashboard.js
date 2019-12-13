@@ -199,6 +199,7 @@ $(function () {
                 if (!isEmpty(atualizacoes)) {
                     atualizacoes.reverse();
                     $.each(atualizacoes, function (i, e) {
+                        e.date = moment(e.date).format("lll");
                         $("#timeline").append(Mustache.render(tpl.pacientesUpdates, e));
                     });
                 } else {
