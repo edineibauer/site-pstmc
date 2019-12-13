@@ -117,36 +117,30 @@ function privateChartGetDataMakerXY(chart) {
     });
 
     for (let x in dadosTabela) {
-        if (x !== "pushTo" && x !== "removeItem") {
+        if (chart.operacao === "media") {
+            /**
+             * Tira a média do valor do campo
+             */
+            dadosTabela[x] = (chart.roundValueStepY ? roundStep(dadosTabela[x] / count[x], chart.stepY) : dadosTabela[x] / count[x]);
 
-            if (chart.operacao === "media") {
-                /**
-                 * Tira a média do valor do campo
-                 */
-                dadosTabela[x] = (chart.roundValueStepY ? roundStep(dadosTabela[x] / count[x], chart.stepY) : dadosTabela[x] / count[x]);
+        } else if (chart.operacao === "maioria") {
+            /**
+             * Busca a informação do campo que mais apareceu no período
+             */
+            let maioria = {y: "", valor: -1};
 
-            } else if (chart.operacao === "maioria") {
-                /**
-                 * Busca a informação do campo que mais apareceu no período
-                 */
-                let maioria = {y: "", valor: -1};
-
-                for (let y in dadosTabela[x]) {
-                    if (y === "removeItem" || y === "pushTo")
-                        continue;
-
-                    if (dadosTabela[x][y] > maioria.valor)
-                        maioria = {y: y, valor: dadosTabela[x][y]};
-                }
-
-                dadosTabela[x] = (chart.roundValueStepY ? roundStep(maioria.y, chart.stepY) : maioria.y);
-
-            } else {
-                /**
-                 * Somente arredonda valor caso necessário
-                 */
-                dadosTabela[x] = (chart.roundValueStepY ? roundStep(dadosTabela[x], chart.stepY) : dadosTabela[x]);
+            for (let y in dadosTabela[x]) {
+                if (dadosTabela[x][y] > maioria.valor)
+                    maioria = {y: y, valor: dadosTabela[x][y]};
             }
+
+            dadosTabela[x] = (chart.roundValueStepY ? roundStep(maioria.y, chart.stepY) : maioria.y);
+
+        } else {
+            /**
+             * Somente arredonda valor caso necessário
+             */
+            dadosTabela[x] = (chart.roundValueStepY ? roundStep(dadosTabela[x], chart.stepY) : dadosTabela[x]);
         }
     }
 
@@ -196,22 +190,18 @@ function privateChartGetDataMakerY(chart) {
      * Ordenação dos dados
      */
     let ddd = [];
-    for (let x in dd) {
-        if (x !== "pushTo" && x !== "removeItem") {
-            ddd.push({x: x, y: dd[x]});
-        }
-    }
+    for (let x in dd)
+        ddd.push({x: x, y: dd[x]});
+
     ddd = chartDataOrder(ddd, "x").reverse();
 
     /**
      * Exportação dos dados
      */
     for (let x in ddd) {
-        if (x !== "pushTo" && x !== "removeItem") {
-            chart.labels.push(ddd[x].x);
-            chart.backgroundColor.push(chart.functionColor(ddd[x].x));
-            dadosTabela.push(ddd[x].y);
-        }
+        chart.labels.push(ddd[x].x);
+        chart.backgroundColor.push(chart.functionColor(ddd[x].x));
+        dadosTabela.push(ddd[x].y);
     }
 
     return dadosTabela;
@@ -385,63 +375,59 @@ function privateChartGetDataMaker(chart) {
         let smaller = 99999999999;
 
         for (let x in dadosTabela) {
-            if (x !== "pushTo" && x !== "removeItem") {
-                let y = chart.functionValueY(dadosTabela[x]);
-                if (isEmpty(y)) {
-                    dataResult.push({x: chart.functionValueX(x), y: "", v: "", r: 0});
-                } else {
-                    if (chart.operacao === "registros") {
+            let y = chart.functionValueY(dadosTabela[x]);
+            if (isEmpty(y)) {
+                dataResult.push({x: chart.functionValueX(x), y: "", v: "", r: 0});
+            } else {
+                if (chart.operacao === "registros") {
 
-                        /**
-                         * Bubble Radius Calculate
-                         */
-                        let dd = [];
-                        $.each(y, function (i, v) {
-                            if (typeof dd[v] === "undefined")
-                                dd[v] = 1;
-                            else
-                                dd[v]++;
-                        });
+                    /**
+                     * Bubble Radius Calculate
+                     */
+                    let dd = [];
+                    $.each(y, function (i, v) {
+                        if (typeof dd[v] === "undefined")
+                            dd[v] = 1;
+                        else
+                            dd[v]++;
+                    });
 
-                        for (let n in dd) {
-                            if (n !== "pushTo" && n !== "removeItem") {
-                                if (isNaN(n)) {
-                                    isStringYLabel = !0;
-                                    if (typeof convertStringToNumber[n] === "undefined") {
-                                        if (chart.order) {
-                                            if (chart.order.indexOf(n) > -1) {
-                                                labelYString[chart.order.indexOf(n) + 1] = n;
-                                                convertStringToNumber[n] = chart.order.indexOf(n) + 1;
-                                            } else {
-                                                continue;
-                                            }
-                                        } else {
-                                            labelYString[convertIndex] = n;
-                                            convertStringToNumber[n] = convertIndex++;
-                                        }
+                    for (let n in dd) {
+                        if (isNaN(n)) {
+                            isStringYLabel = !0;
+                            if (typeof convertStringToNumber[n] === "undefined") {
+                                if (chart.order) {
+                                    if (chart.order.indexOf(n) > -1) {
+                                        labelYString[chart.order.indexOf(n) + 1] = n;
+                                        convertStringToNumber[n] = chart.order.indexOf(n) + 1;
+                                    } else {
+                                        continue;
                                     }
+                                } else {
+                                    labelYString[convertIndex] = n;
+                                    convertStringToNumber[n] = convertIndex++;
                                 }
-
-                                //atualiza valores utilizados na conversão da proporção do radius
-                                if (bigger < dd[n])
-                                    bigger = dd[n];
-                                if (smaller > dd[n])
-                                    smaller = dd[n];
-
-                                dataResult.push({
-                                    x: chart.functionValueX(x),
-                                    y: convertStringToNumber[n],
-                                    v: dd[n],
-                                    r: dd[n]
-                                });
                             }
                         }
-                    } else {
-                        dataResult.push({x: chart.functionValueX(x), y: y});
+
+                        //atualiza valores utilizados na conversão da proporção do radius
+                        if (bigger < dd[n])
+                            bigger = dd[n];
+                        if (smaller > dd[n])
+                            smaller = dd[n];
+
+                        dataResult.push({
+                            x: chart.functionValueX(x),
+                            y: convertStringToNumber[n],
+                            v: dd[n],
+                            r: dd[n]
+                        });
                     }
+                } else {
+                    dataResult.push({x: chart.functionValueX(x), y: y});
                 }
-                chart.labels.push(chart.functionValueX(x));
             }
+            chart.labels.push(chart.functionValueX(x));
         }
 
         /**
@@ -597,10 +583,8 @@ function privateChartGenerateOptions($this) {
             }]
         };
 
-        for (let i in $this.labels) {
-            if (i !== "pushTo" && i !== "removeItem")
-                $this.labels[i] = $this.functionLabelY($this.functionAssocLabelY($this.labels[i]));
-        }
+        for (let i in $this.labels)
+            $this.labels[i] = $this.functionLabelY($this.functionAssocLabelY($this.labels[i]));
 
         options.legend = {position: "left", reverse: !0};
     } else {
@@ -613,10 +597,8 @@ function privateChartGenerateOptions($this) {
         };
 
         if (chartFilter.interval === "day") {
-            for (let i in $this.labels) {
-                if (i !== "pushTo" && i !== "removeItem")
-                    $this.labels[i] = (parseInt(i) + 1) + "º";
-            }
+            for (let i in $this.labels)
+                $this.labels[i] = (parseInt(i) + 1) + "º";
         }
 
         $this.backgroundColor = function (context) {
@@ -738,6 +720,7 @@ function privateChartGenerateImages($this, idChart) {
         });
     }
 }
+
 /*
 class ChartMaker {
     data = [];
@@ -1181,8 +1164,6 @@ window.ChartMaker = function () {
                 let $canvas = $("<canvas></canvas>");
                 let ctx = $canvas[0].getContext('2d');
 
-                let isImage = new RegExp("^http", "i");
-
                 new Chart(ctx, {
                     type: $this.type[0],
                     data: {
@@ -1220,7 +1201,31 @@ window.ChartMaker = function () {
 var modChart = {};
 
 function graficoSintomas(registros) {
-    console.log(registros);
+
+    for (let i in registros) {
+        let dh = registros[i]['created'].split(" ");
+        registros[i].date = dh[0];
+        registros[i].hour = dh[1];
+    }
+
+    let $content = $("<div></div>");
+    let grafico = new ChartMaker();
+    grafico.setData(registros);
+    grafico.setFieldDate("date");
+    grafico.setFieldX("date");
+    grafico.setFieldY("title");
+    grafico.setHideLineX();
+    grafico.setTitle("Sintomas mais Relevantes");
+    grafico.setMinY(0);
+    grafico.setFunctionColor(function (y) {
+        return "#df5791";
+    });
+
+    console.log(grafico.getData());
+
+    $content.append(grafico.getChart("scatter"));
+
+    return $content;
 }
 
 function graficoMedicamentos(registros) {
@@ -1229,7 +1234,7 @@ function graficoMedicamentos(registros) {
 
 function graficoAtividade(registros) {
 
-    for(let i in registros) {
+    for (let i in registros) {
         let dh = registros[i]['date_hour'].split(" ");
         registros[i].date = dh[0];
         registros[i].hour = dh[1];
@@ -1240,17 +1245,40 @@ function graficoAtividade(registros) {
     grafico.setData(registros);
     grafico.setFieldDate("date");
     grafico.setFieldX("date");
-    grafico.setFieldY("kilo_burn");
+
+    if (modChart['atividade-fisica'] === 1)
+        grafico.setFieldY("kilo_burn");
+    else if (modChart['atividade-fisica'] === 2)
+        grafico.setFieldY("footsteps");
+    else if (modChart['atividade-fisica'] === 3)
+        grafico.setFieldY("runningKm");
+    else if (modChart['atividade-fisica'] === 4)
+        grafico.setFieldY("runningTime");
+    else if (modChart['atividade-fisica'] === 5)
+        grafico.setFieldY("steps");
+
     grafico.setHideLineX();
     grafico.setHideLabelY();
     grafico.setOperacaoSoma();
-    grafico.setTitle("Calorias");
+    grafico.setTitle(getTitleIndicador("atividade-fisica"));
     grafico.setMinY(0);
     grafico.setFunctionColor(function (y) {
         return "#c14973";
     });
 
+    if (modChart['atividade-fisica'] > 1)
+        $content.append(Mustache.render(tpl.graficoArrowBack, {
+            indicador: 'atividade-fisica',
+            mod: modChart['atividade-fisica'] - 1
+        }));
+
     $content.append(grafico.getChart("bar"));
+
+    if (modChart['atividade-fisica'] < 5)
+        $content.append(Mustache.render(tpl.graficoArrowForward, {
+            indicador: 'atividade-fisica',
+            mod: modChart['atividade-fisica'] + 1
+        }));
 
     return $content;
 }
@@ -1308,10 +1336,10 @@ function graficoCrises(registros) {
 
     let listXComentarios = [];
     for (let i in registros) {
-        if(typeof listXComentarios[registros[i].created] === "undefined")
+        if (typeof listXComentarios[registros[i].created] === "undefined")
             listXComentarios[registros[i].created] = "";
 
-        if(!isEmpty(registros[i].comment))
+        if (!isEmpty(registros[i].comment))
             listXComentarios[registros[i].created] += registros[i].comment + "<br><br>";
     }
 
@@ -1328,7 +1356,7 @@ function graficoCrises(registros) {
             title: funcaoLabelY(v)
         });
 
-        if(typeof listXComentarios[data[i].x] === "string")
+        if (typeof listXComentarios[data[i].x] === "string")
             xComments.push(listXComentarios[data[i].x]);
         else
             xComments.push("");
@@ -1426,38 +1454,32 @@ function privateChartGetDataCrisesCalendar(registros, isPrevius) {
         }
 
         for (let i in data) {
-            if (i !== "pushTo" && i !== "removeItem") {
-                let v = data[i].y;
-                listX.push({
-                    title: funcaoTooltips("", v),
-                    style: (!isEmpty(v) ? "color: #FFF;background: " + funcaoColor(v) : ""),
-                    dia: parseInt(data[i].x.split("-")[2])
-                });
-            }
+            let v = data[i].y;
+            listX.push({
+                title: funcaoTooltips("", v),
+                style: (!isEmpty(v) ? "color: #FFF;background: " + funcaoColor(v) : ""),
+                dia: parseInt(data[i].x.split("-")[2])
+            });
         }
 
     } else if (chartFilter.interval === "day") {
         for (let i in data) {
-            if (i !== "pushTo" && i !== "removeItem") {
-                let v = data[i].y;
-                listX.push({
-                    title: funcaoTooltips("", v),
-                    style: (!isEmpty(v) ? "color: #FFF;background: " + funcaoColor(v) : ""),
-                    dia: ""
-                });
-            }
+            let v = data[i].y;
+            listX.push({
+                title: funcaoTooltips("", v),
+                style: (!isEmpty(v) ? "color: #FFF;background: " + funcaoColor(v) : ""),
+                dia: ""
+            });
         }
 
     } else {
         for (let i in data) {
-            if (i !== "pushTo" && i !== "removeItem") {
-                let v = data[i].y;
-                listX.push({
-                    title: funcaoTooltips("", v),
-                    style: (!isEmpty(v) ? "color: #FFF;background: " + funcaoColor(v) : ""),
-                    dia: !isEmpty(v) && !isNaN(v) ? "" : "-"
-                });
-            }
+            let v = data[i].y;
+            listX.push({
+                title: funcaoTooltips("", v),
+                style: (!isEmpty(v) ? "color: #FFF;background: " + funcaoColor(v) : ""),
+                dia: !isEmpty(v) && !isNaN(v) ? "" : "-"
+            });
         }
     }
 
@@ -1805,6 +1827,7 @@ function graficoHeader(indicador) {
     }
 
     return Mustache.render(tpl.graficoHeader, {
+        title: getTitleIndicador(indicador),
         indicador: indicador,
         indicadorTitle: indicador.replace("-", " ").replace("_", " "),
         startDate: startDate,
@@ -1812,6 +1835,23 @@ function graficoHeader(indicador) {
         haveDate: haveDate,
         content: content
     });
+}
+
+function getTitleIndicador(indicador) {
+    if (indicador === "atividade-fisica") {
+        if (typeof modChart[indicador] === "undefined" || modChart[indicador] === 1)
+            return "Calorias";
+        else if (modChart[indicador] === 2)
+            return "Degraus";
+        else if (modChart[indicador] === 3)
+            return "Kilometros";
+        else if (modChart[indicador] === 4)
+            return "Minutos";
+        else if (modChart[indicador] === 5)
+            return "Passos";
+    }
+
+    return indicador.replace("-", " ").replace("_", " ");
 }
 
 var readIndicador = {};
@@ -1843,6 +1883,9 @@ function graficos(ind) {
                             }, function (t) {
                                 if (t) {
                                     $.each(t, function (i, e) {
+                                        if (typeof e['id'] === "undefined")
+                                            e['id'] = i;
+
                                         if (indicador === "sono") {
                                             if (isEmpty(e.duration) && !isEmpty(e.start_time) && !isEmpty(e.end_time)) {
                                                 let ss = e.start_time.split(":");
@@ -1996,6 +2039,7 @@ $(function () {
         $g.css({"height": $g[0].clientHeight + "px"});
         dbLocal.exeRead(indicador).then(g => {
             $g.html(grafico(indicador, g, mod));
+            $("#grafico-header-title-" + indicador).html(getTitleIndicador(indicador));
             setTimeout(function () {
                 $g.css({"height": "auto"});
             }, 200);
@@ -2005,7 +2049,7 @@ $(function () {
         let $content = $("<div id='comment-crise-box' class='col animate-top'>" + $(this).attr("rel") + "</div>").appendTo($comment);
         setTimeout(function () {
             $comment.css("opacity", 1);
-        },1);
+        }, 1);
     }).off("click", "#comment-crise").on("click", "#comment-crise", function () {
         $("#comment-crise-box").addClass("transition-easy").css("margin-top", 0).css("opacity", 0);
         $("#comment-crise").addClass("transition-easy").css("opacity", 0);
