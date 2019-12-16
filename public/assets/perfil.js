@@ -124,8 +124,10 @@ function setDataperfil() {
     if(localStorage.name && localStorage.name !== "null" && !isEmpty(localStorage.name))
         $("#nome").val(localStorage.name);
 
-    if(localStorage.birthday && localStorage.birthday !== "null" && !isEmpty(localStorage.birthday))
-        $("#nascimento").val(localStorage.birthday.replace('-', '/').replace('-', '/'));
+    if(localStorage.birthday && localStorage.birthday !== "null" && !isEmpty(localStorage.birthday)) {
+        let bb = localStorage.birthday.replace('-', '/').replace('-', '/').split("/");
+        $("#nascimento").val(bb[2] + "/" + bb[1] + "/" + bb[0]);
+    }
 
     if(localStorage.email && localStorage.email !== "null" && !isEmpty(localStorage.email))
         $("#email").val(localStorage.email);

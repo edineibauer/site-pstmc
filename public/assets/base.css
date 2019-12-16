@@ -70,17 +70,17 @@ img{
 
 #core-overlay-close {
     position: relative;
-    width: 100%;
-    max-width: 1400px;
+    max-width: 80%;
+    width: 620px;
     margin: 5% auto 0;
 }
 
 #core-overlay-close i{
     position: absolute;
-    top: 0;
-    right: 2%;
+    top: 20px;
+    right: 0;
     color: white;
-    font-size: 64px;
+    font-size: 50px;
     cursor: pointer;
 }
 
@@ -107,15 +107,17 @@ img{
     position: relative;
     text-align: center;
     padding: 40px;
-    background: rgba(0, 0, 0, .85);
-    width: 100%;
-    max-width: 1400px;
+    background: #fff;
+    max-width: 80%;
+    width: 600px;
     overflow: hidden;
     z-index: 10001;
-    color: white;
+    color: #333;
     margin: auto;
     top: 80px;
     transition: ease all .3s;
+    max-height: 500px;
+    overflow-y: auto;
 }
 
 #core-overlay, .core-overlay {
@@ -350,6 +352,33 @@ li.nomeHeader {
     margin: auto!important;
     float: initial!important;
     display: block!important;
+}
+
+.lightbox-opacity {
+    opacity: 0;
+    position: fixed;
+    top: 0;
+    height: 100%;
+    left: 0;
+    width: 100%;
+    background: rgba(0,0,0,.5);
+    z-index: 11;
+    transition: all ease .3s;
+}
+
+.lightbox-content {
+    position: relative;
+    margin: 200px auto 0;
+    float: initial;
+    max-width: 400px;
+    padding: 25px 30px;
+    border-radius: 7px;
+    background: white;
+    border: solid 1px #eee;
+    box-shadow: 1px 3px 6px -3px #00000054;
+    max-height: 500px;
+    overflow-y: auto;
+    overflow-x: hidden;
 }
 
 @media (min-width: 990px) {

@@ -25,7 +25,8 @@ $id = (int)$link->getVariaveis()[0];
                             </div>
                             <div class="col padding-bottom">
                                 <div class="left padding-small radius-large" style="background: #6F3F99">
-                                    <div class="left padding-right padding-tiny font-light" style="width: 38px">Até</div>
+                                    <div class="left padding-right padding-tiny font-light" style="width: 38px">Até
+                                    </div>
                                     <div class="left padding-tiny">
                                         <input type="date" id="date-end" class="color-text-white padding-0 margin-0"
                                                style="width: 130px; border-bottom: none"/>
@@ -65,12 +66,12 @@ $id = (int)$link->getVariaveis()[0];
                         <!--<div class="col s4 m3 l4 padding-small pointer scale transition-fast indicador"
                              rel="alimentacao">
                             <i class="material-icons">done</i>
-                            <img src="<?/*= HOME . VENDOR */?>/site-pstmc/public/assets/img/indicadores/alimentacao.png"
+                            <img src="<? /*= HOME . VENDOR */ ?>/site-pstmc/public/assets/img/indicadores/alimentacao.png"
                                  class="col"/>
                         </div>
                         <div class="col s4 m3 l4 padding-small pointer scale transition-fast indicador" rel="egg">
                             <i class="material-icons">done</i>
-                            <img src="<?/*= HOME . VENDOR */?>/site-pstmc/public/assets/img/indicadores/egg.png"
+                            <img src="<? /*= HOME . VENDOR */ ?>/site-pstmc/public/assets/img/indicadores/egg.png"
                                  class="col"/>
                         </div>-->
                         <div class="col s4 m3 l4 padding-small pointer scale transition-fast indicador"
@@ -101,7 +102,8 @@ $id = (int)$link->getVariaveis()[0];
                             <img src="<?= HOME . VENDOR ?>/site-pstmc/public/assets/img/indicadores/crises.png"
                                  class="col"/>
                         </div>
-                        <div class="col s4 m3 l4 padding-small pointer scale transition-fast indicador" rel="atividade-fisica">
+                        <div class="col s4 m3 l4 padding-small pointer scale transition-fast indicador"
+                             rel="atividade-fisica">
                             <i class="material-icons">done</i>
                             <img src="<?= HOME . VENDOR ?>/site-pstmc/public/assets/img/indicadores/atividade.png"
                                  class="col"/>
@@ -120,6 +122,9 @@ $id = (int)$link->getVariaveis()[0];
 </div>
 
 <script>
-    if (typeof ID === "undefined")
+    if (typeof ID === "undefined") {
         var ID = <?= $id ?>;
+    } else {
+        location.reload();
+    }
 </script>

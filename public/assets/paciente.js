@@ -72,8 +72,8 @@ function roundStep(number, increment) {
 }
 
 function privateChartGetDataMakerXY(chart) {
-    let dadosTabela = [];
-    let count = [];
+    let dadosTabela = {};
+    let count = {};
 
     //normal, cria lista com os registros
     $.each(chart.data, function (i, e) {
@@ -91,27 +91,36 @@ function privateChartGetDataMakerXY(chart) {
         }
 
         if (typeof y !== "undefined" && y !== null && y !== "") {
-            if (chart.operacao === "sum" || chart.operacao === "media") {
-                dadosTabela[x] = (!isNaN(y) ? (typeof dadosTabela[x] === "undefined" ? y : dadosTabela[x] + y) : 0);
+            if(!isNaN(y)) {
+                if (chart.operacao === "sum" || chart.operacao === "media") {
+                    dadosTabela[x] = typeof dadosTabela[x] === "undefined" ? y : dadosTabela[x] + y;
 
-                if (chart.operacao === "media")
-                    count[x] = (typeof count[x] === "undefined" ? 1 : count[x] + 1);
+                    if (chart.operacao === "media")
+                        count[x] = (typeof count[x] === "undefined" ? 1 : count[x] + 1);
 
+                } else {
+                    if (typeof dadosTabela[x] === "undefined")
+                        dadosTabela[x] = [];
+
+                    if (chart.operacao === "maioria") {
+                        dadosTabela[x][y] = (typeof dadosTabela[x][y] === "undefined" ? 1 : dadosTabela[x][y] + 1);
+
+                        if (typeof count[x] === "undefined")
+                            count[x] = [];
+
+                        count[x][fieldY] = (typeof count[x][fieldY] === "undefined" ? 1 : count[x][fieldY] + 1);
+                    } else {
+                        // trabalha com quantidade de registros
+                        dadosTabela[x].push(y);
+                    }
+                }
             } else {
+
+                //string, trabalha com quantidade de registros
                 if (typeof dadosTabela[x] === "undefined")
                     dadosTabela[x] = [];
 
-                if (chart.operacao === "maioria") {
-                    dadosTabela[x][y] = (typeof dadosTabela[x][y] === "undefined" ? 1 : dadosTabela[x][y] + 1);
-
-                    if (typeof count[x] === "undefined")
-                        count[x] = [];
-
-                    count[x][fieldY] = (typeof count[x][fieldY] === "undefined" ? 1 : count[x][fieldY] + 1);
-                } else {
-                    // if(dadosTabela[x].indexOf(y) === -1)
-                    dadosTabela[x].push(y);
-                }
+                dadosTabela[x].push(y)
             }
         }
     });
@@ -338,128 +347,130 @@ function privateChartGetDataMaker(chart) {
         /**
          * Preeche dados ausente caso tenha data em X
          */
-        if (chart.fieldDate) {
-            if (chartFilter.interval === "week" || chartFilter.interval === "month") {
-                $.each(getDates(chartFilter.dateStart, chartFilter.dateEnd), function (i, date) {
-                    let dateNow = date.getFullYear() + "-" + zeroEsquerda(date.getMonth() + 1) + "-" + zeroEsquerda(date.getDate());
-                    if (typeof dadosTabela[dateNow] === "undefined") {
-                        if (chart.operacao === "sum" || chart.operacao === "media" || chart.operacao === "maioria")
-                            dadosTabela[dateNow] = null;
-                        else
-                            dadosTabela[dateNow] = [];
-                    }
-                });
-            } else if (chartFilter.interval === "year") {
-                let year = chartFilter.dateStart.split("-")[0];
-                for (let i = 1; i < 13; i++) {
-                    let dateNow = year + "-" + zeroEsquerda(i) + "-15";
-                    if (typeof dadosTabela[dateNow] === "undefined") {
-                        if (chart.operacao === "sum" || chart.operacao === "media" || chart.operacao === "maioria")
-                            dadosTabela[dateNow] = null;
-                        else
-                            dadosTabela[dateNow] = [];
+        if(!isEmpty(dadosTabela)) {
+            if (chart.fieldDate) {
+                if (chartFilter.interval === "week" || chartFilter.interval === "month") {
+                    $.each(getDates(chartFilter.dateStart, chartFilter.dateEnd), function (i, date) {
+                        let dateNow = date.getFullYear() + "-" + zeroEsquerda(date.getMonth() + 1) + "-" + zeroEsquerda(date.getDate());
+                        if (typeof dadosTabela[dateNow] === "undefined") {
+                            if (chart.operacao === "sum" || chart.operacao === "media" || chart.operacao === "maioria")
+                                dadosTabela[dateNow] = null;
+                            else
+                                dadosTabela[dateNow] = [];
+                        }
+                    });
+                } else if (chartFilter.interval === "year") {
+                    let year = chartFilter.dateStart.split("-")[0];
+                    for (let i = 1; i < 13; i++) {
+                        let dateNow = year + "-" + zeroEsquerda(i) + "-15";
+                        if (typeof dadosTabela[dateNow] === "undefined") {
+                            if (chart.operacao === "sum" || chart.operacao === "media" || chart.operacao === "maioria")
+                                dadosTabela[dateNow] = null;
+                            else
+                                dadosTabela[dateNow] = [];
+                        }
                     }
                 }
             }
-        }
 
-        /**
-         * Convert array associativo para plano Cartesiano
-         */
-        let dataResult = [];
-        let convertIndex = 1;
-        let convertStringToNumber = [];
-        let labelYString = [];
-        let isStringYLabel = !1;
-        let bigger = -999999;
-        let smaller = 99999999999;
+            /**
+             * Convert array associativo para plano Cartesiano
+             */
+            let dataResult = [];
+            let convertIndex = 1;
+            let convertStringToNumber = [];
+            let labelYString = [];
+            let isStringYLabel = !1;
+            let bigger = -999999;
+            let smaller = 99999999999;
 
-        for (let x in dadosTabela) {
-            let y = chart.functionValueY(dadosTabela[x]);
-            if (isEmpty(y)) {
-                dataResult.push({x: chart.functionValueX(x), y: "", v: "", r: 0});
-            } else {
-                if (chart.operacao === "registros") {
+            for (let x in dadosTabela) {
+                let y = chart.functionValueY(dadosTabela[x]);
+                if (isEmpty(y)) {
+                    dataResult.push({x: chart.functionValueX(x), y: "", v: "", r: 0});
+                } else {
+                    if (chart.operacao === "registros") {
 
-                    /**
-                     * Bubble Radius Calculate
-                     */
-                    let dd = [];
-                    $.each(y, function (i, v) {
-                        if (typeof dd[v] === "undefined")
-                            dd[v] = 1;
-                        else
-                            dd[v]++;
-                    });
+                        /**
+                         * Bubble Radius Calculate
+                         */
+                        let dd = [];
+                        $.each(y, function (i, v) {
+                            if (typeof dd[v] === "undefined")
+                                dd[v] = 1;
+                            else
+                                dd[v]++;
+                        });
 
-                    for (let n in dd) {
-                        if (isNaN(n)) {
-                            isStringYLabel = !0;
-                            if (typeof convertStringToNumber[n] === "undefined") {
-                                if (chart.order) {
-                                    if (chart.order.indexOf(n) > -1) {
-                                        labelYString[chart.order.indexOf(n) + 1] = n;
-                                        convertStringToNumber[n] = chart.order.indexOf(n) + 1;
+                        for (let n in dd) {
+                            if (isNaN(n)) {
+                                isStringYLabel = !0;
+                                if (typeof convertStringToNumber[n] === "undefined") {
+                                    if (chart.order) {
+                                        if (chart.order.indexOf(n) > -1) {
+                                            labelYString[chart.order.indexOf(n) + 1] = n;
+                                            convertStringToNumber[n] = chart.order.indexOf(n) + 1;
+                                        } else {
+                                            continue;
+                                        }
                                     } else {
-                                        continue;
+                                        labelYString[convertIndex] = n;
+                                        convertStringToNumber[n] = convertIndex++;
                                     }
-                                } else {
-                                    labelYString[convertIndex] = n;
-                                    convertStringToNumber[n] = convertIndex++;
                                 }
                             }
+
+                            //atualiza valores utilizados na conversão da proporção do radius
+                            if (bigger < dd[n])
+                                bigger = dd[n];
+                            if (smaller > dd[n])
+                                smaller = dd[n];
+
+                            dataResult.push({
+                                x: chart.functionValueX(x),
+                                y: convertStringToNumber[n],
+                                v: dd[n],
+                                r: dd[n]
+                            });
                         }
-
-                        //atualiza valores utilizados na conversão da proporção do radius
-                        if (bigger < dd[n])
-                            bigger = dd[n];
-                        if (smaller > dd[n])
-                            smaller = dd[n];
-
-                        dataResult.push({
-                            x: chart.functionValueX(x),
-                            y: convertStringToNumber[n],
-                            v: dd[n],
-                            r: dd[n]
-                        });
+                    } else {
+                        dataResult.push({x: chart.functionValueX(x), y: y});
                     }
-                } else {
-                    dataResult.push({x: chart.functionValueX(x), y: y});
                 }
+                chart.labels.push(chart.functionValueX(x));
             }
-            chart.labels.push(chart.functionValueX(x));
-        }
-
-        /**
-         * Convert Radius Proporção
-         */
-        let min = 6;
-        let max = 10;
-        $.each(dataResult, function (i, e) {
-            if (dataResult[i].r > 0)
-                dataResult[i].r = ((dataResult[i].r * (max - min)) / bigger) + min;
-        });
-
-        if (isStringYLabel) {
-            chart.stepY = 1;
-            chart.minY = 0;
 
             /**
-             * Cria camada de personalização em Label Y
+             * Convert Radius Proporção
              */
-            chart.functionAssocLabelY = y => {
-                return labelYString[y];
-            };
+            let min = 6;
+            let max = 10;
+            $.each(dataResult, function (i, e) {
+                if (dataResult[i].r > 0)
+                    dataResult[i].r = ((dataResult[i].r * (max - min)) / bigger) + min;
+            });
 
-            /**
-             * Cria camada de Tooltips personalizado
-             */
-            chart.functionTooltips = (x, y, v) => {
-                return v + " registro" + (v > 1 ? "s" : "");
-            };
+            if (isStringYLabel) {
+                chart.stepY = 1;
+                chart.minY = 0;
+
+                /**
+                 * Cria camada de personalização em Label Y
+                 */
+                chart.functionAssocLabelY = y => {
+                    return labelYString[y];
+                };
+
+                /**
+                 * Cria camada de Tooltips personalizado
+                 */
+                chart.functionTooltips = (x, y, v) => {
+                    return v + " registro" + (v > 1 ? "s" : "");
+                };
+            }
+
+            dadosTabela = dataResult;
         }
-
-        dadosTabela = dataResult;
     }
 
     return dadosTabela;
@@ -721,261 +732,6 @@ function privateChartGenerateImages($this, idChart) {
     }
 }
 
-/*
-class ChartMaker {
-    data = [];
-    title = "";
-    type = ["bar"];
-    fieldX = null;
-    fieldY = null;
-    fieldDate = null;
-    operacao = "sum";
-    labels = [];
-    stepY = 1;
-    stepX = 1;
-    order = [];
-    roundValueStepX = !1;
-    roundValueStepY = !1;
-    minX = 0;
-    minY = 0;
-    maxX = null;
-    maxY = null;
-    hideLineY = !1;
-    hideLineX = !1;
-    hideLabelY = !1;
-    hideLabelX = !1;
-    backgroundColor = null;
-    functionValueX = null;
-    functionValueY = null;
-    functionLabelX = null;
-    functionLabelY = null;
-    functionAssocLabelY = null;
-    functionTooltips = null;
-    functionColor = null;
-    borderWidth = 1;
-    paddings = null;
-
-    setTitle(title) {
-        if (typeof title === "string")
-            this.title = title;
-    }
-
-    setData(data) {
-        if (typeof data !== "undefined" && data !== null && data.constructor === Array)
-            this.data = data;
-    }
-
-    setType(type) {
-        this.type = operatorChartSetType(type);
-    }
-
-    setOrder(order) {
-        if (typeof order === "object" && order.constructor === Array)
-            this.order = order;
-    }
-
-    setFieldX(x) {
-        if (typeof x === "string")
-            this.fieldX = x;
-    }
-
-    setFieldY(y) {
-        if (typeof y === "string" || (typeof y !== "undefined" && y !== null && y.constructor === Array))
-            this.fieldY = y;
-    }
-
-    setFieldDate(date) {
-        let dateCheck = new RegExp("^\\d{4}-\\d{2}-\\d{2}(\\s\\d{2}:\\d{2}:\\d{2})*$", "i");
-        if (dateCheck)
-            this.fieldDate = date;
-    }
-
-    setLabels(l) {
-        if (typeof l === "object" && l.constructor === Array)
-            this.labels = l;
-    }
-
-    setOperacaoSoma() {
-        this.operacao = "sum";
-    }
-
-    setOperacaoMedia() {
-        this.operacao = "media";
-    }
-
-    setOperacaoMaioria() {
-        this.operacao = "maioria";
-    }
-
-    setStepX(step) {
-        if (!isNaN(step))
-            this.stepX = step;
-    }
-
-    setStepY(step) {
-        if (!isNaN(step))
-            this.stepY = step;
-    }
-
-    setRoundValueStepX() {
-        this.roundValueStepX = !0;
-    }
-
-    setRoundValueStepY() {
-        this.roundValueStepY = !0;
-    }
-
-    setMinX(min) {
-        if (!isNaN(min))
-            this.minX = min;
-    }
-
-    setMaxX(max) {
-        if (!isNaN(max))
-            this.maxX = max;
-    }
-
-    setMinY(min) {
-        if (!isNaN(min))
-            this.minY = min;
-    }
-
-    setMaxY(max) {
-        if (!isNaN(max))
-            this.maxY = max;
-    }
-
-    setHideLineY() {
-        this.hideLineY = !0;
-    }
-
-    setHideLineX() {
-        this.hideLineX = !0;
-    }
-
-    setHideLabelY() {
-        this.hideLabelY = !0;
-    }
-
-    setHideLabelX() {
-        this.hideLabelX = !0;
-    }
-
-    setBoderWidth(b) {
-        if (!isNaN(b))
-            this.borderWidth = b;
-    }
-
-    setPaddings(p) {
-        this.paddings = {top: 30, right: 30, bottom: 30, left: 30};
-        if (typeof p === "object" && p.constructor === Object) {
-            if (!isNaN(p.top))
-                this.paddings.top = p.top;
-            if (!isNaN(p.right))
-                this.paddings.right = p.right;
-            if (!isNaN(p.bottom))
-                this.paddings.bottom = p.bottom;
-            if (!isNaN(p.left))
-                this.paddings.left = p.left;
-        }
-    }
-
-    setFunctionValueX(f) {
-        if (typeof f === "function")
-            this.functionValueX = f;
-    }
-
-    setFunctionValueY(f) {
-        if (typeof f === "function")
-            this.functionValueY = f;
-    }
-
-    setFunctionLabelX(f) {
-        if (typeof f === "function")
-            this.functionLabelX = f;
-    }
-
-    setFunctionLabelY(f) {
-        if (typeof f === "function")
-            this.functionLabelY = f;
-    }
-
-    setFunctionTooltips(f) {
-        if (typeof f === "function")
-            this.functionTooltips = f;
-    }
-
-    setFunctionColor(f) {
-        if (typeof f === "function")
-            this.functionColor = f;
-    }
-
-    setFunctionImage(f) {
-        if (typeof f === "function")
-            this.functionImage = f;
-    }
-
-    getData() {
-        let $this = this;
-
-        if (typeof $this.labels === "undefined" || isEmpty($this.labels))
-            $this = privateChartGenerateBase($this);
-
-        return $this.data;
-    }
-
-    getChart(type) {
-        let $this = this;
-
-        if (typeof $this.labels === "undefined" || isEmpty($this.labels))
-            $this = privateChartGenerateBase($this, type);
-        else if (typeof type !== "undefined")
-            $this.type = operatorChartSetType(type);
-
-        if (isEmpty($this.data)) {
-            return $("<div class='col'><h3 class='padding-64 align-center font-bold font-xlarge color-text-gray'>Nenhum registro</h3></div>");
-        } else {
-            let options = privateChartGenerateOptions($this);
-
-            privateChartGenerateImages($this, options.idChart);
-
-            let $canvas = $("<canvas></canvas>");
-            let ctx = $canvas[0].getContext('2d');
-
-            let isImage = new RegExp("^http", "i");
-
-            new Chart(ctx, {
-                type: $this.type[0],
-                data: {
-                    labels: $this.labels,
-                    datasets: [{
-                        data: $this.data,
-                        backgroundColor: $this.backgroundColor,
-                        pointBorderWidth: 0,
-                        pointBorderColor: "#FFFFFF",
-                        pointRadius: function (chart) {
-                            if (isEmpty(chart.dataset.data[chart.dataIndex].y) || chart.dataset.data[chart.dataIndex].y < chart.chart.options.scales.yAxes[0].ticks.min)
-                                return 0;
-
-                            return 10;
-                        },
-                        pointHoverRadius: function (chart) {
-                            if (isEmpty(chart.dataset.data[chart.dataIndex].y) || chart.dataset.data[chart.dataIndex].y < chart.chart.options.scales.yAxes[0].ticks.min)
-                                return 0;
-
-                            return 11;
-                        },
-                        tension: 5,
-                        borderWidth: 0
-                    }]
-                },
-                options: options
-            });
-
-            return $canvas;
-        }
-    }
-}*/
 window.ChartMaker = function () {
     return {
         data: [],
@@ -1164,6 +920,8 @@ window.ChartMaker = function () {
                 let $canvas = $("<canvas></canvas>");
                 let ctx = $canvas[0].getContext('2d');
 
+                console.log(Object.assign({}, $this.data));
+
                 new Chart(ctx, {
                     type: $this.type[0],
                     data: {
@@ -1229,7 +987,40 @@ function graficoSintomas(registros) {
 }
 
 function graficoMedicamentos(registros) {
-    console.log(registros);
+    for (let i in registros) {
+        let dh = registros[i].start_date.split(" ");
+        registros[i].date = dh[0]
+    }
+    let $content = $("<div></div>");
+    let grafico = new ChartMaker();
+    grafico.setData(registros);
+    grafico.setFieldY("name");
+    grafico.setTitle(getTitleIndicador("Registros de Medicamentos"));
+    grafico.setMinY(0);
+    grafico.setHideLineX();
+    grafico.setStepY(1);
+    grafico.setTitle(getTitleIndicador("medicamentos"));
+    grafico.setFunctionColor(function (y) {
+        // let hex = () => { return ["a", "b", "c", "d", "e", "f", 0, 1, 2, 3, 4, 5, 6, 7, 8, 9][Math.floor(Math.random() * 16) + 1]; };
+        return "#7DA0D4";
+    });
+
+    if (modChart.medicamentos > 1)
+        $content.append(Mustache.render(tpl.graficoArrowBack, {indicador: 'medicamentos', mod: 1}));
+
+
+    if (modChart.medicamentos === 1) {
+        grafico.setFieldDate("date");
+        grafico.setFieldX("date");
+        $content.append(grafico.getChart("scatter"))
+    } else {
+        $content.append(grafico.getChart("pie"));
+    }
+
+    if (modChart.medicamentos < 2)
+        $content.append(Mustache.render(tpl.graficoArrowForward, {indicador: 'medicamentos', mod: 2}));
+
+    return $content
 }
 
 function graficoAtividade(registros) {
@@ -1441,45 +1232,47 @@ function privateChartGetDataCrisesCalendar(registros, isPrevius) {
     let data = grafico.getData();
     data = chartDataOrder(data, "x").reverse();
 
-    if (chartFilter.interval === "week" || chartFilter.interval === "month") {
-        let d = data[0].x.split("-");
-        let firstDate = d[0] + "-" + parseInt(d[1]) + "-" + parseInt(d[2]);
-        let week = parseInt(moment(firstDate).format("d"));
-        for (let i = 0; i < week; i++) {
-            listX.push({
-                title: "",
-                style: "",
-                dia: ""
-            });
-        }
+    if(typeof data === "object" && data.constructor === Array && data.length) {
+        if (chartFilter.interval === "week" || chartFilter.interval === "month") {
+            let d = data[0].x.split("-");
+            let firstDate = d[0] + "-" + parseInt(d[1]) + "-" + parseInt(d[2]);
+            let week = parseInt(moment(firstDate).format("d"));
+            for (let i = 0; i < week; i++) {
+                listX.push({
+                    title: "",
+                    style: "",
+                    dia: ""
+                });
+            }
 
-        for (let i in data) {
-            let v = data[i].y;
-            listX.push({
-                title: funcaoTooltips("", v),
-                style: (!isEmpty(v) ? "color: #FFF;background: " + funcaoColor(v) : ""),
-                dia: parseInt(data[i].x.split("-")[2])
-            });
-        }
+            for (let i in data) {
+                let v = data[i].y;
+                listX.push({
+                    title: funcaoTooltips("", v),
+                    style: (!isEmpty(v) ? "color: #FFF;background: " + funcaoColor(v) : ""),
+                    dia: parseInt(data[i].x.split("-")[2])
+                });
+            }
 
-    } else if (chartFilter.interval === "day") {
-        for (let i in data) {
-            let v = data[i].y;
-            listX.push({
-                title: funcaoTooltips("", v),
-                style: (!isEmpty(v) ? "color: #FFF;background: " + funcaoColor(v) : ""),
-                dia: ""
-            });
-        }
+        } else if (chartFilter.interval === "day") {
+            for (let i in data) {
+                let v = data[i].y;
+                listX.push({
+                    title: funcaoTooltips("", v),
+                    style: (!isEmpty(v) ? "color: #FFF;background: " + funcaoColor(v) : ""),
+                    dia: ""
+                });
+            }
 
-    } else {
-        for (let i in data) {
-            let v = data[i].y;
-            listX.push({
-                title: funcaoTooltips("", v),
-                style: (!isEmpty(v) ? "color: #FFF;background: " + funcaoColor(v) : ""),
-                dia: !isEmpty(v) && !isNaN(v) ? "" : "-"
-            });
+        } else {
+            for (let i in data) {
+                let v = data[i].y;
+                listX.push({
+                    title: funcaoTooltips("", v),
+                    style: (!isEmpty(v) ? "color: #FFF;background: " + funcaoColor(v) : ""),
+                    dia: !isEmpty(v) && !isNaN(v) ? "" : "-"
+                });
+            }
         }
     }
 
@@ -1622,6 +1415,7 @@ function graficoSono(registros) {
     grafico.setHideLineX();
     grafico.setOperacaoMedia();
     grafico.setStepY(2.5);
+    grafico.setTitle(getTitleIndicador("sono"));
 
     if (modChart['sono'] === 1) {
 
@@ -1658,8 +1452,31 @@ function graficoSono(registros) {
         grafico.setMaxY(2.5);
         grafico.setMinY(-2.5);
         grafico.setFieldY("quality");
-        grafico.setTitle("Qualidade do Sono");
         $content.append(Mustache.render(tpl.graficoArrowForward, {indicador: 'sono', mod: 2}));
+    } else if(modChart.sono === 2) {
+
+        grafico.setFunctionColor(function (color) {
+            if (color < 6)
+                return "#BF0811";
+            else if (color > 7)
+                return '#2D92CB';
+
+            return '#606060';
+        });
+
+        grafico.setFunctionLabelY(function (y) {
+            return y + " hr";
+        });
+
+        grafico.setFunctionTooltips(function (x, y) {
+            return Math.floor(y) + ":" + Math.round(y % 1 * 60) + " hr";
+        });
+
+        grafico.setMinY(0);
+        grafico.setFieldY("duration");
+        $content.append(Mustache.render(tpl.graficoArrowBack, {indicador: 'sono', mod: 1}));
+        $content.append(Mustache.render(tpl.graficoArrowForward, {indicador: 'sono', mod: 3}));
+
     } else {
 
         grafico.setFunctionColor(function (color) {
@@ -1681,8 +1498,7 @@ function graficoSono(registros) {
 
         grafico.setMinY(0);
         grafico.setFieldY("duration");
-        grafico.setTitle("Horas de Sono");
-        $content.append(Mustache.render(tpl.graficoArrowBack, {indicador: 'sono', mod: 1}));
+        $content.append(Mustache.render(tpl.graficoArrowBack, {indicador: 'sono', mod: 2}));
     }
 
     $content.append(grafico.getChart("bar"));
@@ -1703,7 +1519,7 @@ function graficoHumor(registros) {
     grafico.setHideLineX();
     grafico.setHideLabelY();
     grafico.setOperacaoMedia();
-    grafico.setTitle("Humor");
+    grafico.setTitle(getTitleIndicador("humor"));
 
     grafico.setFunctionTooltips(function (x, y) {
         y = typeof y === "undefined" && typeof x !== "undefined" ? x : y;
@@ -1849,6 +1665,27 @@ function getTitleIndicador(indicador) {
             return "Minutos";
         else if (modChart[indicador] === 5)
             return "Passos";
+
+    } else if(indicador === "medicamentos") {
+        if(typeof modChart[indicador] !== "undefined" && modChart[indicador] === 1) {
+            return "Registros de Medicamentos";
+        } else if(typeof modChart[indicador] !== "undefined" && modChart[indicador] === 2) {
+            return "Média de medicamentos consumidos";
+        }
+    } else if(indicador === "humor") {
+        if(typeof modChart[indicador] !== "undefined" && modChart[indicador] === 1) {
+            return "Registros de Humor";
+        } else if(typeof modChart[indicador] !== "undefined" && modChart[indicador] === 2) {
+            return "Média do Humor";
+        }
+    } else if(indicador === "sono") {
+        if(typeof modChart[indicador] !== "undefined" && modChart[indicador] === 1) {
+            return "Qualidade do Sono";
+        } else if(typeof modChart[indicador] !== "undefined" && modChart[indicador] === 2) {
+            return "Horas de Sono";
+        } else if(typeof modChart[indicador] !== "undefined" && modChart[indicador] === 3) {
+            return "Qualidade do Sono";
+        }
     }
 
     return indicador.replace("-", " ").replace("_", " ");
@@ -1882,24 +1719,26 @@ function graficos(ind) {
                                 paciente: paciente
                             }, function (t) {
                                 if (t) {
-                                    $.each(t, function (i, e) {
-                                        if (typeof e['id'] === "undefined")
-                                            e['id'] = i;
+                                    dbLocal.clear(indicador).then(() => {
+                                        $.each(t, function (i, e) {
+                                            if (typeof e['id'] === "undefined")
+                                                e['id'] = i;
 
-                                        if (indicador === "sono") {
-                                            if (isEmpty(e.duration) && !isEmpty(e.start_time) && !isEmpty(e.end_time)) {
-                                                let ss = e.start_time.split(":");
-                                                let ee = e.end_time.split(":");
-                                                let dayStart = moment(e.date + " " + e.start_time);
-                                                let dayEnd = (parseInt(ss[0]) < parseInt(ee[0]) ? dayStart : moment(moment(e.date).add(1, 'day').format("YYYY-MM-DD") + " " + e.end_time));
-                                                let duration = moment.duration(dayEnd.diff(dayStart));
-                                                e.duration = duration.asHours();
+                                            if (indicador === "sono") {
+                                                if (isEmpty(e.duration) && !isEmpty(e.start_time) && !isEmpty(e.end_time)) {
+                                                    let ss = e.start_time.split(":");
+                                                    let ee = e.end_time.split(":");
+                                                    let dayStart = moment(e.date + " " + e.start_time);
+                                                    let dayEnd = (parseInt(ss[0]) < parseInt(ee[0]) ? dayStart : moment(moment(e.date).add(1, 'day').format("YYYY-MM-DD") + " " + e.end_time));
+                                                    let duration = moment.duration(dayEnd.diff(dayStart));
+                                                    e.duration = duration.asHours();
+                                                }
                                             }
-                                        }
-                                        dbLocal.exeCreate(indicador, e);
+                                            dbLocal.exeCreate(indicador, e);
+                                        });
+                                        if (isEmpty(g))
+                                            $grafico.html(grafico(indicador, t));
                                     });
-                                    if (isEmpty(g))
-                                        $grafico.html(grafico(indicador, t));
                                 }
                             });
                         }
@@ -2045,17 +1884,7 @@ $(function () {
             }, 200);
         });
     }).off("click", ".comment-crise").on("click", ".comment-crise", function () {
-        let $comment = $("<div id='comment-crise'></div>").appendTo("#core-content");
-        let $content = $("<div id='comment-crise-box' class='col animate-top'>" + $(this).attr("rel") + "</div>").appendTo($comment);
-        setTimeout(function () {
-            $comment.css("opacity", 1);
-        }, 1);
-    }).off("click", "#comment-crise").on("click", "#comment-crise", function () {
-        $("#comment-crise-box").addClass("transition-easy").css("margin-top", 0).css("opacity", 0);
-        $("#comment-crise").addClass("transition-easy").css("opacity", 0);
-        setTimeout(function () {
-            $("#comment-crise").remove();
-        }, 200);
+        lightbox($(this).attr("rel"));
     });
 
     let now = new Date();
@@ -2068,12 +1897,12 @@ $(function () {
     let Oldmonth = ("0" + (old.getMonth() + 1)).slice(-2);
     let lastMonth = old.getFullYear() + "-" + (Oldmonth) + "-" + (Oldday);
 
-    // $("#date-start").val(lastMonth).trigger("change");
-    // $("#date-end").val(today).trigger("change");
+    $("#date-start").val(lastMonth).trigger("change");
+    $("#date-end").val(today).trigger("change");
 
     //seta manualmente a data para testes
-    $("#date-start").val("2019-10-01").trigger("change");
-    $("#date-end").val("2019-10-31").trigger("change");
+    // $("#date-start").val("2019-10-01").trigger("change");
+    // $("#date-end").val("2019-10-31").trigger("change");
 
     graficos();
 

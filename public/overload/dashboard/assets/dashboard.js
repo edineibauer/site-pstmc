@@ -118,9 +118,6 @@ function readUpdatesPacientesServer() {
             $.each(p, function (i, e) {
                 dbLocal.exeRead("pacientes", e.patientID).then(data => {
                     e.patient = data;
-                    let d = e.date.created.split(" ");
-                    d = d[0].split("-");
-                    e.date = d[2] + "/" + d[1] + "/" + d[0];
                     e.id = i;
                     a.push(dbLocal.exeCreate("pacientesUpdates", e));
                 })

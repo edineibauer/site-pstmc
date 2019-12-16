@@ -108,8 +108,8 @@
                 <div class="col font-medium easefadein" data-fade-delay="300">Você esta visualizando os pedidos pendentes de seus possíveis pacientes.</div>
             </div>
 
-            <div class="col padding-64 easefadein" data-fade-delay="400">
-                fdafds
+            <div class="col padding-64 easefadein color-text-white" data-fade-delay="400">
+                Nenhum paciente pendente
             </div>
 
             <div class="col easefadein" data-fade-delay="500">

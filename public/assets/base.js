@@ -10,7 +10,10 @@ var SPMaskBehavior = function (val) {
 function lightbox(content) {
     $(".core-overlay").css({"opacity": 1, "transform": "translateX(0)"});
     $("#core-overlay-content").html(content);
-    $("#core-overlay-div").css({"opacity": 1, "transform": "translateX(0)"});
+    $("#core-overlay-content").addClass("animate-top");
+    setTimeout(function () {
+        $("#core-overlay-div").css({"opacity": 1, "transform": "translateX(0)"});
+    },1);
 }
 
 function logout() {
@@ -206,7 +209,7 @@ function closeAjustes() {
 }
 
 function termosUso() {
-    alert("Termos de Uso");
+    lightbox("Termos de Uso");
 }
 
 function sobreepistemic() {
@@ -223,5 +226,13 @@ $(function () {
         $(".core-overlay").css({"opacity": 0, "transform": "translateX(-100%)"});
         $("#core-overlay-div").css({"opacity": 0, "transform": "translateX(-100%)"});
         $("#core-overlay-content").html("");
+    });
+
+    $("#app").off("click", ".lightbox-opacity").on("click", ".lightbox-opacity", function () {
+        $(".lightbox-content").addClass("transition-easy").css("margin-top", 0).css("opacity", 0);
+        $(".lightbox-opacity").addClass("transition-easy").css("opacity", 0);
+        setTimeout(function () {
+            $(".lightbox-opacity").remove();
+        }, 200);
     });
 });
