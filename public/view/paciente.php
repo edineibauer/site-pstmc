@@ -115,7 +115,7 @@ $id = (int)$link->getVariaveis()[0];
         </div>
         <div class="col s12 l8">
             <div class="col padding-xlarge s-padding-small padding-4 relative">
-                <div class="col margin-top padding-tiny relative" id="graficos"></div>
+                <div class="col margin-top relative grafico-box" id="graficos"></div>
             </div>
         </div>
     </div>

@@ -13,7 +13,8 @@
 }
 
 .grafico-box {
-    overflow: auto;
+    overflow-x: auto;
+    overflow-y: hidden;
     padding-right: 40px;
     padding-left: 20px;
 }
