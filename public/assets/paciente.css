@@ -3,10 +3,17 @@
     color: #1C9CCA;
     margin-right: 20px;
 }
+.sub-header {
+    text-transform: capitalize;
+    margin-right: 20px;
+}
 
-.grafico-box {
+.grafico-box-parent {
     overflow-x: auto;
     overflow-y: hidden;
+}
+
+.grafico-box {
     padding-right: 40px;
     padding-left: 18px;
 }
@@ -17,11 +24,11 @@
 
 .graficoArrow {
     position: absolute;
-    top: 30%;
+    top: 22%;
 }
 
 .graficoArrowBack {
-    left: -40px;
+    left: -50px;
 }
 
 .graficoArrowforward {

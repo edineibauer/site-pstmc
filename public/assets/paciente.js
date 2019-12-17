@@ -584,6 +584,9 @@ function privateChartGenerateOptions($this) {
 
     options.idChart = Date.now() + Math.floor((Math.random() * 10000) + 1);
     options.funcitonImage = (typeof $this.functionImage === "function");
+    options.animation = {
+        duration: 600
+    };
 
     if (["radar", "pie", "doughnut", "polarArea"].indexOf($this.type[0]) > -1) {
 
@@ -689,7 +692,7 @@ function privateChartGenerateOptions($this) {
                 },
                 offset: true
             }]
-        }
+        };
 
         if($this.fieldDate) {
             if(chartFilter.interval !== "day")
@@ -934,7 +937,7 @@ window.ChartMaker = function () {
                 this.borderWidth = b;
         },
         setPaddings: p => {
-            this.paddings = {top: 30, right: 20, bottom: 30, left: 30};
+            this.paddings = {top: 30, right: 20, bottom: 30, left: 0};
             if (typeof p === "object" && p.constructor === Object) {
                 if (!isNaN(p.top))
                     this.paddings.top = p.top;
@@ -994,6 +997,14 @@ window.ChartMaker = function () {
 
             return $this.data;
         },
+        getDataLabel: () => {
+            let $this = this;
+
+            if (typeof $this.labels === "undefined" || isEmpty($this.labels))
+                $this = privateChartGenerateBase($this);
+
+            return [$this.data, $this.labels];
+        },
         getChart: type => {
             let $this = this;
 
@@ -1009,11 +1020,18 @@ window.ChartMaker = function () {
 
                 privateChartGenerateImages($this, options.idChart);
 
+                /**
+                 * Define name chart color
+                 */
                 $(".grafico-header").last().css("color", $this.colorBase);
 
                 let $canvas = $("<canvas></canvas>");
                 let ctx = $canvas[0].getContext('2d');
 
+                /**
+                 * Define Color to use
+                 * @type {string}
+                 */
                 let color = "undefined";
                 if(typeof $this.colorBaseGradient !== "undefined") {
                     color = ctx.createLinearGradient(0, 0, 0, 600);
@@ -1050,14 +1068,17 @@ window.ChartMaker = function () {
                     }];
                 }
 
-                new Chart(ctx, {
-                    type: $this.type[0],
-                    data: {
-                        labels: $this.labels,
-                        datasets: getDataSets($this)
-                    },
-                    options: Object.assign(options, this.options)
-                });
+                setTimeout(function () {
+                    new Chart(ctx, {
+                        type: $this.type[0],
+                        data: {
+                            labels: $this.labels,
+                            datasets: getDataSets($this)
+                        },
+                        options: Object.assign(options, this.options)
+                    });
+
+                },1);
 
                 return $canvas;
             }
@@ -1079,12 +1100,11 @@ function graficoSintomas(registros) {
     let grafico = new ChartMaker();
     grafico.setData(registros);
     grafico.setHideLineX();
-    grafico.setGridOffsetLineY();
     grafico.setTitle(getTitleIndicador("sintomas"));
     grafico.setMinY(0);
     grafico.setColorBase("#DE5690");
 
-    grafico.setFunctionLabelY(y => {
+    function labelY(y) {
         if(typeof y === "string"){
             switch (y) {
                 case 'Dificuldade para falar':
@@ -1103,22 +1123,67 @@ function graficoSintomas(registros) {
                     return "Tontura        ";
                     break;
                 default:
-                    return y;
+                    return "Outros";
             }
         }
-    });
+    };
 
     if (modChart.sintomas > 1)
         $content.append(Mustache.render(tpl.graficoArrowBack, {indicador: 'sintomas', mod: 1}));
 
     grafico.setFieldY("title");
     if (modChart.sintomas === 1){
+
+        let data = grafico.getDataLabel();
+        let labels = data[1];
+        let labelsNew = [];
+        data = data[0];
+
+        let total = 0;
+        let bigger = {name: "", v: 0};
+        let dataNew = [];
+        for(let i in data) {
+            if(typeof data[i] !== "" && !isNaN(data[i]))
+                total += data[i];
+
+            labelsNew[i] = labelY(labels[i]);
+        }
+
+        for(let i in data) {
+            let v = Math.round(parseFloat((data[i] * 100) / total));
+            if(v > bigger.v)
+                bigger = {name: labels[i], v: v};
+
+            dataNew.push({x: labelsNew[i], y: v, v: v, r: ''});
+        }
+
+        grafico.setData(dataNew);
+        grafico.setLabels(labelsNew);
+        grafico.setFunctionLabelY(y => {
+            if(y % 10 === 0)
+                return y + "%          ";
+
+            return "";
+        });
+
+        grafico.setFunctionTooltips((y, x) => {
+            return x + "% " + y;
+        });
+
+        setTimeout(function () {
+            $("#sub-header-sintomas").html(data.length + " Crises no período");
+            $("#grafico-header-title-sintomas").html("<div class='col font-small' style='color: #bbb'>MAIS RELEVANTE</div><div class='col' style='margin: -8px 0 -4px'><div class='left font-xlarge'>" + bigger.v + "%</div> <div class='left font-small' style='color: #bbb;padding: 13px 5px 0;'>" + bigger.name + " no período</div></div>");
+        },1);
+
+        grafico.setFieldX("x");
+        $content.append(grafico.getChart("bar"));
+
+    } else {
+
+        grafico.setFunctionLabelY(labelY);
         grafico.setFieldDate("date");
         grafico.setFieldX("date");
         $content.append(grafico.getChart("scatter"));
-    } else {
-        grafico.setPaddings({left: 88, right: 20, bottom: 10, top: 20});
-        $content.append(grafico.getChart("doughnut"));
     }
 
     if (modChart.sintomas < 2)
@@ -1191,11 +1256,13 @@ function graficoAtividade(registros) {
     grafico.setPointRadius(0);
     grafico.setHideLineX();
     grafico.setOperacaoSoma();
-    grafico.setTitle(getTitleIndicador("atividade-fisica"));
     grafico.setMinY(0);
     grafico.setColorBase("#c14973");
+
+    /**
+     * Alinhamento do texto para cada gráfico de atividade com base no tamanho do valor em X
+     */
     grafico.setFunctionLabelY(function(y) {
-        console.log(modChart['atividade-fisica']);
         if(modChart['atividade-fisica'] === 1) {
             return y + (y.length === 5 ? "         " : (y.length === 4 ? "         " : (y.length === 3 ? "         " : (y.length === 2 ? "          " : "            "))));
         } else if(modChart['atividade-fisica'] === 2) {
@@ -1209,23 +1276,58 @@ function graficoAtividade(registros) {
         }
     });
 
+    /**
+     * Overide title atividade média
+     */
+    let data = grafico.getData();
+    if(data.length) {
+        let media = 0.0;
+        for (let i in data) {
+            if(data[i].y !== "" && !isNaN(data[i].y))
+                media += parseFloat(data[i].y);
+        }
+        media = parseFloat(media / data.length).toFixed(1).toString().replace(".", ",");
+
+        /**
+         * ponto de milhar
+         */
+        if(media.length > 5)
+            media = [media.slice(0, media.length - 5), ".", media.slice(media.length - 5)].join('');
+
+        setTimeout(function () {
+            $("#grafico-header-title-atividade-fisica").html("<div class='col font-small' style='color: #bbb'>MÉDIA</div><div class='col' style='margin: -8px 0 -4px'><div class='left font-xlarge'>" + media + "</div> <div class='left font-small' style='color: #bbb;padding: 13px 5px 0;'>" + getTitleIndicador("atividade-fisica") + " no período</div></div>");
+        },1);
+    }
+
+    /**
+     * Ultimo gráfico com gradiente e sem curvas
+     */
     if(modChart['atividade-fisica'] === 5) {
         grafico.setLineTension(0);
         grafico.setFill(!0);
         grafico.setColorBaseGradient("#c14973", "rgba(255,255,255,0)");
     }
 
+    /**
+     * Arrow back
+     */
     if (modChart['atividade-fisica'] > 1)
         $content.append(Mustache.render(tpl.graficoArrowBack, {
             indicador: 'atividade-fisica',
             mod: modChart['atividade-fisica'] - 1
         }));
 
+    /**
+     * Gráfico tipo
+     */
     if(modChart['atividade-fisica'] === 2 || modChart['atividade-fisica'] === 3)
         $content.append(grafico.getChart("bar"));
     else
         $content.append(grafico.getChart("line"));
 
+    /**
+     * Arrow Forward
+     */
     if (modChart['atividade-fisica'] < 5)
         $content.append(Mustache.render(tpl.graficoArrowForward, {
             indicador: 'atividade-fisica',

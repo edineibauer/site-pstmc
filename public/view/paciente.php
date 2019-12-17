@@ -114,7 +114,7 @@ $id = (int)$link->getVariaveis()[0];
 
         </div>
         <div class="col s12 l8" id="grafico-board" style="overflow-y: auto;overflow-x: hidden">
-            <div class="col padding-xlarge s-padding-0 padding-4 relative">
+            <div class="col padding-xlarge s-padding-0 padding-4 relative grafico-box-parent">
                 <div class="col margin-top relative grafico-box" id="graficos"></div>
             </div>
         </div>
