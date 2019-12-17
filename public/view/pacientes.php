@@ -4,11 +4,11 @@
             <h1 class="col color-text-white font-xxlarge font-bold padding-0">Pacientes</h1>
             <span class="col color-text-white s-font-small">Selecione um paciente para ver os registros feitos a partir do app Epistemic</span>
         </div>
-        <button class="btn right radius-xxlarge padding-large margin-top s-margin-0 s-margin-top" onclick="pedidosPendentes()"
+        <!--<button class="btn right radius-xxlarge padding-large margin-top s-margin-0 s-margin-top" onclick="pedidosPendentes()"
                 style="background: #3E1F55">
             <div class="left" style="padding-right: 7px">Pedidos</div>
             <div class="left s-hide">pendentes</div>
-        </button>
+        </button>-->
         <button class="btn right radius-xxlarge padding-large margin-top s-margin-0 s-margin-top" onclick="addPatient()"
                 style="background: #3E1F55">
             <div class="left" style="padding-right: 7px">Adicionar</div>

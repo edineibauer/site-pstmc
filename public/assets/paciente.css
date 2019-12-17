@@ -4,23 +4,15 @@
     margin-right: 20px;
 }
 
-.grafico-header-humor {
-    color: #C03A4C;
-}
-
-.grafico-header-atividade-fisica {
-    color: #c14973;
-}
-
 .grafico-box {
     overflow-x: auto;
     overflow-y: hidden;
     padding-right: 40px;
-    padding-left: 20px;
+    padding-left: 18px;
 }
 
 .grafico-box::-webkit-scrollbar {
-    height: 10px!important;
+    height: 10px !important;
 }
 
 .graficoArrow {
@@ -62,11 +54,106 @@
     opacity: 1;
 }
 
+#periodo-graficos {
+    transform: scale(.9);
+    width: 125%;
+    margin-left: -12.5%;
+}
+
+.info-spinner {
+    padding-left: 96px;
+    width: 200px;
+    position: absolute;
+    left: 25%;
+    top: 70px;
+}
+
+.message-spinner {
+    position: absolute;
+    right: 7%;
+    top: 80px;
+}
+
+@keyframes rotateBad {
+    from {
+        transform: rotate(230deg);
+    }
+    to {
+        transform: rotate(310deg);
+    }
+}
+
+@keyframes rotateNormal {
+    from {
+        transform: rotate(280deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes rotateGood {
+    from {
+        transform: rotate(320deg);
+    }
+    to {
+        transform: rotate(400deg);
+    }
+}
+
+.spinner {
+    border-radius: 50%;
+    height: 200px;
+    width: 200px;
+    position: absolute;
+    top: 0;
+    left: 30%;
+    z-index: 0;
+}
+
+.spinner:before,
+.spinner:after {
+    content: '';
+    position: absolute;
+}
+
+.spinner:before {
+    border-radius: 50%;
+    background: linear-gradient(0deg, hsla(0, 0%, 100%, 1) 50%, hsla(0, 0%, 100%, 0.9) 100%) 0% 0%,
+    linear-gradient(90deg, hsla(0, 0%, 100%, 0.9) 0%, hsla(0, 0%, 100%, 0.6) 100%) 100% 0%,
+    linear-gradient(180deg, hsla(0, 0%, 100%, 0.6) 0%, hsla(0, 0%, 100%, 0.3) 100%) 100% 100%,
+    linear-gradient(360deg, hsla(0, 0%, 100%, 0.3) 0%, hsla(0, 0%, 100%, 0) 100%) 0% 100%;
+    background-repeat: no-repeat;
+    background-size: 50% 50%;
+    top: -1px;
+    bottom: -1px;
+    left: -1px;
+    right: -1px;
+}
+
+.spinner:after {
+    background: white;
+    border-radius: 50%;
+    top: 6%;
+    bottom: 6%;
+    left: 6%;
+    right: 6%;
+}
+
+@media (min-width: 663px) {
+    #periodo-graficos {
+        transform: none;
+        width: 100%;
+        margin-left: 0;
+    }
+}
+
 @media (min-width: 990px) and (max-width: 1300px) {
     .l4 {
-        width: 41.66666%!important;
+        width: 41.66666% !important;
     }
+
     .l8 {
-        width: 58.33333%!important;
+        width: 58.33333% !important;
     }
 }

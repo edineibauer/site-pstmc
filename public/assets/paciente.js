@@ -429,9 +429,19 @@ function privateChartGetDataMaker(chart) {
                             dataResult.push({
                                 x: chart.functionValueX(x),
                                 y: convertStringToNumber[n],
+                                v: 1,
+                                r: 1
+                            });
+
+                            /*
+                            Bubble calculate size
+
+                            dataResult.push({
+                                x: chart.functionValueX(x),
+                                y: convertStringToNumber[n],
                                 v: dd[n],
                                 r: dd[n]
-                            });
+                            });*/
                         }
                     } else {
                         dataResult.push({x: chart.functionValueX(x), y: y});
@@ -533,18 +543,21 @@ function privateChartGenerateBase($this, type) {
         };
     }
 
-    $this.paddings = $this.paddings || {top: 30, right: 20, bottom: 30, left: 30};
+    $this.paddings = $this.paddings || {top: 30, right: 20, bottom: 30, left: 0};
     $this.functionTooltips = typeof $this.functionTooltips === "function" ? $this.functionTooltips : function (x, y, v) {
         return y;
     };
     $this.functionColor = typeof $this.functionColor === "function" ? $this.functionColor : function (c) {
-        return c;
+        return (typeof $this.colorBase !== "undefined" && $this.colorBase !== "" ? $this.colorBase : c);
     };
 
     $this.type = operatorChartSetType(type);
     $this.labels = [];
     $this.backgroundColor = [];
     $this.data = privateChartGetDataMaker($this);
+
+    if($this.fieldDate)
+        $this.data = chartDataOrder($this.data, "x").reverse();
 
     if ($this.fieldDate && !$this.minX)
         $this.minX = chartFilter.dateStart;
@@ -639,7 +652,8 @@ function privateChartGenerateOptions($this) {
                     color: "#F5F5F5",
                     drawBorder: typeof $this.hideLineX === "undefined",
                     zeroLineWidth: 3,
-                    zeroLineColor: "#EEEEEE"
+                    zeroLineColor: "#EEEEEE",
+                    offsetGridLines: $this.gridOffsetLineY
                 },
                 ticks: {
                     padding: 15,
@@ -654,6 +668,47 @@ function privateChartGenerateOptions($this) {
                 }
             }],
             xAxes: [{
+                gridLines: {
+                    display: typeof $this.hideLineX === "undefined",
+                    color: "#F5F5F5",
+                    drawBorder: typeof $this.hideLineY === "undefined",
+                    zeroLineWidth: 3,
+                    zeroLineColor: "#EEEEEE",
+                    offsetGridLines: $this.gridOffsetLineX
+                },
+                ticks: {
+                    padding: 0,
+                    max: $this.maxX || undefined,
+                    min: $this.minX || undefined,
+                    beginAtZero: $this.minX == 0,
+                    source: 'data',
+                    autoSkip: !1,
+                    stepSize: $this.stepX || undefined,
+                    callback: $this.functionLabelX,
+                    display: typeof $this.hideLabelX === "undefined"
+                },
+                offset: true
+            }]
+        }
+
+        if($this.fieldDate) {
+            if(chartFilter.interval !== "day")
+                options.scales.xAxes[0].type = 'time';
+
+            options.scales.xAxes[0].time = {
+                unit: chartFilter.interval,
+                displayFormats: {
+                    'day': 'H',
+                    'week': 'ddd',
+                    'month': 'D',
+                    'year': 'MMM'
+                },
+                unitStepSize: 1
+            };
+        }
+
+        if($this.type[0] === "line") {
+            options.scales.xAxes = [{
                 stacked: true,
                 type: (chartFilter.interval === "day" ? undefined : 'time'),
                 gridLines: {
@@ -665,9 +720,6 @@ function privateChartGenerateOptions($this) {
                 },
                 ticks: {
                     padding: 0,
-                    max: $this.maxX || undefined,
-                    min: $this.minX || undefined,
-                    beginAtZero: $this.minX == 0,
                     source: 'data',
                     autoSkip: !1,
                     stepSize: $this.stepX || undefined,
@@ -685,7 +737,7 @@ function privateChartGenerateOptions($this) {
                     unitStepSize: 1
                 },
                 offset: true
-            }]
+            }];
         }
     }
 
@@ -766,6 +818,11 @@ window.ChartMaker = function () {
         functionColor: null,
         borderWidth: 1,
         paddings: null,
+        gridOffsetLineY: !1,
+        gridOffsetLineX: !1,
+        pointRadius: 10,
+        colorBase: "",
+        options: {},
         setTitle: title => {
             if (typeof title === "string")
                 this.title = title;
@@ -776,6 +833,12 @@ window.ChartMaker = function () {
         },
         setType: type => {
             this.type = operatorChartSetType(type);
+        },
+        setColorBase: color => {
+            this.colorBase = color;
+        },
+        setPointRadius: pointRadius => {
+            this.pointRadius = pointRadius;
         },
         setOrder: order => {
             if (typeof order === "object" && order.constructor === Array)
@@ -894,6 +957,18 @@ window.ChartMaker = function () {
             if (typeof f === "function")
                 this.functionImage = f;
         },
+        setGridOffsetLineY: gridOffsetLineY => {
+            if(typeof gridOffsetLineY === "undefined" || typeof gridOffsetLineY === "boolean")
+                this.gridOffsetLineY = !0;
+        },
+        setGridOffsetLineX: gridOffsetLineX => {
+            if(typeof gridOffsetLineY === "undefined" || typeof gridOffsetLineX === "boolean")
+                this.gridOffsetLineX = !0;
+        },
+        setOptions: o => {
+            if(typeof o === "object")
+                this.options = o;
+        },
         getData: () => {
             let $this = this;
 
@@ -917,35 +992,43 @@ window.ChartMaker = function () {
 
                 privateChartGenerateImages($this, options.idChart);
 
+                $(".grafico-header").last().css("color", $this.colorBase);
+
                 let $canvas = $("<canvas></canvas>");
                 let ctx = $canvas[0].getContext('2d');
+
+                function getDataSets($this) {
+                    return [{
+                        data: $this.data,
+                        backgroundColor: $this.backgroundColor,
+                        borderColor: $this.type[0] === "line" ? $this.colorBase || "#cccccc" : undefined,
+                        pointBorderWidth: 0,
+                        pointBorderColor: "#FFFFFF",
+                        fill: "#ffffff",
+                        pointRadius: function (chart) {
+                            if (isEmpty(chart.dataset.data[chart.dataIndex].y) || chart.dataset.data[chart.dataIndex].y < chart.chart.options.scales.yAxes[0].ticks.min)
+                                return 0;
+
+                            return (typeof $this.pointRadius !== "undefined" ? $this.pointRadius : 10);
+                        },
+                        pointHoverRadius: function (chart) {
+                            if (isEmpty(chart.dataset.data[chart.dataIndex].y) || chart.dataset.data[chart.dataIndex].y < chart.chart.options.scales.yAxes[0].ticks.min)
+                                return 0;
+
+                            return (typeof $this.pointRadius !== "undefined" ? $this.pointRadius : 10) + 1;
+                        },
+                        tension: $this.type[0] === "line" ? .5 : 5,
+                        borderWidth: $this.type[0] === "line" ? 2 : 1
+                    }];
+                }
 
                 new Chart(ctx, {
                     type: $this.type[0],
                     data: {
                         labels: $this.labels,
-                        datasets: [{
-                            data: $this.data,
-                            backgroundColor: $this.backgroundColor,
-                            pointBorderWidth: 0,
-                            pointBorderColor: "#FFFFFF",
-                            pointRadius: function (chart) {
-                                if (isEmpty(chart.dataset.data[chart.dataIndex].y) || chart.dataset.data[chart.dataIndex].y < chart.chart.options.scales.yAxes[0].ticks.min)
-                                    return 0;
-
-                                return 10;
-                            },
-                            pointHoverRadius: function (chart) {
-                                if (isEmpty(chart.dataset.data[chart.dataIndex].y) || chart.dataset.data[chart.dataIndex].y < chart.chart.options.scales.yAxes[0].ticks.min)
-                                    return 0;
-
-                                return 11;
-                            },
-                            tension: 5,
-                            borderWidth: 0
-                        }]
+                        datasets: getDataSets($this)
                     },
-                    options: options
+                    options: Object.assign(options, this.options)
                 });
 
                 return $canvas;
@@ -967,17 +1050,51 @@ function graficoSintomas(registros) {
     let $content = $("<div></div>");
     let grafico = new ChartMaker();
     grafico.setData(registros);
-    grafico.setFieldDate("date");
-    grafico.setFieldX("date");
-    grafico.setFieldY("title");
     grafico.setHideLineX();
-    grafico.setTitle("Sintomas mais Relevantes");
+    grafico.setGridOffsetLineY();
+    grafico.setTitle(getTitleIndicador("sintomas"));
     grafico.setMinY(0);
-    grafico.setFunctionColor(function (y) {
-        return "#df5791";
+    grafico.setColorBase("#DE5690");
+
+    grafico.setFunctionLabelY(y => {
+        if(typeof y === "string"){
+            switch (y) {
+                case 'Dificuldade para falar':
+                    return "Dific. p/ falar";
+                    break;
+                case 'Confusão':
+                    return "Confusão    ";
+                    break;
+                case 'Sonolento, cansado':
+                    return "Sonolento   ";
+                    break;
+                case 'Dor de cabeça':
+                    return "Dor de cabe";
+                    break;
+                case 'Tontura':
+                    return "Tontura        ";
+                    break;
+                default:
+                    return y;
+            }
+        }
     });
 
-    $content.append(grafico.getChart("scatter"));
+    if (modChart.sintomas > 1)
+        $content.append(Mustache.render(tpl.graficoArrowBack, {indicador: 'sintomas', mod: 1}));
+
+    grafico.setFieldY("title");
+    if (modChart.sintomas === 1){
+        grafico.setFieldDate("date");
+        grafico.setFieldX("date");
+        $content.append(grafico.getChart("scatter"));
+    } else {
+        grafico.setPaddings({left: 88, right: 20, bottom: 10, top: 20});
+        $content.append(grafico.getChart("doughnut"));
+    }
+
+    if (modChart.sintomas < 2)
+        $content.append(Mustache.render(tpl.graficoArrowForward, {indicador: 'sintomas', mod: 2}));
 
     return $content;
 }
@@ -996,17 +1113,17 @@ function graficoMedicamentos(registros) {
     grafico.setStepY(1);
     grafico.setTitle(getTitleIndicador("medicamentos"));
     grafico.setFunctionColor(function (y) {
-        // let hex = () => { return ["a", "b", "c", "d", "e", "f", 0, 1, 2, 3, 4, 5, 6, 7, 8, 9][Math.floor(Math.random() * 16) + 1]; };
         return "#7DA0D4";
     });
 
     if (modChart.medicamentos > 1)
         $content.append(Mustache.render(tpl.graficoArrowBack, {indicador: 'medicamentos', mod: 1}));
 
-
     if (modChart.medicamentos === 1) {
         grafico.setFieldDate("date");
         grafico.setFieldX("date");
+        grafico.setGridOffsetLineY();
+        grafico.setOptions({aspectRatio: 4.5});
         $content.append(grafico.getChart("scatter"))
     } else {
         $content.append(grafico.getChart("pie"));
@@ -1043,14 +1160,15 @@ function graficoAtividade(registros) {
     else if (modChart['atividade-fisica'] === 5)
         grafico.setFieldY("steps");
 
+    grafico.setPointRadius(0);
     grafico.setHideLineX();
-    grafico.setHideLabelY();
     grafico.setOperacaoSoma();
     grafico.setTitle(getTitleIndicador("atividade-fisica"));
     grafico.setMinY(0);
-    grafico.setFunctionColor(function (y) {
-        return "#c14973";
-    });
+    grafico.setColorBase("#c14973");
+    grafico.setFunctionLabelY(function(y) {
+        return y + "            ";
+    })
 
     if (modChart['atividade-fisica'] > 1)
         $content.append(Mustache.render(tpl.graficoArrowBack, {
@@ -1058,7 +1176,7 @@ function graficoAtividade(registros) {
             mod: modChart['atividade-fisica'] - 1
         }));
 
-    $content.append(grafico.getChart("bar"));
+    $content.append(grafico.getChart("line"));
 
     if (modChart['atividade-fisica'] < 5)
         $content.append(Mustache.render(tpl.graficoArrowForward, {
@@ -1159,7 +1277,7 @@ function graficoCrises(registros) {
         let widthList = xSpace / listX.length;
         let percentWidth = (widthList < 30 ? .8 : (widthList < 50 ? .76 : (widthList < 70 ? .66 : (widthList < 90 ? .5 : .4))));
         let percentMargin = (widthList < 30 ? .1 : (widthList < 50 ? .12 : (widthList < 70 ? .17 : (widthList < 90 ? .25 : .3))));
-        $(".grafico-crises-intensidade").find("img").css({
+        $(".grafico-crises-intensidade").find(".img-proporcion").css({
             width: (widthList * percentWidth) + "px",
             margin: "0 " + (widthList * percentMargin) + "px"
         });
@@ -1281,6 +1399,14 @@ function privateChartGetLabelCalendar(isPrevius) {
     let date = chartFilter.dateStart;
 
     if (typeof isPrevius !== "undefined" && isPrevius) {
+        /*if (chartFilter.interval === "day") {
+            return "Dia anterior"
+        } else if (chartFilter.interval === "week") {
+            return "Semana anterior"
+        } else if (chartFilter.interval === "month") {
+            return "Mês anterior"
+        }*/
+
         if (chartFilter.interval === "day") {
             date = moment(chartFilter.dateStart).subtract(1, "days").format('YYYY-MM-DD');
         } else if (chartFilter.interval === "week") {
@@ -1343,6 +1469,11 @@ function graficoCrisesPeriodo(registros) {
     grafico.setFieldX("created");
     grafico.setFieldY("seizure_period");
     grafico.setHideLineX();
+    grafico.setOptions({aspectRatio: 4.5});
+    grafico.setGridOffsetLineY();
+    grafico.setMinY(1);
+    grafico.setStepY(1);
+    grafico.setMaxY(3);
     grafico.setTitle(getTitleIndicador("crises"));
     grafico.setOrder(["night", "evening", "morning"]);
     grafico.setFunctionLabelY(function (y) {
@@ -1353,8 +1484,6 @@ function graficoCrisesPeriodo(registros) {
                 return "Tarde           ";
             case 'night':
                 return "Noite           ";
-            default:
-                return "";
         }
     });
 
@@ -1366,8 +1495,6 @@ function graficoCrisesPeriodo(registros) {
                 return HOME + VENDOR + "site-pstmc/public/assets/img/graficos/crises/montain.png";
             case 'night':
                 return HOME + VENDOR + "site-pstmc/public/assets/img/graficos/crises/moon.png";
-            default:
-                return "";
         }
     });
 
@@ -1379,15 +1506,11 @@ function graficoCrisesPeriodo(registros) {
                 return "#7EA9C7";
             case 'night':
                 return "#7E87C8";
-            default:
-                return "#999999";
         }
-
-    })
+    });
 
     // $content.append(Mustache.render(tpl.graficoArrowForward, {indicador: 'crises', mod: 2}));
 
-    grafico.setPaddings({left: 0, right: 20, bottom: 10, top: 20});
     $content.append(grafico.getChart("bubble"));
 
     return $content;
@@ -1410,8 +1533,8 @@ function graficoSono(registros) {
     grafico.setFieldX("date");
     grafico.setHideLineX();
     grafico.setOperacaoMedia();
+    grafico.setOptions({aspectRatio: 4.5});
     grafico.setStepY(2.5);
-    grafico.setTitle(getTitleIndicador("sono"));
 
     if (modChart['sono'] === 1) {
 
@@ -1424,9 +1547,9 @@ function graficoSono(registros) {
 
         grafico.setFunctionLabelY(function (title) {
             if (title < 0)
-                return "Ruim";
+                return "Ruim            ";
             else if (title > 0)
-                return 'Bom';
+                return 'Bom             ';
             return "";
         });
 
@@ -1436,7 +1559,7 @@ function graficoSono(registros) {
             else if (y > 0)
                 return 'Bom';
             return "";
-        })
+        });
 
         grafico.setFunctionValueY(function (y) {
             if (y === 0 || isEmpty(y))
@@ -1445,11 +1568,13 @@ function graficoSono(registros) {
             return y - 7.5;
         });
 
+        grafico.setTitle(getTitleIndicador("sono"));
         grafico.setMaxY(2.5);
         grafico.setMinY(-2.5);
         grafico.setFieldY("quality");
-        grafico.setPaddings({left: 39, right: 20, bottom: 10, top: 20});
         $content.append(Mustache.render(tpl.graficoArrowForward, {indicador: 'sono', mod: 2}));
+
+        $content.append(grafico.getChart("bar"));
 
     } else if(modChart.sono === 2) {
 
@@ -1463,44 +1588,62 @@ function graficoSono(registros) {
         });
 
         grafico.setFunctionLabelY(function (y) {
-            return y + " hr";
+            switch (y) {
+                case 10:
+                    return "10                ";
+                case 5:
+                    return "5                 ";
+                case 0:
+                    return "0                 ";
+                default:
+                    return "";
+            }
         });
 
         grafico.setFunctionTooltips(function (x, y) {
             return Math.floor(y) + ":" + Math.round(y % 1 * 60) + " hr";
         });
 
+
         grafico.setMinY(0);
         grafico.setFieldY("duration");
-        grafico.setPaddings({left: 37, right: 20, bottom: 10, top: 20});
+
+        let media = 0;
+        let data = grafico.getData();
+        for (let i in data)
+            media += data[i].y;
+
+        media = parseFloat(media  / data.length).toFixed(1).toString().replace(".", ",");
+
         $content.append(Mustache.render(tpl.graficoArrowBack, {indicador: 'sono', mod: 1}));
         $content.append(Mustache.render(tpl.graficoArrowForward, {indicador: 'sono', mod: 3}));
 
+        $content.append(grafico.getChart("bar"));
+        setTimeout(function () {
+            $("#grafico-header-title-sono").html("<div class='col font-small' style='color: #bbb'>MÉDIA</div><div class='col' style='margin: -8px 0 -4px'><div class='left font-xlarge'>" + media + "</div> <div class='left font-small' style='color: #bbb;padding: 13px 5px 0;'>horas de sono no período</div></div>");
+        },1);
+
     } else {
+        grafico.setFieldY("quality");
+        let data = grafico.getData();
 
-        grafico.setFunctionColor(function (color) {
-            if (color < 6)
-                return "#BF0811";
-            else if (color > 7)
-                return '#2D92CB';
+        let bom = 0;
+        for(let i in data) {
+            if(data[i].y === 10)
+                bom++;
+        }
+        let graficoSono = {
+            media: parseInt((bom * 100) / data.length)
+        };
 
-            return '#606060';
-        });
+        graficoSono.rotate = (graficoSono.media > 91 ? "rotateGood" : (graficoSono.media > 78 ? "rotateNormal" : "rotateBad"));
+        graficoSono.deg = (graficoSono.media > 91 ? "400" : (graficoSono.media > 78 ? "360" : "310"));
+        graficoSono.color = (graficoSono.media > 91 ? "#83E4FD" : (graficoSono.media > 78 ? "#606060" : "#BF0811"));
 
-        grafico.setFunctionLabelY(function (y) {
-            return y + " hr";
-        });
-
-        grafico.setFunctionTooltips(function (x, y) {
-            return Math.floor(y) + ":" + Math.round(y % 1 * 60) + " hr";
-        });
-
-        grafico.setMinY(0);
-        grafico.setFieldY("duration");
+        grafico.setTitle(getTitleIndicador("sono"));
         $content.append(Mustache.render(tpl.graficoArrowBack, {indicador: 'sono', mod: 2}));
+        $content.append(Mustache.render(tpl.graficoSono, graficoSono));
     }
-
-    $content.append(grafico.getChart("bar"));
 
     return $content;
 }
@@ -1518,7 +1661,9 @@ function graficoHumor(registros) {
     grafico.setHideLineX();
     grafico.setHideLabelY();
     grafico.setOperacaoMedia();
+    grafico.setOptions({aspectRatio: 3.5});
     grafico.setTitle(getTitleIndicador("humor"));
+    grafico.setColorBase("#C03A4C")
 
     grafico.setFunctionTooltips(function (x, y) {
         y = typeof y === "undefined" && typeof x !== "undefined" ? x : y;
@@ -1578,12 +1723,13 @@ function graficoHumor(registros) {
         }
     });
 
+    grafico.setPaddings({left: 88, right: 20, bottom: 10, top: 20});
+
     if (modChart['humor'] === 1) {
 
         /* SCATTER */
         $content.append(Mustache.render(tpl.graficoHumor, {}));
         grafico.setFieldX("date");
-        grafico.setPaddings({left: 88, right: 20, bottom: 10, top: 20});
 
         $content.append(grafico.getChart("scatter"));
     } else {
@@ -1691,6 +1837,12 @@ function getTitleIndicador(indicador) {
         } else if(typeof modChart[indicador] !== "undefined" && modChart[indicador] === 2) {
             return "Calendário de Crises";
         }
+    } else if(indicador === "sintomas") {
+        if(typeof modChart[indicador] === "undefined" || modChart[indicador] === 1) {
+            return "Registro de Sintomas";
+        } else if(typeof modChart[indicador] !== "undefined" && modChart[indicador] === 2) {
+            return "Sintomas mais Relevantes";
+        }
     }
 
     return indicador.replace("-", " ").replace("_", " ");
@@ -1712,7 +1864,7 @@ function graficos(ind) {
                 if (!isEmpty(paciente) && (typeof ind === "undefined" || ind === indicador)) {
                     let $graficos = $("<div class='col relative' id='graficos-" + indicador + "'></div>").appendTo("#graficos");
                     $graficos.prepend(graficoHeader(indicador));
-                    let minHeight = (window.innerWidth > 1300 ? 243 : (window.innerWidth > 1100 ? 217 : 150));
+                    let minHeight = (window.innerWidth > 1300 ? 200 : (window.innerWidth > 1100 ? 217 : 150));
                     let $grafico = $("<div class='col relative' style='min-width: 800px; min-height: " + minHeight + "px' id='grafico-" + indicador + "'></div>").appendTo($graficos);
                     $graficos.append("<div class='col padding-16'></div></div>");
 
@@ -1918,6 +2070,11 @@ $(function () {
         $(".paciente").append(Mustache.render(tpl.ajustes, {home: HOME}));
     });
 
+    if($(window).width() > 990)
+        $("#grafico-board").css("max-height", ($(window).height() - 130) + "px");
+    else
+        $("#grafico-board").css("max-height", ($(window).height() - 170) + "px");
+
     /*jQuery(document).bind('DOMMouseScroll mousewheel', function(e, delta) {
         if($(e.target).hasClass("chartjs-render-monitor")) {
             if(e.originalEvent.wheelDelta /120 > 0) {
@@ -1927,4 +2084,4 @@ $(function () {
 
     });*/
 
-})
+});

@@ -119,6 +119,17 @@
     padding-top: 170px;
 }
 
+.paciente-list-img {
+    height: 115px!important;
+    display: flex;
+    width: 115px!important;
+}
+
+.paciente-list-img img {
+    width: 115px;
+    height: 115px;
+}
+
 @media (min-width: 990px) {
     #pacientes {
         border-top-left-radius: 50px;
