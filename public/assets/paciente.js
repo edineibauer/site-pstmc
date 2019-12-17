@@ -818,10 +818,14 @@ window.ChartMaker = function () {
         functionColor: null,
         borderWidth: 1,
         paddings: null,
+        lineTension: 5,
         gridOffsetLineY: !1,
         gridOffsetLineX: !1,
         pointRadius: 10,
         colorBase: "",
+        colorBaseGradient: "",
+        colorBackgroundBase: "",
+        fill: !1,
         options: {},
         setTitle: title => {
             if (typeof title === "string")
@@ -836,6 +840,19 @@ window.ChartMaker = function () {
         },
         setColorBase: color => {
             this.colorBase = color;
+        },
+        setColorBaseGradient: (color1, color2) => {
+            if(typeof color1 !== "undefined" && color2 !== "undefined")
+                this.colorBaseGradient = [color1, color2];
+        },
+        setFill: fill => {
+            this.fill = fill;
+        },
+        setColorBackgroundBase: color => {
+            this.colorBackgroundBase = color;
+        },
+        setLineTension: tension => {
+            this.lineTension = tension;
         },
         setPointRadius: pointRadius => {
             this.pointRadius = pointRadius;
@@ -997,14 +1014,25 @@ window.ChartMaker = function () {
                 let $canvas = $("<canvas></canvas>");
                 let ctx = $canvas[0].getContext('2d');
 
+                let color = "undefined";
+                if(typeof $this.colorBaseGradient !== "undefined") {
+                    color = ctx.createLinearGradient(0, 0, 0, 600);
+                    color.addColorStop(0, $this.colorBaseGradient[0]);
+                    color.addColorStop(1, $this.colorBaseGradient[1]);
+                } else if(typeof $this.backgroundColor !== "undefined") {
+                    color = $this.backgroundColor;
+                } else if(typeof $this.colorBase !== "undefined") {
+                    color = $this.colorBase;
+                }
+
                 function getDataSets($this) {
                     return [{
                         data: $this.data,
-                        backgroundColor: $this.backgroundColor,
+                        backgroundColor: color ,
                         borderColor: $this.type[0] === "line" ? $this.colorBase || "#cccccc" : undefined,
                         pointBorderWidth: 0,
                         pointBorderColor: "#FFFFFF",
-                        fill: "#ffffff",
+                        fill: (typeof $this.fill !== "undefined" ? $this.fill : !1),
                         pointRadius: function (chart) {
                             if (isEmpty(chart.dataset.data[chart.dataIndex].y) || chart.dataset.data[chart.dataIndex].y < chart.chart.options.scales.yAxes[0].ticks.min)
                                 return 0;
@@ -1017,7 +1045,7 @@ window.ChartMaker = function () {
 
                             return (typeof $this.pointRadius !== "undefined" ? $this.pointRadius : 10) + 1;
                         },
-                        tension: $this.type[0] === "line" ? .5 : 5,
+                        tension: (typeof $this.lineTension !== "undefined" ? $this.lineTension : ($this.type[0] === "line" ? .5 : 5)),
                         borderWidth: $this.type[0] === "line" ? 2 : 1
                     }];
                 }
@@ -1167,8 +1195,25 @@ function graficoAtividade(registros) {
     grafico.setMinY(0);
     grafico.setColorBase("#c14973");
     grafico.setFunctionLabelY(function(y) {
-        return y + "            ";
-    })
+        console.log(modChart['atividade-fisica']);
+        if(modChart['atividade-fisica'] === 1) {
+            return y + (y.length === 5 ? "         " : (y.length === 4 ? "         " : (y.length === 3 ? "         " : (y.length === 2 ? "          " : "            "))));
+        } else if(modChart['atividade-fisica'] === 2) {
+            return y + (y.length === 5 ? "       " : (y.length === 4 ? "       " : (y.length === 3 ? "       " : (y.length === 2 ? "        " : "          "))));
+        } else if(modChart['atividade-fisica'] === 3) {
+            return y + (y.length === 5 ? "           " : (y.length === 4 ? "             " : (y.length === 3 ? "              " : (y.length === 2 ? "              " : "                "))));
+        } else if(modChart['atividade-fisica'] === 4) {
+            return y + (y.length === 5 ? "          " : (y.length === 4 ? "            " : (y.length === 3 ? "             " : (y.length === 2 ? "             " : "               "))));
+        } else {
+            return y + (y.length === 5 ? "         " : (y.length === 4 ? "           " : (y.length === 3 ? "           " : (y.length === 2 ? "            " : "              "))));
+        }
+    });
+
+    if(modChart['atividade-fisica'] === 5) {
+        grafico.setLineTension(0);
+        grafico.setFill(!0);
+        grafico.setColorBaseGradient("#c14973", "rgba(255,255,255,0)");
+    }
 
     if (modChart['atividade-fisica'] > 1)
         $content.append(Mustache.render(tpl.graficoArrowBack, {
@@ -1176,7 +1221,10 @@ function graficoAtividade(registros) {
             mod: modChart['atividade-fisica'] - 1
         }));
 
-    $content.append(grafico.getChart("line"));
+    if(modChart['atividade-fisica'] === 2 || modChart['atividade-fisica'] === 3)
+        $content.append(grafico.getChart("bar"));
+    else
+        $content.append(grafico.getChart("line"));
 
     if (modChart['atividade-fisica'] < 5)
         $content.append(Mustache.render(tpl.graficoArrowForward, {
@@ -1619,6 +1667,10 @@ function graficoSono(registros) {
         $content.append(Mustache.render(tpl.graficoArrowForward, {indicador: 'sono', mod: 3}));
 
         $content.append(grafico.getChart("bar"));
+
+        /**
+         * Overide title sono média
+         */
         setTimeout(function () {
             $("#grafico-header-title-sono").html("<div class='col font-small' style='color: #bbb'>MÉDIA</div><div class='col' style='margin: -8px 0 -4px'><div class='left font-xlarge'>" + media + "</div> <div class='left font-small' style='color: #bbb;padding: 13px 5px 0;'>horas de sono no período</div></div>");
         },1);
