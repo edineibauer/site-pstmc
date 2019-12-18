@@ -1,11 +1,49 @@
-var chartFilter = {dateStart: null, dateEnd: null, interval: 'month', indicadores: []};
-var tpl = dbLocal.exeRead("__template", 1);
-var paciente = readPaciente(ID);
+if(typeof chartFilter === "undefined") {
+    var chartFilter = {dateStart: null, dateEnd: null, interval: 'month', indicadores: []};
+    var tpl = dbLocal.exeRead("__template", 1);
+    var paciente = readPaciente(ID);
+    var modChart = {};
+    var readIndicador = {};
+    var all = Promise.all([paciente, tpl]).then(r => {
+        paciente = r[0];
+        tpl = r[1];
+    });
 
-var all = Promise.all([paciente, tpl]).then(r => {
-    paciente = r[0];
-    tpl = r[1];
-});
+    /**
+     * Add shadow on PIE type chart
+     * */
+    var draw = Chart.controllers.pie.prototype.draw;
+    Chart.controllers.pie = Chart.controllers.pie.extend({
+        draw: function () {
+            draw.apply(this, arguments);
+            let ctx = this.chart.chart.ctx;
+            let _fill = ctx.fill;
+            ctx.fill = function () {
+                ctx.save();
+                ctx.shadowColor = 'rgba(45,146,203,0.53)';
+                ctx.shadowBlur = 20;
+                ctx.shadowOffsetX = 2;
+                ctx.shadowOffsetY = 2;
+                _fill.apply(this, arguments)
+                ctx.restore();
+            }
+        }
+    });
+
+    Date.prototype.addDays = function (days) {
+        var date = new Date(this.valueOf());
+        date.setDate(date.getDate() + days);
+        return date;
+    };
+
+} else {
+    chartFilter = {dateStart: null, dateEnd: null, interval: 'month', indicadores: []};
+    modChart = {};
+    readIndicador = {};
+    all = readPaciente(ID).then(r => {
+        paciente = r;
+    });
+}
 
 function getDayOfWeek(date) {
     var dayOfWeek = new Date(date).getDay();
@@ -15,33 +53,6 @@ function getDayOfWeek(date) {
 function getDayofMonth(date) {
     var dayOfMonth = new Date(date).getMonth();
     return isNaN(dayOfMonth) ? null : ['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun', 'Jul', 'Ago', 'Set', 'Out', 'Nov', 'Dez'][dayOfMonth];
-}
-
-/**
- * Add shadow on PIE type chart
- * */
-var draw = Chart.controllers.pie.prototype.draw;
-Chart.controllers.pie = Chart.controllers.pie.extend({
-    draw: function () {
-        draw.apply(this, arguments);
-        let ctx = this.chart.chart.ctx;
-        let _fill = ctx.fill;
-        ctx.fill = function () {
-            ctx.save();
-            ctx.shadowColor = 'rgba(45,146,203,0.53)';
-            ctx.shadowBlur = 20;
-            ctx.shadowOffsetX = 2;
-            ctx.shadowOffsetY = 2;
-            _fill.apply(this, arguments)
-            ctx.restore();
-        }
-    }
-});
-
-Date.prototype.addDays = function (days) {
-    var date = new Date(this.valueOf());
-    date.setDate(date.getDate() + days);
-    return date;
 }
 
 function getXvalue(fieldX) {
@@ -585,7 +596,7 @@ function privateChartGenerateOptions($this) {
     options.idChart = Date.now() + Math.floor((Math.random() * 10000) + 1);
     options.funcitonImage = (typeof $this.functionImage === "function");
     options.animation = {
-        duration: 600
+        duration: 500
     };
 
     if (["radar", "pie", "doughnut", "polarArea"].indexOf($this.type[0]) > -1) {
@@ -1075,7 +1086,7 @@ window.ChartMaker = function () {
                             labels: $this.labels,
                             datasets: getDataSets($this)
                         },
-                        options: Object.assign(options, this.options)
+                        options: Object.assign(options, $this.options)
                     });
 
                 },1);
@@ -1086,14 +1097,16 @@ window.ChartMaker = function () {
     };
 };
 
-var modChart = {};
+function graficoSintomas(registrosBase) {
 
-function graficoSintomas(registros) {
-
-    for (let i in registros) {
-        let dh = registros[i]['created'].split(" ");
-        registros[i].date = dh[0];
-        registros[i].hour = dh[1];
+    let registros = [];
+    for (let i in registrosBase) {
+        if(typeof registrosBase[i].title === "string" && registrosBase[i].title !== "") {
+            let dh = registrosBase[i]['created'].split(" ");
+            registrosBase[i].date = dh[0];
+            registrosBase[i].hour = dh[1];
+            registros.push(registrosBase[i]);
+        }
     }
 
     let $content = $("<div></div>");
@@ -1170,8 +1183,14 @@ function graficoSintomas(registros) {
             return x + "% " + y;
         });
 
+        let totalCrises = 0;
+        for(let i in registros) {
+            if(registros[i].date <= chartFilter.dateEnd && registros[i].date >= chartFilter.dateStart)
+                totalCrises++;
+        }
+
         setTimeout(function () {
-            $("#sub-header-sintomas").html(data.length + " Crises no período");
+            $("#sub-header-sintomas").html(totalCrises + " Crises no período");
             $("#grafico-header-title-sintomas").html("<div class='col font-small' style='color: #bbb'>MAIS RELEVANTE</div><div class='col' style='margin: -8px 0 -4px'><div class='left font-xlarge'>" + bigger.v + "%</div> <div class='left font-small' style='color: #bbb;padding: 13px 5px 0;'>" + bigger.name + " no período</div></div>");
         },1);
 
@@ -1192,11 +1211,17 @@ function graficoSintomas(registros) {
     return $content;
 }
 
-function graficoMedicamentos(registros) {
-    for (let i in registros) {
-        let dh = registros[i].start_date.split(" ");
-        registros[i].date = dh[0]
+function graficoMedicamentos(registrosBase) {
+
+    let registros = [];
+    for (let i in registrosBase) {
+        if(typeof registrosBase[i].name === "string" && registrosBase[i].name !== "") {
+            let dh = registrosBase[i].start_date.split(" ");
+            registrosBase[i].date = dh[0];
+            registros.push(registrosBase[i]);
+        }
     }
+
     let $content = $("<div></div>");
     let grafico = new ChartMaker();
     grafico.setData(registros);
@@ -1205,25 +1230,65 @@ function graficoMedicamentos(registros) {
     grafico.setHideLineX();
     grafico.setStepY(1);
     grafico.setTitle(getTitleIndicador("medicamentos"));
-    grafico.setFunctionColor(function (y) {
-        return "#7DA0D4";
-    });
+
+    grafico.setColorBase("#F0C773");
 
     if (modChart.medicamentos > 1)
         $content.append(Mustache.render(tpl.graficoArrowBack, {indicador: 'medicamentos', mod: 1}));
 
     if (modChart.medicamentos === 1) {
-        grafico.setFieldDate("date");
-        grafico.setFieldX("date");
-        grafico.setGridOffsetLineY();
-        grafico.setOptions({aspectRatio: 4.5});
-        $content.append(grafico.getChart("scatter"))
+
+
+        let data = grafico.getDataLabel();
+        let labels = data[1];
+        let labelsNew = [];
+        data = data[0];
+
+        let total = 0;
+        let bigger = {name: "", v: 0};
+        let dataNew = [];
+        for(let i in data) {
+            if(typeof data[i] !== "" && !isNaN(data[i]))
+                total += data[i];
+
+            labelsNew[i] = labels[i];
+        }
+
+        for(let i in data) {
+            let v = Math.round(parseFloat((data[i] * 100) / total));
+            if(v > bigger.v)
+                bigger = {name: labels[i], v: v};
+
+            dataNew.push({x: labelsNew[i], y: v, v: v, r: ''});
+        }
+
+        grafico.setData(dataNew);
+        grafico.setLabels(labelsNew);
+        grafico.setFunctionLabelY(y => {
+            if(y % 10 === 0)
+                return y + "%          ";
+
+            return "";
+        });
+
+        grafico.setFunctionTooltips((y, x) => {
+            return x + "% " + y;
+        });
+
+        setTimeout(function () {
+            $("#grafico-header-title-medicamentos").html("<div class='col font-small' style='color: #bbb'>MAIS RELEVANTE</div><div class='col' style='margin: -8px 0 -4px'><div class='left font-xlarge'>" + bigger.v + "%</div> <div class='left font-small' style='color: #bbb;padding: 13px 5px 0;'>" + bigger.name + " no período</div></div>");
+        },1);
+
+        grafico.setFieldX("x");
+        $content.append(grafico.getChart("bar"));
+
     } else {
-        $content.append(grafico.getChart("pie"));
+        grafico.setPaddings({left: 88, right: 20, bottom: 10, top: 20});
+        $content.append(grafico.getChart("doughnut"));
     }
 
-    if (modChart.medicamentos < 2)
-        $content.append(Mustache.render(tpl.graficoArrowForward, {indicador: 'medicamentos', mod: 2}));
+    // if (modChart.medicamentos < 2)
+    //     $content.append(Mustache.render(tpl.graficoArrowForward, {indicador: 'medicamentos', mod: 2}));
 
     return $content
 }
@@ -1436,7 +1501,9 @@ function graficoCrises(registros) {
     $content.append(Mustache.render(tpl.graficoArrowForward, {indicador: 'crises', mod: 2, style: "top: 170px;"}));
 
     // $content.append(grafico.getChart("bar"));
+    $content.append(graficoCrisesDuracao(registros));
     $content.append(graficoCrisesPeriodo(registros));
+    $content.append(graficoCrisesRecuperacao(registros));
 
     $content.append(Mustache.render(tpl.graficoCrisesComentarios, {home: HOME, vendor: VENDOR, x: xComments}));
 
@@ -1610,6 +1677,45 @@ function graficoCrises2(registros) {
     return $content;
 }
 
+function graficoCrisesDuracao(registrosBase) {
+
+    let registros = [];
+    for(let i in registrosBase) {
+        for(let e in registrosBase[i].answers) {
+            if(registrosBase[i].answers[e].id === 5 && registrosBase[i].answers[e].option !== 82) {
+                let duracao = parseInt(registrosBase[i].answers[e].answerlabel.replace("0-", "").replace("1-3", "2").replace("3-5", "3").replace("Maior que 5", "4").replace("min").trim());
+                registros.push({date: registrosBase[i].created, duracao: duracao});
+            }
+        }
+    }
+
+    let $content = $("<div></div>");
+    let grafico = new ChartMaker();
+    grafico.setData(registros);
+    grafico.setFieldDate("date");
+    grafico.setFieldX("date");
+    grafico.setFieldY("duracao");
+    grafico.setOptions({aspectRatio: 7});
+    grafico.setOperacaoMedia();
+    grafico.setHideLineX();
+    grafico.setStepY(1);
+    grafico.setColorBase("#8888C1");
+    grafico.setRoundValueStepY();
+    grafico.setFunctionLabelY(y => {
+        return (y === 1 ? "0-1 min        " : ((y === 2 ? "1-3 min        " : ((y === 3 ? "3-5 min        " : (y === 4 ? "> 5 min        " : ""))))));
+    });
+    grafico.setFunctionTooltips((x, y) => {
+        return (y === 1 ? "0-1 min" : ((y === 2 ? "1-3 min" : ((y === 3 ? "3-5 min" : (y === 4 ? "Maior que 5 min" : ""))))));
+    });
+
+    grafico.setTitle("Duração das Crises");
+    grafico.setPaddings({left: 0, right: 20, bottom: 0, top: 20});
+    $content.append('<div class="col" style="min-width: 790px;"><h4 class="font-medium font-bold margin-0 padding-0" id="grafico-header-title-recuperacao">Duração das Crises</h4></div>');
+    $content.append(grafico.getChart());
+
+    return $content;
+}
+
 function graficoCrisesPeriodo(registros) {
 
     let $content = $("<div></div>");
@@ -1619,12 +1725,12 @@ function graficoCrisesPeriodo(registros) {
     grafico.setFieldX("created");
     grafico.setFieldY("seizure_period");
     grafico.setHideLineX();
-    grafico.setOptions({aspectRatio: 4.5});
+    grafico.setHideLabelX();
+    grafico.setOptions({aspectRatio: 7});
     grafico.setGridOffsetLineY();
     grafico.setMinY(1);
     grafico.setStepY(1);
     grafico.setMaxY(3);
-    grafico.setTitle(getTitleIndicador("crises"));
     grafico.setOrder(["night", "evening", "morning"]);
     grafico.setFunctionLabelY(function (y) {
         switch (y) {
@@ -1659,21 +1765,79 @@ function graficoCrisesPeriodo(registros) {
         }
     });
 
-    // $content.append(Mustache.render(tpl.graficoArrowForward, {indicador: 'crises', mod: 2}));
-
+    grafico.setTitle("Período");
+    grafico.setPaddings({left: 0, right: 20, bottom: 0, top: 20});
+    $content.append('<div class="col" style="min-width: 790px;"><h4 class="font-medium font-bold margin-0 padding-0" id="grafico-header-title-recuperacao">Período</h4></div>');
     $content.append(grafico.getChart("bubble"));
 
     return $content;
 }
 
-function graficoSono(registros) {
+function graficoCrisesRecuperacao(registrosBase) {
+
+    let registros = [];
+    let referenciaN = {"Não sei": 1, "Imediatamente": 2, "30 min": 3, "1 horas": 4, "1-6 horas": 5, "6-12 horas": 6};
+    let referencia = {1: "Não sei        ", 2: "Imediat.       ", 3: "30 min         ", 4: "1 hora          ", 5: "1-6 horas     ", 6: "6-12 horas   "};
+    for(let i in registrosBase) {
+        for(let e in registrosBase[i].answers) {
+            if(registrosBase[i].answers[e].id === 6 && registrosBase[i].answers[e].option !== 83) {
+                let tempo = registrosBase[i].answers[e].answerlabel.trim();
+                if(typeof referenciaN[tempo] === "number")
+                    registros.push({date: registrosBase[i].created, tempo: referenciaN[tempo]});
+            }
+        }
+    }
+
+    let $content = $("<div></div>");
+    let grafico = new ChartMaker();
+    grafico.setData(registros);
+    grafico.setFieldDate("date");
+    grafico.setFieldX("date");
+    grafico.setFieldY("tempo");
+    grafico.setOptions({aspectRatio: 7});
+    grafico.setOperacaoMedia();
+    grafico.setHideLineX();
+    grafico.setTitle("Tempo de Recuperação");
+    grafico.setColorBase("#F0C773");
+    grafico.setStepY(1);
+    grafico.setRoundValueStepY();
+    grafico.setFunctionLabelY(y => {
+        return referencia[y];
+    });
+    grafico.setFunctionTooltips((x, y) => {
+        if(y === 2)
+            return "Imediatamente";
+
+        return referencia[y];
+    });
+
+    grafico.setPaddings({left: 0, right: 20, bottom: 0, top: 20});
+    $content.append('<div class="col" style="min-width: 790px;"><h4 class="font-medium font-bold margin-0 padding-0" id="grafico-header-title-recuperacao">Termpo de Recuperação</h4></div>');
+    $content.append(grafico.getChart());
+
+    return $content;
+}
+
+function graficoSono(registrosBase) {
 
     /**
      * Remove Registros que sejam menor que 5
      */
-    for (let i = registros.length - 1; i > -1; i--) {
-        if (registros[i].quality < 5)
-            registros.splice(i, 1);
+    let registros = [];
+    for (let i in registrosBase) {
+        if (registrosBase[i].quality > 4) {
+            if(typeof registrosBase[i].duration === "string" && registrosBase[i].duration !== "") {
+                let p = registrosBase[i].duration.split(":");
+                if(typeof p[1] !== "undefined" && !isNaN(p[0]) && !isNaN(p[1]))
+                    registrosBase[i].duration = parseFloat(p[0] + "." + ((p[1] * 100) / 60)).toFixed(2);
+                else
+                    registrosBase[i].duration = parseFloat(registrosBase[i].duration);
+            } else {
+                registrosBase[i].duration = 0.00;
+            }
+
+            registros.push(registrosBase[i]);
+        }
     }
 
     let $content = $("<div></div>");
@@ -1683,10 +1847,10 @@ function graficoSono(registros) {
     grafico.setFieldX("date");
     grafico.setHideLineX();
     grafico.setOperacaoMedia();
-    grafico.setOptions({aspectRatio: 4.5});
-    grafico.setStepY(2.5);
+    grafico.setOptions({aspectRatio: 4});
 
     if (modChart['sono'] === 1) {
+        grafico.setStepY(2.5);
 
         grafico.setFunctionColor(function (color) {
             if (color < 0)
@@ -1754,7 +1918,6 @@ function graficoSono(registros) {
             return Math.floor(y) + ":" + Math.round(y % 1 * 60) + " hr";
         });
 
-
         grafico.setMinY(0);
         grafico.setFieldY("duration");
 
@@ -1764,6 +1927,8 @@ function graficoSono(registros) {
             media += data[i].y;
 
         media = parseFloat(media  / data.length).toFixed(1).toString().replace(".", ",");
+
+        console.log(data);
 
         $content.append(Mustache.render(tpl.graficoArrowBack, {indicador: 'sono', mod: 1}));
         $content.append(Mustache.render(tpl.graficoArrowForward, {indicador: 'sono', mod: 3}));
@@ -2002,8 +2167,6 @@ function getTitleIndicador(indicador) {
     return indicador.replace("-", " ").replace("_", " ");
 }
 
-var readIndicador = {};
-
 function graficos(ind) {
     return Promise.all([all]).then(() => {
         if (isEmpty(chartFilter.indicadores)) {
@@ -2211,12 +2374,12 @@ $(function () {
     let Oldmonth = ("0" + (old.getMonth() + 1)).slice(-2);
     let lastMonth = old.getFullYear() + "-" + (Oldmonth) + "-" + (Oldday);
 
-    // $("#date-start").val(lastMonth).trigger("change");
-    // $("#date-end").val(today).trigger("change");
+    $("#date-start").val(lastMonth).trigger("change");
+    $("#date-end").val(today).trigger("change");
 
     //seta manualmente a data para testes
-    $("#date-start").val("2019-10-01").trigger("change");
-    $("#date-end").val("2019-10-31").trigger("change");
+    // $("#date-start").val("2019-10-01").trigger("change");
+    // $("#date-end").val("2019-10-31").trigger("change");
 
     graficos();
 

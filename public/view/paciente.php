@@ -125,6 +125,12 @@ $id = (int)$link->getVariaveis()[0];
     if (typeof ID === "undefined") {
         var ID = <?= $id ?>;
     } else {
-        location.reload();
+        dbLocal.clear("crises");
+        dbLocal.clear("sintomas");
+        dbLocal.clear("medicamentos");
+        dbLocal.clear("atividade-fisica");
+        dbLocal.clear("sono");
+        dbLocal.clear("humor");
+        ID = <?= $id ?>;
     }
 </script>

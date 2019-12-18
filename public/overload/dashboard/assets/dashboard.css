@@ -12,8 +12,22 @@
 }
 
 {
-    background: #ffffff
-;
+    background: #ffffff;
+}
+
+.paciente-list-img {
+    height: 115px!important;
+    display: flex;
+    width: 115px!important;
+    border-radius: 100px;
+    overflow: hidden;
+}
+
+.paciente-list-img img {
+    width: 115px;
+    height: auto;
+    min-height: 100%;
+    min-width: 100%;
 }
 
 #timeline {
