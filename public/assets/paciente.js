@@ -1833,7 +1833,7 @@ function graficoSono(registrosBase) {
                 else
                     registrosBase[i].duration = parseFloat(registrosBase[i].duration);
             } else {
-                registrosBase[i].duration = 0.00;
+                registrosBase[i].duration = parseFloat(0);
             }
 
             registros.push(registrosBase[i]);
@@ -1923,12 +1923,10 @@ function graficoSono(registrosBase) {
 
         let media = 0;
         let data = grafico.getData();
-        for (let i in data)
-            media += data[i].y;
-
+        for (let i in data) {
+            media += (!isNaN(data[i].y) ? parseFloat(data[i].y) : 0);
+        }
         media = parseFloat(media  / data.length).toFixed(1).toString().replace(".", ",");
-
-        console.log(data);
 
         $content.append(Mustache.render(tpl.graficoArrowBack, {indicador: 'sono', mod: 1}));
         $content.append(Mustache.render(tpl.graficoArrowForward, {indicador: 'sono', mod: 3}));

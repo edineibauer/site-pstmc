@@ -120,7 +120,7 @@ function getPacientesServer() {
             $.each(p, function (i, e) {
                 e.patient.idade = idade(e.patient.birthday);
                 // let image = (e.patient.gender === "F" ? "woman" : "man") + Math.floor((Math.random() * 9) + 1);
-                e.patient.imagem = (typeof e.patient.photo_64 !== "undefined" && e.patient.photo_64 !== "null" && !isEmpty(e.patient.photo_64) ? e.patient.photo_64 : HOME + VENDOR + DOMINIO + "/public/assets/img/foto-padrao2.png");
+                e.patient.imagem = (typeof e.patient.photo_64 !== "undefined" && e.patient.photo_64 !== "null" && !isEmpty(e.patient.photo_64) ? e.patient.photo_64 : HOME + VENDOR + DOMINIO + "/public/assets/img/foto-padrao.png");
                 pp.push(e.patient);
                 aa.push(dbLocal.exeCreate('pacientes', e.patient));
             });
