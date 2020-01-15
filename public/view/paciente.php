@@ -4,7 +4,7 @@ $id = (int)$link->getVariaveis()[0];
 
 <div class="container-1200 paciente">
     <div class="col relative padding-24 s-padding-0">
-        <div class="col s12 l4 padding-right s-padding-right-0">
+        <div id="paciente-pefil-filtro" class="col s12 l4 padding-right s-padding-right-0">
             <div class="col color-theme-l1 radius-top-right paciente-box">
                 <div id="paciente-info" class="row padding-xlarge padding-16">
                     <h3 class="align-center">carregando...</h3>
@@ -116,6 +116,7 @@ $id = (int)$link->getVariaveis()[0];
         <div class="col s12 l8" id="grafico-board" style="overflow-y: auto;overflow-x: hidden">
             <div class="col padding-xlarge s-padding-0 padding-4 relative grafico-box-parent">
                 <div class="col margin-top relative grafico-box" id="graficos"></div>
+                <div id='linevertical' class="active"></div>
             </div>
         </div>
     </div>

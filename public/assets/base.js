@@ -27,7 +27,10 @@ function updatePerfilPage() {
         $(".perfil-name").html(localStorage.name && localStorage.name !== "null" ? localStorage.name : "");
         $(".perfil-crm").html(localStorage.crm && localStorage.crm !== "null" ? localStorage.crm : "");
         $(".perfil-cpf").html(localStorage.cpf && localStorage.cpf !== "null" ? localStorage.cpf : "");
-        $(".perfil-birthday").html(localStorage.birthday.replace("-", "/").replace("-", "/"));
+
+        let bb = localStorage.birthday.replace('-', '/').replace('-', '/').split("/");
+        $(".perfil-birthday").html(bb[2] + "/" + bb[1] + "/" + bb[0]);
+
         $(".perfil-email").html(localStorage.email && localStorage.email !== "null" ? localStorage.email : "");
         $(".perfil-phone_number").html(localStorage.phone_number && localStorage.phone_number !== "null" ? "+" + localStorage.phone_number : "");
 

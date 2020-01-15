@@ -18,6 +18,18 @@ img{
     user-select: none
 }
 
+.paciente-list-img {
+    height: 115px!important;
+    width: 115px!important;
+    border-radius: 100px;
+    overflow: hidden;
+}
+
+.paciente-list-img img {
+    width: 115px;
+    height: auto;
+}
+
 #core-content {
     background: #ffffff;
 }

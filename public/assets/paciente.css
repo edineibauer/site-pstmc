@@ -3,6 +3,49 @@
     color: #1C9CCA;
     margin-right: 20px;
 }
+
+.img-proporcion {
+    height: 30px;
+    overflow: hidden;
+}
+
+.img-proporcionimg {
+    max-height: 100%;
+    max-width: 100%;
+    width: auto;
+    margin: 0 auto;
+    float: initial;
+    display: block;
+}
+
+#linevertical {
+    position: absolute;
+    left: 8px;
+    top:0;
+    z-index: 9;
+    width: 4px;
+    background: rgba(129, 195, 255, 0.2);
+    height: 100%;
+}
+
+#linevertical.active {
+    background: transparent;
+}
+
+#linevertical:before {
+    content: "";
+    width: 0;
+    position: absolute;
+    top: 0;
+    height: 0;
+    z-index: 10;
+    left: -8px;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-top: 10px solid #bbb;
+    display: inline-block;
+}
+
 .sub-header {
     text-transform: capitalize;
     margin-right: 20px;

@@ -417,7 +417,7 @@ function privateChartGetDataMaker(chart) {
                             if (isNaN(n)) {
                                 isStringYLabel = !0;
                                 if (typeof convertStringToNumber[n] === "undefined") {
-                                    if (chart.order) {
+                                    if (chart.order && typeof chart.order === "object") {
                                         if (chart.order.indexOf(n) > -1) {
                                             labelYString[chart.order.indexOf(n) + 1] = n;
                                             convertStringToNumber[n] = chart.order.indexOf(n) + 1;
@@ -636,7 +636,7 @@ function privateChartGenerateOptions($this) {
 
         if (chartFilter.interval === "day") {
             for (let i in $this.labels)
-                $this.labels[i] = (parseInt(i) + 1) + "º";
+                $this.labels[i] = (parseInt(i) + 1) + "º registro";
         }
 
         $this.backgroundColor = function (context) {
@@ -719,6 +719,14 @@ function privateChartGenerateOptions($this) {
                 },
                 unitStepSize: 1
             };
+        }
+
+        if($this.order === "reverse") {
+            $this.data = $this.data.reverse();
+        } else if($this.order === "bigger") {
+            $this.data = chartDataOrder($this.data, 'y');
+        } else if($this.order === "smaller") {
+            $this.data = chartDataOrder($this.data, 'y').reverse();
         }
 
         if($this.type[0] === "line") {
@@ -874,6 +882,15 @@ window.ChartMaker = function () {
         setOrder: order => {
             if (typeof order === "object" && order.constructor === Array)
                 this.order = order;
+        },
+        setOrderBigger: () => {
+            this.order = 'bigger';
+        },
+        setOrderSmaller: () => {
+            this.order = 'smaller';
+        },
+        setOrderReverse: () => {
+            this.order = 'reverse';
         },
         setFieldX: x => {
             if (typeof x === "string")
@@ -1099,16 +1116,34 @@ window.ChartMaker = function () {
 
 function graficoSintomas(registrosBase) {
 
+    /**
+     * Aplica filtro nos registrosBase para entregar a data que o chart deseja
+     */
     let registros = [];
+    let start = new Date(chartFilter.dateStart + " 00:00:00");
+    let end = new Date(chartFilter.dateEnd + " 23:59:59");
     for (let i in registrosBase) {
-        if(typeof registrosBase[i].title === "string" && registrosBase[i].title !== "") {
-            let dh = registrosBase[i]['created'].split(" ");
+        let dateR = new Date(registrosBase[i].created);
+        dateR.setHours(0, 0, 0, 0);
+
+        /**
+         * Se estiver dentro do filtro de datas selecionado e title for uma string válida
+         */
+        if(dateR <= end && dateR >= start && typeof registrosBase[i].title === "string" && registrosBase[i].title !== "") {
+
+            /**
+             * Separa a data em data e hora
+             */
+            let dh = registrosBase[i].created.split(" ");
             registrosBase[i].date = dh[0];
             registrosBase[i].hour = dh[1];
             registros.push(registrosBase[i]);
         }
     }
 
+    /**
+     * Base do chart
+     */
     let $content = $("<div></div>");
     let grafico = new ChartMaker();
     grafico.setData(registros);
@@ -1116,6 +1151,7 @@ function graficoSintomas(registrosBase) {
     grafico.setTitle(getTitleIndicador("sintomas"));
     grafico.setMinY(0);
     grafico.setColorBase("#DE5690");
+    grafico.setFieldY("title");
 
     function labelY(y) {
         if(typeof y === "string"){
@@ -1135,16 +1171,18 @@ function graficoSintomas(registrosBase) {
                 case 'Tontura':
                     return "Tontura        ";
                     break;
+                case 'Fraqueza em um membro':
+                    return "Fraq. memb";
+                    break;
                 default:
                     return "Outros";
             }
         }
-    };
+    }
 
     if (modChart.sintomas > 1)
         $content.append(Mustache.render(tpl.graficoArrowBack, {indicador: 'sintomas', mod: 1}));
 
-    grafico.setFieldY("title");
     if (modChart.sintomas === 1){
 
         let data = grafico.getDataLabel();
@@ -1172,6 +1210,8 @@ function graficoSintomas(registrosBase) {
 
         grafico.setData(dataNew);
         grafico.setLabels(labelsNew);
+        grafico.setOrderBigger();
+
         grafico.setFunctionLabelY(y => {
             if(y % 10 === 0)
                 return y + "%          ";
@@ -1199,6 +1239,7 @@ function graficoSintomas(registrosBase) {
 
     } else {
 
+        grafico.setGridOffsetLineY();
         grafico.setFunctionLabelY(labelY);
         grafico.setFieldDate("date");
         grafico.setFieldX("date");
@@ -1214,30 +1255,110 @@ function graficoSintomas(registrosBase) {
 function graficoMedicamentos(registrosBase) {
 
     let registros = [];
-    for (let i in registrosBase) {
-        if(typeof registrosBase[i].name === "string" && registrosBase[i].name !== "") {
-            let dh = registrosBase[i].start_date.split(" ");
-            registrosBase[i].date = dh[0];
-            registros.push(registrosBase[i]);
+
+    /**
+     * Percorre todos os dias selecionados no filtro para
+     * criar uma lista de registros com os medicamentos por dia
+     */
+    let now = new Date(chartFilter.dateStart + " 00:00:00");
+    let end = new Date(chartFilter.dateEnd + " 23:59:59");
+    for (let d = now; d <= end; d.setDate(d.getDate() + 1)) {
+        let day = moment(d).format('YYYY-MM-DD');
+
+        for (let i in registrosBase) {
+            let startDate = new Date(registrosBase[i].start_date);
+            startDate.setHours(0, 0, 0, 0);
+
+            let endDate = end;
+            if(registrosBase[i].end_date !== "0000-00-00 00:00:00") {
+                let endDateTime = new Date(registrosBase[i].end_date);
+                endDateTime.setHours(0, 0, 0, 0);
+                endDate = (endDateTime < endDate ? endDateTime : endDate);
+            }
+
+            if(d <= endDate && d >= startDate && typeof registrosBase[i].name === "string" && registrosBase[i].name !== "")
+                registros.push(Object.assign({date: day}, {name: registrosBase[i].name}));
         }
     }
 
+    /**
+     * Configuração genérica para os gráficos de medicamento
+     */
     let $content = $("<div></div>");
     let grafico = new ChartMaker();
     grafico.setData(registros);
     grafico.setFieldY("name");
     grafico.setMinY(0);
-    grafico.setHideLineX();
     grafico.setStepY(1);
+    grafico.setHideLineX();
     grafico.setTitle(getTitleIndicador("medicamentos"));
-
     grafico.setColorBase("#F0C773");
 
+    /**
+     * Seta para voltar ao gráfico 1
+     */
     if (modChart.medicamentos > 1)
         $content.append(Mustache.render(tpl.graficoArrowBack, {indicador: 'medicamentos', mod: 1}));
 
     if (modChart.medicamentos === 1) {
 
+        /**
+         * Gráfico 1
+         * dias de uso
+         */
+
+        /**
+         * A função para nomear a Label Y é utilizada para limitar o nome do medicamento
+         * ou para adicionar espaços no final do nome,
+         * a fim de manter um tamanho de string padrão,
+         * com o objetivo de alinhar as datas com os demais gráficos
+         */
+        grafico.setFunctionLabelY((label) => {
+            if(typeof label === "string") {
+                if(label.length < 13) {
+                    for(let i = label.length; i < 13; i++)
+                        label += " ";
+                } else if(label.length > 12) {
+                    label = label.substring(0, 12);
+                }
+                return label;
+            }
+        });
+
+        /**
+         * Função para adicionar cores aos nomes
+         * declara variáveis para associar a cor ao nome do medicamento
+         */
+        var colorMedicamentosCount = 0;
+        var nameMedicamentosColor = {};
+        var colorsMedicamentos = ["#7DA0D4", "#FF5159", "#5EA397", "#6849B7", "#2D92CB", "#7EC8BD"];
+        grafico.setFunctionColor(function (name) {
+            if(typeof name === "string") {
+
+                /**
+                 * Se o nome do medicamento ainda não possui uma cor
+                 * dê a seguinte cor da lista presente na variável 'colorsMedicamentos'
+                 * caso o número de medicamentos ultrapasse 6, dê uma cor padrão '#606060'
+                 */
+                if(typeof nameMedicamentosColor[name] === "undefined") {
+                    nameMedicamentosColor[name] = colorMedicamentosCount < 6 ? colorsMedicamentos[colorMedicamentosCount] : "#606060";
+                    colorMedicamentosCount++;
+                }
+
+                return nameMedicamentosColor[name];
+            }
+        });
+        grafico.setOrderReverse();
+        grafico.setGridOffsetLineY();
+        grafico.setFieldDate("date");
+        grafico.setFieldX("date");
+        $content.append(grafico.getChart("scatter"));
+    } else {
+
+        /**
+         * Gráfico 2
+         * Porcentagem de uso
+         */
 
         let data = grafico.getDataLabel();
         let labels = data[1];
@@ -1264,6 +1385,9 @@ function graficoMedicamentos(registrosBase) {
 
         grafico.setData(dataNew);
         grafico.setLabels(labelsNew);
+        /**
+         * Retorna label Y em porcentagem
+         */
         grafico.setFunctionLabelY(y => {
             if(y % 10 === 0)
                 return y + "%          ";
@@ -1271,24 +1395,31 @@ function graficoMedicamentos(registrosBase) {
             return "";
         });
 
+        /**
+         * Retorna title on mouseover em porcentagem
+         */
         grafico.setFunctionTooltips((y, x) => {
             return x + "% " + y;
         });
 
+        /**
+         * Espera o gráfico ser processado para aplicar alteração no título padrão
+         * mostrando o medicamento mais relevante
+         */
         setTimeout(function () {
             $("#grafico-header-title-medicamentos").html("<div class='col font-small' style='color: #bbb'>MAIS RELEVANTE</div><div class='col' style='margin: -8px 0 -4px'><div class='left font-xlarge'>" + bigger.v + "%</div> <div class='left font-small' style='color: #bbb;padding: 13px 5px 0;'>" + bigger.name + " no período</div></div>");
         },1);
 
+        grafico.setOrderBigger();
         grafico.setFieldX("x");
         $content.append(grafico.getChart("bar"));
-
-    } else {
-        grafico.setPaddings({left: 88, right: 20, bottom: 10, top: 20});
-        $content.append(grafico.getChart("doughnut"));
     }
 
-    // if (modChart.medicamentos < 2)
-    //     $content.append(Mustache.render(tpl.graficoArrowForward, {indicador: 'medicamentos', mod: 2}));
+    /**
+     * Seta para avançar ao gráfico 2
+     */
+    if (modChart.medicamentos < 2)
+        $content.append(Mustache.render(tpl.graficoArrowForward, {indicador: 'medicamentos', mod: 2}));
 
     return $content
 }
@@ -1475,8 +1606,8 @@ function graficoCrises(registros) {
             title: funcaoLabelY(v)
         });
 
-        if (typeof listXComentarios[data[i].x] === "string")
-            xComments.push(listXComentarios[data[i].x]);
+        if (typeof listXComentarios[data[i].x] === "string" && listXComentarios[data[i].x].length)
+            xComments.push("<b>" + moment(data[i].x).format("ll") + ":</b> " + listXComentarios[data[i].x]);
         else
             xComments.push("");
     }
@@ -1654,12 +1785,11 @@ function graficoCrises2(registros) {
         }))
 
     } else {
-        let template = chartFilter.interval !== "day" ? tpl.chartCalendarBubble : tpl.chartCalendarDayBubble;
-        let calendar2 = Mustache.render(template, {
+        let calendar2 = Mustache.render(tpl.chartCalendarBubble, {
             x: privateChartGetDataCrisesCalendar(registros),
             label: privateChartGetLabelCalendar()
         });
-        let calendar1 = Mustache.render(template, {
+        let calendar1 = Mustache.render(tpl.chartCalendarBubble, {
             x: privateChartGetDataCrisesCalendar(registros, 1),
             label: privateChartGetLabelCalendar(1)
         });
@@ -1825,19 +1955,17 @@ function graficoSono(registrosBase) {
      */
     let registros = [];
     for (let i in registrosBase) {
-        if (registrosBase[i].quality > 4) {
-            if(typeof registrosBase[i].duration === "string" && registrosBase[i].duration !== "") {
-                let p = registrosBase[i].duration.split(":");
-                if(typeof p[1] !== "undefined" && !isNaN(p[0]) && !isNaN(p[1]))
-                    registrosBase[i].duration = parseFloat(p[0] + "." + ((p[1] * 100) / 60)).toFixed(2);
-                else
-                    registrosBase[i].duration = parseFloat(registrosBase[i].duration);
-            } else {
-                registrosBase[i].duration = parseFloat(0);
-            }
-
-            registros.push(registrosBase[i]);
+        if(typeof registrosBase[i].duration === "string" && registrosBase[i].duration !== "") {
+            let p = registrosBase[i].duration.split(":");
+            if(typeof p[1] !== "undefined" && !isNaN(p[0]) && !isNaN(p[1]))
+                registrosBase[i].duration = parseFloat(parseFloat(p[0] + "." + ((p[1] * 100) / 60)).toFixed(2));
+            else
+                registrosBase[i].duration = parseFloat(registrosBase[i].duration);
+        } else {
+            registrosBase[i].duration = parseFloat(0);
         }
+
+        registros.push(registrosBase[i]);
     }
 
     let $content = $("<div></div>");
@@ -1846,11 +1974,11 @@ function graficoSono(registrosBase) {
     grafico.setFieldDate("date");
     grafico.setFieldX("date");
     grafico.setHideLineX();
-    grafico.setOperacaoMedia();
     grafico.setOptions({aspectRatio: 4});
 
     if (modChart['sono'] === 1) {
         grafico.setStepY(2.5);
+        grafico.setOperacaoMedia();
 
         grafico.setFunctionColor(function (color) {
             if (color < 0)
@@ -1892,6 +2020,8 @@ function graficoSono(registrosBase) {
 
     } else if(modChart.sono === 2) {
 
+        grafico.setOperacaoSoma();
+
         grafico.setFunctionColor(function (color) {
             if (color < 6)
                 return "#BF0811";
@@ -1926,7 +2056,11 @@ function graficoSono(registrosBase) {
         for (let i in data) {
             media += (!isNaN(data[i].y) ? parseFloat(data[i].y) : 0);
         }
-        media = parseFloat(media  / data.length).toFixed(1).toString().replace(".", ",");
+        media = parseFloat(parseFloat(media  / data.length).toFixed(1));
+        if(!isNaN(media))
+            media = Math.floor(media) + ":" + Math.round(media % 1 * 60);
+        else
+            media = 0;
 
         $content.append(Mustache.render(tpl.graficoArrowBack, {indicador: 'sono', mod: 1}));
         $content.append(Mustache.render(tpl.graficoArrowForward, {indicador: 'sono', mod: 3}));
@@ -1941,6 +2075,8 @@ function graficoSono(registrosBase) {
         },1);
 
     } else {
+
+        grafico.setOperacaoMedia();
         grafico.setFieldY("quality");
         let data = grafico.getData();
 
@@ -1953,9 +2089,16 @@ function graficoSono(registrosBase) {
             media: parseInt((bom * 100) / data.length)
         };
 
-        graficoSono.rotate = (graficoSono.media > 91 ? "rotateGood" : (graficoSono.media > 78 ? "rotateNormal" : "rotateBad"));
-        graficoSono.deg = (graficoSono.media > 91 ? "400" : (graficoSono.media > 78 ? "360" : "310"));
-        graficoSono.color = (graficoSono.media > 91 ? "#83E4FD" : (graficoSono.media > 78 ? "#606060" : "#BF0811"));
+        if(!isNaN(graficoSono.media)) {
+            graficoSono.rotate = (graficoSono.media > 91 ? "rotateGood" : (graficoSono.media > 78 ? "rotateNormal" : "rotateBad"));
+            graficoSono.deg = (graficoSono.media > 91 ? "400" : (graficoSono.media > 78 ? "360" : "310"));
+            graficoSono.color = (graficoSono.media > 91 ? "#83E4FD" : (graficoSono.media > 78 ? "#606060" : "#BF0811"));
+        } else {
+            graficoSono.media = "";
+            graficoSono.rotate = "rotateBad";
+            graficoSono.deg = "310";
+            graficoSono.color = "#606060";
+        }
 
         grafico.setTitle(getTitleIndicador("sono"));
         $content.append(Mustache.render(tpl.graficoArrowBack, {indicador: 'sono', mod: 2}));
@@ -1965,7 +2108,21 @@ function graficoSono(registrosBase) {
     return $content;
 }
 
-function graficoHumor(registros) {
+function graficoHumor(registrosBase) {
+
+    /**
+     * Se estiver dentro do filtro de datas selecionado e title for uma string válida
+     */
+    let registros = [];
+    let start = new Date(chartFilter.dateStart + " 00:00:00");
+    let end = new Date(chartFilter.dateEnd + " 23:59:59");
+    for (let i in registrosBase) {
+        let dateR = new Date(registrosBase[i].date);
+        dateR.setHours(0, 0, 0, 0);
+        if(dateR <= end && dateR >= start)
+            registros.push(registrosBase[i]);
+    }
+
     let $content = $("<div></div>");
     let grafico = new ChartMaker();
     grafico.setData(registros);
@@ -2047,7 +2204,6 @@ function graficoHumor(registros) {
         /* SCATTER */
         $content.append(Mustache.render(tpl.graficoHumor, {}));
         grafico.setFieldX("date");
-
         $content.append(grafico.getChart("scatter"));
     } else {
 
@@ -2301,12 +2457,12 @@ $(function () {
     });
     $("#date-start").off("change").on("change", function () {
         chartFilter.dateStart = $(this).val();
-        privateChartDateUpdateLimit(1);
+        // privateChartDateUpdateLimit(1);
         graficos();
     });
     $("#date-end").off("change").on("change", function () {
         chartFilter.dateEnd = $(this).val();
-        privateChartDateUpdateLimit();
+        // privateChartDateUpdateLimit();
         graficos();
     });
     $(".time-week").off("click").on("click", function () {
@@ -2317,7 +2473,7 @@ $(function () {
          * Intervalo - atualiza valor
          */
         chartFilter.interval = $(this).attr("rel");
-        privateChartDateUpdateLimit(undefined, 1);
+        // privateChartDateUpdateLimit(undefined, 1);
         graficos();
     });
     $(".indicador").off("click").on("click", function () {
@@ -2362,6 +2518,21 @@ $(function () {
         lightbox($(this).attr("rel"));
     });
 
+    $("#linevertical").off("mousedown").on("mousedown", function() {
+        $(document).on("mousemove", function( event ) {
+            let left = event.pageX - (window.innerWidth > 990 ? $("#paciente-pefil-filtro").innerWidth() + (window.innerWidth > 1400 ? ((window.innerWidth - 1400) /2) : 0) : 0);
+            left = left > 900 ? 900 : (left < 8 ? 8 :left);
+            if(left < 10 || left > 898)
+                $("#linevertical").addClass("active");
+            else
+                $("#linevertical").removeClass("active");
+
+            $("#linevertical").css("left", left + "px");
+        }).one('mouseup', function() {
+            $(document).off("mousemove");
+        });
+    });
+
     let now = new Date();
     let day = ("0" + now.getDate()).slice(-2);
     let month = ("0" + (now.getMonth() + 1)).slice(-2);
@@ -2376,8 +2547,8 @@ $(function () {
     $("#date-end").val(today).trigger("change");
 
     //seta manualmente a data para testes
-    // $("#date-start").val("2019-10-01").trigger("change");
-    // $("#date-end").val("2019-10-31").trigger("change");
+    $("#date-start").val("2019-11-01").trigger("change");
+    $("#date-end").val("2019-11-30").trigger("change");
 
     graficos();
 
