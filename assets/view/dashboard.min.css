@@ -1,0 +1,3234 @@
+.r-dashboard ﻿progress, .r-dashboard sub, .r-dashboard sup {
+    vertical-align: baseline
+}
+
+.r-dashboard a, .r-dashboard legend {
+    color: inherit
+}
+
+.r-dashboard legend {
+    padding: 0 8px
+}
+
+.r-dashboard legend .material-icons {
+    padding-right: 8px;
+    float: left
+}
+
+.r-dashboard legend .switch {
+    margin-bottom: 0 !important
+}
+
+.r-dashboard button, .r-dashboard hr, .r-dashboard input, .r-dashboard .overflow-visible {
+    overflow: visible
+}
+
+.r-dashboard [type=checkbox], .r-dashboard [type=radio], .r-dashboard ul {
+    padding: 0
+}
+
+.r-dashboard .image, .r-dashboard legend {
+    max-width: 100%
+}
+
+.r-dashboard .btn, .r-dashboard .btn-large, .r-dashboard .btn-small, .r-dashboard .btn-floating, .r-dashboard .btn-flat, .r-dashboard .btn-block, .r-dashboard .btn-floating-large, .r-dashboard .btn-group, .r-dashboard .navbar li {
+    float: left;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none
+}
+
+.r-dashboard .bar-block .dropdown-click .dropdown-content, .r-dashboard .bar-block .dropdown-hover .dropdown-content, .r-dashboard .navblock .dropdown-click .dropdown-content, .r-dashboard .navblock .dropdown-hover .dropdown-content, .r-dashboard .sidenav .dropdown-click .dropdown-content, .r-dashboard .sidenav .dropdown-hover .dropdown-content {
+    min-width: 100%
+}
+
+.r-dashboard .hover-opacity:hover, .r-dashboard .opacity, .r-dashboard .opacity-max, .r-dashboard .opacity-min {
+    -webkit-backface-visibility: hidden
+}
+
+.r-dashboard article, .r-dashboard aside, .r-dashboard details, .r-dashboard figcaption, .r-dashboard figure, .r-dashboard footer, .r-dashboard header, .r-dashboard main, .r-dashboard menu, .r-dashboard nav, .r-dashboard section, .r-dashboard summary {
+    display: block
+}
+
+.r-dashboard audio, .r-dashboard canvas, .r-dashboard progress, .r-dashboard video {
+    display: inline-block
+}
+
+.r-dashboard audio:not([controls]) {
+    display: none;
+    height: 0
+}
+
+.r-dashboard [hidden], .r-dashboard template {
+    display: none
+}
+
+.r-dashboard a {
+    background-color: transparent;
+    text-decoration: none;
+    -webkit-text-decoration-skip: objects
+}
+
+.r-dashboard a:active, .r-dashboard a:hover {
+    outline-width: 0
+}
+
+.r-dashboard abbr[title] {
+    border-bottom: none;
+    text-decoration: underline;
+    text-decoration: underline dotted
+}
+
+.r-dashboard .accordion-content a, .r-dashboard .btn, .r-dashboard .btn-block, .r-dashboard .button, .r-dashboard .dropdown-content a, .r-dashboard .dropnav a, .r-dashboard .navbar a, .r-dashboard .navblock a, .r-dashboard .sidenav a, .r-dashboard .topnav a {
+    text-decoration: none !important
+}
+
+.r-dashboard dfn {
+    font-style: italic
+}
+
+.r-dashboard mark {
+    background: #ff0;
+    color: #000
+}
+
+.r-dashboard small {
+    font-size: 80%
+}
+
+.r-dashboard sub, .r-dashboard sup {
+    font-size: 75%;
+    line-height: 0;
+    position: relative
+}
+
+.r-dashboard sub {
+    bottom: -.25em
+}
+
+.r-dashboard sup {
+    top: -.5em
+}
+
+.r-dashboard figure {
+    margin: 1em 40px
+}
+
+.r-dashboard img {
+    border-style: none;
+    margin-bottom: -5px
+}
+
+.r-dashboard .overflow-hidden, .r-dashboard svg:not(:root) {
+    overflow: hidden
+}
+
+.r-dashboard code, .r-dashboard kbd, .r-dashboard pre, .r-dashboard samp {
+    font-family: monospace, monospace;
+    font-size: 1em
+}
+
+.r-dashboard button, .r-dashboard input, .r-dashboard select, .r-dashboard textarea {
+    font: inherit;
+    margin: 0
+}
+
+.r-dashboard optgroup, .r-dashboard .font-bold {
+    font-weight: 700
+}
+
+.r-dashboard button, .r-dashboard select {
+    text-transform: none
+}
+
+.r-dashboard [type=reset], .r-dashboard [type=submit], .r-dashboard button, .r-dashboard [type=button] {
+    -webkit-appearance: button;
+    border: none;
+    outline: 0;
+    transition-duration: .25s;
+    cursor: pointer;
+    padding: 5px 10px;
+    position: relative;
+    overflow: hidden;
+    -webkit-box-shadow: 2px 2px 7px -3px rgba(61, 61, 61, 1);
+    -moz-box-shadow: 2px 2px 7px -3px rgba(61, 61, 61, 1);
+    box-shadow: 2px 2px 7px -3px rgba(61, 61, 61, 1)
+}
+
+.r-dashboard [type=reset]:active, .r-dashboard [type=submit]:active, .r-dashboard button:active, .r-dashboard [type=button]:active {
+    -webkit-box-shadow: 2px 2px 15px -2px rgba(51, 51, 51, 1);
+    -moz-box-shadow: 2px 2px 15px -2px rgba(51, 51, 51, 1);
+    box-shadow: 2px 2px 15px -2px rgba(51, 51, 51, 1)
+}
+
+.r-dashboard button:after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 5px;
+    height: 5px;
+    background: rgba(255, 255, 255, .5);
+    opacity: 0;
+    border-radius: 100%;
+    transform: scale(1, 1) translate(-50%);
+    transform-origin: 50% 50%
+}
+
+.r-dashboard button:focus:not(:active)::after {
+    animation: ripple .4s ease-in-out
+}
+
+.r-dashboard fieldset {
+    border: 1px solid silver;
+    margin: 0 2px;
+    padding: .35em .625em .75em
+}
+
+.r-dashboard legend {
+    display: table;
+    white-space: normal
+}
+
+.r-dashboard textarea {
+    overflow: auto
+}
+
+.r-dashboard [type=number]::-webkit-inner-spin-button, .r-dashboard [type=number]::-webkit-outer-spin-button {
+    height: auto
+}
+
+.r-dashboard [type=search] {
+    -webkit-appearance: textfield;
+    outline-offset: -2px
+}
+
+.r-dashboard [type=search]::-webkit-search-cancel-button, .r-dashboard [type=search]::-webkit-search-decoration {
+    -webkit-appearance: none
+}
+
+.r-dashboard ::-webkit-input-placeholder {
+    color: inherit;
+    opacity: .54
+}
+
+.r-dashboard ::-webkit-file-upload-button {
+    -webkit-appearance: button;
+    font: inherit
+}
+
+.r-dashboard, .r-dashboard {
+    font-family: Roboto, Verdana, sans-serif;
+    font-size: 15px;
+    line-height: 1.5
+}
+
+.r-dashboard h1 {
+    font-size: 36px
+}
+
+.r-dashboard h2 {
+    font-size: 30px
+}
+
+.r-dashboard h3 {
+    font-size: 24px
+}
+
+.r-dashboard h4 {
+    font-size: 20px
+}
+
+.r-dashboard h5 {
+    font-size: 18px
+}
+
+.r-dashboard h6 {
+    font-size: 16px
+}
+
+.r-dashboard input[type=checkbox] {
+    position: relative;
+    top: -.775rem;
+    margin: 20px 1rem 15px 8px;
+    cursor: pointer;
+    height: 0
+}
+
+.r-dashboard input[type=checkbox]:before {
+    -webkit-transition: all 0.25s ease-in-out;
+    -moz-transition: all 0.25s ease-in-out;
+    transition: all 0.25s ease-in-out;
+    content: "";
+    position: absolute;
+    left: 0;
+    z-index: 1;
+    width: 1.2rem;
+    height: 1.2rem;
+    border: 2px solid #ddd
+}
+
+.r-dashboard input[type=checkbox]:checked:before {
+    -webkit-transform: rotate(-45deg);
+    -moz-transform: rotate(-45deg);
+    -ms-transform: rotate(-45deg);
+    -o-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+    height: .5rem;
+    border-color: #009688;
+    border-top-style: none;
+    border-right-style: none
+}
+
+.r-dashboard input[type=checkbox]:after {
+    content: "";
+    position: absolute;
+    top: -.125rem;
+    left: 0;
+    width: 1.1rem;
+    height: 1.1rem;
+    background: transparent;
+    cursor: pointer
+}
+
+.r-dashboard .serif {
+    font-family: "Times New Roman", Times, serif
+}
+
+.r-dashboard h1, .r-dashboard h2, .r-dashboard h3, .r-dashboard h4, .r-dashboard h5, .r-dashboard h6 {
+    font-weight: 400;
+    padding: 20px 0;
+    margin: 0
+}
+
+.r-dashboard .wide {
+    letter-spacing: 4px
+}
+
+.r-dashboard h1 a, .r-dashboard h2 a, .r-dashboard h3 a, .r-dashboard h4 a, .r-dashboard h5 a, .r-dashboard h6 a {
+    font-weight: inherit
+}
+
+.r-dashboard hr {
+    box-sizing: content-box;
+    height: 0;
+    border: 0;
+    border-top: 1px solid #eee;
+    margin: 20px 0
+}
+
+.r-dashboard ul {
+    margin: 0
+}
+
+.r-dashboard ul li {
+    padding: 5px 0 5px 10px
+}
+
+.r-dashboard input[type=date], .r-dashboard input[type=datetime-local] {
+    padding-bottom: 2px
+}
+
+.r-dashboard input:not(:valid) ~ .validate {
+    color: #f44336
+}
+
+.r-dashboard label span.col, .r-dashboard select option[disabled] {
+    color: #888
+}
+
+.r-dashboard .switch, .r-dashboard input, .r-dashboard select, .r-dashboard textarea {
+    margin-bottom: 20px
+}
+
+.r-dashboard label span.col {
+    font-size: .7em
+}
+
+.r-dashboard select {
+    padding: 9px 0 5px;
+    width: 100%;
+    color: #000;
+    border: 1px solid transparent;
+    border-bottom: 1px solid #009688;
+    outline: 0
+}
+
+.r-dashboard select select:focus {
+    color: #000;
+    border: 1px solid #009688
+}
+
+.r-dashboard .display-container, .r-dashboard .relative, .r-dashboard .tooltip {
+    position: relative
+}
+
+.r-dashboard .z-depth-0 {
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none
+}
+
+.r-dashboard .btn, .r-dashboard .btn-floating, .r-dashboard .btn-floating-large, .r-dashboard .btn-large, .r-dashboard .btn-small, .r-dashboard .z-depth-2 {
+    -webkit-box-shadow: 2px 2px 5px -3px rgba(61, 61, 61, 1);
+    -moz-box-shadow: 2px 2px 5px -3px rgba(61, 61, 61, 1);
+    box-shadow: 2px 2px 5px -3px rgba(61, 61, 61, 1)
+}
+
+.r-dashboard .z-depth-4 {
+    -webkit-box-shadow: 4px 4px 9px -2px rgba(61, 61, 61, .6);
+    -moz-box-shadow: 4px 4px 9px -2px rgba(61, 61, 61, .6);
+    box-shadow: 4px 4px 9px -2px rgba(61, 61, 61, .6)
+}
+
+.r-dashboard .btn-bar .btn, .r-dashboard .btn-large.disabled:hover, .r-dashboard .btn-small.disabled:hover, .r-dashboard .btn-floating-large.disabled:hover, .r-dashboard .btn-floating-large:disabled:hover, .r-dashboard .btn-floating.disabled:hover, .r-dashboard .btn-floating:disabled:hover, .r-dashboard .btn.disabled:hover, .r-dashboard .btn:disabled:hover {
+    box-shadow: none
+}
+
+.r-dashboard .image {
+    height: auto
+}
+
+.r-dashboard .table, .r-dashboard .table-all {
+    border-collapse: collapse;
+    border-spacing: 0;
+    width: 100%;
+    display: table
+}
+
+.r-dashboard .no-select {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none
+}
+
+.r-dashboard .table-all {
+    border: 1px solid #ccc
+}
+
+.r-dashboard .bordered tr, .r-dashboard .table-all tr {
+    border-bottom: 1px solid #ddd
+}
+
+.r-dashboard .striped tbody tr:nth-child(even) {
+    background-color: #f1f1f1
+}
+
+.r-dashboard .table-all tr:nth-child(odd) {
+    background-color: #fff
+}
+
+.r-dashboard .table-all tr:nth-child(even) {
+    background-color: #f1f1f1
+}
+
+.r-dashboard .hoverable tbody tr:hover, .r-dashboard .ul.hoverable li:hover {
+    background-color: #ccc
+}
+
+.r-dashboard .centered tr td, .r-dashboard .centered tr th {
+    text-align: center
+}
+
+.r-dashboard .table td, .r-dashboard .table th, .r-dashboard .table-all td, .r-dashboard .table-all th {
+    padding: 8px;
+    display: table-cell;
+    text-align: left;
+    vertical-align: top
+}
+
+.r-dashboard .badge, .r-dashboard .btn, .r-dashboard .btn-block, .r-dashboard .btn-floating, .r-dashboard .btn-floating-large, .r-dashboard .button, .r-dashboard .sign, .r-dashboard .tag {
+    display: inline-block;
+    text-align: center
+}
+
+.r-dashboard .table td:first-child, .r-dashboard .table th:first-child, .r-dashboard .table-all td:first-child, .r-dashboard .table-all th:first-child {
+    padding-left: 16px
+}
+
+.r-dashboard .btn, .r-dashboard .btn-block, .r-dashboard .button {
+    border: none;
+    outline: 0;
+    padding: 6px 16px;
+    vertical-align: middle;
+    overflow: hidden;
+    color: #fff;
+    background-color: #000;
+    cursor: pointer;
+    white-space: nowrap
+}
+
+.r-dashboard .button {
+    color: #000;
+    background-color: #f1f1f1;
+    padding: 8px 16px
+}
+
+.r-dashboard .button:hover {
+    color: #000;
+    background-color: #ccc
+}
+
+.r-dashboard .btn, .r-dashboard .btn-block, .r-dashboard .btn-floating, .r-dashboard .btn-floating-large, .r-dashboard .button, .r-dashboard .closenav, .r-dashboard .opennav {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    margin-right: 10px
+}
+
+.r-dashboard .navbar, .r-dashboard ul.ul {
+    list-style-type: none;
+    margin: 0
+}
+
+.r-dashboard .btn-floating, .r-dashboard .btn-floating-large {
+    color: #fff;
+    background-color: #000;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    padding: 0;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 24px
+}
+
+.r-dashboard .btn-floating {
+    width: 40px;
+    height: 40px;
+    line-height: 40px
+}
+
+.r-dashboard .btn-floating-large {
+    width: 56px;
+    height: 56px;
+    line-height: 56px
+}
+
+.r-dashboard .btn-block, .r-dashboard .navblock .dropdown-click, .r-dashboard .navblock .dropdown-hover {
+    width: 100%
+}
+
+.r-dashboard .btn-floating-large:disabled, .r-dashboard .btn-floating:disabled, .r-dashboard .btn:disabled, .r-dashboard .button:disabled, .r-dashboard .disabled {
+    cursor: not-allowed;
+    opacity: .6
+}
+
+.r-dashboard .disabled *, .r-dashboard :disabled * {
+    pointer-events: none
+}
+
+.r-dashboard .btn-floating .material-icons {
+    padding: 8px
+}
+
+.r-dashboard .btn-bar .btn {
+    background-color: inherit;
+    color: inherit;
+    float: left
+}
+
+.r-dashboard .btn-bar .btn:hover {
+    background-color: #ccc
+}
+
+.r-dashboard .badge, .r-dashboard .sign, .r-dashboard .tag {
+    background-color: #000;
+    color: #fff;
+    padding-left: 8px;
+    padding-right: 8px
+}
+
+.r-dashboard .navbar .dropdown-click:hover, .r-dashboard .navbar .dropdown-hover:first-child, .r-dashboard .navbar .dropdown-hover:hover, .r-dashboard .navbar li a:hover, .r-dashboard .navblock .dropdown-click:hover, .r-dashboard .navblock .dropdown-hover:first-child, .r-dashboard .navblock .dropdown-hover:hover {
+    background-color: #ccc;
+    color: #000
+}
+
+.r-dashboard .badge {
+    border-radius: 50%
+}
+
+.r-dashboard ul.ul {
+    padding: 0
+}
+
+.r-dashboard ul.ul li {
+    padding: 6px 2px 6px 16px;
+    border-bottom: 1px solid #ddd
+}
+
+.r-dashboard ul.ul li:last-child {
+    border-bottom: none
+}
+
+.r-dashboard .tooltip .text {
+    display: none
+}
+
+.r-dashboard .tooltip:hover .text {
+    display: inline-block
+}
+
+.r-dashboard .navbar {
+    padding: 0;
+    overflow: hidden
+}
+
+.r-dashboard .modal, .r-dashboard .sidebar, .r-dashboard .sidenav {
+    height: 100%;
+    overflow: auto
+}
+
+.r-dashboard .navbar li .btn, .r-dashboard .navbar li a, .r-dashboard .navbar li input, .r-dashboard .navitem {
+    display: block;
+    padding: 8px 16px
+}
+
+.r-dashboard .navbar li .btn, .r-dashboard .navbar li input {
+    border: none;
+    outline: 0;
+    width: 100%
+}
+
+.r-dashboard .navbar .dropdown-click, .r-dashboard .navbar .dropdown-hover {
+    position: static
+}
+
+.r-dashboard .navbar .opennav.right {
+    float: right !important
+}
+
+.r-dashboard .topnav {
+    padding: 8px
+}
+
+.r-dashboard .topnav a {
+    padding: 0 8px;
+    border-bottom: 3px solid transparent;
+    -webkit-transition: border-bottom .25s;
+    transition: border-bottom .25s
+}
+
+.r-dashboard .topnav a:hover {
+    border-bottom: 3px solid #fff
+}
+
+.r-dashboard .topnav .dropdown-hover a {
+    border-bottom: 0
+}
+
+.r-dashboard .closenav, .r-dashboard .opennav {
+    color: inherit
+}
+
+.r-dashboard .closenav:hover, .r-dashboard .opennav:hover {
+    cursor: pointer;
+    opacity: .8
+}
+
+.r-dashboard .accordion-content a, .r-dashboard .btn, .r-dashboard .btn-block, .r-dashboard .btn-floating, .r-dashboard .btn-floating-large, .r-dashboard .closebtn, .r-dashboard .closenav, .r-dashboard .dropdown-click:hover, .r-dashboard .dropdown-content a, .r-dashboard .dropdown-hover:hover, .r-dashboard .dropnav a, .r-dashboard .hoverable li, .r-dashboard .hoverable tbody tr, .r-dashboard .navbar a, .r-dashboard .navblock a, .r-dashboard .opennav, .r-dashboard .sidenav a, .r-dashboard [class*=hover-] {
+    transition: ease .25s
+}
+
+.r-dashboard .ripple:active {
+    opacity: .5
+}
+
+.r-dashboard .ripple, .r-dashboard .transition-none {
+    -webkit-transition: opacity 0s;
+    transition: opacity 0s
+}
+
+.r-dashboard .sidebar, .r-dashboard .sidenav {
+    width: 200px;
+    background-color: #fff;
+    position: fixed !important;
+    z-index: 200
+}
+
+.r-dashboard .bar-block .dropdown-click, .r-dashboard .bar-block .dropdown-hover, .r-dashboard .modal, .r-dashboard .sidenav .dropdown-click, .r-dashboard .sidenav .dropdown-hover {
+    width: 100%
+}
+
+.r-dashboard .dropnav a:hover, .r-dashboard .navblock a:hover, .r-dashboard .sidenav .dropdown-click:hover, .r-dashboard .sidenav .dropdown-hover:first-child, .r-dashboard .sidenav .dropdown-hover:hover, .r-dashboard .sidenav a:hover {
+    background-color: #ccc;
+    color: #000
+}
+
+.r-dashboard .navblock a, .r-dashboard .sidenav a {
+    padding: 4px 2px 4px 16px
+}
+
+.r-dashboard .dropnav a, .r-dashboard .navblock a, .r-dashboard .sidenav a {
+    display: block
+}
+
+.r-dashboard .bar-block .dropdown-click .button, .r-dashboard .bar-block .dropdown-hover .button {
+    width: 100%;
+    text-align: left;
+    background-color: inherit;
+    color: inherit;
+    padding: 6px 2px 6px 16px
+}
+
+.r-dashboard .bar .button.active {
+    background: #009688;
+    color: #FFF;
+    opacity: 1 !important
+}
+
+.r-dashboard .bar .button.active:hover {
+    color: #FFF;
+    background: #11A799
+}
+
+.r-dashboard .group, .r-dashboard .input-group {
+    margin-top: 24px;
+    margin-bottom: 24px
+}
+
+.r-dashboard .dropdown-click, .r-dashboard .dropdown-hover {
+    position: relative;
+    display: inline-block;
+    cursor: pointer
+}
+
+.r-dashboard .dropdown-hover:hover .dropdown-content {
+    display: block;
+    z-index: 1
+}
+
+.r-dashboard .dropdown-click:hover, .r-dashboard .dropdown-click:hover > .button:first-child, .r-dashboard .dropdown-hover:first-child, .r-dashboard .dropdown-hover:hover > .button:first-child {
+    background-color: #ccc;
+    color: #000
+}
+
+.r-dashboard .dropdown-content {
+    cursor: auto;
+    color: #000;
+    background-color: #fff;
+    display: none;
+    position: absolute;
+    min-width: 160px;
+    margin: 0;
+    padding: 0
+}
+
+.r-dashboard .accordion-content a:hover, .r-dashboard .dropdown-content a:hover {
+    background-color: #ccc
+}
+
+.r-dashboard .dropdown-content a {
+    padding: 6px 16px;
+    display: block
+}
+
+.r-dashboard .accordion {
+    width: 100%;
+    cursor: pointer
+}
+
+.r-dashboard .accordion-content {
+    cursor: auto;
+    display: none;
+    position: relative;
+    width: 100%;
+    margin: 0;
+    padding: 0
+}
+
+.r-dashboard .accordion-content a {
+    padding: 6px 16px;
+    display: block
+}
+
+.r-dashboard .progress-container {
+    width: 100%;
+    height: 1.5em;
+    position: relative;
+    background-color: #f1f1f1
+}
+
+.r-dashboard .progressbar {
+    background-color: #757575;
+    height: 100%;
+    position: absolute;
+    line-height: inherit
+}
+
+.r-dashboard .irs {
+    position: relative;
+    display: block;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none
+}
+
+.r-dashboard .irs-line {
+    position: relative;
+    display: block;
+    overflow: hidden;
+    outline: none !important
+}
+
+.r-dashboard .irs-line-left, .r-dashboard .irs-line-mid, .r-dashboard .irs-line-right {
+    position: absolute;
+    display: block;
+    top: 0
+}
+
+.r-dashboard .irs-line-left {
+    left: 0;
+    width: 11%
+}
+
+.r-dashboard .irs-line-mid {
+    left: 9%;
+    width: 82%
+}
+
+.r-dashboard .irs-line-right {
+    right: 0;
+    width: 11%
+}
+
+.r-dashboard .irs-bar {
+    position: absolute;
+    display: block;
+    left: 0;
+    width: 0
+}
+
+.r-dashboard .irs-bar-edge {
+    position: absolute;
+    display: block;
+    top: 0;
+    left: 0
+}
+
+.r-dashboard .irs-shadow {
+    position: absolute;
+    display: none;
+    left: 0;
+    width: 0
+}
+
+.r-dashboard .irs-slider {
+    position: absolute;
+    display: block;
+    cursor: default;
+    z-index: 1
+}
+
+.r-dashboard .irs-slider.type_last {
+    z-index: 2
+}
+
+.r-dashboard .irs-min {
+    position: absolute;
+    display: block;
+    left: 0;
+    cursor: default
+}
+
+.r-dashboard .irs-max {
+    position: absolute;
+    display: block;
+    right: 0;
+    cursor: default
+}
+
+.r-dashboard .irs-from, .r-dashboard .irs-to, .r-dashboard .irs-single {
+    position: absolute;
+    display: block;
+    top: 0;
+    left: 0;
+    cursor: default;
+    white-space: nowrap
+}
+
+.r-dashboard .irs-grid {
+    position: absolute;
+    display: none;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 20px
+}
+
+.r-dashboard .irs-with-grid .irs-grid {
+    display: block
+}
+
+.r-dashboard .irs-grid-pol {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 1px;
+    height: 8px;
+    background: #000
+}
+
+.r-dashboard .irs-grid-pol.small {
+    height: 4px
+}
+
+.r-dashboard .irs-grid-text {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    white-space: nowrap;
+    text-align: center;
+    font-size: 9px;
+    line-height: 9px;
+    padding: 0 3px;
+    color: #000
+}
+
+.r-dashboard .irs-disable-mask {
+    position: absolute;
+    display: block;
+    top: 0;
+    left: -1%;
+    width: 102%;
+    height: 100%;
+    cursor: default;
+    background: rgba(0, 0, 0, 0);
+    z-index: 2
+}
+
+.r-dashboard .irs-disabled {
+    opacity: .4
+}
+
+.r-dashboard .lt-ie9 .irs-disabled {
+    filter: alpha(opacity=40)
+}
+
+.r-dashboard .irs-hidden-input {
+    position: absolute !important;
+    display: block !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 0 !important;
+    height: 0 !important;
+    font-size: 0 !important;
+    line-height: 0 !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    outline: none !important;
+    z-index: -9999 !important;
+    background: none !important;
+    border-style: solid !important;
+    border-color: transparent !important
+}
+
+.r-dashboard input, .r-dashboard textarea {
+    padding: 8px 2px 4px;
+    display: block;
+    border: none;
+    border-bottom: 1px solid #999;
+    float: left;
+    outline: 0;
+    width: 100%
+}
+
+.r-dashboard .input-bar {
+    float: left;
+    width: 100%;
+    position: relative;
+    display: block
+}
+
+.r-dashboard .input-bar:before {
+    left: 50%
+}
+
+.r-dashboard .input-bar:after {
+    right: 50%
+}
+
+.r-dashboard .input-bar:before, .r-dashboard .input-bar:after {
+    content: '';
+    height: 2px;
+    width: 0;
+    bottom: 0;
+    position: absolute;
+    background: #009688;
+    transition: width 0.18s ease-in-out;
+    -moz-transition: width 0.18s ease-in-out;
+    -webkit-transition: width 0.18s ease-in-out
+}
+
+.r-dashboard .input-bar-active:before, .r-dashboard .input-bar-active:after {
+    width: 50% !important;
+    transition: width 0.3s ease-in-out;
+    -moz-transition: width 0.3s ease-in-out;
+    -webkit-transition: width 0.3s ease-in-out
+}
+
+.r-dashboard input ~ .input-bar {
+    bottom: 20px
+}
+
+.r-dashboard input:focus ~ .input-bar:before, .r-dashboard input:focus ~ .input-bar:after {
+    width: 50%
+}
+
+.r-dashboard input, .r-dashboard select, .r-dashboard textarea {
+    background: transparent
+}
+
+.r-dashboard input[type=color] {
+    height: 40px
+}
+
+.r-dashboard .bar .bar-item, .r-dashboard .bar-block .bar-item {
+    padding: 8px 16px;
+    border: none;
+    outline: 0
+}
+
+.r-dashboard input[type=checkbox] {
+    width: auto;
+    float: left;
+    margin-top: 22px
+}
+
+.r-dashboard input[type=checkbox].check, .r-dashboard input[type=radio].radio {
+    width: 24px;
+    height: 24px;
+    position: relative;
+    top: 6px
+}
+
+.r-dashboard input[type=checkbox].check:checked + .validate, .r-dashboard input[type=radio].radio:checked + .validate {
+    color: #009688
+}
+
+.r-dashboard input[type=checkbox].check:disabled + .validate, .r-dashboard input[type=radio].radio:disabled + .validate {
+    color: #aaa
+}
+
+.r-dashboard .md-radio {
+    position: relative;
+    display: inline-block;
+    font-size: 18px;
+    margin-right: 30px;
+    line-height: 44px;
+    cursor: pointer
+}
+
+.r-dashboard .md-radio:hover .md-radio--fake > span {
+    -webkit-transform: scale(.5);
+    -moz-transform: scale(.5);
+    -ms-transform: scale(.5);
+    -o-transform: scale(.5);
+    transform: scale(.5);
+    opacity: .5
+}
+
+.r-dashboard .md-radio input {
+    width: 1px;
+    height: 1px;
+    opacity: 0
+}
+
+.r-dashboard .md-radio input:checked + .md-radio--fake {
+    border-color: #009688;
+    -webkit-transform: scale(1);
+    -moz-transform: scale(1);
+    -ms-transform: scale(1);
+    -o-transform: scale(1);
+    transform: scale(1)
+}
+
+.r-dashboard .md-radio input:checked + .md-radio--fake > span {
+    -webkit-transform: scale(1);
+    -moz-transform: scale(1);
+    -ms-transform: scale(1);
+    -o-transform: scale(1);
+    transform: scale(1);
+    opacity: 1
+}
+
+.r-dashboard .md-radio input:focus + .md-radio--fake > span {
+    background-color: #009688;
+    -webkit-transform: scale(1);
+    -moz-transform: scale(1);
+    -ms-transform: scale(1);
+    -o-transform: scale(1);
+    transform: scale(1);
+    opacity: 1
+}
+
+.r-dashboard .transition-easy, .r-dashboard .md-radio--fake, .r-dashboard .md-radio--fake > span {
+    -webkit-transition: all 0.25s ease-in-out;
+    -moz-transition: all 0.25s ease-in-out;
+    -ms-transition: all 0.25s ease-in-out;
+    -o-transition: all 0.25s ease-in-out;
+    transition: all 0.25s ease-in-out
+}
+
+.r-dashboard .transition-fast {
+    -webkit-transition: all 0.1s ease-in-out;
+    -moz-transition: all 0.1s ease-in-out;
+    -ms-transition: all 0.1s ease-in-out;
+    -o-transition: all 0.1s ease-in-out;
+    transition: all 0.1s ease-in-out
+}
+
+.r-dashboard .md-radio > div {
+    line-height: 18px;
+    display: inline-block;
+    color: #999
+}
+
+.r-dashboard .md-radio--fake {
+    position: relative;
+    display: block;
+    float: left;
+    clear: left;
+    margin: 0 9px;
+    width: 20px;
+    height: 20px;
+    border: 3px solid #ccc;
+    border-radius: 50%;
+    background-color: #fff;
+    -webkit-transform: scale(.75);
+    -moz-transform: scale(.75);
+    -ms-transform: scale(.75);
+    -o-transform: scale(.75);
+    transform: scale(.75)
+}
+
+.r-dashboard .md-radio--fake > span {
+    width: 6px;
+    height: 6px;
+    -webkit-transform: scale(0);
+    -moz-transform: scale(0);
+    -ms-transform: scale(0);
+    -o-transform: scale(0);
+    transform: scale(0);
+    display: block;
+    margin: 4px;
+    border-radius: 50%;
+    background-color: #009688;
+    opacity: 0
+}
+
+.r-dashboard .md-radio.has--text > div {
+    padding-top: 7px
+}
+
+.r-dashboard .md-radio.has--text small {
+    display: block;
+    line-height: 15px;
+    color: #5B5B5B;
+    opacity: .65;
+    padding-top: 2px
+}
+
+.r-dashboard .md-radio.with--error > div, .r-dashboard .md-radio.with--error small {
+    color: #d32f2f
+}
+
+.r-dashboard .md-radio.with--error .md-radio--fake {
+    border-color: #d32f2f !important
+}
+
+.r-dashboard .md-radio.with--error .md-radio--fake > span {
+    background-color: #d32f2f !important
+}
+
+.r-dashboard .bar .bar-item, .r-dashboard .bar .button, .r-dashboard .bar-block .bar-item {
+    background-color: inherit;
+    color: inherit
+}
+
+.r-dashboard .bar {
+    width: 100%;
+    overflow: hidden
+}
+
+.r-dashboard .center .bar {
+    display: inline-block;
+    width: auto
+}
+
+.r-dashboard .bar-block .bar-item, .r-dashboard .block {
+    display: block;
+    width: 100%
+}
+
+.r-dashboard .bar .bar-item {
+    float: left;
+    width: auto;
+    display: block
+}
+
+.r-dashboard .bar .dropdown-click, .r-dashboard .bar .dropdown-hover {
+    position: static;
+    float: left
+}
+
+.r-dashboard .bar .button {
+    white-space: normal
+}
+
+.r-dashboard .bar-block .bar-item {
+    text-align: left;
+    white-space: normal
+}
+
+.r-dashboard .bar-block.center .bar-item, .r-dashboard .vertical {
+    text-align: center
+}
+
+.r-dashboard .responsive {
+    overflow-x: auto
+}
+
+.r-dashboard .card:after, .r-dashboard .card-4:after, .r-dashboard .card-6:after, .r-dashboard .card:before, .r-dashboard .card-4:before, .r-dashboard .card-6:before, .r-dashboard .bar:after, .r-dashboard .bar:before, .r-dashboard .btn-bar:after, .r-dashboard .btn-bar:before, .r-dashboard .btn-group:after, .r-dashboard .btn-group:before, .r-dashboard .cell-row:after, .r-dashboard .cell-row:before, .r-dashboard .clear:after, .r-dashboard .clear:before, .r-dashboard .container:after, .r-dashboard .container:before, .r-dashboard .panel:after, .r-dashboard .panel:before, .r-dashboard .row-padding:after, .r-dashboard .row-padding:before, .r-dashboard .row:after, .r-dashboard .row:before, .r-dashboard .topnav:after, .r-dashboard .topnav:before {
+    content: "";
+    display: table;
+    clear: both
+}
+
+.r-dashboard .col, .r-dashboard .half, .r-dashboard .quarter, .r-dashboard .third, .r-dashboard .threequarter, .r-dashboard .twothird {
+    float: left;
+    width: 100%
+}
+
+.r-dashboard .col.s1 {
+    width: 8.33333%
+}
+
+.r-dashboard .col.s2 {
+    width: 16.66666%
+}
+
+.r-dashboard .col.s3 {
+    width: 24.99999%
+}
+
+.r-dashboard .col.s4 {
+    width: 33.33333%
+}
+
+.r-dashboard .col.s5 {
+    width: 41.66666%
+}
+
+.r-dashboard .col.s6 {
+    width: 49.99999%
+}
+
+.r-dashboard .col.s7 {
+    width: 58.33333%
+}
+
+.r-dashboard .col.s8 {
+    width: 66.66666%
+}
+
+.r-dashboard .col.s9 {
+    width: 74.99999%
+}
+
+.r-dashboard .col.s10 {
+    width: 83.33333%
+}
+
+.r-dashboard .col.s11 {
+    width: 91.66666%
+}
+
+.r-dashboard .col.s12, .r-dashboard .half, .r-dashboard .quarter, .r-dashboard .third, .r-dashboard .threequarter, .r-dashboard .twothird {
+    width: 99.99999%
+}
+
+.r-dashboard .content {
+    max-width: 980px;
+    margin: auto;
+    float: initial;
+    display: block
+}
+
+.r-dashboard .rest {
+    overflow: hidden;
+    min-width: 100px
+}
+
+.r-dashboard .parallax {
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover
+}
+
+.r-dashboard .input-icon {
+    display: -ms-flexbox;
+    display: flex;
+    width: 100%;
+    margin-bottom: 15px
+}
+
+.r-dashboard .input-icon i {
+    padding-right: 10px;
+    min-width: 50px;
+    text-align: center
+}
+
+.r-dashboard .cell-row, .r-dashboard .layout-container {
+    display: table;
+    width: 100%
+}
+
+.r-dashboard .layout-row {
+    display: table-row
+}
+
+.r-dashboard .cell, .r-dashboard .layout-cell, .r-dashboard .layout-col {
+    display: table-cell
+}
+
+.r-dashboard .cell-top, .r-dashboard .layout-top {
+    vertical-align: top
+}
+
+.r-dashboard .cell-middle, .r-dashboard .layout-middle {
+    vertical-align: middle
+}
+
+.r-dashboard .cell-bottom, .r-dashboard .layout-bottom {
+    vertical-align: bottom
+}
+
+.r-dashboard .show-block {
+    display: block !important
+}
+
+.r-dashboard .show-inline-block {
+    display: inline-block !important
+}
+
+.r-dashboard .bottom, .r-dashboard .overlay, .r-dashboard .top {
+    position: fixed;
+    width: 100%
+}
+
+.r-dashboard .overlay, .r-dashboard .switch input[type=checkbox] {
+    display: none
+}
+
+.r-dashboard .bottom, .r-dashboard .top {
+    z-index: 1
+}
+
+.r-dashboard .top {
+    top: 0
+}
+
+.r-dashboard .bottom {
+    bottom: 0
+}
+
+.r-dashboard .overlay {
+    height: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, .5);
+    z-index: 199
+}
+
+.r-dashboard .left {
+    float: left !important
+}
+
+.r-dashboard .right {
+    float: right !important
+}
+
+.r-dashboard .font-tiny {
+    font-size: 10px !important
+}
+
+.r-dashboard .font-small {
+    font-size: 12px !important
+}
+
+.r-dashboard .font-medium {
+    font-size: 15px !important
+}
+
+.r-dashboard .font-large {
+    font-size: 18px !important
+}
+
+.r-dashboard .font-xlarge {
+    font-size: 24px !important
+}
+
+.r-dashboard .font-xxlarge {
+    font-size: 36px !important
+}
+
+.r-dashboard .font-xxxlarge {
+    font-size: 48px !important
+}
+
+.r-dashboard .font-jumbo {
+    font-size: 64px !important
+}
+
+.r-dashboard .btn-large {
+    padding: 15px 25px;
+    font-size: 1.5em
+}
+
+.r-dashboard .btn-small {
+    padding: 5px 10px;
+    font-size: 1em
+}
+
+.r-dashboard .click {
+    box-shadow: 3px 4px 5px 0 #999
+}
+
+.r-dashboard .click:active {
+    box-shadow: 1px 1px 1px 0 #666;
+    transform: translateY(2px)
+}
+
+.r-dashboard .switch {
+    float: left;
+    position: relative;
+    margin-bottom: 24.4px !important;
+    height: 32px;
+    width: 50px
+}
+
+.r-dashboard .switch .slider {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    background-color: #999;
+    height: 20px;
+    width: 45px;
+    border-radius: 34px;
+    cursor: pointer
+}
+
+.r-dashboard .switch .slider:after {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: -1px;
+    bottom: -3px;
+    background-color: #fff;
+    -webkit-transition: .25s;
+    transition: .25s;
+    border-radius: 50%;
+    cursor: pointer;
+    -webkit-box-shadow: 2px 2px 9px -3px rgba(61, 61, 61, 1);
+    -moz-box-shadow: 2px 2px 9px -3px rgba(61, 61, 61, 1);
+    box-shadow: 2px 2px 9px -3px rgba(61, 61, 61, 1)
+}
+
+.r-dashboard .switch input:checked + .slider {
+    background: #62BAB2
+}
+
+.r-dashboard .switch input:checked + .slider:after {
+    -webkit-transform: translateX(21px);
+    -ms-transform: translateX(21px);
+    transform: translateX(21px);
+    background-color: #009688
+}
+
+.r-dashboard .switch-squad .slider {
+    border-radius: 0;
+    bottom: -3px;
+    height: 25px
+}
+
+.r-dashboard .switch-squad .slider:after {
+    border-radius: 0;
+    height: 20px;
+    bottom: 3px;
+    width: 18px;
+    left: 3px
+}
+
+.r-dashboard .vertical {
+    word-break: break-all;
+    line-height: 1;
+    width: .6em
+}
+
+.r-dashboard .align-left {
+    text-align: left !important
+}
+
+.r-dashboard .align-right {
+    text-align: right !important
+}
+
+.r-dashboard .align-justify {
+    text-align: justify !important
+}
+
+.r-dashboard .align-center {
+    text-align: center !important
+}
+
+.r-dashboard .display-bottomleft, .r-dashboard .display-bottommiddle, .r-dashboard .display-bottomright, .r-dashboard .display-middle, .r-dashboard .display-left, .r-dashboard .display-right, .r-dashboard .display-topleft, .r-dashboard .display-topmiddle, .r-dashboard .display-topright {
+    position: absolute
+}
+
+.r-dashboard .display-left, .r-dashboard .display-middle, .r-dashboard .display-right {
+    top: 50%
+}
+
+.r-dashboard .display-middle {
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%)
+}
+
+.r-dashboard .display-right, .r-dashboard .display-left {
+    transform: translate(0, -50%);
+    -ms-transform: translate(0, -50%)
+}
+
+.r-dashboard .display-topmiddle, .r-dashboard .display-bottommiddle, .r-dashboard .display-middle {
+    left: 50%
+}
+
+.r-dashboard .display-topmiddle, .r-dashboard .display-bottommiddle {
+    transform: translate(-50%, 0);
+    -ms-transform: translate(-50%, 0)
+}
+
+.r-dashboard .display-topleft {
+    left: 0;
+    top: 0
+}
+
+.r-dashboard .display-topright {
+    right: 0;
+    top: 0
+}
+
+.r-dashboard .display-bottomleft {
+    left: 0;
+    bottom: 0
+}
+
+.r-dashboard .display-bottomright {
+    right: 0;
+    bottom: 0
+}
+
+.r-dashboard .display-left {
+    left: 0
+}
+
+.r-dashboard .display-right {
+    right: 0
+}
+
+.r-dashboard .display-topmiddle {
+    top: 0
+}
+
+.r-dashboard .display-bottommiddle {
+    bottom: 0
+}
+
+.r-dashboard .display-container:hover .display-hover {
+    display: block
+}
+
+.r-dashboard .display-container:hover span.display-hover {
+    display: inline-block
+}
+
+.r-dashboard .display-hover {
+    display: none
+}
+
+.r-dashboard .display-position {
+    position: absolute
+}
+
+.r-dashboard .radius-circle {
+    border-radius: 50% !important
+}
+
+.r-dashboard .radius-small {
+    border-radius: 2px !important
+}
+
+.r-dashboard .radius, .r-dashboard .radius-medium {
+    border-radius: 4px !important
+}
+
+.r-dashboard .radius-large {
+    border-radius: 8px !important
+}
+
+.r-dashboard .radius-xlarge {
+    border-radius: 16px !important
+}
+
+.r-dashboard .radius-xxlarge {
+    border-radius: 32px !important
+}
+
+.r-dashboard .radius-jumbo {
+    border-radius: 64px !important
+}
+
+.r-dashboard .border-0 {
+    border: 0 !important
+}
+
+.r-dashboard .border {
+    border: 1px solid #ccc !important
+}
+
+.r-dashboard .border-top {
+    border-top: 1px solid #ccc !important
+}
+
+.r-dashboard .border-bottom {
+    border-bottom: 1px solid #ccc !important
+}
+
+.r-dashboard .border-left {
+    border-left: 1px solid #ccc !important
+}
+
+.r-dashboard .border-right {
+    border-right: 1px solid #ccc !important
+}
+
+.r-dashboard .margin {
+    margin: 16px !important
+}
+
+.r-dashboard .margin-0 {
+    margin: 0 !important
+}
+
+.r-dashboard .margin-top, .r-dashboard .panel, .r-dashboard .section {
+    margin-top: 16px !important
+}
+
+.r-dashboard .margin-bottom, .r-dashboard .panel, .r-dashboard .section {
+    margin-bottom: 16px !important
+}
+
+.r-dashboard .margin-left {
+    margin-left: 16px !important
+}
+
+.r-dashboard .margin-right {
+    margin-right: 16px !important
+}
+
+.r-dashboard .margin-small {
+    margin: 4px 8px !important
+}
+
+.r-dashboard .margin-medium {
+    margin: 8px 16px !important
+}
+
+.r-dashboard .margin-large {
+    margin: 12px 24px !important
+}
+
+.r-dashboard .margin-xlarge {
+    margin: 16px 32px !important
+}
+
+.r-dashboard .margin-xxlarge {
+    margin: 24px 48px !important
+}
+
+.r-dashboard .margin-jumbo {
+    margin: 32px 64px !important
+}
+
+.r-dashboard .padding-tiny {
+    padding: 2px 4px !important
+}
+
+.r-dashboard .padding-small {
+    padding: 4px 8px !important
+}
+
+.r-dashboard .form, .r-dashboard .padding, .r-dashboard .padding-medium {
+    padding: 8px 16px !important
+}
+
+.r-dashboard .padding-large {
+    padding: 12px 24px !important
+}
+
+.r-dashboard .padding-xlarge {
+    padding: 16px 32px !important
+}
+
+.r-dashboard .padding-xxlarge {
+    padding: 24px 48px !important
+}
+
+.r-dashboard .padding-jumbo {
+    padding: 32px 64px !important
+}
+
+.r-dashboard .padding-4 {
+    padding-top: 4px !important;
+    padding-bottom: 4px !important
+}
+
+.r-dashboard .padding-8 {
+    padding-top: 8px !important;
+    padding-bottom: 8px !important
+}
+
+.r-dashboard .padding-12 {
+    padding-top: 12px !important;
+    padding-bottom: 12px !important
+}
+
+.r-dashboard .padding-16 {
+    padding-top: 16px !important;
+    padding-bottom: 16px !important
+}
+
+.r-dashboard .padding-24 {
+    padding-top: 24px !important;
+    padding-bottom: 24px !important
+}
+
+.r-dashboard .padding-32 {
+    padding-top: 32px !important;
+    padding-bottom: 32px !important
+}
+
+.r-dashboard .padding-48 {
+    padding-top: 48px !important;
+    padding-bottom: 48px !important
+}
+
+.r-dashboard .padding-64 {
+    padding-top: 64px !important;
+    padding-bottom: 64px !important
+}
+
+.r-dashboard .padding-128 {
+    padding-top: 128px !important;
+    padding-bottom: 128px !important
+}
+
+.r-dashboard .padding-0 {
+    padding: 0 !important
+}
+
+.r-dashboard .padding-top {
+    padding-top: 8px !important
+}
+
+.r-dashboard .padding-bottom {
+    padding-bottom: 8px !important
+}
+
+.r-dashboard .padding-left-4 {
+    padding-left: 4px !important
+}
+
+.r-dashboard .padding-left-8 {
+    padding-left: 8px !important
+}
+
+.r-dashboard .padding-left-12 {
+    padding-left: 12px !important
+}
+
+.r-dashboard .padding-left-16, .r-dashboard .padding-left {
+    padding-left: 16px !important
+}
+
+.r-dashboard .padding-left-24 {
+    padding-left: 24px !important
+}
+
+.r-dashboard .padding-left-32 {
+    padding-left: 32px !important
+}
+
+.r-dashboard .padding-left-48 {
+    padding-left: 48px !important
+}
+
+.r-dashboard .padding-left-64 {
+    padding-left: 64px !important
+}
+
+.r-dashboard .padding-left-128 {
+    padding-left: 128px !important
+}
+
+.r-dashboard .padding-right-4 {
+    padding-right: 4px !important
+}
+
+.r-dashboard .padding-right-8 {
+    padding-right: 8px !important
+}
+
+.r-dashboard .padding-right-12 {
+    padding-right: 12px !important
+}
+
+.r-dashboard .padding-right-16, .r-dashboard .padding-right {
+    padding-right: 16px !important
+}
+
+.r-dashboard .padding-right-24 {
+    padding-right: 24px !important
+}
+
+.r-dashboard .padding-right-32 {
+    padding-right: 32px !important
+}
+
+.r-dashboard .padding-right-48 {
+    padding-right: 48px !important
+}
+
+.r-dashboard .padding-right-64 {
+    padding-right: 64px !important
+}
+
+.r-dashboard .padding-right-128 {
+    padding-right: 128px !important
+}
+
+.r-dashboard .topbar {
+    border-top: 6px solid #ccc !important
+}
+
+.r-dashboard .bottombar {
+    border-bottom: 6px solid #ccc !important
+}
+
+.r-dashboard .leftbar {
+    border-left: 6px solid #ccc !important
+}
+
+.r-dashboard .rightbar {
+    border-right: 6px solid #ccc !important
+}
+
+.r-dashboard .row-padding, .r-dashboard .row-padding > .col, .r-dashboard .row-padding > .half, .r-dashboard .row-padding > .quarter, .r-dashboard .row-padding > .third, .r-dashboard .row-padding > .threequarter, .r-dashboard .row-padding > .twothird {
+    padding: 0 8px
+}
+
+.r-dashboard .container, .r-dashboard .example {
+    padding: .01em 0
+}
+
+.r-dashboard .panel {
+    padding: .01em 5px
+}
+
+.r-dashboard .container-600, .r-dashboard .container-900, .r-dashboard .container-1200 {
+    margin-left: auto !important;
+    margin-right: auto !important;
+    width: 100%;
+    float: initial
+}
+
+.r-dashboard .container-600 {
+    max-width: 600px
+}
+
+.r-dashboard .container-900 {
+    max-width: 990px
+}
+
+.r-dashboard .container-1200 {
+    max-width: 1200px
+}
+
+.r-dashboard .spin {
+    animation: spin 2s infinite linear;
+    -webkit-animation: spin 2s infinite linear
+}
+
+@-webkit-keyframes spin {
+    0% {
+        -webkit-transform: rotate(0);
+        transform: rotate(0)
+    }
+    100% {
+        -webkit-transform: rotate(359deg);
+        transform: rotate(359deg)
+    }
+}
+
+@keyframes spin {
+    0% {
+        -webkit-transform: rotate(0);
+        transform: rotate(0)
+    }
+    100% {
+        -webkit-transform: rotate(359deg);
+        transform: rotate(359deg)
+    }
+}
+
+.r-dashboard .example {
+    background-color: #f1f1f1
+}
+
+.r-dashboard .code, .r-dashboard .codespan {
+    font-family: Consolas, "courier new";
+    font-size: 16px
+}
+
+.r-dashboard .code {
+    line-height: 1.4;
+    width: auto;
+    background-color: #fff;
+    padding: 8px 12px;
+    border-left: 4px solid #4CAF50;
+    word-wrap: break-word
+}
+
+.r-dashboard .codespan {
+    color: #dc143c;
+    background-color: #f1f1f1;
+    padding-left: 4px;
+    padding-right: 4px;
+    font-size: 110%
+}
+
+.r-dashboard .code, .r-dashboard .example {
+    margin: 20px 0
+}
+
+.r-dashboard .card, .r-dashboard .card-4, .r-dashboard .card-6 {
+    float: left;
+    width: 100%;
+    background: #FFF;
+    margin-bottom: 20px !important
+}
+
+.r-dashboard .card, .r-dashboard .example, .r-dashboard .z-depth-2 {
+    box-shadow: 1px 1px 4px 0 rgba(0, 0, 0, .12) !important
+}
+
+.r-dashboard .card-4, .r-dashboard .z-depth-4, .r-dashboard .hover-shadow:hover {
+    box-shadow: 2px 2px 4px 0 rgba(0, 0, 0, .1) !important
+}
+
+.r-dashboard .card-6, .r-dashboard .z-depth-6 {
+    box-shadow: 3px 3px 5px 0 rgba(0, 0, 0, .15) !important
+}
+
+.r-dashboard .btn:hover {
+    transform: scale(1.03)
+}
+
+.r-dashboard .animate-fading {
+    -webkit-animation: fading 10s infinite;
+    animation: fading 10s infinite
+}
+
+.r-dashboard .hover-none:hover, .r-dashboard .transparent {
+    background-color: transparent !important
+}
+
+@-webkit-keyframes fading {
+    0%, 100% {
+        opacity: 0
+    }
+    50% {
+        opacity: 1
+    }
+}
+
+@keyframes fading {
+    0%, 100% {
+        opacity: 0
+    }
+    50% {
+        opacity: 1
+    }
+}
+
+.r-dashboard .animate-opacity {
+    -webkit-animation: opac .8s;
+    animation: opac .8s
+}
+
+@-webkit-keyframes opac {
+    from {
+        opacity: 0
+    }
+    to {
+        opacity: 1
+    }
+}
+
+@keyframes opac {
+    from {
+        opacity: 0
+    }
+    to {
+        opacity: 1
+    }
+}
+
+.r-dashboard .animate-top {
+    position: relative;
+    -webkit-animation: animatetop .4s;
+    animation: animatetop .4s
+}
+
+@-webkit-keyframes animatetop {
+    from {
+        top: -300px;
+        opacity: 0
+    }
+    to {
+        top: 0;
+        opacity: 1
+    }
+}
+
+@keyframes animatetop {
+    from {
+        top: -300px;
+        opacity: 0
+    }
+    to {
+        top: 0;
+        opacity: 1
+    }
+}
+
+.r-dashboard .animate-left {
+    position: relative;
+    -webkit-animation: animateleft .4s;
+    animation: animateleft .4s
+}
+
+@-webkit-keyframes animateleft {
+    from {
+        left: -300px;
+        opacity: 0
+    }
+    to {
+        left: 0;
+        opacity: 1
+    }
+}
+
+@keyframes animateleft {
+    from {
+        left: -300px;
+        opacity: 0
+    }
+    to {
+        left: 0;
+        opacity: 1
+    }
+}
+
+.r-dashboard .animate-right {
+    position: relative;
+    -webkit-animation: animateright .4s;
+    animation: animateright .4s
+}
+
+@-webkit-keyframes animateright {
+    from {
+        right: -300px;
+        opacity: 0
+    }
+    to {
+        right: 0;
+        opacity: 1
+    }
+}
+
+@keyframes animateright {
+    from {
+        right: -300px;
+        opacity: 0
+    }
+    to {
+        right: 0;
+        opacity: 1
+    }
+}
+
+.r-dashboard .animate-bottom {
+    position: relative;
+    -webkit-animation: animatebottom .4s;
+    animation: animatebottom .4s
+}
+
+@-webkit-keyframes animatebottom {
+    from {
+        bottom: -300px;
+        opacity: 0
+    }
+    to {
+        bottom: 0;
+        opacity: 1
+    }
+}
+
+@keyframes animatebottom {
+    from {
+        bottom: -300px;
+        opacity: 0
+    }
+    to {
+        bottom: 0;
+        opacity: 1
+    }
+}
+
+.r-dashboard .animate-zoom {
+    -webkit-animation: animatezoom .6s;
+    animation: animatezoom .6s
+}
+
+@-webkit-keyframes animatezoom {
+    from {
+        -webkit-transform: scale(0)
+    }
+    to {
+        -webkit-transform: scale(1)
+    }
+}
+
+@keyframes animatezoom {
+    from {
+        transform: scale(0)
+    }
+    to {
+        transform: scale(1)
+    }
+}
+
+.r-dashboard .animate-input, .r-dashboard .transition-slow {
+    -webkit-transition: all .4s ease-in-out;
+    transition: all .4s ease-in-out
+}
+
+.r-dashboard .animate-input:focus {
+    width: 100% !important
+}
+
+.r-dashboard .hover-opacity:hover, .r-dashboard .opacity {
+    opacity: .6
+}
+
+.r-dashboard .hover-opacity-off:hover, .r-dashboard .opacity-off {
+    opacity: 1;
+    -webkit-backface-visibility: hidden
+}
+
+.r-dashboard .opacity-max {
+    opacity: .25
+}
+
+.r-dashboard .opacity-min {
+    opacity: .75
+}
+
+.r-dashboard .text-shadow {
+    text-shadow: 1px 1px 0 #444
+}
+
+.r-dashboard .text-shadow-white {
+    text-shadow: 1px 1px 0 #ddd
+}
+
+.r-dashboard .hover-shadow-none:hover {
+    box-shadow: none !important
+}
+
+.r-dashboard .z-depth-inset-2 {
+    -webkit-box-shadow: inset 1px 0 15px 8px rgba(0, 0, 0, .15);
+    -moz-box-shadow: inset 1px 0 15px 8px rgba(0, 0, 0, .15);
+    box-shadow: inset 1px 0 15px 8px rgba(0, 0, 0, .15)
+}
+
+.r-dashboard .blur {
+    -webkit-filter: blur(6px);
+    filter: blur(6px)
+}
+
+.r-dashboard .transform-inverse {
+    transform: rotateY(150deg);
+    -webkit-transform: rotateY(150deg)
+}
+
+.r-dashboard .upper {
+    text-transform: uppercase
+}
+
+.r-dashboard .pointer {
+    cursor: pointer
+}
+
+.r-dashboard .font-light {
+    font-weight: 300 !important
+}
+
+.r-dashboard .font-normal {
+    font-weight: 400 !important
+}
+
+.r-dashboard .color-amber, .r-dashboard .color-hover-amber:hover {
+    color: #000 !important;
+    background-color: #ffc107 !important
+}
+
+.r-dashboard .color-aqua, .r-dashboard .color-hover-aqua:hover {
+    color: #000 !important;
+    background-color: #00ffff !important
+}
+
+.r-dashboard .color-blue, .r-dashboard .color-hover-blue:hover {
+    color: #fff !important;
+    background-color: #2196F3 !important
+}
+
+.r-dashboard .color-blue-light, .r-dashboard .color-hover-blue-light:hover {
+    color: #000 !important;
+    background-color: #87CEEB !important
+}
+
+.r-dashboard .color-brown, .r-dashboard .color-hover-brown:hover {
+    color: #fff !important;
+    background-color: #795548 !important
+}
+
+.r-dashboard .color-cyan, .r-dashboard .color-hover-cyan:hover {
+    color: #000 !important;
+    background-color: #00bcd4 !important
+}
+
+.r-dashboard .color-blue-grey, .r-dashboard .color-hover-blue-grey:hover, .r-dashboard .color-blue-gray, .r-dashboard .color-hover-blue-gray:hover {
+    color: #fff !important;
+    background-color: #607d8b !important
+}
+
+.r-dashboard .color-green, .r-dashboard .color-hover-green:hover {
+    color: #fff !important;
+    background-color: #4CAF50 !important
+}
+
+.r-dashboard .color-green-light, .r-dashboard .color-hover-green-light:hover {
+    color: #000 !important;
+    background-color: #8bc34a !important
+}
+
+.r-dashboard .color-indigo, .r-dashboard .color-hover-indigo:hover {
+    color: #fff !important;
+    background-color: #3f51b5 !important
+}
+
+.r-dashboard .color-khaki, .r-dashboard .color-hover-khaki:hover {
+    color: #000 !important;
+    background-color: #f0e68c !important
+}
+
+.r-dashboard .color-lime, .r-dashboard .color-hover-lime:hover {
+    color: #000 !important;
+    background-color: #cddc39 !important
+}
+
+.r-dashboard .color-orange, .r-dashboard .color-hover-orange:hover {
+    color: #000 !important;
+    background-color: #ff9800 !important
+}
+
+.r-dashboard .color-deep-orange, .r-dashboard .color-hover-deep-orange:hover {
+    color: #fff !important;
+    background-color: #ff5722 !important
+}
+
+.r-dashboard .color-pink, .r-dashboard .color-hover-pink:hover {
+    color: #fff !important;
+    background-color: #e91e63 !important
+}
+
+.r-dashboard .color-purple, .r-dashboard .color-hover-purple:hover {
+    color: #fff !important;
+    background-color: #9c27b0 !important
+}
+
+.r-dashboard .color-deep-purple, .r-dashboard .color-hover-deep-purple:hover {
+    color: #fff !important;
+    background-color: #673ab7 !important
+}
+
+.r-dashboard .color-red, .r-dashboard .color-hover-red:hover {
+    color: #fff !important;
+    background-color: #f44336 !important
+}
+
+.r-dashboard .color-sand, .r-dashboard .color-hover-sand:hover {
+    color: #000 !important;
+    background-color: #fdf5e6 !important
+}
+
+.r-dashboard .color-teal, .r-dashboard .color-hover-teal:hover {
+    color: #fff !important;
+    background-color: #009688 !important
+}
+
+.r-dashboard .color-yellow, .r-dashboard .color-hover-yellow:hover {
+    color: #000 !important;
+    background-color: #ffeb3b !important
+}
+
+.r-dashboard .color-white, .r-dashboard .color-hover-white:hover {
+    color: #000 !important;
+    background-color: #fff !important
+}
+
+.r-dashboard .color-black, .r-dashboard .color-hover-black:hover {
+    color: #fff !important;
+    background-color: #000 !important
+}
+
+.r-dashboard .color-grey, .r-dashboard .color-hover-grey:hover, .r-dashboard .color-gray, .r-dashboard .color-hover-gray:hover {
+    color: #000 !important;
+    background-color: #bbb !important
+}
+
+.r-dashboard .color-grey-light, .r-dashboard .color-hover-grey-light:hover, .r-dashboard .color-gray-light, .r-dashboard .color-hover-gray-light:hover {
+    color: #000 !important;
+    background-color: #f1f1f1 !important
+}
+
+.r-dashboard .color-grey-light-medium, .r-dashboard .color-hover-grey-light-medium:hover, .r-dashboard .color-gray-light-medium, .r-dashboard .color-hover-gray-light-medium:hover {
+    color: #000 !important;
+    background-color: #dddddd !important
+}
+
+.r-dashboard .color-grey-dark-medium, .r-dashboard .color-hover-grey-dark-medium:hover, .r-dashboard .color-gray-dark-medium, .r-dashboard .color-hover-gray-dark-medium:hover {
+    color: #fff !important;
+    background-color: #999999 !important
+}
+
+.r-dashboard .color-grey-dark, .r-dashboard .color-hover-grey-dark:hover, .r-dashboard .color-gray-dark, .r-dashboard .color-hover-gray-dark:hover {
+    color: #fff !important;
+    background-color: #777777 !important
+}
+
+.r-dashboard .color-red-pale, .r-dashboard .color-hover-red-pale:hover {
+    color: #000 !important;
+    background-color: #ffdddd !important
+}
+
+.r-dashboard .color-green-pale, .r-dashboard .color-hover-green-pale:hover {
+    color: #000 !important;
+    background-color: #ddffdd !important
+}
+
+.r-dashboard .color-yellow-pale, .r-dashboard .color-hover-yellow-pale:hover {
+    color: #000 !important;
+    background-color: #ffffcc !important
+}
+
+.r-dashboard .color-blue-pale, .r-dashboard .color-hover-blue-pale:hover {
+    color: #000 !important;
+    background-color: #ddffff !important
+}
+
+.r-dashboard .color-text-red, .r-dashboard .color-hover-text-red:hover {
+    color: #f44336 !important
+}
+
+.r-dashboard .color-text-green, .r-dashboard .color-hover-text-green:hover {
+    color: #4CAF50 !important
+}
+
+.r-dashboard .color-text-blue, .r-dashboard .color-hover-text-blue:hover {
+    color: #2196F3 !important
+}
+
+.r-dashboard .color-text-yellow, .r-dashboard .color-hover-text-yellow:hover {
+    color: #ffeb3b !important
+}
+
+.r-dashboard .color-text-white, .r-dashboard .color-hover-text-white:hover {
+    color: #fff !important
+}
+
+.r-dashboard .color-text-black, .r-dashboard .color-hover-text-black:hover {
+    color: #000 !important
+}
+
+.r-dashboard .color-text-grey, .r-dashboard .color-hover-text-grey:hover, .r-dashboard .color-text-gray, .r-dashboard .color-hover-text-gray:hover {
+    color: #999999 !important
+}
+
+.r-dashboard .color-text-amber {
+    color: #ffc107 !important
+}
+
+.r-dashboard .color-text-aqua {
+    color: #00ffff !important
+}
+
+.r-dashboard .color-text-blue-light {
+    color: #87CEEB !important
+}
+
+.r-dashboard .color-text-brown {
+    color: #795548 !important
+}
+
+.r-dashboard .color-text-cyan {
+    color: #00bcd4 !important
+}
+
+.r-dashboard .color-text-blue-grey, .r-dashboard .color-text-blue-gray {
+    color: #607d8b !important
+}
+
+.r-dashboard .color-text-green-light {
+    color: #8bc34a !important
+}
+
+.r-dashboard .color-text-indigo {
+    color: #3f51b5 !important
+}
+
+.r-dashboard .color-text-khaki {
+    color: #b4aa50 !important
+}
+
+.r-dashboard .color-text-lime {
+    color: #cddc39 !important
+}
+
+.r-dashboard .color-text-orange {
+    color: #ff9800 !important
+}
+
+.r-dashboard .color-text-deep-orange {
+    color: #ff5722 !important
+}
+
+.r-dashboard .color-text-pink {
+    color: #e91e63 !important
+}
+
+.r-dashboard .color-text-purple {
+    color: #9c27b0 !important
+}
+
+.r-dashboard .color-text-deep-purple {
+    color: #673ab7 !important
+}
+
+.r-dashboard .color-text-sand {
+    color: #fdf5e6 !important
+}
+
+.r-dashboard .color-text-teal {
+    color: #009688 !important
+}
+
+.r-dashboard .color-text-grey-light, .r-dashboard .color-hover-text-grey-light:hover, .r-dashboard .color-text-gray-light, .r-dashboard .color-hover-text-gray-light:hover {
+    color: #dddddd !important
+}
+
+.r-dashboard .color-text-grey-light-medium, .r-dashboard .color-hover-text-grey-light-medium:hover, .r-dashboard .color-text-gray-light-medium, .r-dashboard .color-hover-text-gray-light-medium:hover {
+    color: #c0c0c0 !important
+}
+
+.r-dashboard .color-text-grey-dark-medium, .r-dashboard .color-hover-text-grey-dark-medium:hover, .r-dashboard .color-text-gray-dark-medium, .r-dashboard .color-hover-text-gray-dark-medium:hover {
+    color: #999999 !important
+}
+
+.r-dashboard .color-text-grey-dark, .r-dashboard .color-hover-text-grey-dark:hover, .r-dashboard .color-text-gray-dark, .r-dashboard .color-hover-text-gray-dark:hover {
+    color: #777777 !important
+}
+
+.r-dashboard .color-border-black, .r-dashboard .border-theme, .r-dashboard .color-border-blue, .r-dashboard .color-border-gray, .r-dashboard .color-border-green, .r-dashboard .color-border-red, .r-dashboard .color-border-grey, .r-dashboard .color-border-yellow, .r-dashboard .color-border-white {
+    border-width: 1px;
+    border-style: solid
+}
+
+.r-dashboard .color-border-red, .r-dashboard .color-hover-border-red:hover {
+    border-color: #f44336 !important
+}
+
+.r-dashboard .color-border-green, .r-dashboard .color-hover-border-green:hover {
+    border-color: #4CAF50 !important
+}
+
+.r-dashboard .color-border-blue, .r-dashboard .color-hover-border-blue:hover {
+    border-color: #2196F3 !important
+}
+
+.r-dashboard .color-border-yellow, .r-dashboard .color-hover-border-yellow:hover {
+    border-color: #ffeb3b !important
+}
+
+.r-dashboard .color-border-white, .r-dashboard .color-hover-border-white:hover {
+    border-color: #fff !important
+}
+
+.r-dashboard .color-border-black, .r-dashboard .color-hover-border-black:hover {
+    border-color: #000 !important
+}
+
+.r-dashboard .color-border-grey, .r-dashboard .color-hover-border-grey:hover, .r-dashboard .color-border-gray, .r-dashboard .color-hover-border-gray:hover {
+    border-color: #bbb !important
+}
+
+.r-dashboard .color-greyscale-max, .r-dashboard .color-grayscale-max, .r-dashboard .color-hover-greyscale:hover, .r-dashboard .color-hover-grayscale:hover {
+    filter: grayscale(100%)
+}
+
+.r-dashboard .color-greyscale, .r-dashboard .color-grayscale {
+    filter: grayscale(75%)
+}
+
+.r-dashboard .color-greyscale-min, .r-dashboard .color-grayscale-min {
+    filter: grayscale(50%)
+}
+
+.r-dashboard .color-sepia-max, .r-dashboard .color-hover-sepia:hover {
+    filter: sepia(100%)
+}
+
+.r-dashboard .color-sepia {
+    filter: sepia(75%)
+}
+
+.r-dashboard .color-sepia-min {
+    filter: sepia(50%)
+}
+
+.r-dashboard .color-hover-greyscale-off:hover, .r-dashboard .color-hover-sepia-off:hover {
+    filter: none
+}
+
+@media (max-width: 600px) {
+    .r-dashboard .bar-item.mobile, .r-dashboard .dropdown-click.mobile, .r-dashboard .dropdown-hover.mobile, .r-dashboard .navbar, .r-dashboard .topnav {
+        text-align: center
+    }
+
+    .r-dashboard .modal-content {
+        margin: 0 10px;
+        width: auto !important
+    }
+
+    .r-dashboard .modal {
+        padding-top: 30px
+    }
+
+    .r-dashboard .topnav a {
+        display: block
+    }
+
+    .r-dashboard .navbar li:not(.opennav) {
+        float: none;
+        width: 100% !important
+    }
+
+    .r-dashboard .navbar li.right {
+        float: none !important
+    }
+
+    .r-dashboard .dropdown-click.mobile .dropdown-content, .r-dashboard .dropdown-hover.mobile .dropdown-content, .r-dashboard .navbar .dropdown-click .dropdown-content, .r-dashboard .navbar .dropdown-hover .dropdown-content, .r-dashboard .topnav .dropdown-hover .dropdown-content {
+        position: relative
+    }
+
+    .r-dashboard .layout-col, .r-dashboard .mobile {
+        display: block;
+        width: 100% !important
+    }
+
+    .r-dashboard .dropdown-click.mobile, .r-dashboard .dropdown-click.mobile .btn, .r-dashboard .dropdown-click.mobile .button, .r-dashboard .dropdown-hover.mobile, .r-dashboard .dropdown-hover.mobile .btn, .r-dashboard .dropdown-hover.mobile .button {
+        width: 100%
+    }
+
+    .r-dashboard .s-margin {
+        margin: 16px !important
+    }
+
+    .r-dashboard .s-margin-0 {
+        margin: 0 !important
+    }
+
+    .r-dashboard .s-margin-top, .r-dashboard .s-panel, .r-dashboard .s-section {
+        margin-top: 16px !important
+    }
+
+    .r-dashboard .s-margin-bottom, .r-dashboard .s-panel, .r-dashboard .s-section {
+        margin-bottom: 16px !important
+    }
+
+    .r-dashboard .s-margin-left {
+        margin-left: 16px !important
+    }
+
+    .r-dashboard .s-margin-right {
+        margin-right: 16px !important
+    }
+
+    .r-dashboard .s-margin-small {
+        margin: 4px 8px !important
+    }
+
+    .r-dashboard .s-margin-medium {
+        margin: 8px 16px !important
+    }
+
+    .r-dashboard .s-margin-large {
+        margin: 12px 24px !important
+    }
+
+    .r-dashboard .s-margin-xlarge {
+        margin: 16px 32px !important
+    }
+
+    .r-dashboard .s-margin-xxlarge {
+        margin: 24px 48px !important
+    }
+
+    .r-dashboard .s-margin-jumbo {
+        margin: 32px 64px !important
+    }
+
+    .r-dashboard .s-padding-tiny {
+        padding: 2px 4px !important
+    }
+
+    .r-dashboard .s-padding-small {
+        padding: 4px 8px !important
+    }
+
+    .r-dashboard .s-form, .r-dashboard .s-padding, .r-dashboard .s-padding-medium {
+        padding: 8px 16px !important
+    }
+
+    .r-dashboard .s-padding-large {
+        padding: 12px 24px !important
+    }
+
+    .r-dashboard .s-padding-xlarge {
+        padding: 16px 32px !important
+    }
+
+    .r-dashboard .s-padding-xxlarge {
+        padding: 24px 48px !important
+    }
+
+    .r-dashboard .s-padding-jumbo {
+        padding: 32px 64px !important
+    }
+
+    .r-dashboard .s-padding-4 {
+        padding-top: 4px !important;
+        padding-bottom: 4px !important
+    }
+
+    .r-dashboard .s-padding-8 {
+        padding-top: 8px !important;
+        padding-bottom: 8px !important
+    }
+
+    .r-dashboard .s-padding-12 {
+        padding-top: 12px !important;
+        padding-bottom: 12px !important
+    }
+
+    .r-dashboard .s-padding-16 {
+        padding-top: 16px !important;
+        padding-bottom: 16px !important
+    }
+
+    .r-dashboard .s-padding-24 {
+        padding-top: 24px !important;
+        padding-bottom: 24px !important
+    }
+
+    .r-dashboard .s-padding-32 {
+        padding-top: 32px !important;
+        padding-bottom: 32px !important
+    }
+
+    .r-dashboard .s-padding-48 {
+        padding-top: 48px !important;
+        padding-bottom: 48px !important
+    }
+
+    .r-dashboard .s-padding-64 {
+        padding-top: 64px !important;
+        padding-bottom: 64px !important
+    }
+
+    .r-dashboard .s-padding-128 {
+        padding-top: 128px !important;
+        padding-bottom: 128px !important
+    }
+
+    .r-dashboard .s-padding-0 {
+        padding: 0 !important
+    }
+
+    .r-dashboard .s-padding-top {
+        padding-top: 8px !important
+    }
+
+    .r-dashboard .s-padding-bottom {
+        padding-bottom: 8px !important
+    }
+
+    .r-dashboard .s-left {
+        float: left !important
+    }
+
+    .r-dashboard .s-right {
+        float: right !important
+    }
+
+    .r-dashboard .s-font-tiny {
+        font-size: 10px !important
+    }
+
+    .r-dashboard .s-font-small {
+        font-size: 12px !important
+    }
+
+    .r-dashboard .s-font-medium {
+        font-size: 15px !important
+    }
+
+    .r-dashboard .s-font-large {
+        font-size: 18px !important
+    }
+
+    .r-dashboard .s-font-xlarge {
+        font-size: 24px !important
+    }
+
+    .r-dashboard .s-font-xxlarge {
+        font-size: 36px !important
+    }
+
+    .r-dashboard .s-font-xxxlarge {
+        font-size: 48px !important
+    }
+
+    .r-dashboard .s-font-jumbo {
+        font-size: 64px !important
+    }
+
+    .r-dashboard .s-padding-left-0 {
+        padding-left: 0 !important
+    }
+
+    .r-dashboard .s-padding-left-4 {
+        padding-left: 4px !important
+    }
+
+    .r-dashboard .s-padding-left-8 {
+        padding-left: 8px !important
+    }
+
+    .r-dashboard .s-padding-left-12 {
+        padding-left: 12px !important
+    }
+
+    .r-dashboard .s-padding-left-16, .r-dashboard .s-padding-left {
+        padding-left: 16px !important
+    }
+
+    .r-dashboard .s-padding-left-24 {
+        padding-left: 24px !important
+    }
+
+    .r-dashboard .s-padding-left-32 {
+        padding-left: 32px !important
+    }
+
+    .r-dashboard .s-padding-left-48 {
+        padding-left: 48px !important
+    }
+
+    .r-dashboard .s-padding-left-64 {
+        padding-left: 64px !important
+    }
+
+    .r-dashboard .s-padding-left-128 {
+        padding-left: 128px !important
+    }
+
+    .r-dashboard .s-padding-right-0 {
+        padding-right: 0 !important
+    }
+
+    .r-dashboard .s-padding-right-4 {
+        padding-right: 4px !important
+    }
+
+    .r-dashboard .s-padding-right-8 {
+        padding-right: 8px !important
+    }
+
+    .r-dashboard .s-padding-right-12 {
+        padding-right: 12px !important
+    }
+
+    .r-dashboard .s-padding-right-16, .r-dashboard .s-padding-right {
+        padding-right: 16px !important
+    }
+
+    .r-dashboard .s-padding-right-24 {
+        padding-right: 24px !important
+    }
+
+    .r-dashboard .s-padding-right-32 {
+        padding-right: 32px !important
+    }
+
+    .r-dashboard .s-padding-right-48 {
+        padding-right: 48px !important
+    }
+
+    .r-dashboard .s-padding-right-64 {
+        padding-right: 64px !important
+    }
+
+    .r-dashboard .s-padding-right-128 {
+        padding-right: 128px !important
+    }
+
+    .r-dashboard .s-display-bottomleft, .r-dashboard .s-display-bottommiddle, .r-dashboard .s-display-bottomright, .r-dashboard .s-display-middle, .r-dashboard .s-display-right, .r-dashboard .s-display-left, .r-dashboard .s-display-topleft, .r-dashboard .s-display-topmiddle, .r-dashboard .s-display-topright {
+        left: initial;
+        top: initial;
+        bottom: initial;
+        right: initial
+    }
+
+    .r-dashboard .s-display-left, .r-dashboard .s-display-middle, .r-dashboard .s-display-right {
+        top: 50%
+    }
+
+    .r-dashboard .s-display-middle {
+        transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%)
+    }
+
+    .r-dashboard .s-display-right, .r-dashboard .s-display-left {
+        transform: translate(0, -50%);
+        -ms-transform: translate(0, -50%)
+    }
+
+    .r-dashboard .s-display-topmiddle, .r-dashboard .s-display-bottommiddle, .r-dashboard .s-display-middle {
+        left: 50%
+    }
+
+    .r-dashboard .s-display-topmiddle, .r-dashboard .s-display-bottommiddle {
+        transform: translate(-50%, 0);
+        -ms-transform: translate(-50%, 0)
+    }
+
+    .r-dashboard .s-display-topleft {
+        left: 0;
+        top: 0
+    }
+
+    .r-dashboard .s-display-topright {
+        right: 0;
+        top: 0
+    }
+
+    .r-dashboard .s-display-bottomleft {
+        left: 0;
+        bottom: 0
+    }
+
+    .r-dashboard .s-display-bottomright {
+        right: 0;
+        bottom: 0
+    }
+
+    .r-dashboard .s-display-left {
+        left: 0
+    }
+
+    .r-dashboard .s-display-right {
+        right: 0
+    }
+
+    .r-dashboard .s-display-topmiddle {
+        top: 0
+    }
+
+    .r-dashboard .s-display-bottommiddle {
+        bottom: 0
+    }
+
+    .r-dashboard .s-align-left {
+        text-align: left !important
+    }
+
+    .r-dashboard .s-align-right {
+        text-align: right !important
+    }
+
+    .r-dashboard .s-align-justify {
+        text-align: justify !important
+    }
+
+    .r-dashboard .s-align-center {
+        text-align: center !important
+    }
+}
+
+@media (max-width: 768px) {
+    .r-dashboard .modal-content {
+        width: 500px
+    }
+
+    .r-dashboard .modal {
+        padding-top: 50px
+    }
+}
+
+@media (max-width: 992px) {
+    .r-dashboard .sidebar.collapse, .r-dashboard .sidenav.collapse {
+        display: none
+    }
+
+    .r-dashboard .main {
+        margin-left: 0 !important;
+        margin-right: 0 !important
+    }
+}
+
+@media (min-width: 601px) {
+    .r-dashboard .container, .r-dashboard .example, .r-dashboard .panel {
+        padding: .01em 16px
+    }
+
+    .r-dashboard .col.m1 {
+        width: 8.33333%
+    }
+
+    .r-dashboard .col.m2 {
+        width: 16.66666%
+    }
+
+    .r-dashboard .col.m3, .r-dashboard .quarter {
+        width: 24.99999%
+    }
+
+    .r-dashboard .col.m4, .r-dashboard .third {
+        width: 33.33333%
+    }
+
+    .r-dashboard .col.m5 {
+        width: 41.66666%
+    }
+
+    .r-dashboard .col.m6, .r-dashboard .half {
+        width: 49.99999%
+    }
+
+    .r-dashboard .col.m7 {
+        width: 58.33333%
+    }
+
+    .r-dashboard .col.m8, .r-dashboard .twothird {
+        width: 66.66666%
+    }
+
+    .r-dashboard .col.m9, .r-dashboard .threequarter {
+        width: 74.99999%
+    }
+
+    .r-dashboard .col.m10 {
+        width: 83.33333%
+    }
+
+    .r-dashboard .col.m11 {
+        width: 91.66666%
+    }
+
+    .r-dashboard .col.m12 {
+        width: 99.99999%
+    }
+}
+
+@media (min-width: 993px) {
+    .r-dashboard .col.l1 {
+        width: 8.33333%
+    }
+
+    .r-dashboard .col.l2 {
+        width: 16.66666%
+    }
+
+    .r-dashboard .col.l3, .r-dashboard .quarter {
+        width: 24.99999%
+    }
+
+    .r-dashboard .col.l4, .r-dashboard .third {
+        width: 33.33333%
+    }
+
+    .r-dashboard .col.l5 {
+        width: 41.66666%
+    }
+
+    .r-dashboard .col.l6, .r-dashboard .half {
+        width: 49.99999%
+    }
+
+    .r-dashboard .col.l7 {
+        width: 58.33333%
+    }
+
+    .r-dashboard .col.l8, .r-dashboard .twothird {
+        width: 66.66666%
+    }
+
+    .r-dashboard .col.l9, .r-dashboard .threequarter {
+        width: 74.99999%
+    }
+
+    .r-dashboard .col.l10 {
+        width: 83.33333%
+    }
+
+    .r-dashboard .col.l11 {
+        width: 91.66666%
+    }
+
+    .r-dashboard .col.l12 {
+        width: 99.99999%
+    }
+}
+
+@media (min-width: 993px) {
+    .r-dashboard .modal-content {
+        width: 900px
+    }
+
+    .r-dashboard .sidebar.collapse, .r-dashboard .sidenav.collapse {
+        display: block !important
+    }
+
+    .r-dashboard .loaderDashboard {
+        left: 58%;
+        top: 35%
+    }
+}
+
+.r-dashboard #barra-right {
+    width: 3px;
+    background: #E2D8E9;
+    height: 230px;
+    float: right;
+    margin-right: -3px;
+    margin-top: 120px
+}
+
+.r-dashboard #core-content {
+    margin-bottom: 0 !important
+}
+
+.r-dashboard {
+    background: #fff
+}
+
+.r-dashboard #timeline {
+    height: 300px;
+    overflow-y: auto
+}
+
+.r-dashboard #pacientes {
+    background: #5e3a8e !important;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px
+}
+
+.r-dashboard #add-paciente, .r-dashboard #add-paciente-opaco {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 3
+}
+
+.r-dashboard #cadastro-login {
+    max-width: 450px;
+    padding: 0 15px;
+    margin: auto;
+    position: relative;
+    z-index: 3
+}
+
+.r-dashboard .toast {
+    bottom: 10px !important;
+    top: initial !important
+}
+
+.r-dashboard #search-paciente {
+    border: solid 2px #fff;
+    width: 190px;
+    margin-top: 18px;
+    margin-right: 13px;
+    padding-left: 40px !important
+}
+
+.r-dashboard #btn-search {
+    margin: 20px -42px
+}
+
+.r-dashboard .loginbtn {
+    float: initial !important;
+    margin: auto !important;
+    display: block !important;
+    padding: 15px 50px !important;
+    border-radius: 35px !important;
+    width: 215px !important;
+    color: #5e3a8e !important
+}
+
+.r-dashboard .input-field {
+    padding: 15px 35px !important;
+    border-radius: 25px;
+    color: white !important;
+    background-color: rgba(255, 255, 255, .5) !important;
+    opacity: 1 !important
+}
+
+.r-dashboard #add-paciente {
+    z-index: 2
+}
+
+.r-dashboard #add-paciente-opaco {
+    background-color: #5e3a8e;
+    background-image: url(public/assets/img/opaco.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover
+}
+
+.r-dashboard .header-new-paciente {
+    margin: auto;
+    padding-top: 170px
+}
+
+.r-dashboard .arrowback {
+    position: fixed;
+    top: 60px;
+    left: 20px;
+    z-index: 13
+}
+
+.r-dashboard .arrowback:hover div {
+    text-decoration: underline !important
+}
+
+.r-dashboard .info-container {
+    margin-bottom: 10px;
+    text-align: right;
+    height: 21px
+}
+
+.r-dashboard .info-container .input-message {
+    margin: 3px;
+    border-radius: 29px;
+    float: right;
+    padding: 0 6px !important
+}
+
+.r-dashboard #cadastro-image1 {
+    width: 190px;
+    height: 190px;
+    margin: 100px auto 0;
+    position: relative;
+    border: solid 2px #fff
+}
+
+.r-dashboard #cadastro-image2 {
+    overflow: hidden;
+    width: 160px;
+    height: 160px;
+    margin: auto;
+    border-radius: 50%;
+    z-index: 1;
+    float: left;
+    margin-left: 13px;
+    margin-top: 13px
+}
+
+.r-dashboard #cadastro-image2 i {
+    font-size: 200px;
+    margin-left: -25px;
+    margin-top: -8px
+}
+
+.r-dashboard .hrDiv {
+    max-width: 90%;
+    margin-left: 5%;
+    border-width: 4px;
+    border-color: #E2D8E9
+}
+
+@media (min-width: 990px) {
+    .r-dashboard .arrowback {
+        top: 100px;
+        left: 50px
+    }
+
+    .r-dashboard .header-new-paciente {
+        padding-top: 200px
+    }
+
+    .r-dashboard #pacientes {
+        border-top-left-radius: 50px;
+        border-top-right-radius: 50px
+    }
+}

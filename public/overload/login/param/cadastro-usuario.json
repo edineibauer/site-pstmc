@@ -1,7 +1,0 @@
-{
-  "title": "Cadastro de novo médico",
-  "type": "page",
-  "css": ["w3"],
-  "header": false,
-  "navbar": false
-}

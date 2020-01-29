@@ -1,6 +1,5 @@
 {
     "title": "Detalhes do Paciente",
-    "css": ["w3"],
     "!setor": "0",
-    "navbar": false
+    "header": true
 }

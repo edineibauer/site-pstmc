@@ -1,0 +1,16 @@
+{
+  "pacientes": "Pacientes",
+  "selecione": "Selecione um paciente para ver os registros feitos a partir do app Epistemic",
+  "adicionar": "Adicionar",
+  "paciente": "paciente",
+  "pesquisar": "Pesquisar",
+  "carregando": "Carregando...",
+  "retornar": "Retornar",
+  "modalAdicionar": "Adicionar Paciente",
+  "modalNome": "Nome",
+  "modalTelefone": "Telefone",
+  "modalEnviar": "Enviar Convite",
+  "parabens": "Parabéns",
+  "parabensMensagem": "Seu paciente foi adicionado com sucesso.",
+  "modalConcluir": "Concluir"
+}

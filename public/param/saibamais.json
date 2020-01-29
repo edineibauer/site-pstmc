@@ -1,6 +1,4 @@
 {
-    "title": "Saiba Mais {$sitename}",
-    "css": ["w3"],
-    "header": false,
-    "navbar": false
+    "title": "Saiba Mais Epistemic",
+    "header": false
 }

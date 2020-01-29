@@ -2,43 +2,44 @@
     <div id="edit-ajustes-opaco" class="easefadein"></div>
     <div class="padding-small pointer arrowback easefadein" onclick="closeAjustes()" data-fade-delay="500">
         <i class="material-icons font-xxxlarge left color-text-white">arrow_back</i>
-        <div class="left font-xlarge padding-medium color-text-white">Retornar</div>
+        <div class="left font-xlarge padding-medium color-text-white">{{retornar}}</div>
     </div>
 
     <div class='row font-large' id="tela-ajustes"
          style="max-width: 410px; margin: 150px auto 0;position: relative;z-index: 3;">
         <h1 class="color-text-white align-center easefadein header-edit-ajustes" data-fade-delay="100">
-            <div class="font-bold font-xxxlarge s-font-xxlarge">Ajustes</div>
+            <div class="font-bold font-xxxlarge s-font-xxlarge">{{ajustes}}</div>
         </h1>
 
         <div class="col container-900 padding-top margin-top padding-medium" style="margin-bottom: 40px;">
             <label class="col easefadein" data-fade-delay="200">
                 <select class="select-pais">
-                    <option value="" selected="selected" disabled="disabled">Idioma</option>
-                    <option value="pt-Br">Português do Brasil</option>
+                    <option value="" selected="selected" disabled="disabled">{{idioma}}</option>
+                    <option value="pt-br">{{portugues}}</option>
+                    <option value="en">{{ingles}}</option>
                 </select>
             </label>
             <label class="col easefadein" data-fade-delay="300">
                 <button onclick="termosUso()" class="col btn-ajuste s-font-large btn">
-                    Termos de Uso
+                    {{termos}}
                 </button>
             </label>
             <label class="col easefadein" data-fade-delay="500">
-                <a href="saibamais" class="col btn-ajuste s-font-large btn">
-                    Sobre o Epistemic
+                <a href="saibamais" data-animation="forward" class="col btn-ajuste s-font-large btn">
+                    {{sobre}}
                 </a>
             </label>
         </div>
 
         <div class="row col easefadein padding-24" data-fade-delay="700">
             <button onclick="closeAjustes()" class="btn-ajuste btn-ajuste-concluir s-font-large btn color-white text-theme">
-                Concluir
+                {{concluir}}
             </button>
         </div>
         <div class="row clear"><br><br><br><br></div>
     </div>
 
-    <div class="hide" id="termos-uso">
+    <!--<div class="hide" id="termos-uso">
         <div id="termos-uso-opaco"></div>
         <div class="padding-small pointer arrowback easefadein" data-fade-delay="900">
             <i class="material-icons font-xxxlarge left color-text-white">arrow_back</i>
@@ -62,6 +63,5 @@
             </div>
             <div class="row clear"><br><br><br><br></div>
         </div>
-
-    </div>
+    </div>-->
 </div>

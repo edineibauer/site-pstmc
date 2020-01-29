@@ -1,0 +1,18 @@
+{
+  "carregando": "carregando...",
+  "periodo": "Período",
+  "de": "De",
+  "ate": "Até",
+  "dia": "Dia",
+  "semana": "Semana",
+  "mes": "Mês",
+  "ano": "Ano",
+  "indicadores": "Indicadores",
+  "indicadoresMensagem": "Selecione os indicadores que deseja visualizar",
+  "imgMedicamento": "medicamentos",
+  "imgSintomas": "sintomas",
+  "imgSono": "sono",
+  "imgHumor": "humor",
+  "imgCrises": "crises",
+  "imgAtividade": "atividade"
+}

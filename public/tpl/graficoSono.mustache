@@ -1,7 +1,7 @@
 <div class="col">
     <div class="spinner"></div>
     <div class="info-spinner">
-        <div class="col font-small">Qualidade do sono</div>
+        <div class="col font-small">{{qualidadeSonoPercentual}}</div>
         <div class="col padding-medium" style="margin-top: -20px">
             <div class="font-xxxlarge left">{{media}}</div>
             <div class="left font-xlarge" style="padding: 25px 0 0;">%</div>
@@ -9,9 +9,7 @@
     </div>
 
     <div class="message-spinner font-small">
-        Durante o período selecionado<br>
-        você classificou seu sono como bom em <b>{{media}}%</b><br>
-        de seus registros.
+        {{{qualidadeSonoTexto1}}} <b>{{media}}%</b><br> {{{qualidadeSonoTexto2}}}
     </div>
     <style>
         .spinner {

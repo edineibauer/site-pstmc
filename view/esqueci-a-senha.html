@@ -1,0 +1,56 @@
+<div class="col" id="background-login"></div>
+<div class="row" id="login-card">
+    <div class="padding-small pointer arrowback">
+        <i class="material-icons font-xxxlarge left color-text-white">arrow_back</i>
+        <div class="left font-xlarge padding-medium color-text-white">{{retornar}}</div>
+    </div>
+
+    <div class="col s12 body-login">
+        <div class='row container font-large padding-128' id="body-login">
+            <div class="container align-center upper panel color-text-grey" id="logoLogin">
+                <img src='public/assets/img/logo-icon.png' height='120'
+                     style='height: 120px;float: initial;margin:initial'>
+            </div>
+            <div class='container align-center font-xxlarge font-bold panel color-text-white'
+                 style="margin-top: 0!important;">{{recuperacao}}
+            </div>
+            <div class="col"><br><br></div>
+            <div class="row padding-medium">
+                <div class="row">
+                    <div class="panel" style="margin: 0!important;">
+                        <label class="row">
+                            <input id="recovery-email" placeholder="{{email}}" type="email" disabled="disabled"
+                                   class="login-input">
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="row clearfix" style="padding: 2px"></div>
+
+            <div class="row padding-medium padding-4">
+                <button id="loginbtn" class="btn color-white color-text-theme"
+                        onclick="recoveryEmail();">
+                    {{enviar}}
+                </button>
+            </div>
+
+            <div class="row clearfix"><br></div>
+
+            <div class="row">
+                <a href="index" data-animation="forward"
+                   class="font-light color-text-white align-center col link-login"
+                   style="font-size: 16px;margin-right:0">
+                    {{login}} <b>{{cliqueaqui}}</b>
+                </a>
+            </div>
+            <div class="row">
+                <a href="cadastro-usuario" data-animation="forward"
+                   class="font-light color-text-white align-center col link-login" style="font-size: 16px;">
+                    {{cadastro}} <b>{{cliqueaqui}}</b>
+                </a>
+            </div>
+        </div>
+        <div class="clear"><br><br><br></div>
+    </div>
+
+</div>

@@ -1,6 +1,5 @@
 {
-    "title": "Ajustes | {$sitename}",
-    "css": ["w3"],
+    "title": "Ajustes | Epistemic",
     "!setor": "0",
-    "navbar": false
+    "header": true
 }

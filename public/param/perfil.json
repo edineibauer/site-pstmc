@@ -1,6 +1,5 @@
 {
-    "title": "Perfil | {$sitename}",
-    "css": ["w3"],
+    "title": "Perfil | Epistemic",
     "!setor": "0",
-    "navbar": false
+    "header": true
 }

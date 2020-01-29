@@ -1,6 +1,5 @@
 {
-    "title": "Pacientes | {$sitename}",
-    "css": ["w3"],
+    "title": "Pacientes | Epistemic",
     "!setor": "0",
-    "navbar": false
+    "header": true
 }

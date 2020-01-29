@@ -1,0 +1,100 @@
+[
+  {
+    "funcao": null,
+    "href": "dashboard",
+    "attr": "",
+    "class": "menu-ep",
+    "style": "",
+    "html": "<i class='material-icons left'>home<\/i> {{inicio}}",
+    "li": {
+      "attr": "data-animation='forward' rel='dashboard'",
+      "class": "s-hide menu-ep",
+      "style": ""
+    },
+    "indice": 0
+  },
+  {
+    "funcao": null,
+    "href": "pacientes",
+    "attr": "",
+    "class": "menu-ep",
+    "style": "",
+    "html": "<i class='material-icons left'>hdr_strong<\/i> {{pacientes}}",
+    "li": {
+      "attr": "data-animation='forward' rel='pacientes'",
+      "class": "s-hide menu-ep",
+      "style": ""
+    },
+    "indice": 1
+  },
+  {
+    "funcao": null,
+    "href": "perfil",
+    "attr": "",
+    "class": "menu-ep",
+    "style": "",
+    "html": "<i class='material-icons left'>person<\/i> {{seuperfil}}",
+    "li": {
+      "attr": "data-animation='forward' rel='perfil'",
+      "class": "s-hide menu-ep",
+      "style": ""
+    },
+    "indice": 2
+  },
+  {
+    "funcao": "openAjustes",
+    "href": null,
+    "attr": "",
+    "class": "menu-ep color-text-theme pointer",
+    "style": "cursor: pointer",
+    "html": "<i class='material-icons left'>settings_applications<\/i> <div class='left' style='padding-top:4px'>{{ajustes}}<\/div>",
+    "li": {
+      "attr": "",
+      "class": "s-hide menu-ep",
+      "style": ""
+    },
+    "indice": 3
+  },
+  {
+    "funcao": null,
+    "href": null,
+    "attr": "",
+    "class": "no-menu-li",
+    "style": "",
+    "html": "<div class='core-class-container' style='font-weight: bold'><div class='perfil-name' style='float: right'><\/div><div style='float: right;padding-right: 5px'>{{dr}} <\/div><\/div><div class='core-class-container'><div style='float:right;font-weight:bold;font-size: 11px'><div style='padding-right: 5px'>{{crm}} <\/div><div class='perfil-crm'><\/div><\/div><div style='float:right;width: 100%'><div style='float:right;color:#5e3a8e;cursor:pointer;font-size:13px;font-weight:600' onclick='logout()'>{{logout}}<\/div><\/div><\/div>",
+    "li": {
+      "attr": "",
+      "class": "nomeHeader no-menu-li s-hide",
+      "style": ""
+    },
+    "indice": 4
+  },
+  {
+    "funcao": null,
+    "href": null,
+    "attr": "",
+    "class": "no-menu-li",
+    "style": "",
+    "html": "<div style='padding:15px 25px 15px 5px;cursor:pointer' onclick='openSidebar()'><i class='material-icons'>menu<\/i><\/div>",
+    "li": {
+      "attr": "",
+      "class": "hide s-show no-menu-li",
+      "style": ""
+    },
+    "indice": 5
+  },
+  {
+    "funcao": null,
+    "href": null,
+    "attr": "",
+    "class": "",
+    "style": "padding: 8px;cursor:default",
+    "html": "<div id='core-header-perfil'><\/div>",
+    "li": {
+      "attr": "",
+      "class": "not-menu-li menu-ep s-hide",
+      "style": ""
+    },
+    "indice": 6
+  }
+]

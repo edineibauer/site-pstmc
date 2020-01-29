@@ -1,0 +1,11 @@
+{
+  "oladr": "Olá, Dr.",
+  "mensagemtutoria": "Selecione um paciente na aba <b>Pacientes Recentes</b> ou clique sobre o <b>Pacientes</b> no menu superior para iniciar uma visualização.",
+  "atualizacoes": "Últimas Atualizações",
+  "atualizacoesmensagem": "Abaixo estão as últimas atualizações feitas por seus pacientes cadastrados",
+  "nenhumaAtualizacao": "Opa! Nada por aqui.",
+  "carregando": "Carregando...",
+  "pacientes": "Pacientes",
+  "recentes": "Recentes",
+  "botaoAdicionar": "Adicionar paciente"
+}

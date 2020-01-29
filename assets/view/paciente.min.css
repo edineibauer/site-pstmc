@@ -1,0 +1,3279 @@
+.r-paciente #grafico-carregando {
+    font-size: 28px;
+    text-align: center;
+    padding: 10px 0;
+    color: #888888;
+}
+.r-paciente #grafico-carregando > img {
+    padding-top: 20px;
+}
+
+.r-paciente ﻿progress, .r-paciente sub, .r-paciente sup {
+    vertical-align: baseline
+}
+
+.r-paciente a, .r-paciente legend {
+    color: inherit
+}
+
+.r-paciente legend {
+    padding: 0 8px
+}
+
+.r-paciente legend .material-icons {
+    padding-right: 8px;
+    float: left
+}
+
+.r-paciente legend .switch {
+    margin-bottom: 0 !important
+}
+
+.r-paciente button, .r-paciente hr, .r-paciente input, .r-paciente .overflow-visible {
+    overflow: visible
+}
+
+.r-paciente [type=checkbox], .r-paciente [type=radio], .r-paciente ul {
+    padding: 0
+}
+
+.r-paciente .image, .r-paciente legend {
+    max-width: 100%
+}
+
+.r-paciente .btn, .r-paciente .btn-large, .r-paciente .btn-small, .r-paciente .btn-floating, .r-paciente .btn-flat, .r-paciente .btn-block, .r-paciente .btn-floating-large, .r-paciente .btn-group, .r-paciente .navbar li {
+    float: left;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none
+}
+
+.r-paciente .bar-block .dropdown-click .dropdown-content, .r-paciente .bar-block .dropdown-hover .dropdown-content, .r-paciente .navblock .dropdown-click .dropdown-content, .r-paciente .navblock .dropdown-hover .dropdown-content, .r-paciente .sidenav .dropdown-click .dropdown-content, .r-paciente .sidenav .dropdown-hover .dropdown-content {
+    min-width: 100%
+}
+
+.r-paciente .hover-opacity:hover, .r-paciente .opacity, .r-paciente .opacity-max, .r-paciente .opacity-min {
+    -webkit-backface-visibility: hidden
+}
+
+.r-paciente article, .r-paciente aside, .r-paciente details, .r-paciente figcaption, .r-paciente figure, .r-paciente footer, .r-paciente header, .r-paciente main, .r-paciente menu, .r-paciente nav, .r-paciente section, .r-paciente summary {
+    display: block
+}
+
+.r-paciente audio, .r-paciente canvas, .r-paciente progress, .r-paciente video {
+    display: inline-block
+}
+
+.r-paciente audio:not([controls]) {
+    display: none;
+    height: 0
+}
+
+.r-paciente [hidden], .r-paciente template {
+    display: none
+}
+
+.r-paciente a {
+    background-color: transparent;
+    text-decoration: none;
+    -webkit-text-decoration-skip: objects
+}
+
+.r-paciente a:active, .r-paciente a:hover {
+    outline-width: 0
+}
+
+.r-paciente abbr[title] {
+    border-bottom: none;
+    text-decoration: underline;
+    text-decoration: underline dotted
+}
+
+.r-paciente .accordion-content a, .r-paciente .btn, .r-paciente .btn-block, .r-paciente .button, .r-paciente .dropdown-content a, .r-paciente .dropnav a, .r-paciente .navbar a, .r-paciente .navblock a, .r-paciente .sidenav a, .r-paciente .topnav a {
+    text-decoration: none !important
+}
+
+.r-paciente dfn {
+    font-style: italic
+}
+
+.r-paciente mark {
+    background: #ff0;
+    color: #000
+}
+
+.r-paciente small {
+    font-size: 80%
+}
+
+.r-paciente sub, .r-paciente sup {
+    font-size: 75%;
+    line-height: 0;
+    position: relative
+}
+
+.r-paciente sub {
+    bottom: -.25em
+}
+
+.r-paciente sup {
+    top: -.5em
+}
+
+.r-paciente figure {
+    margin: 1em 40px
+}
+
+.r-paciente img {
+    border-style: none;
+    margin-bottom: -5px
+}
+
+.r-paciente .overflow-hidden, .r-paciente svg:not(:root) {
+    overflow: hidden
+}
+
+.r-paciente code, .r-paciente kbd, .r-paciente pre, .r-paciente samp {
+    font-family: monospace, monospace;
+    font-size: 1em
+}
+
+.r-paciente button, .r-paciente input, .r-paciente select, .r-paciente textarea {
+    font: inherit;
+    margin: 0
+}
+
+.r-paciente optgroup, .r-paciente .font-bold {
+    font-weight: 700
+}
+
+.r-paciente button, .r-paciente select {
+    text-transform: none
+}
+
+.r-paciente [type=reset], .r-paciente [type=submit], .r-paciente button, .r-paciente [type=button] {
+    -webkit-appearance: button;
+    border: none;
+    outline: 0;
+    transition-duration: .25s;
+    cursor: pointer;
+    padding: 5px 10px;
+    position: relative;
+    overflow: hidden;
+    -webkit-box-shadow: 2px 2px 7px -3px rgba(61, 61, 61, 1);
+    -moz-box-shadow: 2px 2px 7px -3px rgba(61, 61, 61, 1);
+    box-shadow: 2px 2px 7px -3px rgba(61, 61, 61, 1)
+}
+
+.r-paciente [type=reset]:active, .r-paciente [type=submit]:active, .r-paciente button:active, .r-paciente [type=button]:active {
+    -webkit-box-shadow: 2px 2px 15px -2px rgba(51, 51, 51, 1);
+    -moz-box-shadow: 2px 2px 15px -2px rgba(51, 51, 51, 1);
+    box-shadow: 2px 2px 15px -2px rgba(51, 51, 51, 1)
+}
+
+.r-paciente button:after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 5px;
+    height: 5px;
+    background: rgba(255, 255, 255, .5);
+    opacity: 0;
+    border-radius: 100%;
+    transform: scale(1, 1) translate(-50%);
+    transform-origin: 50% 50%
+}
+
+.r-paciente button:focus:not(:active)::after {
+    animation: ripple .4s ease-in-out
+}
+
+.r-paciente fieldset {
+    border: 1px solid silver;
+    margin: 0 2px;
+    padding: .35em .625em .75em
+}
+
+.r-paciente legend {
+    display: table;
+    white-space: normal
+}
+
+.r-paciente textarea {
+    overflow: auto
+}
+
+.r-paciente [type=number]::-webkit-inner-spin-button, .r-paciente [type=number]::-webkit-outer-spin-button {
+    height: auto
+}
+
+.r-paciente [type=search] {
+    -webkit-appearance: textfield;
+    outline-offset: -2px
+}
+
+.r-paciente [type=search]::-webkit-search-cancel-button, .r-paciente [type=search]::-webkit-search-decoration {
+    -webkit-appearance: none
+}
+
+.r-paciente ::-webkit-input-placeholder {
+    color: inherit;
+    opacity: .54
+}
+
+.r-paciente ::-webkit-file-upload-button {
+    -webkit-appearance: button;
+    font: inherit
+}
+
+.r-paciente, .r-paciente {
+    font-family: Roboto, Verdana, sans-serif;
+    font-size: 15px;
+    line-height: 1.5
+}
+
+.r-paciente h1 {
+    font-size: 36px
+}
+
+.r-paciente h2 {
+    font-size: 30px
+}
+
+.r-paciente h3 {
+    font-size: 24px
+}
+
+.r-paciente h4 {
+    font-size: 20px
+}
+
+.r-paciente h5 {
+    font-size: 18px
+}
+
+.r-paciente h6 {
+    font-size: 16px
+}
+
+.r-paciente input[type=checkbox] {
+    position: relative;
+    top: -.775rem;
+    margin: 20px 1rem 15px 8px;
+    cursor: pointer;
+    height: 0
+}
+
+.r-paciente input[type=checkbox]:before {
+    -webkit-transition: all 0.25s ease-in-out;
+    -moz-transition: all 0.25s ease-in-out;
+    transition: all 0.25s ease-in-out;
+    content: "";
+    position: absolute;
+    left: 0;
+    z-index: 1;
+    width: 1.2rem;
+    height: 1.2rem;
+    border: 2px solid #ddd
+}
+
+.r-paciente input[type=checkbox]:checked:before {
+    -webkit-transform: rotate(-45deg);
+    -moz-transform: rotate(-45deg);
+    -ms-transform: rotate(-45deg);
+    -o-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+    height: .5rem;
+    border-color: #009688;
+    border-top-style: none;
+    border-right-style: none
+}
+
+.r-paciente input[type=checkbox]:after {
+    content: "";
+    position: absolute;
+    top: -.125rem;
+    left: 0;
+    width: 1.1rem;
+    height: 1.1rem;
+    background: transparent;
+    cursor: pointer
+}
+
+.r-paciente .serif {
+    font-family: "Times New Roman", Times, serif
+}
+
+.r-paciente h1, .r-paciente h2, .r-paciente h3, .r-paciente h4, .r-paciente h5, .r-paciente h6 {
+    font-weight: 400;
+    padding: 20px 0;
+    margin: 0
+}
+
+.r-paciente .wide {
+    letter-spacing: 4px
+}
+
+.r-paciente h1 a, .r-paciente h2 a, .r-paciente h3 a, .r-paciente h4 a, .r-paciente h5 a, .r-paciente h6 a {
+    font-weight: inherit
+}
+
+.r-paciente hr {
+    box-sizing: content-box;
+    height: 0;
+    border: 0;
+    border-top: 1px solid #eee;
+    margin: 20px 0
+}
+
+.r-paciente ul {
+    margin: 0
+}
+
+.r-paciente ul li {
+    padding: 5px 0 5px 10px
+}
+
+.r-paciente input[type=date], .r-paciente input[type=datetime-local] {
+    padding-bottom: 2px
+}
+
+.r-paciente input:not(:valid) ~ .validate {
+    color: #f44336
+}
+
+.r-paciente label span.col, .r-paciente select option[disabled] {
+    color: #888
+}
+
+.r-paciente .switch, .r-paciente input, .r-paciente select, .r-paciente textarea {
+    margin-bottom: 20px
+}
+
+.r-paciente label span.col {
+    font-size: .7em
+}
+
+.r-paciente select {
+    padding: 9px 0 5px;
+    width: 100%;
+    color: #000;
+    border: 1px solid transparent;
+    border-bottom: 1px solid #009688;
+    outline: 0
+}
+
+.r-paciente select select:focus {
+    color: #000;
+    border: 1px solid #009688
+}
+
+.r-paciente .display-container, .r-paciente .relative, .r-paciente .tooltip {
+    position: relative
+}
+
+.r-paciente .z-depth-0 {
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none
+}
+
+.r-paciente .btn, .r-paciente .btn-floating, .r-paciente .btn-floating-large, .r-paciente .btn-large, .r-paciente .btn-small, .r-paciente .z-depth-2 {
+    -webkit-box-shadow: 2px 2px 5px -3px rgba(61, 61, 61, 1);
+    -moz-box-shadow: 2px 2px 5px -3px rgba(61, 61, 61, 1);
+    box-shadow: 2px 2px 5px -3px rgba(61, 61, 61, 1)
+}
+
+.r-paciente .z-depth-4 {
+    -webkit-box-shadow: 4px 4px 9px -2px rgba(61, 61, 61, .6);
+    -moz-box-shadow: 4px 4px 9px -2px rgba(61, 61, 61, .6);
+    box-shadow: 4px 4px 9px -2px rgba(61, 61, 61, .6)
+}
+
+.r-paciente .btn-bar .btn, .r-paciente .btn-large.disabled:hover, .r-paciente .btn-small.disabled:hover, .r-paciente .btn-floating-large.disabled:hover, .r-paciente .btn-floating-large:disabled:hover, .r-paciente .btn-floating.disabled:hover, .r-paciente .btn-floating:disabled:hover, .r-paciente .btn.disabled:hover, .r-paciente .btn:disabled:hover {
+    box-shadow: none
+}
+
+.r-paciente .image {
+    height: auto
+}
+
+.r-paciente .table, .r-paciente .table-all {
+    border-collapse: collapse;
+    border-spacing: 0;
+    width: 100%;
+    display: table
+}
+
+.r-paciente .no-select {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none
+}
+
+.r-paciente .table-all {
+    border: 1px solid #ccc
+}
+
+.r-paciente .bordered tr, .r-paciente .table-all tr {
+    border-bottom: 1px solid #ddd
+}
+
+.r-paciente .striped tbody tr:nth-child(even) {
+    background-color: #f1f1f1
+}
+
+.r-paciente .table-all tr:nth-child(odd) {
+    background-color: #fff
+}
+
+.r-paciente .table-all tr:nth-child(even) {
+    background-color: #f1f1f1
+}
+
+.r-paciente .hoverable tbody tr:hover, .r-paciente .ul.hoverable li:hover {
+    background-color: #ccc
+}
+
+.r-paciente .centered tr td, .r-paciente .centered tr th {
+    text-align: center
+}
+
+.r-paciente .table td, .r-paciente .table th, .r-paciente .table-all td, .r-paciente .table-all th {
+    padding: 8px;
+    display: table-cell;
+    text-align: left;
+    vertical-align: top
+}
+
+.r-paciente .badge, .r-paciente .btn, .r-paciente .btn-block, .r-paciente .btn-floating, .r-paciente .btn-floating-large, .r-paciente .button, .r-paciente .sign, .r-paciente .tag {
+    display: inline-block;
+    text-align: center
+}
+
+.r-paciente .table td:first-child, .r-paciente .table th:first-child, .r-paciente .table-all td:first-child, .r-paciente .table-all th:first-child {
+    padding-left: 16px
+}
+
+.r-paciente .btn, .r-paciente .btn-block, .r-paciente .button {
+    border: none;
+    outline: 0;
+    padding: 6px 16px;
+    vertical-align: middle;
+    overflow: hidden;
+    color: #fff;
+    background-color: #000;
+    cursor: pointer;
+    white-space: nowrap
+}
+
+.r-paciente .button {
+    color: #000;
+    background-color: #f1f1f1;
+    padding: 8px 16px
+}
+
+.r-paciente .button:hover {
+    color: #000;
+    background-color: #ccc
+}
+
+.r-paciente .btn, .r-paciente .btn-block, .r-paciente .btn-floating, .r-paciente .btn-floating-large, .r-paciente .button, .r-paciente .closenav, .r-paciente .opennav {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    margin-right: 10px
+}
+
+.r-paciente .navbar, .r-paciente ul.ul {
+    list-style-type: none;
+    margin: 0
+}
+
+.r-paciente .btn-floating, .r-paciente .btn-floating-large {
+    color: #fff;
+    background-color: #000;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    padding: 0;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 24px
+}
+
+.r-paciente .btn-floating {
+    width: 40px;
+    height: 40px;
+    line-height: 40px
+}
+
+.r-paciente .btn-floating-large {
+    width: 56px;
+    height: 56px;
+    line-height: 56px
+}
+
+.r-paciente .btn-block, .r-paciente .navblock .dropdown-click, .r-paciente .navblock .dropdown-hover {
+    width: 100%
+}
+
+.r-paciente .btn-floating-large:disabled, .r-paciente .btn-floating:disabled, .r-paciente .btn:disabled, .r-paciente .button:disabled, .r-paciente .disabled {
+    cursor: not-allowed;
+    opacity: .6
+}
+
+.r-paciente .disabled *, .r-paciente :disabled * {
+    pointer-events: none
+}
+
+.r-paciente .btn-floating .material-icons {
+    padding: 8px
+}
+
+.r-paciente .btn-bar .btn {
+    background-color: inherit;
+    color: inherit;
+    float: left
+}
+
+.r-paciente .btn-bar .btn:hover {
+    background-color: #ccc
+}
+
+.r-paciente .badge, .r-paciente .sign, .r-paciente .tag {
+    background-color: #000;
+    color: #fff;
+    padding-left: 8px;
+    padding-right: 8px
+}
+
+.r-paciente .navbar .dropdown-click:hover, .r-paciente .navbar .dropdown-hover:first-child, .r-paciente .navbar .dropdown-hover:hover, .r-paciente .navbar li a:hover, .r-paciente .navblock .dropdown-click:hover, .r-paciente .navblock .dropdown-hover:first-child, .r-paciente .navblock .dropdown-hover:hover {
+    background-color: #ccc;
+    color: #000
+}
+
+.r-paciente .badge {
+    border-radius: 50%
+}
+
+.r-paciente ul.ul {
+    padding: 0
+}
+
+.r-paciente ul.ul li {
+    padding: 6px 2px 6px 16px;
+    border-bottom: 1px solid #ddd
+}
+
+.r-paciente ul.ul li:last-child {
+    border-bottom: none
+}
+
+.r-paciente .tooltip .text {
+    display: none
+}
+
+.r-paciente .tooltip:hover .text {
+    display: inline-block
+}
+
+.r-paciente .navbar {
+    padding: 0;
+    overflow: hidden
+}
+
+.r-paciente .modal, .r-paciente .sidebar, .r-paciente .sidenav {
+    height: 100%;
+    overflow: auto
+}
+
+.r-paciente .navbar li .btn, .r-paciente .navbar li a, .r-paciente .navbar li input, .r-paciente .navitem {
+    display: block;
+    padding: 8px 16px
+}
+
+.r-paciente .navbar li .btn, .r-paciente .navbar li input {
+    border: none;
+    outline: 0;
+    width: 100%
+}
+
+.r-paciente .navbar .dropdown-click, .r-paciente .navbar .dropdown-hover {
+    position: static
+}
+
+.r-paciente .navbar .opennav.right {
+    float: right !important
+}
+
+.r-paciente .topnav {
+    padding: 8px
+}
+
+.r-paciente .topnav a {
+    padding: 0 8px;
+    border-bottom: 3px solid transparent;
+    -webkit-transition: border-bottom .25s;
+    transition: border-bottom .25s
+}
+
+.r-paciente .topnav a:hover {
+    border-bottom: 3px solid #fff
+}
+
+.r-paciente .topnav .dropdown-hover a {
+    border-bottom: 0
+}
+
+.r-paciente .closenav, .r-paciente .opennav {
+    color: inherit
+}
+
+.r-paciente .closenav:hover, .r-paciente .opennav:hover {
+    cursor: pointer;
+    opacity: .8
+}
+
+.r-paciente .accordion-content a, .r-paciente .btn, .r-paciente .btn-block, .r-paciente .btn-floating, .r-paciente .btn-floating-large, .r-paciente .closebtn, .r-paciente .closenav, .r-paciente .dropdown-click:hover, .r-paciente .dropdown-content a, .r-paciente .dropdown-hover:hover, .r-paciente .dropnav a, .r-paciente .hoverable li, .r-paciente .hoverable tbody tr, .r-paciente .navbar a, .r-paciente .navblock a, .r-paciente .opennav, .r-paciente .sidenav a, .r-paciente [class*=hover-] {
+    transition: ease .25s
+}
+
+.r-paciente .ripple:active {
+    opacity: .5
+}
+
+.r-paciente .ripple, .r-paciente .transition-none {
+    -webkit-transition: opacity 0s;
+    transition: opacity 0s
+}
+
+.r-paciente .sidebar, .r-paciente .sidenav {
+    width: 200px;
+    background-color: #fff;
+    position: fixed !important;
+    z-index: 200
+}
+
+.r-paciente .bar-block .dropdown-click, .r-paciente .bar-block .dropdown-hover, .r-paciente .modal, .r-paciente .sidenav .dropdown-click, .r-paciente .sidenav .dropdown-hover {
+    width: 100%
+}
+
+.r-paciente .dropnav a:hover, .r-paciente .navblock a:hover, .r-paciente .sidenav .dropdown-click:hover, .r-paciente .sidenav .dropdown-hover:first-child, .r-paciente .sidenav .dropdown-hover:hover, .r-paciente .sidenav a:hover {
+    background-color: #ccc;
+    color: #000
+}
+
+.r-paciente .navblock a, .r-paciente .sidenav a {
+    padding: 4px 2px 4px 16px
+}
+
+.r-paciente .dropnav a, .r-paciente .navblock a, .r-paciente .sidenav a {
+    display: block
+}
+
+.r-paciente .bar-block .dropdown-click .button, .r-paciente .bar-block .dropdown-hover .button {
+    width: 100%;
+    text-align: left;
+    background-color: inherit;
+    color: inherit;
+    padding: 6px 2px 6px 16px
+}
+
+.r-paciente .bar .button.active {
+    background: #009688;
+    color: #FFF;
+    opacity: 1 !important
+}
+
+.r-paciente .bar .button.active:hover {
+    color: #FFF;
+    background: #11A799
+}
+
+.r-paciente .group, .r-paciente .input-group {
+    margin-top: 24px;
+    margin-bottom: 24px
+}
+
+.r-paciente .dropdown-click, .r-paciente .dropdown-hover {
+    position: relative;
+    display: inline-block;
+    cursor: pointer
+}
+
+.r-paciente .dropdown-hover:hover .dropdown-content {
+    display: block;
+    z-index: 1
+}
+
+.r-paciente .dropdown-click:hover, .r-paciente .dropdown-click:hover > .button:first-child, .r-paciente .dropdown-hover:first-child, .r-paciente .dropdown-hover:hover > .button:first-child {
+    background-color: #ccc;
+    color: #000
+}
+
+.r-paciente .dropdown-content {
+    cursor: auto;
+    color: #000;
+    background-color: #fff;
+    display: none;
+    position: absolute;
+    min-width: 160px;
+    margin: 0;
+    padding: 0
+}
+
+.r-paciente .accordion-content a:hover, .r-paciente .dropdown-content a:hover {
+    background-color: #ccc
+}
+
+.r-paciente .dropdown-content a {
+    padding: 6px 16px;
+    display: block
+}
+
+.r-paciente .accordion {
+    width: 100%;
+    cursor: pointer
+}
+
+.r-paciente .accordion-content {
+    cursor: auto;
+    display: none;
+    position: relative;
+    width: 100%;
+    margin: 0;
+    padding: 0
+}
+
+.r-paciente .accordion-content a {
+    padding: 6px 16px;
+    display: block
+}
+
+.r-paciente .progress-container {
+    width: 100%;
+    height: 1.5em;
+    position: relative;
+    background-color: #f1f1f1
+}
+
+.r-paciente .progressbar {
+    background-color: #757575;
+    height: 100%;
+    position: absolute;
+    line-height: inherit
+}
+
+.r-paciente .irs {
+    position: relative;
+    display: block;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none
+}
+
+.r-paciente .irs-line {
+    position: relative;
+    display: block;
+    overflow: hidden;
+    outline: none !important
+}
+
+.r-paciente .irs-line-left, .r-paciente .irs-line-mid, .r-paciente .irs-line-right {
+    position: absolute;
+    display: block;
+    top: 0
+}
+
+.r-paciente .irs-line-left {
+    left: 0;
+    width: 11%
+}
+
+.r-paciente .irs-line-mid {
+    left: 9%;
+    width: 82%
+}
+
+.r-paciente .irs-line-right {
+    right: 0;
+    width: 11%
+}
+
+.r-paciente .irs-bar {
+    position: absolute;
+    display: block;
+    left: 0;
+    width: 0
+}
+
+.r-paciente .irs-bar-edge {
+    position: absolute;
+    display: block;
+    top: 0;
+    left: 0
+}
+
+.r-paciente .irs-shadow {
+    position: absolute;
+    display: none;
+    left: 0;
+    width: 0
+}
+
+.r-paciente .irs-slider {
+    position: absolute;
+    display: block;
+    cursor: default;
+    z-index: 1
+}
+
+.r-paciente .irs-slider.type_last {
+    z-index: 2
+}
+
+.r-paciente .irs-min {
+    position: absolute;
+    display: block;
+    left: 0;
+    cursor: default
+}
+
+.r-paciente .irs-max {
+    position: absolute;
+    display: block;
+    right: 0;
+    cursor: default
+}
+
+.r-paciente .irs-from, .r-paciente .irs-to, .r-paciente .irs-single {
+    position: absolute;
+    display: block;
+    top: 0;
+    left: 0;
+    cursor: default;
+    white-space: nowrap
+}
+
+.r-paciente .irs-grid {
+    position: absolute;
+    display: none;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 20px
+}
+
+.r-paciente .irs-with-grid .irs-grid {
+    display: block
+}
+
+.r-paciente .irs-grid-pol {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 1px;
+    height: 8px;
+    background: #000
+}
+
+.r-paciente .irs-grid-pol.small {
+    height: 4px
+}
+
+.r-paciente .irs-grid-text {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    white-space: nowrap;
+    text-align: center;
+    font-size: 9px;
+    line-height: 9px;
+    padding: 0 3px;
+    color: #000
+}
+
+.r-paciente .irs-disable-mask {
+    position: absolute;
+    display: block;
+    top: 0;
+    left: -1%;
+    width: 102%;
+    height: 100%;
+    cursor: default;
+    background: rgba(0, 0, 0, 0);
+    z-index: 2
+}
+
+.r-paciente .irs-disabled {
+    opacity: .4
+}
+
+.r-paciente .lt-ie9 .irs-disabled {
+    filter: alpha(opacity=40)
+}
+
+.r-paciente .irs-hidden-input {
+    position: absolute !important;
+    display: block !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 0 !important;
+    height: 0 !important;
+    font-size: 0 !important;
+    line-height: 0 !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    outline: none !important;
+    z-index: -9999 !important;
+    background: none !important;
+    border-style: solid !important;
+    border-color: transparent !important
+}
+
+.r-paciente input, .r-paciente textarea {
+    padding: 8px 2px 4px;
+    display: block;
+    border: none;
+    border-bottom: 1px solid #999;
+    float: left;
+    outline: 0;
+    width: 100%
+}
+
+.r-paciente .input-bar {
+    float: left;
+    width: 100%;
+    position: relative;
+    display: block
+}
+
+.r-paciente .input-bar:before {
+    left: 50%
+}
+
+.r-paciente .input-bar:after {
+    right: 50%
+}
+
+.r-paciente .input-bar:before, .r-paciente .input-bar:after {
+    content: '';
+    height: 2px;
+    width: 0;
+    bottom: 0;
+    position: absolute;
+    background: #009688;
+    transition: width 0.18s ease-in-out;
+    -moz-transition: width 0.18s ease-in-out;
+    -webkit-transition: width 0.18s ease-in-out
+}
+
+.r-paciente .input-bar-active:before, .r-paciente .input-bar-active:after {
+    width: 50% !important;
+    transition: width 0.3s ease-in-out;
+    -moz-transition: width 0.3s ease-in-out;
+    -webkit-transition: width 0.3s ease-in-out
+}
+
+.r-paciente input ~ .input-bar {
+    bottom: 20px
+}
+
+.r-paciente input:focus ~ .input-bar:before, .r-paciente input:focus ~ .input-bar:after {
+    width: 50%
+}
+
+.r-paciente input, .r-paciente select, .r-paciente textarea {
+    background: transparent
+}
+
+.r-paciente input[type=color] {
+    height: 40px
+}
+
+.r-paciente .bar .bar-item, .r-paciente .bar-block .bar-item {
+    padding: 8px 16px;
+    border: none;
+    outline: 0
+}
+
+.r-paciente input[type=checkbox] {
+    width: auto;
+    float: left;
+    margin-top: 22px
+}
+
+.r-paciente input[type=checkbox].check, .r-paciente input[type=radio].radio {
+    width: 24px;
+    height: 24px;
+    position: relative;
+    top: 6px
+}
+
+.r-paciente input[type=checkbox].check:checked + .validate, .r-paciente input[type=radio].radio:checked + .validate {
+    color: #009688
+}
+
+.r-paciente input[type=checkbox].check:disabled + .validate, .r-paciente input[type=radio].radio:disabled + .validate {
+    color: #aaa
+}
+
+.r-paciente .md-radio {
+    position: relative;
+    display: inline-block;
+    font-size: 18px;
+    margin-right: 30px;
+    line-height: 44px;
+    cursor: pointer
+}
+
+.r-paciente .md-radio:hover .md-radio--fake > span {
+    -webkit-transform: scale(.5);
+    -moz-transform: scale(.5);
+    -ms-transform: scale(.5);
+    -o-transform: scale(.5);
+    transform: scale(.5);
+    opacity: .5
+}
+
+.r-paciente .md-radio input {
+    width: 1px;
+    height: 1px;
+    opacity: 0
+}
+
+.r-paciente .md-radio input:checked + .md-radio--fake {
+    border-color: #009688;
+    -webkit-transform: scale(1);
+    -moz-transform: scale(1);
+    -ms-transform: scale(1);
+    -o-transform: scale(1);
+    transform: scale(1)
+}
+
+.r-paciente .md-radio input:checked + .md-radio--fake > span {
+    -webkit-transform: scale(1);
+    -moz-transform: scale(1);
+    -ms-transform: scale(1);
+    -o-transform: scale(1);
+    transform: scale(1);
+    opacity: 1
+}
+
+.r-paciente .md-radio input:focus + .md-radio--fake > span {
+    background-color: #009688;
+    -webkit-transform: scale(1);
+    -moz-transform: scale(1);
+    -ms-transform: scale(1);
+    -o-transform: scale(1);
+    transform: scale(1);
+    opacity: 1
+}
+
+.r-paciente .transition-easy, .r-paciente .md-radio--fake, .r-paciente .md-radio--fake > span {
+    -webkit-transition: all 0.25s ease-in-out;
+    -moz-transition: all 0.25s ease-in-out;
+    -ms-transition: all 0.25s ease-in-out;
+    -o-transition: all 0.25s ease-in-out;
+    transition: all 0.25s ease-in-out
+}
+
+.r-paciente .transition-fast {
+    -webkit-transition: all 0.1s ease-in-out;
+    -moz-transition: all 0.1s ease-in-out;
+    -ms-transition: all 0.1s ease-in-out;
+    -o-transition: all 0.1s ease-in-out;
+    transition: all 0.1s ease-in-out
+}
+
+.r-paciente .md-radio > div {
+    line-height: 18px;
+    display: inline-block;
+    color: #999
+}
+
+.r-paciente .md-radio--fake {
+    position: relative;
+    display: block;
+    float: left;
+    clear: left;
+    margin: 0 9px;
+    width: 20px;
+    height: 20px;
+    border: 3px solid #ccc;
+    border-radius: 50%;
+    background-color: #fff;
+    -webkit-transform: scale(.75);
+    -moz-transform: scale(.75);
+    -ms-transform: scale(.75);
+    -o-transform: scale(.75);
+    transform: scale(.75)
+}
+
+.r-paciente .md-radio--fake > span {
+    width: 6px;
+    height: 6px;
+    -webkit-transform: scale(0);
+    -moz-transform: scale(0);
+    -ms-transform: scale(0);
+    -o-transform: scale(0);
+    transform: scale(0);
+    display: block;
+    margin: 4px;
+    border-radius: 50%;
+    background-color: #009688;
+    opacity: 0
+}
+
+.r-paciente .md-radio.has--text > div {
+    padding-top: 7px
+}
+
+.r-paciente .md-radio.has--text small {
+    display: block;
+    line-height: 15px;
+    color: #5B5B5B;
+    opacity: .65;
+    padding-top: 2px
+}
+
+.r-paciente .md-radio.with--error > div, .r-paciente .md-radio.with--error small {
+    color: #d32f2f
+}
+
+.r-paciente .md-radio.with--error .md-radio--fake {
+    border-color: #d32f2f !important
+}
+
+.r-paciente .md-radio.with--error .md-radio--fake > span {
+    background-color: #d32f2f !important
+}
+
+.r-paciente .bar .bar-item, .r-paciente .bar .button, .r-paciente .bar-block .bar-item {
+    background-color: inherit;
+    color: inherit
+}
+
+.r-paciente .bar {
+    width: 100%;
+    overflow: hidden
+}
+
+.r-paciente .center .bar {
+    display: inline-block;
+    width: auto
+}
+
+.r-paciente .bar-block .bar-item, .r-paciente .block {
+    display: block;
+    width: 100%
+}
+
+.r-paciente .bar .bar-item {
+    float: left;
+    width: auto;
+    display: block
+}
+
+.r-paciente .bar .dropdown-click, .r-paciente .bar .dropdown-hover {
+    position: static;
+    float: left
+}
+
+.r-paciente .bar .button {
+    white-space: normal
+}
+
+.r-paciente .bar-block .bar-item {
+    text-align: left;
+    white-space: normal
+}
+
+.r-paciente .bar-block.center .bar-item, .r-paciente .vertical {
+    text-align: center
+}
+
+.r-paciente .responsive {
+    overflow-x: auto
+}
+
+.r-paciente .card:after, .r-paciente .card-4:after, .r-paciente .card-6:after, .r-paciente .card:before, .r-paciente .card-4:before, .r-paciente .card-6:before, .r-paciente .bar:after, .r-paciente .bar:before, .r-paciente .btn-bar:after, .r-paciente .btn-bar:before, .r-paciente .btn-group:after, .r-paciente .btn-group:before, .r-paciente .cell-row:after, .r-paciente .cell-row:before, .r-paciente .clear:after, .r-paciente .clear:before, .r-paciente .container:after, .r-paciente .container:before, .r-paciente .panel:after, .r-paciente .panel:before, .r-paciente .row-padding:after, .r-paciente .row-padding:before, .r-paciente .row:after, .r-paciente .row:before, .r-paciente .topnav:after, .r-paciente .topnav:before {
+    content: "";
+    display: table;
+    clear: both
+}
+
+.r-paciente .col, .r-paciente .half, .r-paciente .quarter, .r-paciente .third, .r-paciente .threequarter, .r-paciente .twothird {
+    float: left;
+    width: 100%
+}
+
+.r-paciente .col.s1 {
+    width: 8.33333%
+}
+
+.r-paciente .col.s2 {
+    width: 16.66666%
+}
+
+.r-paciente .col.s3 {
+    width: 24.99999%
+}
+
+.r-paciente .col.s4 {
+    width: 33.33333%
+}
+
+.r-paciente .col.s5 {
+    width: 41.66666%
+}
+
+.r-paciente .col.s6 {
+    width: 49.99999%
+}
+
+.r-paciente .col.s7 {
+    width: 58.33333%
+}
+
+.r-paciente .col.s8 {
+    width: 66.66666%
+}
+
+.r-paciente .col.s9 {
+    width: 74.99999%
+}
+
+.r-paciente .col.s10 {
+    width: 83.33333%
+}
+
+.r-paciente .col.s11 {
+    width: 91.66666%
+}
+
+.r-paciente .col.s12, .r-paciente .half, .r-paciente .quarter, .r-paciente .third, .r-paciente .threequarter, .r-paciente .twothird {
+    width: 99.99999%
+}
+
+.r-paciente .content {
+    max-width: 980px;
+    margin: auto;
+    float: initial;
+    display: block
+}
+
+.r-paciente .rest {
+    overflow: hidden;
+    min-width: 100px
+}
+
+.r-paciente .parallax {
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover
+}
+
+.r-paciente .input-icon {
+    display: -ms-flexbox;
+    display: flex;
+    width: 100%;
+    margin-bottom: 15px
+}
+
+.r-paciente .input-icon i {
+    padding-right: 10px;
+    min-width: 50px;
+    text-align: center
+}
+
+.r-paciente .cell-row, .r-paciente .layout-container {
+    display: table;
+    width: 100%
+}
+
+.r-paciente .layout-row {
+    display: table-row
+}
+
+.r-paciente .cell, .r-paciente .layout-cell, .r-paciente .layout-col {
+    display: table-cell
+}
+
+.r-paciente .cell-top, .r-paciente .layout-top {
+    vertical-align: top
+}
+
+.r-paciente .cell-middle, .r-paciente .layout-middle {
+    vertical-align: middle
+}
+
+.r-paciente .cell-bottom, .r-paciente .layout-bottom {
+    vertical-align: bottom
+}
+
+.r-paciente .show-block {
+    display: block !important
+}
+
+.r-paciente .show-inline-block {
+    display: inline-block !important
+}
+
+.r-paciente .bottom, .r-paciente .overlay, .r-paciente .top {
+    position: fixed;
+    width: 100%
+}
+
+.r-paciente .overlay, .r-paciente .switch input[type=checkbox] {
+    display: none
+}
+
+.r-paciente .bottom, .r-paciente .top {
+    z-index: 1
+}
+
+.r-paciente .top {
+    top: 0
+}
+
+.r-paciente .bottom {
+    bottom: 0
+}
+
+.r-paciente .overlay {
+    height: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, .5);
+    z-index: 199
+}
+
+.r-paciente .left {
+    float: left !important
+}
+
+.r-paciente .right {
+    float: right !important
+}
+
+.r-paciente .font-tiny {
+    font-size: 10px !important
+}
+
+.r-paciente .font-small {
+    font-size: 12px !important
+}
+
+.r-paciente .font-medium {
+    font-size: 15px !important
+}
+
+.r-paciente .font-large {
+    font-size: 18px !important
+}
+
+.r-paciente .font-xlarge {
+    font-size: 24px !important
+}
+
+.r-paciente .font-xxlarge {
+    font-size: 36px !important
+}
+
+.r-paciente .font-xxxlarge {
+    font-size: 48px !important
+}
+
+.r-paciente .font-jumbo {
+    font-size: 64px !important
+}
+
+.r-paciente .btn-large {
+    padding: 15px 25px;
+    font-size: 1.5em
+}
+
+.r-paciente .btn-small {
+    padding: 5px 10px;
+    font-size: 1em
+}
+
+.r-paciente .click {
+    box-shadow: 3px 4px 5px 0 #999
+}
+
+.r-paciente .click:active {
+    box-shadow: 1px 1px 1px 0 #666;
+    transform: translateY(2px)
+}
+
+.r-paciente .switch {
+    float: left;
+    position: relative;
+    margin-bottom: 24.4px !important;
+    height: 32px;
+    width: 50px
+}
+
+.r-paciente .switch .slider {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    background-color: #999;
+    height: 20px;
+    width: 45px;
+    border-radius: 34px;
+    cursor: pointer
+}
+
+.r-paciente .switch .slider:after {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: -1px;
+    bottom: -3px;
+    background-color: #fff;
+    -webkit-transition: .25s;
+    transition: .25s;
+    border-radius: 50%;
+    cursor: pointer;
+    -webkit-box-shadow: 2px 2px 9px -3px rgba(61, 61, 61, 1);
+    -moz-box-shadow: 2px 2px 9px -3px rgba(61, 61, 61, 1);
+    box-shadow: 2px 2px 9px -3px rgba(61, 61, 61, 1)
+}
+
+.r-paciente .switch input:checked + .slider {
+    background: #62BAB2
+}
+
+.r-paciente .switch input:checked + .slider:after {
+    -webkit-transform: translateX(21px);
+    -ms-transform: translateX(21px);
+    transform: translateX(21px);
+    background-color: #009688
+}
+
+.r-paciente .switch-squad .slider {
+    border-radius: 0;
+    bottom: -3px;
+    height: 25px
+}
+
+.r-paciente .switch-squad .slider:after {
+    border-radius: 0;
+    height: 20px;
+    bottom: 3px;
+    width: 18px;
+    left: 3px
+}
+
+.r-paciente .vertical {
+    word-break: break-all;
+    line-height: 1;
+    width: .6em
+}
+
+.r-paciente .align-left {
+    text-align: left !important
+}
+
+.r-paciente .align-right {
+    text-align: right !important
+}
+
+.r-paciente .align-justify {
+    text-align: justify !important
+}
+
+.r-paciente .align-center {
+    text-align: center !important
+}
+
+.r-paciente .display-bottomleft, .r-paciente .display-bottommiddle, .r-paciente .display-bottomright, .r-paciente .display-middle, .r-paciente .display-left, .r-paciente .display-right, .r-paciente .display-topleft, .r-paciente .display-topmiddle, .r-paciente .display-topright {
+    position: absolute
+}
+
+.r-paciente .display-left, .r-paciente .display-middle, .r-paciente .display-right {
+    top: 50%
+}
+
+.r-paciente .display-middle {
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%)
+}
+
+.r-paciente .display-right, .r-paciente .display-left {
+    transform: translate(0, -50%);
+    -ms-transform: translate(0, -50%)
+}
+
+.r-paciente .display-topmiddle, .r-paciente .display-bottommiddle, .r-paciente .display-middle {
+    left: 50%
+}
+
+.r-paciente .display-topmiddle, .r-paciente .display-bottommiddle {
+    transform: translate(-50%, 0);
+    -ms-transform: translate(-50%, 0)
+}
+
+.r-paciente .display-topleft {
+    left: 0;
+    top: 0
+}
+
+.r-paciente .display-topright {
+    right: 0;
+    top: 0
+}
+
+.r-paciente .display-bottomleft {
+    left: 0;
+    bottom: 0
+}
+
+.r-paciente .display-bottomright {
+    right: 0;
+    bottom: 0
+}
+
+.r-paciente .display-left {
+    left: 0
+}
+
+.r-paciente .display-right {
+    right: 0
+}
+
+.r-paciente .display-topmiddle {
+    top: 0
+}
+
+.r-paciente .display-bottommiddle {
+    bottom: 0
+}
+
+.r-paciente .display-container:hover .display-hover {
+    display: block
+}
+
+.r-paciente .display-container:hover span.display-hover {
+    display: inline-block
+}
+
+.r-paciente .display-hover {
+    display: none
+}
+
+.r-paciente .display-position {
+    position: absolute
+}
+
+.r-paciente .radius-circle {
+    border-radius: 50% !important
+}
+
+.r-paciente .radius-small {
+    border-radius: 2px !important
+}
+
+.r-paciente .radius, .r-paciente .radius-medium {
+    border-radius: 4px !important
+}
+
+.r-paciente .radius-large {
+    border-radius: 8px !important
+}
+
+.r-paciente .radius-xlarge {
+    border-radius: 16px !important
+}
+
+.r-paciente .radius-xxlarge {
+    border-radius: 32px !important
+}
+
+.r-paciente .radius-jumbo {
+    border-radius: 64px !important
+}
+
+.r-paciente .border-0 {
+    border: 0 !important
+}
+
+.r-paciente .border {
+    border: 1px solid #ccc !important
+}
+
+.r-paciente .border-top {
+    border-top: 1px solid #ccc !important
+}
+
+.r-paciente .border-bottom {
+    border-bottom: 1px solid #ccc !important
+}
+
+.r-paciente .border-left {
+    border-left: 1px solid #ccc !important
+}
+
+.r-paciente .border-right {
+    border-right: 1px solid #ccc !important
+}
+
+.r-paciente .margin {
+    margin: 16px !important
+}
+
+.r-paciente .margin-0 {
+    margin: 0 !important
+}
+
+.r-paciente .margin-top, .r-paciente .panel, .r-paciente .section {
+    margin-top: 16px !important
+}
+
+.r-paciente .margin-bottom, .r-paciente .panel, .r-paciente .section {
+    margin-bottom: 16px !important
+}
+
+.r-paciente .margin-left {
+    margin-left: 16px !important
+}
+
+.r-paciente .margin-right {
+    margin-right: 16px !important
+}
+
+.r-paciente .margin-small {
+    margin: 4px 8px !important
+}
+
+.r-paciente .margin-medium {
+    margin: 8px 16px !important
+}
+
+.r-paciente .margin-large {
+    margin: 12px 24px !important
+}
+
+.r-paciente .margin-xlarge {
+    margin: 16px 32px !important
+}
+
+.r-paciente .margin-xxlarge {
+    margin: 24px 48px !important
+}
+
+.r-paciente .margin-jumbo {
+    margin: 32px 64px !important
+}
+
+.r-paciente .padding-tiny {
+    padding: 2px 4px !important
+}
+
+.r-paciente .padding-small {
+    padding: 4px 8px !important
+}
+
+.r-paciente .form, .r-paciente .padding, .r-paciente .padding-medium {
+    padding: 8px 16px !important
+}
+
+.r-paciente .padding-large {
+    padding: 12px 24px !important
+}
+
+.r-paciente .padding-xlarge {
+    padding: 16px 32px !important
+}
+
+.r-paciente .padding-xxlarge {
+    padding: 24px 48px !important
+}
+
+.r-paciente .padding-jumbo {
+    padding: 32px 64px !important
+}
+
+.r-paciente .padding-4 {
+    padding-top: 4px !important;
+    padding-bottom: 4px !important
+}
+
+.r-paciente .padding-8 {
+    padding-top: 8px !important;
+    padding-bottom: 8px !important
+}
+
+.r-paciente .padding-12 {
+    padding-top: 12px !important;
+    padding-bottom: 12px !important
+}
+
+.r-paciente .padding-16 {
+    padding-top: 16px !important;
+    padding-bottom: 16px !important
+}
+
+.r-paciente .padding-24 {
+    padding-top: 24px !important;
+    padding-bottom: 24px !important
+}
+
+.r-paciente .padding-32 {
+    padding-top: 32px !important;
+    padding-bottom: 32px !important
+}
+
+.r-paciente .padding-48 {
+    padding-top: 48px !important;
+    padding-bottom: 48px !important
+}
+
+.r-paciente .padding-64 {
+    padding-top: 64px !important;
+    padding-bottom: 64px !important
+}
+
+.r-paciente .padding-128 {
+    padding-top: 128px !important;
+    padding-bottom: 128px !important
+}
+
+.r-paciente .padding-0 {
+    padding: 0 !important
+}
+
+.r-paciente .padding-top {
+    padding-top: 8px !important
+}
+
+.r-paciente .padding-bottom {
+    padding-bottom: 8px !important
+}
+
+.r-paciente .padding-left-4 {
+    padding-left: 4px !important
+}
+
+.r-paciente .padding-left-8 {
+    padding-left: 8px !important
+}
+
+.r-paciente .padding-left-12 {
+    padding-left: 12px !important
+}
+
+.r-paciente .padding-left-16, .r-paciente .padding-left {
+    padding-left: 16px !important
+}
+
+.r-paciente .padding-left-24 {
+    padding-left: 24px !important
+}
+
+.r-paciente .padding-left-32 {
+    padding-left: 32px !important
+}
+
+.r-paciente .padding-left-48 {
+    padding-left: 48px !important
+}
+
+.r-paciente .padding-left-64 {
+    padding-left: 64px !important
+}
+
+.r-paciente .padding-left-128 {
+    padding-left: 128px !important
+}
+
+.r-paciente .padding-right-4 {
+    padding-right: 4px !important
+}
+
+.r-paciente .padding-right-8 {
+    padding-right: 8px !important
+}
+
+.r-paciente .padding-right-12 {
+    padding-right: 12px !important
+}
+
+.r-paciente .padding-right-16, .r-paciente .padding-right {
+    padding-right: 16px !important
+}
+
+.r-paciente .padding-right-24 {
+    padding-right: 24px !important
+}
+
+.r-paciente .padding-right-32 {
+    padding-right: 32px !important
+}
+
+.r-paciente .padding-right-48 {
+    padding-right: 48px !important
+}
+
+.r-paciente .padding-right-64 {
+    padding-right: 64px !important
+}
+
+.r-paciente .padding-right-128 {
+    padding-right: 128px !important
+}
+
+.r-paciente .topbar {
+    border-top: 6px solid #ccc !important
+}
+
+.r-paciente .bottombar {
+    border-bottom: 6px solid #ccc !important
+}
+
+.r-paciente .leftbar {
+    border-left: 6px solid #ccc !important
+}
+
+.r-paciente .rightbar {
+    border-right: 6px solid #ccc !important
+}
+
+.r-paciente .row-padding, .r-paciente .row-padding > .col, .r-paciente .row-padding > .half, .r-paciente .row-padding > .quarter, .r-paciente .row-padding > .third, .r-paciente .row-padding > .threequarter, .r-paciente .row-padding > .twothird {
+    padding: 0 8px
+}
+
+.r-paciente .container, .r-paciente .example {
+    padding: .01em 0
+}
+
+.r-paciente .panel {
+    padding: .01em 5px
+}
+
+.r-paciente .container-600, .r-paciente .container-900, .r-paciente .container-1200 {
+    margin-left: auto !important;
+    margin-right: auto !important;
+    width: 100%;
+    float: initial
+}
+
+.r-paciente .container-600 {
+    max-width: 600px
+}
+
+.r-paciente .container-900 {
+    max-width: 990px
+}
+
+.r-paciente .container-1200 {
+    max-width: 1200px
+}
+
+.r-paciente .spin {
+    animation: spin 2s infinite linear;
+    -webkit-animation: spin 2s infinite linear
+}
+
+@-webkit-keyframes spin {
+    0% {
+        -webkit-transform: rotate(0);
+        transform: rotate(0)
+    }
+    100% {
+        -webkit-transform: rotate(359deg);
+        transform: rotate(359deg)
+    }
+}
+
+@keyframes spin {
+    0% {
+        -webkit-transform: rotate(0);
+        transform: rotate(0)
+    }
+    100% {
+        -webkit-transform: rotate(359deg);
+        transform: rotate(359deg)
+    }
+}
+
+.r-paciente .example {
+    background-color: #f1f1f1
+}
+
+.r-paciente .code, .r-paciente .codespan {
+    font-family: Consolas, "courier new";
+    font-size: 16px
+}
+
+.r-paciente .code {
+    line-height: 1.4;
+    width: auto;
+    background-color: #fff;
+    padding: 8px 12px;
+    border-left: 4px solid #4CAF50;
+    word-wrap: break-word
+}
+
+.r-paciente .codespan {
+    color: #dc143c;
+    background-color: #f1f1f1;
+    padding-left: 4px;
+    padding-right: 4px;
+    font-size: 110%
+}
+
+.r-paciente .code, .r-paciente .example {
+    margin: 20px 0
+}
+
+.r-paciente .card, .r-paciente .card-4, .r-paciente .card-6 {
+    float: left;
+    width: 100%;
+    background: #FFF;
+    margin-bottom: 20px !important
+}
+
+.r-paciente .card, .r-paciente .example, .r-paciente .z-depth-2 {
+    box-shadow: 1px 1px 4px 0 rgba(0, 0, 0, .12) !important
+}
+
+.r-paciente .card-4, .r-paciente .z-depth-4, .r-paciente .hover-shadow:hover {
+    box-shadow: 2px 2px 4px 0 rgba(0, 0, 0, .1) !important
+}
+
+.r-paciente .card-6, .r-paciente .z-depth-6 {
+    box-shadow: 3px 3px 5px 0 rgba(0, 0, 0, .15) !important
+}
+
+.r-paciente .btn:hover {
+    transform: scale(1.03)
+}
+
+.r-paciente .animate-fading {
+    -webkit-animation: fading 10s infinite;
+    animation: fading 10s infinite
+}
+
+.r-paciente .hover-none:hover, .r-paciente .transparent {
+    background-color: transparent !important
+}
+
+@-webkit-keyframes fading {
+    0%, 100% {
+        opacity: 0
+    }
+    50% {
+        opacity: 1
+    }
+}
+
+@keyframes fading {
+    0%, 100% {
+        opacity: 0
+    }
+    50% {
+        opacity: 1
+    }
+}
+
+.r-paciente .animate-opacity {
+    -webkit-animation: opac .8s;
+    animation: opac .8s
+}
+
+@-webkit-keyframes opac {
+    from {
+        opacity: 0
+    }
+    to {
+        opacity: 1
+    }
+}
+
+@keyframes opac {
+    from {
+        opacity: 0
+    }
+    to {
+        opacity: 1
+    }
+}
+
+.r-paciente .animate-top {
+    position: relative;
+    -webkit-animation: animatetop .4s;
+    animation: animatetop .4s
+}
+
+@-webkit-keyframes animatetop {
+    from {
+        top: -300px;
+        opacity: 0
+    }
+    to {
+        top: 0;
+        opacity: 1
+    }
+}
+
+@keyframes animatetop {
+    from {
+        top: -300px;
+        opacity: 0
+    }
+    to {
+        top: 0;
+        opacity: 1
+    }
+}
+
+.r-paciente .animate-left {
+    position: relative;
+    -webkit-animation: animateleft .4s;
+    animation: animateleft .4s
+}
+
+@-webkit-keyframes animateleft {
+    from {
+        left: -300px;
+        opacity: 0
+    }
+    to {
+        left: 0;
+        opacity: 1
+    }
+}
+
+@keyframes animateleft {
+    from {
+        left: -300px;
+        opacity: 0
+    }
+    to {
+        left: 0;
+        opacity: 1
+    }
+}
+
+.r-paciente .animate-right {
+    position: relative;
+    -webkit-animation: animateright .4s;
+    animation: animateright .4s
+}
+
+@-webkit-keyframes animateright {
+    from {
+        right: -300px;
+        opacity: 0
+    }
+    to {
+        right: 0;
+        opacity: 1
+    }
+}
+
+@keyframes animateright {
+    from {
+        right: -300px;
+        opacity: 0
+    }
+    to {
+        right: 0;
+        opacity: 1
+    }
+}
+
+.r-paciente .animate-bottom {
+    position: relative;
+    -webkit-animation: animatebottom .4s;
+    animation: animatebottom .4s
+}
+
+@-webkit-keyframes animatebottom {
+    from {
+        bottom: -300px;
+        opacity: 0
+    }
+    to {
+        bottom: 0;
+        opacity: 1
+    }
+}
+
+@keyframes animatebottom {
+    from {
+        bottom: -300px;
+        opacity: 0
+    }
+    to {
+        bottom: 0;
+        opacity: 1
+    }
+}
+
+.r-paciente .animate-zoom {
+    -webkit-animation: animatezoom .6s;
+    animation: animatezoom .6s
+}
+
+@-webkit-keyframes animatezoom {
+    from {
+        -webkit-transform: scale(0)
+    }
+    to {
+        -webkit-transform: scale(1)
+    }
+}
+
+@keyframes animatezoom {
+    from {
+        transform: scale(0)
+    }
+    to {
+        transform: scale(1)
+    }
+}
+
+.r-paciente .animate-input, .r-paciente .transition-slow {
+    -webkit-transition: all .4s ease-in-out;
+    transition: all .4s ease-in-out
+}
+
+.r-paciente .animate-input:focus {
+    width: 100% !important
+}
+
+.r-paciente .hover-opacity:hover, .r-paciente .opacity {
+    opacity: .6
+}
+
+.r-paciente .hover-opacity-off:hover, .r-paciente .opacity-off {
+    opacity: 1;
+    -webkit-backface-visibility: hidden
+}
+
+.r-paciente .opacity-max {
+    opacity: .25
+}
+
+.r-paciente .opacity-min {
+    opacity: .75
+}
+
+.r-paciente .text-shadow {
+    text-shadow: 1px 1px 0 #444
+}
+
+.r-paciente .text-shadow-white {
+    text-shadow: 1px 1px 0 #ddd
+}
+
+.r-paciente .hover-shadow-none:hover {
+    box-shadow: none !important
+}
+
+.r-paciente .z-depth-inset-2 {
+    -webkit-box-shadow: inset 1px 0 15px 8px rgba(0, 0, 0, .15);
+    -moz-box-shadow: inset 1px 0 15px 8px rgba(0, 0, 0, .15);
+    box-shadow: inset 1px 0 15px 8px rgba(0, 0, 0, .15)
+}
+
+.r-paciente .blur {
+    -webkit-filter: blur(6px);
+    filter: blur(6px)
+}
+
+.r-paciente .transform-inverse {
+    transform: rotateY(150deg);
+    -webkit-transform: rotateY(150deg)
+}
+
+.r-paciente .upper {
+    text-transform: uppercase
+}
+
+.r-paciente .pointer {
+    cursor: pointer
+}
+
+.r-paciente .font-light {
+    font-weight: 300 !important
+}
+
+.r-paciente .font-normal {
+    font-weight: 400 !important
+}
+
+.r-paciente .color-amber, .r-paciente .color-hover-amber:hover {
+    color: #000 !important;
+    background-color: #ffc107 !important
+}
+
+.r-paciente .color-aqua, .r-paciente .color-hover-aqua:hover {
+    color: #000 !important;
+    background-color: #00ffff !important
+}
+
+.r-paciente .color-blue, .r-paciente .color-hover-blue:hover {
+    color: #fff !important;
+    background-color: #2196F3 !important
+}
+
+.r-paciente .color-blue-light, .r-paciente .color-hover-blue-light:hover {
+    color: #000 !important;
+    background-color: #87CEEB !important
+}
+
+.r-paciente .color-brown, .r-paciente .color-hover-brown:hover {
+    color: #fff !important;
+    background-color: #795548 !important
+}
+
+.r-paciente .color-cyan, .r-paciente .color-hover-cyan:hover {
+    color: #000 !important;
+    background-color: #00bcd4 !important
+}
+
+.r-paciente .color-blue-grey, .r-paciente .color-hover-blue-grey:hover, .r-paciente .color-blue-gray, .r-paciente .color-hover-blue-gray:hover {
+    color: #fff !important;
+    background-color: #607d8b !important
+}
+
+.r-paciente .color-green, .r-paciente .color-hover-green:hover {
+    color: #fff !important;
+    background-color: #4CAF50 !important
+}
+
+.r-paciente .color-green-light, .r-paciente .color-hover-green-light:hover {
+    color: #000 !important;
+    background-color: #8bc34a !important
+}
+
+.r-paciente .color-indigo, .r-paciente .color-hover-indigo:hover {
+    color: #fff !important;
+    background-color: #3f51b5 !important
+}
+
+.r-paciente .color-khaki, .r-paciente .color-hover-khaki:hover {
+    color: #000 !important;
+    background-color: #f0e68c !important
+}
+
+.r-paciente .color-lime, .r-paciente .color-hover-lime:hover {
+    color: #000 !important;
+    background-color: #cddc39 !important
+}
+
+.r-paciente .color-orange, .r-paciente .color-hover-orange:hover {
+    color: #000 !important;
+    background-color: #ff9800 !important
+}
+
+.r-paciente .color-deep-orange, .r-paciente .color-hover-deep-orange:hover {
+    color: #fff !important;
+    background-color: #ff5722 !important
+}
+
+.r-paciente .color-pink, .r-paciente .color-hover-pink:hover {
+    color: #fff !important;
+    background-color: #e91e63 !important
+}
+
+.r-paciente .color-purple, .r-paciente .color-hover-purple:hover {
+    color: #fff !important;
+    background-color: #9c27b0 !important
+}
+
+.r-paciente .color-deep-purple, .r-paciente .color-hover-deep-purple:hover {
+    color: #fff !important;
+    background-color: #673ab7 !important
+}
+
+.r-paciente .color-red, .r-paciente .color-hover-red:hover {
+    color: #fff !important;
+    background-color: #f44336 !important
+}
+
+.r-paciente .color-sand, .r-paciente .color-hover-sand:hover {
+    color: #000 !important;
+    background-color: #fdf5e6 !important
+}
+
+.r-paciente .color-teal, .r-paciente .color-hover-teal:hover {
+    color: #fff !important;
+    background-color: #009688 !important
+}
+
+.r-paciente .color-yellow, .r-paciente .color-hover-yellow:hover {
+    color: #000 !important;
+    background-color: #ffeb3b !important
+}
+
+.r-paciente .color-white, .r-paciente .color-hover-white:hover {
+    color: #000 !important;
+    background-color: #fff !important
+}
+
+.r-paciente .color-black, .r-paciente .color-hover-black:hover {
+    color: #fff !important;
+    background-color: #000 !important
+}
+
+.r-paciente .color-grey, .r-paciente .color-hover-grey:hover, .r-paciente .color-gray, .r-paciente .color-hover-gray:hover {
+    color: #000 !important;
+    background-color: #bbb !important
+}
+
+.r-paciente .color-grey-light, .r-paciente .color-hover-grey-light:hover, .r-paciente .color-gray-light, .r-paciente .color-hover-gray-light:hover {
+    color: #000 !important;
+    background-color: #f1f1f1 !important
+}
+
+.r-paciente .color-grey-light-medium, .r-paciente .color-hover-grey-light-medium:hover, .r-paciente .color-gray-light-medium, .r-paciente .color-hover-gray-light-medium:hover {
+    color: #000 !important;
+    background-color: #dddddd !important
+}
+
+.r-paciente .color-grey-dark-medium, .r-paciente .color-hover-grey-dark-medium:hover, .r-paciente .color-gray-dark-medium, .r-paciente .color-hover-gray-dark-medium:hover {
+    color: #fff !important;
+    background-color: #999999 !important
+}
+
+.r-paciente .color-grey-dark, .r-paciente .color-hover-grey-dark:hover, .r-paciente .color-gray-dark, .r-paciente .color-hover-gray-dark:hover {
+    color: #fff !important;
+    background-color: #777777 !important
+}
+
+.r-paciente .color-red-pale, .r-paciente .color-hover-red-pale:hover {
+    color: #000 !important;
+    background-color: #ffdddd !important
+}
+
+.r-paciente .color-green-pale, .r-paciente .color-hover-green-pale:hover {
+    color: #000 !important;
+    background-color: #ddffdd !important
+}
+
+.r-paciente .color-yellow-pale, .r-paciente .color-hover-yellow-pale:hover {
+    color: #000 !important;
+    background-color: #ffffcc !important
+}
+
+.r-paciente .color-blue-pale, .r-paciente .color-hover-blue-pale:hover {
+    color: #000 !important;
+    background-color: #ddffff !important
+}
+
+.r-paciente .color-text-red, .r-paciente .color-hover-text-red:hover {
+    color: #f44336 !important
+}
+
+.r-paciente .color-text-green, .r-paciente .color-hover-text-green:hover {
+    color: #4CAF50 !important
+}
+
+.r-paciente .color-text-blue, .r-paciente .color-hover-text-blue:hover {
+    color: #2196F3 !important
+}
+
+.r-paciente .color-text-yellow, .r-paciente .color-hover-text-yellow:hover {
+    color: #ffeb3b !important
+}
+
+.r-paciente .color-text-white, .r-paciente .color-hover-text-white:hover {
+    color: #fff !important
+}
+
+.r-paciente .color-text-black, .r-paciente .color-hover-text-black:hover {
+    color: #000 !important
+}
+
+.r-paciente .color-text-grey, .r-paciente .color-hover-text-grey:hover, .r-paciente .color-text-gray, .r-paciente .color-hover-text-gray:hover {
+    color: #999999 !important
+}
+
+.r-paciente .color-text-amber {
+    color: #ffc107 !important
+}
+
+.r-paciente .color-text-aqua {
+    color: #00ffff !important
+}
+
+.r-paciente .color-text-blue-light {
+    color: #87CEEB !important
+}
+
+.r-paciente .color-text-brown {
+    color: #795548 !important
+}
+
+.r-paciente .color-text-cyan {
+    color: #00bcd4 !important
+}
+
+.r-paciente .color-text-blue-grey, .r-paciente .color-text-blue-gray {
+    color: #607d8b !important
+}
+
+.r-paciente .color-text-green-light {
+    color: #8bc34a !important
+}
+
+.r-paciente .color-text-indigo {
+    color: #3f51b5 !important
+}
+
+.r-paciente .color-text-khaki {
+    color: #b4aa50 !important
+}
+
+.r-paciente .color-text-lime {
+    color: #cddc39 !important
+}
+
+.r-paciente .color-text-orange {
+    color: #ff9800 !important
+}
+
+.r-paciente .color-text-deep-orange {
+    color: #ff5722 !important
+}
+
+.r-paciente .color-text-pink {
+    color: #e91e63 !important
+}
+
+.r-paciente .color-text-purple {
+    color: #9c27b0 !important
+}
+
+.r-paciente .color-text-deep-purple {
+    color: #673ab7 !important
+}
+
+.r-paciente .color-text-sand {
+    color: #fdf5e6 !important
+}
+
+.r-paciente .color-text-teal {
+    color: #009688 !important
+}
+
+.r-paciente .color-text-grey-light, .r-paciente .color-hover-text-grey-light:hover, .r-paciente .color-text-gray-light, .r-paciente .color-hover-text-gray-light:hover {
+    color: #dddddd !important
+}
+
+.r-paciente .color-text-grey-light-medium, .r-paciente .color-hover-text-grey-light-medium:hover, .r-paciente .color-text-gray-light-medium, .r-paciente .color-hover-text-gray-light-medium:hover {
+    color: #c0c0c0 !important
+}
+
+.r-paciente .color-text-grey-dark-medium, .r-paciente .color-hover-text-grey-dark-medium:hover, .r-paciente .color-text-gray-dark-medium, .r-paciente .color-hover-text-gray-dark-medium:hover {
+    color: #999999 !important
+}
+
+.r-paciente .color-text-grey-dark, .r-paciente .color-hover-text-grey-dark:hover, .r-paciente .color-text-gray-dark, .r-paciente .color-hover-text-gray-dark:hover {
+    color: #777777 !important
+}
+
+.r-paciente .color-border-black, .r-paciente .border-theme, .r-paciente .color-border-blue, .r-paciente .color-border-gray, .r-paciente .color-border-green, .r-paciente .color-border-red, .r-paciente .color-border-grey, .r-paciente .color-border-yellow, .r-paciente .color-border-white {
+    border-width: 1px;
+    border-style: solid
+}
+
+.r-paciente .color-border-red, .r-paciente .color-hover-border-red:hover {
+    border-color: #f44336 !important
+}
+
+.r-paciente .color-border-green, .r-paciente .color-hover-border-green:hover {
+    border-color: #4CAF50 !important
+}
+
+.r-paciente .color-border-blue, .r-paciente .color-hover-border-blue:hover {
+    border-color: #2196F3 !important
+}
+
+.r-paciente .color-border-yellow, .r-paciente .color-hover-border-yellow:hover {
+    border-color: #ffeb3b !important
+}
+
+.r-paciente .color-border-white, .r-paciente .color-hover-border-white:hover {
+    border-color: #fff !important
+}
+
+.r-paciente .color-border-black, .r-paciente .color-hover-border-black:hover {
+    border-color: #000 !important
+}
+
+.r-paciente .color-border-grey, .r-paciente .color-hover-border-grey:hover, .r-paciente .color-border-gray, .r-paciente .color-hover-border-gray:hover {
+    border-color: #bbb !important
+}
+
+.r-paciente .color-greyscale-max, .r-paciente .color-grayscale-max, .r-paciente .color-hover-greyscale:hover, .r-paciente .color-hover-grayscale:hover {
+    filter: grayscale(100%)
+}
+
+.r-paciente .color-greyscale, .r-paciente .color-grayscale {
+    filter: grayscale(75%)
+}
+
+.r-paciente .color-greyscale-min, .r-paciente .color-grayscale-min {
+    filter: grayscale(50%)
+}
+
+.r-paciente .color-sepia-max, .r-paciente .color-hover-sepia:hover {
+    filter: sepia(100%)
+}
+
+.r-paciente .color-sepia {
+    filter: sepia(75%)
+}
+
+.r-paciente .color-sepia-min {
+    filter: sepia(50%)
+}
+
+.r-paciente .color-hover-greyscale-off:hover, .r-paciente .color-hover-sepia-off:hover {
+    filter: none
+}
+
+@media (max-width: 600px) {
+    .r-paciente .bar-item.mobile, .r-paciente .dropdown-click.mobile, .r-paciente .dropdown-hover.mobile, .r-paciente .navbar, .r-paciente .topnav {
+        text-align: center
+    }
+
+    .r-paciente .modal-content {
+        margin: 0 10px;
+        width: auto !important
+    }
+
+    .r-paciente .modal {
+        padding-top: 30px
+    }
+
+    .r-paciente .topnav a {
+        display: block
+    }
+
+    .r-paciente .navbar li:not(.opennav) {
+        float: none;
+        width: 100% !important
+    }
+
+    .r-paciente .navbar li.right {
+        float: none !important
+    }
+
+    .r-paciente .dropdown-click.mobile .dropdown-content, .r-paciente .dropdown-hover.mobile .dropdown-content, .r-paciente .navbar .dropdown-click .dropdown-content, .r-paciente .navbar .dropdown-hover .dropdown-content, .r-paciente .topnav .dropdown-hover .dropdown-content {
+        position: relative
+    }
+
+    .r-paciente .layout-col, .r-paciente .mobile {
+        display: block;
+        width: 100% !important
+    }
+
+    .r-paciente .dropdown-click.mobile, .r-paciente .dropdown-click.mobile .btn, .r-paciente .dropdown-click.mobile .button, .r-paciente .dropdown-hover.mobile, .r-paciente .dropdown-hover.mobile .btn, .r-paciente .dropdown-hover.mobile .button {
+        width: 100%
+    }
+
+    .r-paciente .s-margin {
+        margin: 16px !important
+    }
+
+    .r-paciente .s-margin-0 {
+        margin: 0 !important
+    }
+
+    .r-paciente .s-margin-top, .r-paciente .s-panel, .r-paciente .s-section {
+        margin-top: 16px !important
+    }
+
+    .r-paciente .s-margin-bottom, .r-paciente .s-panel, .r-paciente .s-section {
+        margin-bottom: 16px !important
+    }
+
+    .r-paciente .s-margin-left {
+        margin-left: 16px !important
+    }
+
+    .r-paciente .s-margin-right {
+        margin-right: 16px !important
+    }
+
+    .r-paciente .s-margin-small {
+        margin: 4px 8px !important
+    }
+
+    .r-paciente .s-margin-medium {
+        margin: 8px 16px !important
+    }
+
+    .r-paciente .s-margin-large {
+        margin: 12px 24px !important
+    }
+
+    .r-paciente .s-margin-xlarge {
+        margin: 16px 32px !important
+    }
+
+    .r-paciente .s-margin-xxlarge {
+        margin: 24px 48px !important
+    }
+
+    .r-paciente .s-margin-jumbo {
+        margin: 32px 64px !important
+    }
+
+    .r-paciente .s-padding-tiny {
+        padding: 2px 4px !important
+    }
+
+    .r-paciente .s-padding-small {
+        padding: 4px 8px !important
+    }
+
+    .r-paciente .s-form, .r-paciente .s-padding, .r-paciente .s-padding-medium {
+        padding: 8px 16px !important
+    }
+
+    .r-paciente .s-padding-large {
+        padding: 12px 24px !important
+    }
+
+    .r-paciente .s-padding-xlarge {
+        padding: 16px 32px !important
+    }
+
+    .r-paciente .s-padding-xxlarge {
+        padding: 24px 48px !important
+    }
+
+    .r-paciente .s-padding-jumbo {
+        padding: 32px 64px !important
+    }
+
+    .r-paciente .s-padding-4 {
+        padding-top: 4px !important;
+        padding-bottom: 4px !important
+    }
+
+    .r-paciente .s-padding-8 {
+        padding-top: 8px !important;
+        padding-bottom: 8px !important
+    }
+
+    .r-paciente .s-padding-12 {
+        padding-top: 12px !important;
+        padding-bottom: 12px !important
+    }
+
+    .r-paciente .s-padding-16 {
+        padding-top: 16px !important;
+        padding-bottom: 16px !important
+    }
+
+    .r-paciente .s-padding-24 {
+        padding-top: 24px !important;
+        padding-bottom: 24px !important
+    }
+
+    .r-paciente .s-padding-32 {
+        padding-top: 32px !important;
+        padding-bottom: 32px !important
+    }
+
+    .r-paciente .s-padding-48 {
+        padding-top: 48px !important;
+        padding-bottom: 48px !important
+    }
+
+    .r-paciente .s-padding-64 {
+        padding-top: 64px !important;
+        padding-bottom: 64px !important
+    }
+
+    .r-paciente .s-padding-128 {
+        padding-top: 128px !important;
+        padding-bottom: 128px !important
+    }
+
+    .r-paciente .s-padding-0 {
+        padding: 0 !important
+    }
+
+    .r-paciente .s-padding-top {
+        padding-top: 8px !important
+    }
+
+    .r-paciente .s-padding-bottom {
+        padding-bottom: 8px !important
+    }
+
+    .r-paciente .s-left {
+        float: left !important
+    }
+
+    .r-paciente .s-right {
+        float: right !important
+    }
+
+    .r-paciente .s-font-tiny {
+        font-size: 10px !important
+    }
+
+    .r-paciente .s-font-small {
+        font-size: 12px !important
+    }
+
+    .r-paciente .s-font-medium {
+        font-size: 15px !important
+    }
+
+    .r-paciente .s-font-large {
+        font-size: 18px !important
+    }
+
+    .r-paciente .s-font-xlarge {
+        font-size: 24px !important
+    }
+
+    .r-paciente .s-font-xxlarge {
+        font-size: 36px !important
+    }
+
+    .r-paciente .s-font-xxxlarge {
+        font-size: 48px !important
+    }
+
+    .r-paciente .s-font-jumbo {
+        font-size: 64px !important
+    }
+
+    .r-paciente .s-padding-left-0 {
+        padding-left: 0 !important
+    }
+
+    .r-paciente .s-padding-left-4 {
+        padding-left: 4px !important
+    }
+
+    .r-paciente .s-padding-left-8 {
+        padding-left: 8px !important
+    }
+
+    .r-paciente .s-padding-left-12 {
+        padding-left: 12px !important
+    }
+
+    .r-paciente .s-padding-left-16, .r-paciente .s-padding-left {
+        padding-left: 16px !important
+    }
+
+    .r-paciente .s-padding-left-24 {
+        padding-left: 24px !important
+    }
+
+    .r-paciente .s-padding-left-32 {
+        padding-left: 32px !important
+    }
+
+    .r-paciente .s-padding-left-48 {
+        padding-left: 48px !important
+    }
+
+    .r-paciente .s-padding-left-64 {
+        padding-left: 64px !important
+    }
+
+    .r-paciente .s-padding-left-128 {
+        padding-left: 128px !important
+    }
+
+    .r-paciente .s-padding-right-0 {
+        padding-right: 0 !important
+    }
+
+    .r-paciente .s-padding-right-4 {
+        padding-right: 4px !important
+    }
+
+    .r-paciente .s-padding-right-8 {
+        padding-right: 8px !important
+    }
+
+    .r-paciente .s-padding-right-12 {
+        padding-right: 12px !important
+    }
+
+    .r-paciente .s-padding-right-16, .r-paciente .s-padding-right {
+        padding-right: 16px !important
+    }
+
+    .r-paciente .s-padding-right-24 {
+        padding-right: 24px !important
+    }
+
+    .r-paciente .s-padding-right-32 {
+        padding-right: 32px !important
+    }
+
+    .r-paciente .s-padding-right-48 {
+        padding-right: 48px !important
+    }
+
+    .r-paciente .s-padding-right-64 {
+        padding-right: 64px !important
+    }
+
+    .r-paciente .s-padding-right-128 {
+        padding-right: 128px !important
+    }
+
+    .r-paciente .s-display-bottomleft, .r-paciente .s-display-bottommiddle, .r-paciente .s-display-bottomright, .r-paciente .s-display-middle, .r-paciente .s-display-right, .r-paciente .s-display-left, .r-paciente .s-display-topleft, .r-paciente .s-display-topmiddle, .r-paciente .s-display-topright {
+        left: initial;
+        top: initial;
+        bottom: initial;
+        right: initial
+    }
+
+    .r-paciente .s-display-left, .r-paciente .s-display-middle, .r-paciente .s-display-right {
+        top: 50%
+    }
+
+    .r-paciente .s-display-middle {
+        transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%)
+    }
+
+    .r-paciente .s-display-right, .r-paciente .s-display-left {
+        transform: translate(0, -50%);
+        -ms-transform: translate(0, -50%)
+    }
+
+    .r-paciente .s-display-topmiddle, .r-paciente .s-display-bottommiddle, .r-paciente .s-display-middle {
+        left: 50%
+    }
+
+    .r-paciente .s-display-topmiddle, .r-paciente .s-display-bottommiddle {
+        transform: translate(-50%, 0);
+        -ms-transform: translate(-50%, 0)
+    }
+
+    .r-paciente .s-display-topleft {
+        left: 0;
+        top: 0
+    }
+
+    .r-paciente .s-display-topright {
+        right: 0;
+        top: 0
+    }
+
+    .r-paciente .s-display-bottomleft {
+        left: 0;
+        bottom: 0
+    }
+
+    .r-paciente .s-display-bottomright {
+        right: 0;
+        bottom: 0
+    }
+
+    .r-paciente .s-display-left {
+        left: 0
+    }
+
+    .r-paciente .s-display-right {
+        right: 0
+    }
+
+    .r-paciente .s-display-topmiddle {
+        top: 0
+    }
+
+    .r-paciente .s-display-bottommiddle {
+        bottom: 0
+    }
+
+    .r-paciente .s-align-left {
+        text-align: left !important
+    }
+
+    .r-paciente .s-align-right {
+        text-align: right !important
+    }
+
+    .r-paciente .s-align-justify {
+        text-align: justify !important
+    }
+
+    .r-paciente .s-align-center {
+        text-align: center !important
+    }
+}
+
+@media (max-width: 768px) {
+    .r-paciente .modal-content {
+        width: 500px
+    }
+
+    .r-paciente .modal {
+        padding-top: 50px
+    }
+}
+
+@media (max-width: 992px) {
+    .r-paciente .sidebar.collapse, .r-paciente .sidenav.collapse {
+        display: none
+    }
+
+    .r-paciente .main {
+        margin-left: 0 !important;
+        margin-right: 0 !important
+    }
+}
+
+@media (min-width: 601px) {
+    .r-paciente .container, .r-paciente .example, .r-paciente .panel {
+        padding: .01em 16px
+    }
+
+    .r-paciente .col.m1 {
+        width: 8.33333%
+    }
+
+    .r-paciente .col.m2 {
+        width: 16.66666%
+    }
+
+    .r-paciente .col.m3, .r-paciente .quarter {
+        width: 24.99999%
+    }
+
+    .r-paciente .col.m4, .r-paciente .third {
+        width: 33.33333%
+    }
+
+    .r-paciente .col.m5 {
+        width: 41.66666%
+    }
+
+    .r-paciente .col.m6, .r-paciente .half {
+        width: 49.99999%
+    }
+
+    .r-paciente .col.m7 {
+        width: 58.33333%
+    }
+
+    .r-paciente .col.m8, .r-paciente .twothird {
+        width: 66.66666%
+    }
+
+    .r-paciente .col.m9, .r-paciente .threequarter {
+        width: 74.99999%
+    }
+
+    .r-paciente .col.m10 {
+        width: 83.33333%
+    }
+
+    .r-paciente .col.m11 {
+        width: 91.66666%
+    }
+
+    .r-paciente .col.m12 {
+        width: 99.99999%
+    }
+}
+
+@media (min-width: 993px) {
+    .r-paciente .col.l1 {
+        width: 8.33333%
+    }
+
+    .r-paciente .col.l2 {
+        width: 16.66666%
+    }
+
+    .r-paciente .col.l3, .r-paciente .quarter {
+        width: 24.99999%
+    }
+
+    .r-paciente .col.l4, .r-paciente .third {
+        width: 33.33333%
+    }
+
+    .r-paciente .col.l5 {
+        width: 41.66666%
+    }
+
+    .r-paciente .col.l6, .r-paciente .half {
+        width: 49.99999%
+    }
+
+    .r-paciente .col.l7 {
+        width: 58.33333%
+    }
+
+    .r-paciente .col.l8, .r-paciente .twothird {
+        width: 66.66666%
+    }
+
+    .r-paciente .col.l9, .r-paciente .threequarter {
+        width: 74.99999%
+    }
+
+    .r-paciente .col.l10 {
+        width: 83.33333%
+    }
+
+    .r-paciente .col.l11 {
+        width: 91.66666%
+    }
+
+    .r-paciente .col.l12 {
+        width: 99.99999%
+    }
+}
+
+@media (min-width: 993px) {
+    .r-paciente .modal-content {
+        width: 900px
+    }
+
+    .r-paciente .sidebar.collapse, .r-paciente .sidenav.collapse {
+        display: block !important
+    }
+
+    .r-paciente .loaderDashboard {
+        left: 58%;
+        top: 35%
+    }
+}
+
+.r-paciente .grafico-header {
+    text-transform: capitalize;
+    color: #1C9CCA;
+    margin-right: 20px
+}
+
+.r-paciente .img-proporcion {
+    height: 30px;
+    overflow: hidden
+}
+
+.r-paciente .img-proporcionimg {
+    max-height: 100%;
+    max-width: 100%;
+    width: auto;
+    margin: 0 auto;
+    float: initial;
+    display: block
+}
+
+.r-paciente #linevertical {
+    position: absolute;
+    left: 8px;
+    top: 0;
+    z-index: 1;
+    width: 4px;
+    background: rgba(195, 195, 195, .2);
+    height: 100%
+}
+
+.r-paciente #linevertical.active {
+    background: transparent
+}
+
+.r-paciente #linevertical:before {
+    content: "";
+    width: 0;
+    position: absolute;
+    top: 0;
+    height: 0;
+    z-index: 10;
+    left: -8px;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-top: 10px solid #bbb;
+    display: inline-block
+}
+
+.r-paciente .sub-header {
+    text-transform: capitalize;
+    margin-right: 20px
+}
+
+.r-paciente .grafico-box-parent {
+    overflow-x: auto;
+    overflow-y: hidden
+}
+
+.r-paciente .grafico-box {
+    padding-right: 40px;
+    padding-left: 18px
+}
+
+.r-paciente .grafico-box::-webkit-scrollbar {
+    height: 10px !important
+}
+
+.r-paciente .graficoArrow {
+    position: absolute;
+    top: 22%
+}
+
+.r-paciente .graficoArrowBack {
+    left: -50px
+}
+
+.r-paciente .graficoArrowforward {
+    right: -40px
+}
+
+.r-paciente .paciente-box {
+    box-shadow: 3px 3px 9px 0 #0000006b
+}
+
+.r-paciente .indicador {
+    position: relative
+}
+
+.r-paciente .indicador i {
+    opacity: 0;
+    position: absolute;
+    right: 0;
+    top: 15px;
+    border-radius: 50%;
+    background: #9CDA52;
+    color: #fff;
+    border: solid 4px #fff;
+    font-size: 18px;
+    font-weight: 700;
+    transition: all ease .15s
+}
+
+.r-paciente .indicador.active i {
+    opacity: 1
+}
+
+.r-paciente #periodo-graficos {
+    transform: scale(.9);
+    width: 125%;
+    margin-left: -12.5%
+}
+
+.r-paciente .info-spinner {
+    padding-left: 96px;
+    width: 200px;
+    position: absolute;
+    left: 25%;
+    top: 70px
+}
+
+.r-paciente .message-spinner {
+    position: absolute;
+    right: 7%;
+    top: 80px
+}
+
+@keyframes rotateBad {
+    from {
+        transform: rotate(230deg)
+    }
+    to {
+        transform: rotate(310deg)
+    }
+}
+
+@keyframes rotateNormal {
+    from {
+        transform: rotate(280deg)
+    }
+    to {
+        transform: rotate(360deg)
+    }
+}
+
+@keyframes rotateGood {
+    from {
+        transform: rotate(320deg)
+    }
+    to {
+        transform: rotate(400deg)
+    }
+}
+
+.r-paciente .spinner {
+    border-radius: 50%;
+    height: 200px;
+    width: 200px;
+    position: absolute;
+    top: 0;
+    left: 30%;
+    z-index: 0
+}
+
+.r-paciente .spinner:before, .r-paciente .spinner:after {
+    content: '';
+    position: absolute
+}
+
+.r-paciente .spinner:before {
+    border-radius: 50%;
+    background: linear-gradient(0deg, hsla(0, 0%, 100%, 1) 50%, hsla(0, 0%, 100%, .9) 100%) 0% 0%, linear-gradient(90deg, hsla(0, 0%, 100%, .9) 0%, hsla(0, 0%, 100%, .6) 100%) 100% 0%, linear-gradient(180deg, hsla(0, 0%, 100%, .6) 0%, hsla(0, 0%, 100%, .3) 100%) 100% 100%, linear-gradient(360deg, hsla(0, 0%, 100%, .3) 0%, hsla(0, 0%, 100%, 0) 100%) 0% 100%;
+    background-repeat: no-repeat;
+    background-size: 50% 50%;
+    top: -1px;
+    bottom: -1px;
+    left: -1px;
+    right: -1px
+}
+
+.r-paciente .spinner:after {
+    background: #fff;
+    border-radius: 50%;
+    top: 6%;
+    bottom: 6%;
+    left: 6%;
+    right: 6%
+}
+
+@media (min-width: 663px) {
+    .r-paciente #periodo-graficos {
+        transform: none;
+        width: 100%;
+        margin-left: 0
+    }
+}
+
+@media (min-width: 990px) and (max-width: 1300px) {
+    .r-paciente .l4 {
+        width: 41.66666% !important
+    }
+
+    .r-paciente .l8 {
+        width: 58.33333% !important
+    }
+}

@@ -1,0 +1,3131 @@
+.r-cadastro-2 ﻿progress, .r-cadastro-2 sub, .r-cadastro-2 sup {
+    vertical-align: baseline
+}
+
+.r-cadastro-2 a, .r-cadastro-2 legend {
+    color: inherit
+}
+
+.r-cadastro-2 legend {
+    padding: 0 8px
+}
+
+.r-cadastro-2 legend .material-icons {
+    padding-right: 8px;
+    float: left
+}
+
+.r-cadastro-2 legend .switch {
+    margin-bottom: 0 !important
+}
+
+.r-cadastro-2 button, .r-cadastro-2 hr, .r-cadastro-2 input, .r-cadastro-2 .overflow-visible {
+    overflow: visible
+}
+
+.r-cadastro-2 [type=checkbox], .r-cadastro-2 [type=radio], .r-cadastro-2 ul {
+    padding: 0
+}
+
+.r-cadastro-2 .image, .r-cadastro-2 legend {
+    max-width: 100%
+}
+
+.r-cadastro-2 .btn, .r-cadastro-2 .btn-large, .r-cadastro-2 .btn-small, .r-cadastro-2 .btn-floating, .r-cadastro-2 .btn-flat, .r-cadastro-2 .btn-block, .r-cadastro-2 .btn-floating-large, .r-cadastro-2 .btn-group, .r-cadastro-2 .navbar li {
+    float: left;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none
+}
+
+.r-cadastro-2 .bar-block .dropdown-click .dropdown-content, .r-cadastro-2 .bar-block .dropdown-hover .dropdown-content, .r-cadastro-2 .navblock .dropdown-click .dropdown-content, .r-cadastro-2 .navblock .dropdown-hover .dropdown-content, .r-cadastro-2 .sidenav .dropdown-click .dropdown-content, .r-cadastro-2 .sidenav .dropdown-hover .dropdown-content {
+    min-width: 100%
+}
+
+.r-cadastro-2 .hover-opacity:hover, .r-cadastro-2 .opacity, .r-cadastro-2 .opacity-max, .r-cadastro-2 .opacity-min {
+    -webkit-backface-visibility: hidden
+}
+
+.r-cadastro-2 article, .r-cadastro-2 aside, .r-cadastro-2 details, .r-cadastro-2 figcaption, .r-cadastro-2 figure, .r-cadastro-2 footer, .r-cadastro-2 header, .r-cadastro-2 main, .r-cadastro-2 menu, .r-cadastro-2 nav, .r-cadastro-2 section, .r-cadastro-2 summary {
+    display: block
+}
+
+.r-cadastro-2 audio, .r-cadastro-2 canvas, .r-cadastro-2 progress, .r-cadastro-2 video {
+    display: inline-block
+}
+
+.r-cadastro-2 audio:not([controls]) {
+    display: none;
+    height: 0
+}
+
+.r-cadastro-2 [hidden], .r-cadastro-2 template {
+    display: none
+}
+
+.r-cadastro-2 a {
+    background-color: transparent;
+    text-decoration: none;
+    -webkit-text-decoration-skip: objects
+}
+
+.r-cadastro-2 a:active, .r-cadastro-2 a:hover {
+    outline-width: 0
+}
+
+.r-cadastro-2 abbr[title] {
+    border-bottom: none;
+    text-decoration: underline;
+    text-decoration: underline dotted
+}
+
+.r-cadastro-2 .accordion-content a, .r-cadastro-2 .btn, .r-cadastro-2 .btn-block, .r-cadastro-2 .button, .r-cadastro-2 .dropdown-content a, .r-cadastro-2 .dropnav a, .r-cadastro-2 .navbar a, .r-cadastro-2 .navblock a, .r-cadastro-2 .sidenav a, .r-cadastro-2 .topnav a {
+    text-decoration: none !important
+}
+
+.r-cadastro-2 dfn {
+    font-style: italic
+}
+
+.r-cadastro-2 mark {
+    background: #ff0;
+    color: #000
+}
+
+.r-cadastro-2 small {
+    font-size: 80%
+}
+
+.r-cadastro-2 sub, .r-cadastro-2 sup {
+    font-size: 75%;
+    line-height: 0;
+    position: relative
+}
+
+.r-cadastro-2 sub {
+    bottom: -.25em
+}
+
+.r-cadastro-2 sup {
+    top: -.5em
+}
+
+.r-cadastro-2 figure {
+    margin: 1em 40px
+}
+
+.r-cadastro-2 img {
+    border-style: none;
+    margin-bottom: -5px
+}
+
+.r-cadastro-2 .overflow-hidden, .r-cadastro-2 svg:not(:root) {
+    overflow: hidden
+}
+
+.r-cadastro-2 code, .r-cadastro-2 kbd, .r-cadastro-2 pre, .r-cadastro-2 samp {
+    font-family: monospace, monospace;
+    font-size: 1em
+}
+
+.r-cadastro-2 button, .r-cadastro-2 input, .r-cadastro-2 select, .r-cadastro-2 textarea {
+    font: inherit;
+    margin: 0
+}
+
+.r-cadastro-2 optgroup, .r-cadastro-2 .font-bold {
+    font-weight: 700
+}
+
+.r-cadastro-2 button, .r-cadastro-2 select {
+    text-transform: none
+}
+
+.r-cadastro-2 [type=reset], .r-cadastro-2 [type=submit], .r-cadastro-2 button, .r-cadastro-2 [type=button] {
+    -webkit-appearance: button;
+    border: none;
+    outline: 0;
+    transition-duration: .25s;
+    cursor: pointer;
+    padding: 5px 10px;
+    position: relative;
+    overflow: hidden;
+    -webkit-box-shadow: 2px 2px 7px -3px rgba(61, 61, 61, 1);
+    -moz-box-shadow: 2px 2px 7px -3px rgba(61, 61, 61, 1);
+    box-shadow: 2px 2px 7px -3px rgba(61, 61, 61, 1)
+}
+
+.r-cadastro-2 [type=reset]:active, .r-cadastro-2 [type=submit]:active, .r-cadastro-2 button:active, .r-cadastro-2 [type=button]:active {
+    -webkit-box-shadow: 2px 2px 15px -2px rgba(51, 51, 51, 1);
+    -moz-box-shadow: 2px 2px 15px -2px rgba(51, 51, 51, 1);
+    box-shadow: 2px 2px 15px -2px rgba(51, 51, 51, 1)
+}
+
+.r-cadastro-2 button:after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 5px;
+    height: 5px;
+    background: rgba(255, 255, 255, .5);
+    opacity: 0;
+    border-radius: 100%;
+    transform: scale(1, 1) translate(-50%);
+    transform-origin: 50% 50%
+}
+
+.r-cadastro-2 button:focus:not(:active)::after {
+    animation: ripple .4s ease-in-out
+}
+
+.r-cadastro-2 fieldset {
+    border: 1px solid silver;
+    margin: 0 2px;
+    padding: .35em .625em .75em
+}
+
+.r-cadastro-2 legend {
+    display: table;
+    white-space: normal
+}
+
+.r-cadastro-2 textarea {
+    overflow: auto
+}
+
+.r-cadastro-2 [type=number]::-webkit-inner-spin-button, .r-cadastro-2 [type=number]::-webkit-outer-spin-button {
+    height: auto
+}
+
+.r-cadastro-2 [type=search] {
+    -webkit-appearance: textfield;
+    outline-offset: -2px
+}
+
+.r-cadastro-2 [type=search]::-webkit-search-cancel-button, .r-cadastro-2 [type=search]::-webkit-search-decoration {
+    -webkit-appearance: none
+}
+
+.r-cadastro-2 ::-webkit-input-placeholder {
+    color: inherit;
+    opacity: .54
+}
+
+.r-cadastro-2 ::-webkit-file-upload-button {
+    -webkit-appearance: button;
+    font: inherit
+}
+
+.r-cadastro-2, .r-cadastro-2 {
+    font-family: Roboto, Verdana, sans-serif;
+    font-size: 15px;
+    line-height: 1.5
+}
+
+.r-cadastro-2 h1 {
+    font-size: 36px
+}
+
+.r-cadastro-2 h2 {
+    font-size: 30px
+}
+
+.r-cadastro-2 h3 {
+    font-size: 24px
+}
+
+.r-cadastro-2 h4 {
+    font-size: 20px
+}
+
+.r-cadastro-2 h5 {
+    font-size: 18px
+}
+
+.r-cadastro-2 h6 {
+    font-size: 16px
+}
+
+.r-cadastro-2 input[type=checkbox] {
+    position: relative;
+    top: -.775rem;
+    margin: 20px 1rem 15px 8px;
+    cursor: pointer;
+    height: 0
+}
+
+.r-cadastro-2 input[type=checkbox]:before {
+    -webkit-transition: all 0.25s ease-in-out;
+    -moz-transition: all 0.25s ease-in-out;
+    transition: all 0.25s ease-in-out;
+    content: "";
+    position: absolute;
+    left: 0;
+    z-index: 1;
+    width: 1.2rem;
+    height: 1.2rem;
+    border: 2px solid #ddd
+}
+
+.r-cadastro-2 input[type=checkbox]:checked:before {
+    -webkit-transform: rotate(-45deg);
+    -moz-transform: rotate(-45deg);
+    -ms-transform: rotate(-45deg);
+    -o-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+    height: .5rem;
+    border-color: #009688;
+    border-top-style: none;
+    border-right-style: none
+}
+
+.r-cadastro-2 input[type=checkbox]:after {
+    content: "";
+    position: absolute;
+    top: -.125rem;
+    left: 0;
+    width: 1.1rem;
+    height: 1.1rem;
+    background: transparent;
+    cursor: pointer
+}
+
+.r-cadastro-2 .serif {
+    font-family: "Times New Roman", Times, serif
+}
+
+.r-cadastro-2 h1, .r-cadastro-2 h2, .r-cadastro-2 h3, .r-cadastro-2 h4, .r-cadastro-2 h5, .r-cadastro-2 h6 {
+    font-weight: 400;
+    padding: 20px 0;
+    margin: 0
+}
+
+.r-cadastro-2 .wide {
+    letter-spacing: 4px
+}
+
+.r-cadastro-2 h1 a, .r-cadastro-2 h2 a, .r-cadastro-2 h3 a, .r-cadastro-2 h4 a, .r-cadastro-2 h5 a, .r-cadastro-2 h6 a {
+    font-weight: inherit
+}
+
+.r-cadastro-2 hr {
+    box-sizing: content-box;
+    height: 0;
+    border: 0;
+    border-top: 1px solid #eee;
+    margin: 20px 0
+}
+
+.r-cadastro-2 ul {
+    margin: 0
+}
+
+.r-cadastro-2 ul li {
+    padding: 5px 0 5px 10px
+}
+
+.r-cadastro-2 input[type=date], .r-cadastro-2 input[type=datetime-local] {
+    padding-bottom: 2px
+}
+
+.r-cadastro-2 input:not(:valid) ~ .validate {
+    color: #f44336
+}
+
+.r-cadastro-2 label span.col, .r-cadastro-2 select option[disabled] {
+    color: #888
+}
+
+.r-cadastro-2 .switch, .r-cadastro-2 input, .r-cadastro-2 select, .r-cadastro-2 textarea {
+    margin-bottom: 20px
+}
+
+.r-cadastro-2 label span.col {
+    font-size: .7em
+}
+
+.r-cadastro-2 select {
+    padding: 9px 0 5px;
+    width: 100%;
+    color: #000;
+    border: 1px solid transparent;
+    border-bottom: 1px solid #009688;
+    outline: 0
+}
+
+.r-cadastro-2 select select:focus {
+    color: #000;
+    border: 1px solid #009688
+}
+
+.r-cadastro-2 .display-container, .r-cadastro-2 .relative, .r-cadastro-2 .tooltip {
+    position: relative
+}
+
+.r-cadastro-2 .z-depth-0 {
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none
+}
+
+.r-cadastro-2 .btn, .r-cadastro-2 .btn-floating, .r-cadastro-2 .btn-floating-large, .r-cadastro-2 .btn-large, .r-cadastro-2 .btn-small, .r-cadastro-2 .z-depth-2 {
+    -webkit-box-shadow: 2px 2px 5px -3px rgba(61, 61, 61, 1);
+    -moz-box-shadow: 2px 2px 5px -3px rgba(61, 61, 61, 1);
+    box-shadow: 2px 2px 5px -3px rgba(61, 61, 61, 1)
+}
+
+.r-cadastro-2 .z-depth-4 {
+    -webkit-box-shadow: 4px 4px 9px -2px rgba(61, 61, 61, .6);
+    -moz-box-shadow: 4px 4px 9px -2px rgba(61, 61, 61, .6);
+    box-shadow: 4px 4px 9px -2px rgba(61, 61, 61, .6)
+}
+
+.r-cadastro-2 .btn-bar .btn, .r-cadastro-2 .btn-large.disabled:hover, .r-cadastro-2 .btn-small.disabled:hover, .r-cadastro-2 .btn-floating-large.disabled:hover, .r-cadastro-2 .btn-floating-large:disabled:hover, .r-cadastro-2 .btn-floating.disabled:hover, .r-cadastro-2 .btn-floating:disabled:hover, .r-cadastro-2 .btn.disabled:hover, .r-cadastro-2 .btn:disabled:hover {
+    box-shadow: none
+}
+
+.r-cadastro-2 .image {
+    height: auto
+}
+
+.r-cadastro-2 .table, .r-cadastro-2 .table-all {
+    border-collapse: collapse;
+    border-spacing: 0;
+    width: 100%;
+    display: table
+}
+
+.r-cadastro-2 .no-select {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none
+}
+
+.r-cadastro-2 .table-all {
+    border: 1px solid #ccc
+}
+
+.r-cadastro-2 .bordered tr, .r-cadastro-2 .table-all tr {
+    border-bottom: 1px solid #ddd
+}
+
+.r-cadastro-2 .striped tbody tr:nth-child(even) {
+    background-color: #f1f1f1
+}
+
+.r-cadastro-2 .table-all tr:nth-child(odd) {
+    background-color: #fff
+}
+
+.r-cadastro-2 .table-all tr:nth-child(even) {
+    background-color: #f1f1f1
+}
+
+.r-cadastro-2 .hoverable tbody tr:hover, .r-cadastro-2 .ul.hoverable li:hover {
+    background-color: #ccc
+}
+
+.r-cadastro-2 .centered tr td, .r-cadastro-2 .centered tr th {
+    text-align: center
+}
+
+.r-cadastro-2 .table td, .r-cadastro-2 .table th, .r-cadastro-2 .table-all td, .r-cadastro-2 .table-all th {
+    padding: 8px;
+    display: table-cell;
+    text-align: left;
+    vertical-align: top
+}
+
+.r-cadastro-2 .badge, .r-cadastro-2 .btn, .r-cadastro-2 .btn-block, .r-cadastro-2 .btn-floating, .r-cadastro-2 .btn-floating-large, .r-cadastro-2 .button, .r-cadastro-2 .sign, .r-cadastro-2 .tag {
+    display: inline-block;
+    text-align: center
+}
+
+.r-cadastro-2 .table td:first-child, .r-cadastro-2 .table th:first-child, .r-cadastro-2 .table-all td:first-child, .r-cadastro-2 .table-all th:first-child {
+    padding-left: 16px
+}
+
+.r-cadastro-2 .btn, .r-cadastro-2 .btn-block, .r-cadastro-2 .button {
+    border: none;
+    outline: 0;
+    padding: 6px 16px;
+    vertical-align: middle;
+    overflow: hidden;
+    color: #fff;
+    background-color: #000;
+    cursor: pointer;
+    white-space: nowrap
+}
+
+.r-cadastro-2 .button {
+    color: #000;
+    background-color: #f1f1f1;
+    padding: 8px 16px
+}
+
+.r-cadastro-2 .button:hover {
+    color: #000;
+    background-color: #ccc
+}
+
+.r-cadastro-2 .btn, .r-cadastro-2 .btn-block, .r-cadastro-2 .btn-floating, .r-cadastro-2 .btn-floating-large, .r-cadastro-2 .button, .r-cadastro-2 .closenav, .r-cadastro-2 .opennav {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    margin-right: 10px
+}
+
+.r-cadastro-2 .navbar, .r-cadastro-2 ul.ul {
+    list-style-type: none;
+    margin: 0
+}
+
+.r-cadastro-2 .btn-floating, .r-cadastro-2 .btn-floating-large {
+    color: #fff;
+    background-color: #000;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    padding: 0;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 24px
+}
+
+.r-cadastro-2 .btn-floating {
+    width: 40px;
+    height: 40px;
+    line-height: 40px
+}
+
+.r-cadastro-2 .btn-floating-large {
+    width: 56px;
+    height: 56px;
+    line-height: 56px
+}
+
+.r-cadastro-2 .btn-block, .r-cadastro-2 .navblock .dropdown-click, .r-cadastro-2 .navblock .dropdown-hover {
+    width: 100%
+}
+
+.r-cadastro-2 .btn-floating-large:disabled, .r-cadastro-2 .btn-floating:disabled, .r-cadastro-2 .btn:disabled, .r-cadastro-2 .button:disabled, .r-cadastro-2 .disabled {
+    cursor: not-allowed;
+    opacity: .6
+}
+
+.r-cadastro-2 .disabled *, .r-cadastro-2 :disabled * {
+    pointer-events: none
+}
+
+.r-cadastro-2 .btn-floating .material-icons {
+    padding: 8px
+}
+
+.r-cadastro-2 .btn-bar .btn {
+    background-color: inherit;
+    color: inherit;
+    float: left
+}
+
+.r-cadastro-2 .btn-bar .btn:hover {
+    background-color: #ccc
+}
+
+.r-cadastro-2 .badge, .r-cadastro-2 .sign, .r-cadastro-2 .tag {
+    background-color: #000;
+    color: #fff;
+    padding-left: 8px;
+    padding-right: 8px
+}
+
+.r-cadastro-2 .navbar .dropdown-click:hover, .r-cadastro-2 .navbar .dropdown-hover:first-child, .r-cadastro-2 .navbar .dropdown-hover:hover, .r-cadastro-2 .navbar li a:hover, .r-cadastro-2 .navblock .dropdown-click:hover, .r-cadastro-2 .navblock .dropdown-hover:first-child, .r-cadastro-2 .navblock .dropdown-hover:hover {
+    background-color: #ccc;
+    color: #000
+}
+
+.r-cadastro-2 .badge {
+    border-radius: 50%
+}
+
+.r-cadastro-2 ul.ul {
+    padding: 0
+}
+
+.r-cadastro-2 ul.ul li {
+    padding: 6px 2px 6px 16px;
+    border-bottom: 1px solid #ddd
+}
+
+.r-cadastro-2 ul.ul li:last-child {
+    border-bottom: none
+}
+
+.r-cadastro-2 .tooltip .text {
+    display: none
+}
+
+.r-cadastro-2 .tooltip:hover .text {
+    display: inline-block
+}
+
+.r-cadastro-2 .navbar {
+    padding: 0;
+    overflow: hidden
+}
+
+.r-cadastro-2 .modal, .r-cadastro-2 .sidebar, .r-cadastro-2 .sidenav {
+    height: 100%;
+    overflow: auto
+}
+
+.r-cadastro-2 .navbar li .btn, .r-cadastro-2 .navbar li a, .r-cadastro-2 .navbar li input, .r-cadastro-2 .navitem {
+    display: block;
+    padding: 8px 16px
+}
+
+.r-cadastro-2 .navbar li .btn, .r-cadastro-2 .navbar li input {
+    border: none;
+    outline: 0;
+    width: 100%
+}
+
+.r-cadastro-2 .navbar .dropdown-click, .r-cadastro-2 .navbar .dropdown-hover {
+    position: static
+}
+
+.r-cadastro-2 .navbar .opennav.right {
+    float: right !important
+}
+
+.r-cadastro-2 .topnav {
+    padding: 8px
+}
+
+.r-cadastro-2 .topnav a {
+    padding: 0 8px;
+    border-bottom: 3px solid transparent;
+    -webkit-transition: border-bottom .25s;
+    transition: border-bottom .25s
+}
+
+.r-cadastro-2 .topnav a:hover {
+    border-bottom: 3px solid #fff
+}
+
+.r-cadastro-2 .topnav .dropdown-hover a {
+    border-bottom: 0
+}
+
+.r-cadastro-2 .closenav, .r-cadastro-2 .opennav {
+    color: inherit
+}
+
+.r-cadastro-2 .closenav:hover, .r-cadastro-2 .opennav:hover {
+    cursor: pointer;
+    opacity: .8
+}
+
+.r-cadastro-2 .accordion-content a, .r-cadastro-2 .btn, .r-cadastro-2 .btn-block, .r-cadastro-2 .btn-floating, .r-cadastro-2 .btn-floating-large, .r-cadastro-2 .closebtn, .r-cadastro-2 .closenav, .r-cadastro-2 .dropdown-click:hover, .r-cadastro-2 .dropdown-content a, .r-cadastro-2 .dropdown-hover:hover, .r-cadastro-2 .dropnav a, .r-cadastro-2 .hoverable li, .r-cadastro-2 .hoverable tbody tr, .r-cadastro-2 .navbar a, .r-cadastro-2 .navblock a, .r-cadastro-2 .opennav, .r-cadastro-2 .sidenav a, .r-cadastro-2 [class*=hover-] {
+    transition: ease .25s
+}
+
+.r-cadastro-2 .ripple:active {
+    opacity: .5
+}
+
+.r-cadastro-2 .ripple, .r-cadastro-2 .transition-none {
+    -webkit-transition: opacity 0s;
+    transition: opacity 0s
+}
+
+.r-cadastro-2 .sidebar, .r-cadastro-2 .sidenav {
+    width: 200px;
+    background-color: #fff;
+    position: fixed !important;
+    z-index: 200
+}
+
+.r-cadastro-2 .bar-block .dropdown-click, .r-cadastro-2 .bar-block .dropdown-hover, .r-cadastro-2 .modal, .r-cadastro-2 .sidenav .dropdown-click, .r-cadastro-2 .sidenav .dropdown-hover {
+    width: 100%
+}
+
+.r-cadastro-2 .dropnav a:hover, .r-cadastro-2 .navblock a:hover, .r-cadastro-2 .sidenav .dropdown-click:hover, .r-cadastro-2 .sidenav .dropdown-hover:first-child, .r-cadastro-2 .sidenav .dropdown-hover:hover, .r-cadastro-2 .sidenav a:hover {
+    background-color: #ccc;
+    color: #000
+}
+
+.r-cadastro-2 .navblock a, .r-cadastro-2 .sidenav a {
+    padding: 4px 2px 4px 16px
+}
+
+.r-cadastro-2 .dropnav a, .r-cadastro-2 .navblock a, .r-cadastro-2 .sidenav a {
+    display: block
+}
+
+.r-cadastro-2 .bar-block .dropdown-click .button, .r-cadastro-2 .bar-block .dropdown-hover .button {
+    width: 100%;
+    text-align: left;
+    background-color: inherit;
+    color: inherit;
+    padding: 6px 2px 6px 16px
+}
+
+.r-cadastro-2 .bar .button.active {
+    background: #009688;
+    color: #FFF;
+    opacity: 1 !important
+}
+
+.r-cadastro-2 .bar .button.active:hover {
+    color: #FFF;
+    background: #11A799
+}
+
+.r-cadastro-2 .group, .r-cadastro-2 .input-group {
+    margin-top: 24px;
+    margin-bottom: 24px
+}
+
+.r-cadastro-2 .dropdown-click, .r-cadastro-2 .dropdown-hover {
+    position: relative;
+    display: inline-block;
+    cursor: pointer
+}
+
+.r-cadastro-2 .dropdown-hover:hover .dropdown-content {
+    display: block;
+    z-index: 1
+}
+
+.r-cadastro-2 .dropdown-click:hover, .r-cadastro-2 .dropdown-click:hover > .button:first-child, .r-cadastro-2 .dropdown-hover:first-child, .r-cadastro-2 .dropdown-hover:hover > .button:first-child {
+    background-color: #ccc;
+    color: #000
+}
+
+.r-cadastro-2 .dropdown-content {
+    cursor: auto;
+    color: #000;
+    background-color: #fff;
+    display: none;
+    position: absolute;
+    min-width: 160px;
+    margin: 0;
+    padding: 0
+}
+
+.r-cadastro-2 .accordion-content a:hover, .r-cadastro-2 .dropdown-content a:hover {
+    background-color: #ccc
+}
+
+.r-cadastro-2 .dropdown-content a {
+    padding: 6px 16px;
+    display: block
+}
+
+.r-cadastro-2 .accordion {
+    width: 100%;
+    cursor: pointer
+}
+
+.r-cadastro-2 .accordion-content {
+    cursor: auto;
+    display: none;
+    position: relative;
+    width: 100%;
+    margin: 0;
+    padding: 0
+}
+
+.r-cadastro-2 .accordion-content a {
+    padding: 6px 16px;
+    display: block
+}
+
+.r-cadastro-2 .progress-container {
+    width: 100%;
+    height: 1.5em;
+    position: relative;
+    background-color: #f1f1f1
+}
+
+.r-cadastro-2 .progressbar {
+    background-color: #757575;
+    height: 100%;
+    position: absolute;
+    line-height: inherit
+}
+
+.r-cadastro-2 .irs {
+    position: relative;
+    display: block;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none
+}
+
+.r-cadastro-2 .irs-line {
+    position: relative;
+    display: block;
+    overflow: hidden;
+    outline: none !important
+}
+
+.r-cadastro-2 .irs-line-left, .r-cadastro-2 .irs-line-mid, .r-cadastro-2 .irs-line-right {
+    position: absolute;
+    display: block;
+    top: 0
+}
+
+.r-cadastro-2 .irs-line-left {
+    left: 0;
+    width: 11%
+}
+
+.r-cadastro-2 .irs-line-mid {
+    left: 9%;
+    width: 82%
+}
+
+.r-cadastro-2 .irs-line-right {
+    right: 0;
+    width: 11%
+}
+
+.r-cadastro-2 .irs-bar {
+    position: absolute;
+    display: block;
+    left: 0;
+    width: 0
+}
+
+.r-cadastro-2 .irs-bar-edge {
+    position: absolute;
+    display: block;
+    top: 0;
+    left: 0
+}
+
+.r-cadastro-2 .irs-shadow {
+    position: absolute;
+    display: none;
+    left: 0;
+    width: 0
+}
+
+.r-cadastro-2 .irs-slider {
+    position: absolute;
+    display: block;
+    cursor: default;
+    z-index: 1
+}
+
+.r-cadastro-2 .irs-slider.type_last {
+    z-index: 2
+}
+
+.r-cadastro-2 .irs-min {
+    position: absolute;
+    display: block;
+    left: 0;
+    cursor: default
+}
+
+.r-cadastro-2 .irs-max {
+    position: absolute;
+    display: block;
+    right: 0;
+    cursor: default
+}
+
+.r-cadastro-2 .irs-from, .r-cadastro-2 .irs-to, .r-cadastro-2 .irs-single {
+    position: absolute;
+    display: block;
+    top: 0;
+    left: 0;
+    cursor: default;
+    white-space: nowrap
+}
+
+.r-cadastro-2 .irs-grid {
+    position: absolute;
+    display: none;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 20px
+}
+
+.r-cadastro-2 .irs-with-grid .irs-grid {
+    display: block
+}
+
+.r-cadastro-2 .irs-grid-pol {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 1px;
+    height: 8px;
+    background: #000
+}
+
+.r-cadastro-2 .irs-grid-pol.small {
+    height: 4px
+}
+
+.r-cadastro-2 .irs-grid-text {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    white-space: nowrap;
+    text-align: center;
+    font-size: 9px;
+    line-height: 9px;
+    padding: 0 3px;
+    color: #000
+}
+
+.r-cadastro-2 .irs-disable-mask {
+    position: absolute;
+    display: block;
+    top: 0;
+    left: -1%;
+    width: 102%;
+    height: 100%;
+    cursor: default;
+    background: rgba(0, 0, 0, 0);
+    z-index: 2
+}
+
+.r-cadastro-2 .irs-disabled {
+    opacity: .4
+}
+
+.r-cadastro-2 .lt-ie9 .irs-disabled {
+    filter: alpha(opacity=40)
+}
+
+.r-cadastro-2 .irs-hidden-input {
+    position: absolute !important;
+    display: block !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 0 !important;
+    height: 0 !important;
+    font-size: 0 !important;
+    line-height: 0 !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    outline: none !important;
+    z-index: -9999 !important;
+    background: none !important;
+    border-style: solid !important;
+    border-color: transparent !important
+}
+
+.r-cadastro-2 input, .r-cadastro-2 textarea {
+    padding: 8px 2px 4px;
+    display: block;
+    border: none;
+    border-bottom: 1px solid #999;
+    float: left;
+    outline: 0;
+    width: 100%
+}
+
+.r-cadastro-2 .input-bar {
+    float: left;
+    width: 100%;
+    position: relative;
+    display: block
+}
+
+.r-cadastro-2 .input-bar:before {
+    left: 50%
+}
+
+.r-cadastro-2 .input-bar:after {
+    right: 50%
+}
+
+.r-cadastro-2 .input-bar:before, .r-cadastro-2 .input-bar:after {
+    content: '';
+    height: 2px;
+    width: 0;
+    bottom: 0;
+    position: absolute;
+    background: #009688;
+    transition: width 0.18s ease-in-out;
+    -moz-transition: width 0.18s ease-in-out;
+    -webkit-transition: width 0.18s ease-in-out
+}
+
+.r-cadastro-2 .input-bar-active:before, .r-cadastro-2 .input-bar-active:after {
+    width: 50% !important;
+    transition: width 0.3s ease-in-out;
+    -moz-transition: width 0.3s ease-in-out;
+    -webkit-transition: width 0.3s ease-in-out
+}
+
+.r-cadastro-2 input ~ .input-bar {
+    bottom: 20px
+}
+
+.r-cadastro-2 input:focus ~ .input-bar:before, .r-cadastro-2 input:focus ~ .input-bar:after {
+    width: 50%
+}
+
+.r-cadastro-2 input, .r-cadastro-2 select, .r-cadastro-2 textarea {
+    background: transparent
+}
+
+.r-cadastro-2 input[type=color] {
+    height: 40px
+}
+
+.r-cadastro-2 .bar .bar-item, .r-cadastro-2 .bar-block .bar-item {
+    padding: 8px 16px;
+    border: none;
+    outline: 0
+}
+
+.r-cadastro-2 input[type=checkbox] {
+    width: auto;
+    float: left;
+    margin-top: 22px
+}
+
+.r-cadastro-2 input[type=checkbox].check, .r-cadastro-2 input[type=radio].radio {
+    width: 24px;
+    height: 24px;
+    position: relative;
+    top: 6px
+}
+
+.r-cadastro-2 input[type=checkbox].check:checked + .validate, .r-cadastro-2 input[type=radio].radio:checked + .validate {
+    color: #009688
+}
+
+.r-cadastro-2 input[type=checkbox].check:disabled + .validate, .r-cadastro-2 input[type=radio].radio:disabled + .validate {
+    color: #aaa
+}
+
+.r-cadastro-2 .md-radio {
+    position: relative;
+    display: inline-block;
+    font-size: 18px;
+    margin-right: 30px;
+    line-height: 44px;
+    cursor: pointer
+}
+
+.r-cadastro-2 .md-radio:hover .md-radio--fake > span {
+    -webkit-transform: scale(.5);
+    -moz-transform: scale(.5);
+    -ms-transform: scale(.5);
+    -o-transform: scale(.5);
+    transform: scale(.5);
+    opacity: .5
+}
+
+.r-cadastro-2 .md-radio input {
+    width: 1px;
+    height: 1px;
+    opacity: 0
+}
+
+.r-cadastro-2 .md-radio input:checked + .md-radio--fake {
+    border-color: #009688;
+    -webkit-transform: scale(1);
+    -moz-transform: scale(1);
+    -ms-transform: scale(1);
+    -o-transform: scale(1);
+    transform: scale(1)
+}
+
+.r-cadastro-2 .md-radio input:checked + .md-radio--fake > span {
+    -webkit-transform: scale(1);
+    -moz-transform: scale(1);
+    -ms-transform: scale(1);
+    -o-transform: scale(1);
+    transform: scale(1);
+    opacity: 1
+}
+
+.r-cadastro-2 .md-radio input:focus + .md-radio--fake > span {
+    background-color: #009688;
+    -webkit-transform: scale(1);
+    -moz-transform: scale(1);
+    -ms-transform: scale(1);
+    -o-transform: scale(1);
+    transform: scale(1);
+    opacity: 1
+}
+
+.r-cadastro-2 .transition-easy, .r-cadastro-2 .md-radio--fake, .r-cadastro-2 .md-radio--fake > span {
+    -webkit-transition: all 0.25s ease-in-out;
+    -moz-transition: all 0.25s ease-in-out;
+    -ms-transition: all 0.25s ease-in-out;
+    -o-transition: all 0.25s ease-in-out;
+    transition: all 0.25s ease-in-out
+}
+
+.r-cadastro-2 .transition-fast {
+    -webkit-transition: all 0.1s ease-in-out;
+    -moz-transition: all 0.1s ease-in-out;
+    -ms-transition: all 0.1s ease-in-out;
+    -o-transition: all 0.1s ease-in-out;
+    transition: all 0.1s ease-in-out
+}
+
+.r-cadastro-2 .md-radio > div {
+    line-height: 18px;
+    display: inline-block;
+    color: #999
+}
+
+.r-cadastro-2 .md-radio--fake {
+    position: relative;
+    display: block;
+    float: left;
+    clear: left;
+    margin: 0 9px;
+    width: 20px;
+    height: 20px;
+    border: 3px solid #ccc;
+    border-radius: 50%;
+    background-color: #fff;
+    -webkit-transform: scale(.75);
+    -moz-transform: scale(.75);
+    -ms-transform: scale(.75);
+    -o-transform: scale(.75);
+    transform: scale(.75)
+}
+
+.r-cadastro-2 .md-radio--fake > span {
+    width: 6px;
+    height: 6px;
+    -webkit-transform: scale(0);
+    -moz-transform: scale(0);
+    -ms-transform: scale(0);
+    -o-transform: scale(0);
+    transform: scale(0);
+    display: block;
+    margin: 4px;
+    border-radius: 50%;
+    background-color: #009688;
+    opacity: 0
+}
+
+.r-cadastro-2 .md-radio.has--text > div {
+    padding-top: 7px
+}
+
+.r-cadastro-2 .md-radio.has--text small {
+    display: block;
+    line-height: 15px;
+    color: #5B5B5B;
+    opacity: .65;
+    padding-top: 2px
+}
+
+.r-cadastro-2 .md-radio.with--error > div, .r-cadastro-2 .md-radio.with--error small {
+    color: #d32f2f
+}
+
+.r-cadastro-2 .md-radio.with--error .md-radio--fake {
+    border-color: #d32f2f !important
+}
+
+.r-cadastro-2 .md-radio.with--error .md-radio--fake > span {
+    background-color: #d32f2f !important
+}
+
+.r-cadastro-2 .bar .bar-item, .r-cadastro-2 .bar .button, .r-cadastro-2 .bar-block .bar-item {
+    background-color: inherit;
+    color: inherit
+}
+
+.r-cadastro-2 .bar {
+    width: 100%;
+    overflow: hidden
+}
+
+.r-cadastro-2 .center .bar {
+    display: inline-block;
+    width: auto
+}
+
+.r-cadastro-2 .bar-block .bar-item, .r-cadastro-2 .block {
+    display: block;
+    width: 100%
+}
+
+.r-cadastro-2 .bar .bar-item {
+    float: left;
+    width: auto;
+    display: block
+}
+
+.r-cadastro-2 .bar .dropdown-click, .r-cadastro-2 .bar .dropdown-hover {
+    position: static;
+    float: left
+}
+
+.r-cadastro-2 .bar .button {
+    white-space: normal
+}
+
+.r-cadastro-2 .bar-block .bar-item {
+    text-align: left;
+    white-space: normal
+}
+
+.r-cadastro-2 .bar-block.center .bar-item, .r-cadastro-2 .vertical {
+    text-align: center
+}
+
+.r-cadastro-2 .responsive {
+    overflow-x: auto
+}
+
+.r-cadastro-2 .card:after, .r-cadastro-2 .card-4:after, .r-cadastro-2 .card-6:after, .r-cadastro-2 .card:before, .r-cadastro-2 .card-4:before, .r-cadastro-2 .card-6:before, .r-cadastro-2 .bar:after, .r-cadastro-2 .bar:before, .r-cadastro-2 .btn-bar:after, .r-cadastro-2 .btn-bar:before, .r-cadastro-2 .btn-group:after, .r-cadastro-2 .btn-group:before, .r-cadastro-2 .cell-row:after, .r-cadastro-2 .cell-row:before, .r-cadastro-2 .clear:after, .r-cadastro-2 .clear:before, .r-cadastro-2 .container:after, .r-cadastro-2 .container:before, .r-cadastro-2 .panel:after, .r-cadastro-2 .panel:before, .r-cadastro-2 .row-padding:after, .r-cadastro-2 .row-padding:before, .r-cadastro-2 .row:after, .r-cadastro-2 .row:before, .r-cadastro-2 .topnav:after, .r-cadastro-2 .topnav:before {
+    content: "";
+    display: table;
+    clear: both
+}
+
+.r-cadastro-2 .col, .r-cadastro-2 .half, .r-cadastro-2 .quarter, .r-cadastro-2 .third, .r-cadastro-2 .threequarter, .r-cadastro-2 .twothird {
+    float: left;
+    width: 100%
+}
+
+.r-cadastro-2 .col.s1 {
+    width: 8.33333%
+}
+
+.r-cadastro-2 .col.s2 {
+    width: 16.66666%
+}
+
+.r-cadastro-2 .col.s3 {
+    width: 24.99999%
+}
+
+.r-cadastro-2 .col.s4 {
+    width: 33.33333%
+}
+
+.r-cadastro-2 .col.s5 {
+    width: 41.66666%
+}
+
+.r-cadastro-2 .col.s6 {
+    width: 49.99999%
+}
+
+.r-cadastro-2 .col.s7 {
+    width: 58.33333%
+}
+
+.r-cadastro-2 .col.s8 {
+    width: 66.66666%
+}
+
+.r-cadastro-2 .col.s9 {
+    width: 74.99999%
+}
+
+.r-cadastro-2 .col.s10 {
+    width: 83.33333%
+}
+
+.r-cadastro-2 .col.s11 {
+    width: 91.66666%
+}
+
+.r-cadastro-2 .col.s12, .r-cadastro-2 .half, .r-cadastro-2 .quarter, .r-cadastro-2 .third, .r-cadastro-2 .threequarter, .r-cadastro-2 .twothird {
+    width: 99.99999%
+}
+
+.r-cadastro-2 .content {
+    max-width: 980px;
+    margin: auto;
+    float: initial;
+    display: block
+}
+
+.r-cadastro-2 .rest {
+    overflow: hidden;
+    min-width: 100px
+}
+
+.r-cadastro-2 .parallax {
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover
+}
+
+.r-cadastro-2 .input-icon {
+    display: -ms-flexbox;
+    display: flex;
+    width: 100%;
+    margin-bottom: 15px
+}
+
+.r-cadastro-2 .input-icon i {
+    padding-right: 10px;
+    min-width: 50px;
+    text-align: center
+}
+
+.r-cadastro-2 .cell-row, .r-cadastro-2 .layout-container {
+    display: table;
+    width: 100%
+}
+
+.r-cadastro-2 .layout-row {
+    display: table-row
+}
+
+.r-cadastro-2 .cell, .r-cadastro-2 .layout-cell, .r-cadastro-2 .layout-col {
+    display: table-cell
+}
+
+.r-cadastro-2 .cell-top, .r-cadastro-2 .layout-top {
+    vertical-align: top
+}
+
+.r-cadastro-2 .cell-middle, .r-cadastro-2 .layout-middle {
+    vertical-align: middle
+}
+
+.r-cadastro-2 .cell-bottom, .r-cadastro-2 .layout-bottom {
+    vertical-align: bottom
+}
+
+.r-cadastro-2 .show-block {
+    display: block !important
+}
+
+.r-cadastro-2 .show-inline-block {
+    display: inline-block !important
+}
+
+.r-cadastro-2 .bottom, .r-cadastro-2 .overlay, .r-cadastro-2 .top {
+    position: fixed;
+    width: 100%
+}
+
+.r-cadastro-2 .overlay, .r-cadastro-2 .switch input[type=checkbox] {
+    display: none
+}
+
+.r-cadastro-2 .bottom, .r-cadastro-2 .top {
+    z-index: 1
+}
+
+.r-cadastro-2 .top {
+    top: 0
+}
+
+.r-cadastro-2 .bottom {
+    bottom: 0
+}
+
+.r-cadastro-2 .overlay {
+    height: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, .5);
+    z-index: 199
+}
+
+.r-cadastro-2 .left {
+    float: left !important
+}
+
+.r-cadastro-2 .right {
+    float: right !important
+}
+
+.r-cadastro-2 .font-tiny {
+    font-size: 10px !important
+}
+
+.r-cadastro-2 .font-small {
+    font-size: 12px !important
+}
+
+.r-cadastro-2 .font-medium {
+    font-size: 15px !important
+}
+
+.r-cadastro-2 .font-large {
+    font-size: 18px !important
+}
+
+.r-cadastro-2 .font-xlarge {
+    font-size: 24px !important
+}
+
+.r-cadastro-2 .font-xxlarge {
+    font-size: 36px !important
+}
+
+.r-cadastro-2 .font-xxxlarge {
+    font-size: 48px !important
+}
+
+.r-cadastro-2 .font-jumbo {
+    font-size: 64px !important
+}
+
+.r-cadastro-2 .btn-large {
+    padding: 15px 25px;
+    font-size: 1.5em
+}
+
+.r-cadastro-2 .btn-small {
+    padding: 5px 10px;
+    font-size: 1em
+}
+
+.r-cadastro-2 .click {
+    box-shadow: 3px 4px 5px 0 #999
+}
+
+.r-cadastro-2 .click:active {
+    box-shadow: 1px 1px 1px 0 #666;
+    transform: translateY(2px)
+}
+
+.r-cadastro-2 .switch {
+    float: left;
+    position: relative;
+    margin-bottom: 24.4px !important;
+    height: 32px;
+    width: 50px
+}
+
+.r-cadastro-2 .switch .slider {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    background-color: #999;
+    height: 20px;
+    width: 45px;
+    border-radius: 34px;
+    cursor: pointer
+}
+
+.r-cadastro-2 .switch .slider:after {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: -1px;
+    bottom: -3px;
+    background-color: #fff;
+    -webkit-transition: .25s;
+    transition: .25s;
+    border-radius: 50%;
+    cursor: pointer;
+    -webkit-box-shadow: 2px 2px 9px -3px rgba(61, 61, 61, 1);
+    -moz-box-shadow: 2px 2px 9px -3px rgba(61, 61, 61, 1);
+    box-shadow: 2px 2px 9px -3px rgba(61, 61, 61, 1)
+}
+
+.r-cadastro-2 .switch input:checked + .slider {
+    background: #62BAB2
+}
+
+.r-cadastro-2 .switch input:checked + .slider:after {
+    -webkit-transform: translateX(21px);
+    -ms-transform: translateX(21px);
+    transform: translateX(21px);
+    background-color: #009688
+}
+
+.r-cadastro-2 .switch-squad .slider {
+    border-radius: 0;
+    bottom: -3px;
+    height: 25px
+}
+
+.r-cadastro-2 .switch-squad .slider:after {
+    border-radius: 0;
+    height: 20px;
+    bottom: 3px;
+    width: 18px;
+    left: 3px
+}
+
+.r-cadastro-2 .vertical {
+    word-break: break-all;
+    line-height: 1;
+    width: .6em
+}
+
+.r-cadastro-2 .align-left {
+    text-align: left !important
+}
+
+.r-cadastro-2 .align-right {
+    text-align: right !important
+}
+
+.r-cadastro-2 .align-justify {
+    text-align: justify !important
+}
+
+.r-cadastro-2 .align-center {
+    text-align: center !important
+}
+
+.r-cadastro-2 .display-bottomleft, .r-cadastro-2 .display-bottommiddle, .r-cadastro-2 .display-bottomright, .r-cadastro-2 .display-middle, .r-cadastro-2 .display-left, .r-cadastro-2 .display-right, .r-cadastro-2 .display-topleft, .r-cadastro-2 .display-topmiddle, .r-cadastro-2 .display-topright {
+    position: absolute
+}
+
+.r-cadastro-2 .display-left, .r-cadastro-2 .display-middle, .r-cadastro-2 .display-right {
+    top: 50%
+}
+
+.r-cadastro-2 .display-middle {
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%)
+}
+
+.r-cadastro-2 .display-right, .r-cadastro-2 .display-left {
+    transform: translate(0, -50%);
+    -ms-transform: translate(0, -50%)
+}
+
+.r-cadastro-2 .display-topmiddle, .r-cadastro-2 .display-bottommiddle, .r-cadastro-2 .display-middle {
+    left: 50%
+}
+
+.r-cadastro-2 .display-topmiddle, .r-cadastro-2 .display-bottommiddle {
+    transform: translate(-50%, 0);
+    -ms-transform: translate(-50%, 0)
+}
+
+.r-cadastro-2 .display-topleft {
+    left: 0;
+    top: 0
+}
+
+.r-cadastro-2 .display-topright {
+    right: 0;
+    top: 0
+}
+
+.r-cadastro-2 .display-bottomleft {
+    left: 0;
+    bottom: 0
+}
+
+.r-cadastro-2 .display-bottomright {
+    right: 0;
+    bottom: 0
+}
+
+.r-cadastro-2 .display-left {
+    left: 0
+}
+
+.r-cadastro-2 .display-right {
+    right: 0
+}
+
+.r-cadastro-2 .display-topmiddle {
+    top: 0
+}
+
+.r-cadastro-2 .display-bottommiddle {
+    bottom: 0
+}
+
+.r-cadastro-2 .display-container:hover .display-hover {
+    display: block
+}
+
+.r-cadastro-2 .display-container:hover span.display-hover {
+    display: inline-block
+}
+
+.r-cadastro-2 .display-hover {
+    display: none
+}
+
+.r-cadastro-2 .display-position {
+    position: absolute
+}
+
+.r-cadastro-2 .radius-circle {
+    border-radius: 50% !important
+}
+
+.r-cadastro-2 .radius-small {
+    border-radius: 2px !important
+}
+
+.r-cadastro-2 .radius, .r-cadastro-2 .radius-medium {
+    border-radius: 4px !important
+}
+
+.r-cadastro-2 .radius-large {
+    border-radius: 8px !important
+}
+
+.r-cadastro-2 .radius-xlarge {
+    border-radius: 16px !important
+}
+
+.r-cadastro-2 .radius-xxlarge {
+    border-radius: 32px !important
+}
+
+.r-cadastro-2 .radius-jumbo {
+    border-radius: 64px !important
+}
+
+.r-cadastro-2 .border-0 {
+    border: 0 !important
+}
+
+.r-cadastro-2 .border {
+    border: 1px solid #ccc !important
+}
+
+.r-cadastro-2 .border-top {
+    border-top: 1px solid #ccc !important
+}
+
+.r-cadastro-2 .border-bottom {
+    border-bottom: 1px solid #ccc !important
+}
+
+.r-cadastro-2 .border-left {
+    border-left: 1px solid #ccc !important
+}
+
+.r-cadastro-2 .border-right {
+    border-right: 1px solid #ccc !important
+}
+
+.r-cadastro-2 .margin {
+    margin: 16px !important
+}
+
+.r-cadastro-2 .margin-0 {
+    margin: 0 !important
+}
+
+.r-cadastro-2 .margin-top, .r-cadastro-2 .panel, .r-cadastro-2 .section {
+    margin-top: 16px !important
+}
+
+.r-cadastro-2 .margin-bottom, .r-cadastro-2 .panel, .r-cadastro-2 .section {
+    margin-bottom: 16px !important
+}
+
+.r-cadastro-2 .margin-left {
+    margin-left: 16px !important
+}
+
+.r-cadastro-2 .margin-right {
+    margin-right: 16px !important
+}
+
+.r-cadastro-2 .margin-small {
+    margin: 4px 8px !important
+}
+
+.r-cadastro-2 .margin-medium {
+    margin: 8px 16px !important
+}
+
+.r-cadastro-2 .margin-large {
+    margin: 12px 24px !important
+}
+
+.r-cadastro-2 .margin-xlarge {
+    margin: 16px 32px !important
+}
+
+.r-cadastro-2 .margin-xxlarge {
+    margin: 24px 48px !important
+}
+
+.r-cadastro-2 .margin-jumbo {
+    margin: 32px 64px !important
+}
+
+.r-cadastro-2 .padding-tiny {
+    padding: 2px 4px !important
+}
+
+.r-cadastro-2 .padding-small {
+    padding: 4px 8px !important
+}
+
+.r-cadastro-2 .form, .r-cadastro-2 .padding, .r-cadastro-2 .padding-medium {
+    padding: 8px 16px !important
+}
+
+.r-cadastro-2 .padding-large {
+    padding: 12px 24px !important
+}
+
+.r-cadastro-2 .padding-xlarge {
+    padding: 16px 32px !important
+}
+
+.r-cadastro-2 .padding-xxlarge {
+    padding: 24px 48px !important
+}
+
+.r-cadastro-2 .padding-jumbo {
+    padding: 32px 64px !important
+}
+
+.r-cadastro-2 .padding-4 {
+    padding-top: 4px !important;
+    padding-bottom: 4px !important
+}
+
+.r-cadastro-2 .padding-8 {
+    padding-top: 8px !important;
+    padding-bottom: 8px !important
+}
+
+.r-cadastro-2 .padding-12 {
+    padding-top: 12px !important;
+    padding-bottom: 12px !important
+}
+
+.r-cadastro-2 .padding-16 {
+    padding-top: 16px !important;
+    padding-bottom: 16px !important
+}
+
+.r-cadastro-2 .padding-24 {
+    padding-top: 24px !important;
+    padding-bottom: 24px !important
+}
+
+.r-cadastro-2 .padding-32 {
+    padding-top: 32px !important;
+    padding-bottom: 32px !important
+}
+
+.r-cadastro-2 .padding-48 {
+    padding-top: 48px !important;
+    padding-bottom: 48px !important
+}
+
+.r-cadastro-2 .padding-64 {
+    padding-top: 64px !important;
+    padding-bottom: 64px !important
+}
+
+.r-cadastro-2 .padding-128 {
+    padding-top: 128px !important;
+    padding-bottom: 128px !important
+}
+
+.r-cadastro-2 .padding-0 {
+    padding: 0 !important
+}
+
+.r-cadastro-2 .padding-top {
+    padding-top: 8px !important
+}
+
+.r-cadastro-2 .padding-bottom {
+    padding-bottom: 8px !important
+}
+
+.r-cadastro-2 .padding-left-4 {
+    padding-left: 4px !important
+}
+
+.r-cadastro-2 .padding-left-8 {
+    padding-left: 8px !important
+}
+
+.r-cadastro-2 .padding-left-12 {
+    padding-left: 12px !important
+}
+
+.r-cadastro-2 .padding-left-16, .r-cadastro-2 .padding-left {
+    padding-left: 16px !important
+}
+
+.r-cadastro-2 .padding-left-24 {
+    padding-left: 24px !important
+}
+
+.r-cadastro-2 .padding-left-32 {
+    padding-left: 32px !important
+}
+
+.r-cadastro-2 .padding-left-48 {
+    padding-left: 48px !important
+}
+
+.r-cadastro-2 .padding-left-64 {
+    padding-left: 64px !important
+}
+
+.r-cadastro-2 .padding-left-128 {
+    padding-left: 128px !important
+}
+
+.r-cadastro-2 .padding-right-4 {
+    padding-right: 4px !important
+}
+
+.r-cadastro-2 .padding-right-8 {
+    padding-right: 8px !important
+}
+
+.r-cadastro-2 .padding-right-12 {
+    padding-right: 12px !important
+}
+
+.r-cadastro-2 .padding-right-16, .r-cadastro-2 .padding-right {
+    padding-right: 16px !important
+}
+
+.r-cadastro-2 .padding-right-24 {
+    padding-right: 24px !important
+}
+
+.r-cadastro-2 .padding-right-32 {
+    padding-right: 32px !important
+}
+
+.r-cadastro-2 .padding-right-48 {
+    padding-right: 48px !important
+}
+
+.r-cadastro-2 .padding-right-64 {
+    padding-right: 64px !important
+}
+
+.r-cadastro-2 .padding-right-128 {
+    padding-right: 128px !important
+}
+
+.r-cadastro-2 .topbar {
+    border-top: 6px solid #ccc !important
+}
+
+.r-cadastro-2 .bottombar {
+    border-bottom: 6px solid #ccc !important
+}
+
+.r-cadastro-2 .leftbar {
+    border-left: 6px solid #ccc !important
+}
+
+.r-cadastro-2 .rightbar {
+    border-right: 6px solid #ccc !important
+}
+
+.r-cadastro-2 .row-padding, .r-cadastro-2 .row-padding > .col, .r-cadastro-2 .row-padding > .half, .r-cadastro-2 .row-padding > .quarter, .r-cadastro-2 .row-padding > .third, .r-cadastro-2 .row-padding > .threequarter, .r-cadastro-2 .row-padding > .twothird {
+    padding: 0 8px
+}
+
+.r-cadastro-2 .container, .r-cadastro-2 .example {
+    padding: .01em 0
+}
+
+.r-cadastro-2 .panel {
+    padding: .01em 5px
+}
+
+.r-cadastro-2 .container-600, .r-cadastro-2 .container-900, .r-cadastro-2 .container-1200 {
+    margin-left: auto !important;
+    margin-right: auto !important;
+    width: 100%;
+    float: initial
+}
+
+.r-cadastro-2 .container-600 {
+    max-width: 600px
+}
+
+.r-cadastro-2 .container-900 {
+    max-width: 990px
+}
+
+.r-cadastro-2 .container-1200 {
+    max-width: 1200px
+}
+
+.r-cadastro-2 .spin {
+    animation: spin 2s infinite linear;
+    -webkit-animation: spin 2s infinite linear
+}
+
+@-webkit-keyframes spin {
+    0% {
+        -webkit-transform: rotate(0);
+        transform: rotate(0)
+    }
+    100% {
+        -webkit-transform: rotate(359deg);
+        transform: rotate(359deg)
+    }
+}
+
+@keyframes spin {
+    0% {
+        -webkit-transform: rotate(0);
+        transform: rotate(0)
+    }
+    100% {
+        -webkit-transform: rotate(359deg);
+        transform: rotate(359deg)
+    }
+}
+
+.r-cadastro-2 .example {
+    background-color: #f1f1f1
+}
+
+.r-cadastro-2 .code, .r-cadastro-2 .codespan {
+    font-family: Consolas, "courier new";
+    font-size: 16px
+}
+
+.r-cadastro-2 .code {
+    line-height: 1.4;
+    width: auto;
+    background-color: #fff;
+    padding: 8px 12px;
+    border-left: 4px solid #4CAF50;
+    word-wrap: break-word
+}
+
+.r-cadastro-2 .codespan {
+    color: #dc143c;
+    background-color: #f1f1f1;
+    padding-left: 4px;
+    padding-right: 4px;
+    font-size: 110%
+}
+
+.r-cadastro-2 .code, .r-cadastro-2 .example {
+    margin: 20px 0
+}
+
+.r-cadastro-2 .card, .r-cadastro-2 .card-4, .r-cadastro-2 .card-6 {
+    float: left;
+    width: 100%;
+    background: #FFF;
+    margin-bottom: 20px !important
+}
+
+.r-cadastro-2 .card, .r-cadastro-2 .example, .r-cadastro-2 .z-depth-2 {
+    box-shadow: 1px 1px 4px 0 rgba(0, 0, 0, .12) !important
+}
+
+.r-cadastro-2 .card-4, .r-cadastro-2 .z-depth-4, .r-cadastro-2 .hover-shadow:hover {
+    box-shadow: 2px 2px 4px 0 rgba(0, 0, 0, .1) !important
+}
+
+.r-cadastro-2 .card-6, .r-cadastro-2 .z-depth-6 {
+    box-shadow: 3px 3px 5px 0 rgba(0, 0, 0, .15) !important
+}
+
+.r-cadastro-2 .btn:hover {
+    transform: scale(1.03)
+}
+
+.r-cadastro-2 .animate-fading {
+    -webkit-animation: fading 10s infinite;
+    animation: fading 10s infinite
+}
+
+.r-cadastro-2 .hover-none:hover, .r-cadastro-2 .transparent {
+    background-color: transparent !important
+}
+
+@-webkit-keyframes fading {
+    0%, 100% {
+        opacity: 0
+    }
+    50% {
+        opacity: 1
+    }
+}
+
+@keyframes fading {
+    0%, 100% {
+        opacity: 0
+    }
+    50% {
+        opacity: 1
+    }
+}
+
+.r-cadastro-2 .animate-opacity {
+    -webkit-animation: opac .8s;
+    animation: opac .8s
+}
+
+@-webkit-keyframes opac {
+    from {
+        opacity: 0
+    }
+    to {
+        opacity: 1
+    }
+}
+
+@keyframes opac {
+    from {
+        opacity: 0
+    }
+    to {
+        opacity: 1
+    }
+}
+
+.r-cadastro-2 .animate-top {
+    position: relative;
+    -webkit-animation: animatetop .4s;
+    animation: animatetop .4s
+}
+
+@-webkit-keyframes animatetop {
+    from {
+        top: -300px;
+        opacity: 0
+    }
+    to {
+        top: 0;
+        opacity: 1
+    }
+}
+
+@keyframes animatetop {
+    from {
+        top: -300px;
+        opacity: 0
+    }
+    to {
+        top: 0;
+        opacity: 1
+    }
+}
+
+.r-cadastro-2 .animate-left {
+    position: relative;
+    -webkit-animation: animateleft .4s;
+    animation: animateleft .4s
+}
+
+@-webkit-keyframes animateleft {
+    from {
+        left: -300px;
+        opacity: 0
+    }
+    to {
+        left: 0;
+        opacity: 1
+    }
+}
+
+@keyframes animateleft {
+    from {
+        left: -300px;
+        opacity: 0
+    }
+    to {
+        left: 0;
+        opacity: 1
+    }
+}
+
+.r-cadastro-2 .animate-right {
+    position: relative;
+    -webkit-animation: animateright .4s;
+    animation: animateright .4s
+}
+
+@-webkit-keyframes animateright {
+    from {
+        right: -300px;
+        opacity: 0
+    }
+    to {
+        right: 0;
+        opacity: 1
+    }
+}
+
+@keyframes animateright {
+    from {
+        right: -300px;
+        opacity: 0
+    }
+    to {
+        right: 0;
+        opacity: 1
+    }
+}
+
+.r-cadastro-2 .animate-bottom {
+    position: relative;
+    -webkit-animation: animatebottom .4s;
+    animation: animatebottom .4s
+}
+
+@-webkit-keyframes animatebottom {
+    from {
+        bottom: -300px;
+        opacity: 0
+    }
+    to {
+        bottom: 0;
+        opacity: 1
+    }
+}
+
+@keyframes animatebottom {
+    from {
+        bottom: -300px;
+        opacity: 0
+    }
+    to {
+        bottom: 0;
+        opacity: 1
+    }
+}
+
+.r-cadastro-2 .animate-zoom {
+    -webkit-animation: animatezoom .6s;
+    animation: animatezoom .6s
+}
+
+@-webkit-keyframes animatezoom {
+    from {
+        -webkit-transform: scale(0)
+    }
+    to {
+        -webkit-transform: scale(1)
+    }
+}
+
+@keyframes animatezoom {
+    from {
+        transform: scale(0)
+    }
+    to {
+        transform: scale(1)
+    }
+}
+
+.r-cadastro-2 .animate-input, .r-cadastro-2 .transition-slow {
+    -webkit-transition: all .4s ease-in-out;
+    transition: all .4s ease-in-out
+}
+
+.r-cadastro-2 .animate-input:focus {
+    width: 100% !important
+}
+
+.r-cadastro-2 .hover-opacity:hover, .r-cadastro-2 .opacity {
+    opacity: .6
+}
+
+.r-cadastro-2 .hover-opacity-off:hover, .r-cadastro-2 .opacity-off {
+    opacity: 1;
+    -webkit-backface-visibility: hidden
+}
+
+.r-cadastro-2 .opacity-max {
+    opacity: .25
+}
+
+.r-cadastro-2 .opacity-min {
+    opacity: .75
+}
+
+.r-cadastro-2 .text-shadow {
+    text-shadow: 1px 1px 0 #444
+}
+
+.r-cadastro-2 .text-shadow-white {
+    text-shadow: 1px 1px 0 #ddd
+}
+
+.r-cadastro-2 .hover-shadow-none:hover {
+    box-shadow: none !important
+}
+
+.r-cadastro-2 .z-depth-inset-2 {
+    -webkit-box-shadow: inset 1px 0 15px 8px rgba(0, 0, 0, .15);
+    -moz-box-shadow: inset 1px 0 15px 8px rgba(0, 0, 0, .15);
+    box-shadow: inset 1px 0 15px 8px rgba(0, 0, 0, .15)
+}
+
+.r-cadastro-2 .blur {
+    -webkit-filter: blur(6px);
+    filter: blur(6px)
+}
+
+.r-cadastro-2 .transform-inverse {
+    transform: rotateY(150deg);
+    -webkit-transform: rotateY(150deg)
+}
+
+.r-cadastro-2 .upper {
+    text-transform: uppercase
+}
+
+.r-cadastro-2 .pointer {
+    cursor: pointer
+}
+
+.r-cadastro-2 .font-light {
+    font-weight: 300 !important
+}
+
+.r-cadastro-2 .font-normal {
+    font-weight: 400 !important
+}
+
+.r-cadastro-2 .color-amber, .r-cadastro-2 .color-hover-amber:hover {
+    color: #000 !important;
+    background-color: #ffc107 !important
+}
+
+.r-cadastro-2 .color-aqua, .r-cadastro-2 .color-hover-aqua:hover {
+    color: #000 !important;
+    background-color: #00ffff !important
+}
+
+.r-cadastro-2 .color-blue, .r-cadastro-2 .color-hover-blue:hover {
+    color: #fff !important;
+    background-color: #2196F3 !important
+}
+
+.r-cadastro-2 .color-blue-light, .r-cadastro-2 .color-hover-blue-light:hover {
+    color: #000 !important;
+    background-color: #87CEEB !important
+}
+
+.r-cadastro-2 .color-brown, .r-cadastro-2 .color-hover-brown:hover {
+    color: #fff !important;
+    background-color: #795548 !important
+}
+
+.r-cadastro-2 .color-cyan, .r-cadastro-2 .color-hover-cyan:hover {
+    color: #000 !important;
+    background-color: #00bcd4 !important
+}
+
+.r-cadastro-2 .color-blue-grey, .r-cadastro-2 .color-hover-blue-grey:hover, .r-cadastro-2 .color-blue-gray, .r-cadastro-2 .color-hover-blue-gray:hover {
+    color: #fff !important;
+    background-color: #607d8b !important
+}
+
+.r-cadastro-2 .color-green, .r-cadastro-2 .color-hover-green:hover {
+    color: #fff !important;
+    background-color: #4CAF50 !important
+}
+
+.r-cadastro-2 .color-green-light, .r-cadastro-2 .color-hover-green-light:hover {
+    color: #000 !important;
+    background-color: #8bc34a !important
+}
+
+.r-cadastro-2 .color-indigo, .r-cadastro-2 .color-hover-indigo:hover {
+    color: #fff !important;
+    background-color: #3f51b5 !important
+}
+
+.r-cadastro-2 .color-khaki, .r-cadastro-2 .color-hover-khaki:hover {
+    color: #000 !important;
+    background-color: #f0e68c !important
+}
+
+.r-cadastro-2 .color-lime, .r-cadastro-2 .color-hover-lime:hover {
+    color: #000 !important;
+    background-color: #cddc39 !important
+}
+
+.r-cadastro-2 .color-orange, .r-cadastro-2 .color-hover-orange:hover {
+    color: #000 !important;
+    background-color: #ff9800 !important
+}
+
+.r-cadastro-2 .color-deep-orange, .r-cadastro-2 .color-hover-deep-orange:hover {
+    color: #fff !important;
+    background-color: #ff5722 !important
+}
+
+.r-cadastro-2 .color-pink, .r-cadastro-2 .color-hover-pink:hover {
+    color: #fff !important;
+    background-color: #e91e63 !important
+}
+
+.r-cadastro-2 .color-purple, .r-cadastro-2 .color-hover-purple:hover {
+    color: #fff !important;
+    background-color: #9c27b0 !important
+}
+
+.r-cadastro-2 .color-deep-purple, .r-cadastro-2 .color-hover-deep-purple:hover {
+    color: #fff !important;
+    background-color: #673ab7 !important
+}
+
+.r-cadastro-2 .color-red, .r-cadastro-2 .color-hover-red:hover {
+    color: #fff !important;
+    background-color: #f44336 !important
+}
+
+.r-cadastro-2 .color-sand, .r-cadastro-2 .color-hover-sand:hover {
+    color: #000 !important;
+    background-color: #fdf5e6 !important
+}
+
+.r-cadastro-2 .color-teal, .r-cadastro-2 .color-hover-teal:hover {
+    color: #fff !important;
+    background-color: #009688 !important
+}
+
+.r-cadastro-2 .color-yellow, .r-cadastro-2 .color-hover-yellow:hover {
+    color: #000 !important;
+    background-color: #ffeb3b !important
+}
+
+.r-cadastro-2 .color-white, .r-cadastro-2 .color-hover-white:hover {
+    color: #000 !important;
+    background-color: #fff !important
+}
+
+.r-cadastro-2 .color-black, .r-cadastro-2 .color-hover-black:hover {
+    color: #fff !important;
+    background-color: #000 !important
+}
+
+.r-cadastro-2 .color-grey, .r-cadastro-2 .color-hover-grey:hover, .r-cadastro-2 .color-gray, .r-cadastro-2 .color-hover-gray:hover {
+    color: #000 !important;
+    background-color: #bbb !important
+}
+
+.r-cadastro-2 .color-grey-light, .r-cadastro-2 .color-hover-grey-light:hover, .r-cadastro-2 .color-gray-light, .r-cadastro-2 .color-hover-gray-light:hover {
+    color: #000 !important;
+    background-color: #f1f1f1 !important
+}
+
+.r-cadastro-2 .color-grey-light-medium, .r-cadastro-2 .color-hover-grey-light-medium:hover, .r-cadastro-2 .color-gray-light-medium, .r-cadastro-2 .color-hover-gray-light-medium:hover {
+    color: #000 !important;
+    background-color: #dddddd !important
+}
+
+.r-cadastro-2 .color-grey-dark-medium, .r-cadastro-2 .color-hover-grey-dark-medium:hover, .r-cadastro-2 .color-gray-dark-medium, .r-cadastro-2 .color-hover-gray-dark-medium:hover {
+    color: #fff !important;
+    background-color: #999999 !important
+}
+
+.r-cadastro-2 .color-grey-dark, .r-cadastro-2 .color-hover-grey-dark:hover, .r-cadastro-2 .color-gray-dark, .r-cadastro-2 .color-hover-gray-dark:hover {
+    color: #fff !important;
+    background-color: #777777 !important
+}
+
+.r-cadastro-2 .color-red-pale, .r-cadastro-2 .color-hover-red-pale:hover {
+    color: #000 !important;
+    background-color: #ffdddd !important
+}
+
+.r-cadastro-2 .color-green-pale, .r-cadastro-2 .color-hover-green-pale:hover {
+    color: #000 !important;
+    background-color: #ddffdd !important
+}
+
+.r-cadastro-2 .color-yellow-pale, .r-cadastro-2 .color-hover-yellow-pale:hover {
+    color: #000 !important;
+    background-color: #ffffcc !important
+}
+
+.r-cadastro-2 .color-blue-pale, .r-cadastro-2 .color-hover-blue-pale:hover {
+    color: #000 !important;
+    background-color: #ddffff !important
+}
+
+.r-cadastro-2 .color-text-red, .r-cadastro-2 .color-hover-text-red:hover {
+    color: #f44336 !important
+}
+
+.r-cadastro-2 .color-text-green, .r-cadastro-2 .color-hover-text-green:hover {
+    color: #4CAF50 !important
+}
+
+.r-cadastro-2 .color-text-blue, .r-cadastro-2 .color-hover-text-blue:hover {
+    color: #2196F3 !important
+}
+
+.r-cadastro-2 .color-text-yellow, .r-cadastro-2 .color-hover-text-yellow:hover {
+    color: #ffeb3b !important
+}
+
+.r-cadastro-2 .color-text-white, .r-cadastro-2 .color-hover-text-white:hover {
+    color: #fff !important
+}
+
+.r-cadastro-2 .color-text-black, .r-cadastro-2 .color-hover-text-black:hover {
+    color: #000 !important
+}
+
+.r-cadastro-2 .color-text-grey, .r-cadastro-2 .color-hover-text-grey:hover, .r-cadastro-2 .color-text-gray, .r-cadastro-2 .color-hover-text-gray:hover {
+    color: #999999 !important
+}
+
+.r-cadastro-2 .color-text-amber {
+    color: #ffc107 !important
+}
+
+.r-cadastro-2 .color-text-aqua {
+    color: #00ffff !important
+}
+
+.r-cadastro-2 .color-text-blue-light {
+    color: #87CEEB !important
+}
+
+.r-cadastro-2 .color-text-brown {
+    color: #795548 !important
+}
+
+.r-cadastro-2 .color-text-cyan {
+    color: #00bcd4 !important
+}
+
+.r-cadastro-2 .color-text-blue-grey, .r-cadastro-2 .color-text-blue-gray {
+    color: #607d8b !important
+}
+
+.r-cadastro-2 .color-text-green-light {
+    color: #8bc34a !important
+}
+
+.r-cadastro-2 .color-text-indigo {
+    color: #3f51b5 !important
+}
+
+.r-cadastro-2 .color-text-khaki {
+    color: #b4aa50 !important
+}
+
+.r-cadastro-2 .color-text-lime {
+    color: #cddc39 !important
+}
+
+.r-cadastro-2 .color-text-orange {
+    color: #ff9800 !important
+}
+
+.r-cadastro-2 .color-text-deep-orange {
+    color: #ff5722 !important
+}
+
+.r-cadastro-2 .color-text-pink {
+    color: #e91e63 !important
+}
+
+.r-cadastro-2 .color-text-purple {
+    color: #9c27b0 !important
+}
+
+.r-cadastro-2 .color-text-deep-purple {
+    color: #673ab7 !important
+}
+
+.r-cadastro-2 .color-text-sand {
+    color: #fdf5e6 !important
+}
+
+.r-cadastro-2 .color-text-teal {
+    color: #009688 !important
+}
+
+.r-cadastro-2 .color-text-grey-light, .r-cadastro-2 .color-hover-text-grey-light:hover, .r-cadastro-2 .color-text-gray-light, .r-cadastro-2 .color-hover-text-gray-light:hover {
+    color: #dddddd !important
+}
+
+.r-cadastro-2 .color-text-grey-light-medium, .r-cadastro-2 .color-hover-text-grey-light-medium:hover, .r-cadastro-2 .color-text-gray-light-medium, .r-cadastro-2 .color-hover-text-gray-light-medium:hover {
+    color: #c0c0c0 !important
+}
+
+.r-cadastro-2 .color-text-grey-dark-medium, .r-cadastro-2 .color-hover-text-grey-dark-medium:hover, .r-cadastro-2 .color-text-gray-dark-medium, .r-cadastro-2 .color-hover-text-gray-dark-medium:hover {
+    color: #999999 !important
+}
+
+.r-cadastro-2 .color-text-grey-dark, .r-cadastro-2 .color-hover-text-grey-dark:hover, .r-cadastro-2 .color-text-gray-dark, .r-cadastro-2 .color-hover-text-gray-dark:hover {
+    color: #777777 !important
+}
+
+.r-cadastro-2 .color-border-black, .r-cadastro-2 .border-theme, .r-cadastro-2 .color-border-blue, .r-cadastro-2 .color-border-gray, .r-cadastro-2 .color-border-green, .r-cadastro-2 .color-border-red, .r-cadastro-2 .color-border-grey, .r-cadastro-2 .color-border-yellow, .r-cadastro-2 .color-border-white {
+    border-width: 1px;
+    border-style: solid
+}
+
+.r-cadastro-2 .color-border-red, .r-cadastro-2 .color-hover-border-red:hover {
+    border-color: #f44336 !important
+}
+
+.r-cadastro-2 .color-border-green, .r-cadastro-2 .color-hover-border-green:hover {
+    border-color: #4CAF50 !important
+}
+
+.r-cadastro-2 .color-border-blue, .r-cadastro-2 .color-hover-border-blue:hover {
+    border-color: #2196F3 !important
+}
+
+.r-cadastro-2 .color-border-yellow, .r-cadastro-2 .color-hover-border-yellow:hover {
+    border-color: #ffeb3b !important
+}
+
+.r-cadastro-2 .color-border-white, .r-cadastro-2 .color-hover-border-white:hover {
+    border-color: #fff !important
+}
+
+.r-cadastro-2 .color-border-black, .r-cadastro-2 .color-hover-border-black:hover {
+    border-color: #000 !important
+}
+
+.r-cadastro-2 .color-border-grey, .r-cadastro-2 .color-hover-border-grey:hover, .r-cadastro-2 .color-border-gray, .r-cadastro-2 .color-hover-border-gray:hover {
+    border-color: #bbb !important
+}
+
+.r-cadastro-2 .color-greyscale-max, .r-cadastro-2 .color-grayscale-max, .r-cadastro-2 .color-hover-greyscale:hover, .r-cadastro-2 .color-hover-grayscale:hover {
+    filter: grayscale(100%)
+}
+
+.r-cadastro-2 .color-greyscale, .r-cadastro-2 .color-grayscale {
+    filter: grayscale(75%)
+}
+
+.r-cadastro-2 .color-greyscale-min, .r-cadastro-2 .color-grayscale-min {
+    filter: grayscale(50%)
+}
+
+.r-cadastro-2 .color-sepia-max, .r-cadastro-2 .color-hover-sepia:hover {
+    filter: sepia(100%)
+}
+
+.r-cadastro-2 .color-sepia {
+    filter: sepia(75%)
+}
+
+.r-cadastro-2 .color-sepia-min {
+    filter: sepia(50%)
+}
+
+.r-cadastro-2 .color-hover-greyscale-off:hover, .r-cadastro-2 .color-hover-sepia-off:hover {
+    filter: none
+}
+
+@media (max-width: 600px) {
+    .r-cadastro-2 .bar-item.mobile, .r-cadastro-2 .dropdown-click.mobile, .r-cadastro-2 .dropdown-hover.mobile, .r-cadastro-2 .navbar, .r-cadastro-2 .topnav {
+        text-align: center
+    }
+
+    .r-cadastro-2 .modal-content {
+        margin: 0 10px;
+        width: auto !important
+    }
+
+    .r-cadastro-2 .modal {
+        padding-top: 30px
+    }
+
+    .r-cadastro-2 .topnav a {
+        display: block
+    }
+
+    .r-cadastro-2 .navbar li:not(.opennav) {
+        float: none;
+        width: 100% !important
+    }
+
+    .r-cadastro-2 .navbar li.right {
+        float: none !important
+    }
+
+    .r-cadastro-2 .dropdown-click.mobile .dropdown-content, .r-cadastro-2 .dropdown-hover.mobile .dropdown-content, .r-cadastro-2 .navbar .dropdown-click .dropdown-content, .r-cadastro-2 .navbar .dropdown-hover .dropdown-content, .r-cadastro-2 .topnav .dropdown-hover .dropdown-content {
+        position: relative
+    }
+
+    .r-cadastro-2 .layout-col, .r-cadastro-2 .mobile {
+        display: block;
+        width: 100% !important
+    }
+
+    .r-cadastro-2 .dropdown-click.mobile, .r-cadastro-2 .dropdown-click.mobile .btn, .r-cadastro-2 .dropdown-click.mobile .button, .r-cadastro-2 .dropdown-hover.mobile, .r-cadastro-2 .dropdown-hover.mobile .btn, .r-cadastro-2 .dropdown-hover.mobile .button {
+        width: 100%
+    }
+
+    .r-cadastro-2 .s-margin {
+        margin: 16px !important
+    }
+
+    .r-cadastro-2 .s-margin-0 {
+        margin: 0 !important
+    }
+
+    .r-cadastro-2 .s-margin-top, .r-cadastro-2 .s-panel, .r-cadastro-2 .s-section {
+        margin-top: 16px !important
+    }
+
+    .r-cadastro-2 .s-margin-bottom, .r-cadastro-2 .s-panel, .r-cadastro-2 .s-section {
+        margin-bottom: 16px !important
+    }
+
+    .r-cadastro-2 .s-margin-left {
+        margin-left: 16px !important
+    }
+
+    .r-cadastro-2 .s-margin-right {
+        margin-right: 16px !important
+    }
+
+    .r-cadastro-2 .s-margin-small {
+        margin: 4px 8px !important
+    }
+
+    .r-cadastro-2 .s-margin-medium {
+        margin: 8px 16px !important
+    }
+
+    .r-cadastro-2 .s-margin-large {
+        margin: 12px 24px !important
+    }
+
+    .r-cadastro-2 .s-margin-xlarge {
+        margin: 16px 32px !important
+    }
+
+    .r-cadastro-2 .s-margin-xxlarge {
+        margin: 24px 48px !important
+    }
+
+    .r-cadastro-2 .s-margin-jumbo {
+        margin: 32px 64px !important
+    }
+
+    .r-cadastro-2 .s-padding-tiny {
+        padding: 2px 4px !important
+    }
+
+    .r-cadastro-2 .s-padding-small {
+        padding: 4px 8px !important
+    }
+
+    .r-cadastro-2 .s-form, .r-cadastro-2 .s-padding, .r-cadastro-2 .s-padding-medium {
+        padding: 8px 16px !important
+    }
+
+    .r-cadastro-2 .s-padding-large {
+        padding: 12px 24px !important
+    }
+
+    .r-cadastro-2 .s-padding-xlarge {
+        padding: 16px 32px !important
+    }
+
+    .r-cadastro-2 .s-padding-xxlarge {
+        padding: 24px 48px !important
+    }
+
+    .r-cadastro-2 .s-padding-jumbo {
+        padding: 32px 64px !important
+    }
+
+    .r-cadastro-2 .s-padding-4 {
+        padding-top: 4px !important;
+        padding-bottom: 4px !important
+    }
+
+    .r-cadastro-2 .s-padding-8 {
+        padding-top: 8px !important;
+        padding-bottom: 8px !important
+    }
+
+    .r-cadastro-2 .s-padding-12 {
+        padding-top: 12px !important;
+        padding-bottom: 12px !important
+    }
+
+    .r-cadastro-2 .s-padding-16 {
+        padding-top: 16px !important;
+        padding-bottom: 16px !important
+    }
+
+    .r-cadastro-2 .s-padding-24 {
+        padding-top: 24px !important;
+        padding-bottom: 24px !important
+    }
+
+    .r-cadastro-2 .s-padding-32 {
+        padding-top: 32px !important;
+        padding-bottom: 32px !important
+    }
+
+    .r-cadastro-2 .s-padding-48 {
+        padding-top: 48px !important;
+        padding-bottom: 48px !important
+    }
+
+    .r-cadastro-2 .s-padding-64 {
+        padding-top: 64px !important;
+        padding-bottom: 64px !important
+    }
+
+    .r-cadastro-2 .s-padding-128 {
+        padding-top: 128px !important;
+        padding-bottom: 128px !important
+    }
+
+    .r-cadastro-2 .s-padding-0 {
+        padding: 0 !important
+    }
+
+    .r-cadastro-2 .s-padding-top {
+        padding-top: 8px !important
+    }
+
+    .r-cadastro-2 .s-padding-bottom {
+        padding-bottom: 8px !important
+    }
+
+    .r-cadastro-2 .s-left {
+        float: left !important
+    }
+
+    .r-cadastro-2 .s-right {
+        float: right !important
+    }
+
+    .r-cadastro-2 .s-font-tiny {
+        font-size: 10px !important
+    }
+
+    .r-cadastro-2 .s-font-small {
+        font-size: 12px !important
+    }
+
+    .r-cadastro-2 .s-font-medium {
+        font-size: 15px !important
+    }
+
+    .r-cadastro-2 .s-font-large {
+        font-size: 18px !important
+    }
+
+    .r-cadastro-2 .s-font-xlarge {
+        font-size: 24px !important
+    }
+
+    .r-cadastro-2 .s-font-xxlarge {
+        font-size: 36px !important
+    }
+
+    .r-cadastro-2 .s-font-xxxlarge {
+        font-size: 48px !important
+    }
+
+    .r-cadastro-2 .s-font-jumbo {
+        font-size: 64px !important
+    }
+
+    .r-cadastro-2 .s-padding-left-0 {
+        padding-left: 0 !important
+    }
+
+    .r-cadastro-2 .s-padding-left-4 {
+        padding-left: 4px !important
+    }
+
+    .r-cadastro-2 .s-padding-left-8 {
+        padding-left: 8px !important
+    }
+
+    .r-cadastro-2 .s-padding-left-12 {
+        padding-left: 12px !important
+    }
+
+    .r-cadastro-2 .s-padding-left-16, .r-cadastro-2 .s-padding-left {
+        padding-left: 16px !important
+    }
+
+    .r-cadastro-2 .s-padding-left-24 {
+        padding-left: 24px !important
+    }
+
+    .r-cadastro-2 .s-padding-left-32 {
+        padding-left: 32px !important
+    }
+
+    .r-cadastro-2 .s-padding-left-48 {
+        padding-left: 48px !important
+    }
+
+    .r-cadastro-2 .s-padding-left-64 {
+        padding-left: 64px !important
+    }
+
+    .r-cadastro-2 .s-padding-left-128 {
+        padding-left: 128px !important
+    }
+
+    .r-cadastro-2 .s-padding-right-0 {
+        padding-right: 0 !important
+    }
+
+    .r-cadastro-2 .s-padding-right-4 {
+        padding-right: 4px !important
+    }
+
+    .r-cadastro-2 .s-padding-right-8 {
+        padding-right: 8px !important
+    }
+
+    .r-cadastro-2 .s-padding-right-12 {
+        padding-right: 12px !important
+    }
+
+    .r-cadastro-2 .s-padding-right-16, .r-cadastro-2 .s-padding-right {
+        padding-right: 16px !important
+    }
+
+    .r-cadastro-2 .s-padding-right-24 {
+        padding-right: 24px !important
+    }
+
+    .r-cadastro-2 .s-padding-right-32 {
+        padding-right: 32px !important
+    }
+
+    .r-cadastro-2 .s-padding-right-48 {
+        padding-right: 48px !important
+    }
+
+    .r-cadastro-2 .s-padding-right-64 {
+        padding-right: 64px !important
+    }
+
+    .r-cadastro-2 .s-padding-right-128 {
+        padding-right: 128px !important
+    }
+
+    .r-cadastro-2 .s-display-bottomleft, .r-cadastro-2 .s-display-bottommiddle, .r-cadastro-2 .s-display-bottomright, .r-cadastro-2 .s-display-middle, .r-cadastro-2 .s-display-right, .r-cadastro-2 .s-display-left, .r-cadastro-2 .s-display-topleft, .r-cadastro-2 .s-display-topmiddle, .r-cadastro-2 .s-display-topright {
+        left: initial;
+        top: initial;
+        bottom: initial;
+        right: initial
+    }
+
+    .r-cadastro-2 .s-display-left, .r-cadastro-2 .s-display-middle, .r-cadastro-2 .s-display-right {
+        top: 50%
+    }
+
+    .r-cadastro-2 .s-display-middle {
+        transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%)
+    }
+
+    .r-cadastro-2 .s-display-right, .r-cadastro-2 .s-display-left {
+        transform: translate(0, -50%);
+        -ms-transform: translate(0, -50%)
+    }
+
+    .r-cadastro-2 .s-display-topmiddle, .r-cadastro-2 .s-display-bottommiddle, .r-cadastro-2 .s-display-middle {
+        left: 50%
+    }
+
+    .r-cadastro-2 .s-display-topmiddle, .r-cadastro-2 .s-display-bottommiddle {
+        transform: translate(-50%, 0);
+        -ms-transform: translate(-50%, 0)
+    }
+
+    .r-cadastro-2 .s-display-topleft {
+        left: 0;
+        top: 0
+    }
+
+    .r-cadastro-2 .s-display-topright {
+        right: 0;
+        top: 0
+    }
+
+    .r-cadastro-2 .s-display-bottomleft {
+        left: 0;
+        bottom: 0
+    }
+
+    .r-cadastro-2 .s-display-bottomright {
+        right: 0;
+        bottom: 0
+    }
+
+    .r-cadastro-2 .s-display-left {
+        left: 0
+    }
+
+    .r-cadastro-2 .s-display-right {
+        right: 0
+    }
+
+    .r-cadastro-2 .s-display-topmiddle {
+        top: 0
+    }
+
+    .r-cadastro-2 .s-display-bottommiddle {
+        bottom: 0
+    }
+
+    .r-cadastro-2 .s-align-left {
+        text-align: left !important
+    }
+
+    .r-cadastro-2 .s-align-right {
+        text-align: right !important
+    }
+
+    .r-cadastro-2 .s-align-justify {
+        text-align: justify !important
+    }
+
+    .r-cadastro-2 .s-align-center {
+        text-align: center !important
+    }
+}
+
+@media (max-width: 768px) {
+    .r-cadastro-2 .modal-content {
+        width: 500px
+    }
+
+    .r-cadastro-2 .modal {
+        padding-top: 50px
+    }
+}
+
+@media (max-width: 992px) {
+    .r-cadastro-2 .sidebar.collapse, .r-cadastro-2 .sidenav.collapse {
+        display: none
+    }
+
+    .r-cadastro-2 .main {
+        margin-left: 0 !important;
+        margin-right: 0 !important
+    }
+}
+
+@media (min-width: 601px) {
+    .r-cadastro-2 .container, .r-cadastro-2 .example, .r-cadastro-2 .panel {
+        padding: .01em 16px
+    }
+
+    .r-cadastro-2 .col.m1 {
+        width: 8.33333%
+    }
+
+    .r-cadastro-2 .col.m2 {
+        width: 16.66666%
+    }
+
+    .r-cadastro-2 .col.m3, .r-cadastro-2 .quarter {
+        width: 24.99999%
+    }
+
+    .r-cadastro-2 .col.m4, .r-cadastro-2 .third {
+        width: 33.33333%
+    }
+
+    .r-cadastro-2 .col.m5 {
+        width: 41.66666%
+    }
+
+    .r-cadastro-2 .col.m6, .r-cadastro-2 .half {
+        width: 49.99999%
+    }
+
+    .r-cadastro-2 .col.m7 {
+        width: 58.33333%
+    }
+
+    .r-cadastro-2 .col.m8, .r-cadastro-2 .twothird {
+        width: 66.66666%
+    }
+
+    .r-cadastro-2 .col.m9, .r-cadastro-2 .threequarter {
+        width: 74.99999%
+    }
+
+    .r-cadastro-2 .col.m10 {
+        width: 83.33333%
+    }
+
+    .r-cadastro-2 .col.m11 {
+        width: 91.66666%
+    }
+
+    .r-cadastro-2 .col.m12 {
+        width: 99.99999%
+    }
+}
+
+@media (min-width: 993px) {
+    .r-cadastro-2 .col.l1 {
+        width: 8.33333%
+    }
+
+    .r-cadastro-2 .col.l2 {
+        width: 16.66666%
+    }
+
+    .r-cadastro-2 .col.l3, .r-cadastro-2 .quarter {
+        width: 24.99999%
+    }
+
+    .r-cadastro-2 .col.l4, .r-cadastro-2 .third {
+        width: 33.33333%
+    }
+
+    .r-cadastro-2 .col.l5 {
+        width: 41.66666%
+    }
+
+    .r-cadastro-2 .col.l6, .r-cadastro-2 .half {
+        width: 49.99999%
+    }
+
+    .r-cadastro-2 .col.l7 {
+        width: 58.33333%
+    }
+
+    .r-cadastro-2 .col.l8, .r-cadastro-2 .twothird {
+        width: 66.66666%
+    }
+
+    .r-cadastro-2 .col.l9, .r-cadastro-2 .threequarter {
+        width: 74.99999%
+    }
+
+    .r-cadastro-2 .col.l10 {
+        width: 83.33333%
+    }
+
+    .r-cadastro-2 .col.l11 {
+        width: 91.66666%
+    }
+
+    .r-cadastro-2 .col.l12 {
+        width: 99.99999%
+    }
+}
+
+@media (min-width: 993px) {
+    .r-cadastro-2 .modal-content {
+        width: 900px
+    }
+
+    .r-cadastro-2 .sidebar.collapse, .r-cadastro-2 .sidenav.collapse {
+        display: block !important
+    }
+
+    .r-cadastro-2 .loaderDashboard {
+        left: 58%;
+        top: 35%
+    }
+}
+
+.r-cadastro-2 #arrowback {
+    position: fixed;
+    top: 20px;
+    left: 10px;
+    z-index: 3
+}
+
+.r-cadastro-2 #background-login {
+    background-image: url(public/assets/img/background-login.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    position: absolute;
+    height: 100%;
+    top: 0;
+    left: 0;
+    filter: blur(27px);
+    z-index: 0
+}
+
+.r-cadastro-2 .input-field {
+    padding: 13px 30px !important;
+    border-radius: 25px;
+    color: white !important;
+    background-color: rgba(255, 255, 255, .5) !important;
+    opacity: 1 !important
+}
+
+.r-cadastro-2 .loginbtn {
+    float: initial !important;
+    margin: auto !important;
+    display: block !important;
+    padding: 15px 70px !important;
+    border-radius: 25px !important;
+    width: 215px !important
+}
+
+.r-cadastro-2 .info-container {
+    margin-bottom: 10px;
+    text-align: right;
+    height: 21px
+}
+
+.r-cadastro-2 .info-container .input-message {
+    color: #fff;
+    margin: 3px;
+    border-radius: 29px;
+    float: right;
+    padding: 0 6px !important
+}
+
+@media (min-width: 990px) {
+    #arrowback {
+        top: 140px;
+        left: 50px;
+    }
+}
+
+@media (max-width: 990px) {
+    .padding-right {
+        padding-left: 16px !important;
+    }
+    .padding-left {
+        padding-right: 16px !important;
+    }
+}

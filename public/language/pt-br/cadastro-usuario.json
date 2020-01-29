@@ -1,0 +1,14 @@
+{
+  "sitename": "Epistemic",
+  "web": "web",
+  "passo": "Passo 1",
+  "nome": "Nome",
+  "data": "Data de Nascimento",
+  "cpf": "CPF",
+  "crm": "CRM",
+  "email": "E-mail",
+  "senha": "Senha",
+  "senha2": "Confirmar Senha",
+  "telefone": "Telefone",
+  "continuar": "Continuar"
+}

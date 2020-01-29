@@ -1,0 +1,146 @@
+<div class="col" id="parent">
+    <div class="col transition-slow" id="background-login"></div>
+    <div class="col" id="login-container">
+        <div class="row relative" id="login-card">
+            <div class="col s12 body-login padding-128 s-padding-0" id="login-title">
+                <div id="login-barra" class="hide s-hide"></div>
+                <div class="col">
+                    <h1 class="color-text-white align-center titleLogin transition-slow" id="login-sitename">
+                        <div class="font-bold left">{{sitename}}</div>
+                        <div class="left font-light">{{web}}</div>
+                    </h1>
+                </div>
+                <div class="col">
+                    <p class="color-text-white col align-center margin-bottom padding-bottom easefadein hide"
+                       data-fade-delay="200">
+                        {{subtitulo}}
+                    </p>
+                </div>
+                <div class="col saibamais transition-slow" id="div-saibamais">
+                    <div class="color-text-white col align-center font-light padding-top pointer link-login pointer"
+                         style="width: 80px;margin: auto; float: initial;" onclick="saibamais()">
+                        {{saibamais}}
+                        <div>
+                            <div class="radius-circle z-depth-4 color-white"
+                                 style="width: 23px;height: 23px;margin: 7px auto;">
+                                <i class="material-icons">keyboard_arrow_down</i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col relative" id="saibamais-content">
+        <div class="col blocks" id="block1">
+            <div class="col container-1200 relative">
+                <div class="col s12 l5 padding-large text1 relative">
+                    <h1 class="col font-jumbo padding-0 color-text-white transition-slow">
+                        <div class="font-bold left color-text-theme title-block1">{{sitename}}</div>
+                        <div class="left font-light color-text-black title-block1">{{web}}</div>
+                    </h1>
+
+                    <div class="col" style="font-size: 16px; line-height: 20px;">
+                        {{{layer1content}}}
+                    </div>
+                </div>
+                <div class="col s12 l7 padding-large">
+                    <img src="public/assets/img/saibamais/notebook1.svg"
+                         class="notebook1 col"/>
+                </div>
+            </div>
+        </div>
+
+        <div class="col blocks" id="block2">
+            <div class="col container-1200 relative">
+                <div class="col s12 l6 padding-large relative">
+                    <img src="public/assets/img/saibamais/notebook2-1.svg"
+                         class="notebook21 col"/>
+                    <img src="public/assets/img/saibamais/notebook2-2.svg"
+                         class="notebook22"/>
+                </div>
+                <div class="col s12 l6 padding-large text2">
+                    <h1 class="col font-jumbo padding-0 color-text-white transition-slow">
+                        <div class="right font-light color-text-black title-block2">{{layer2title1}}</div>
+                        <div class="right font-bold color-text-theme title-block2">{{layer2title2}}</div>
+                    </h1>
+
+                    <div class="col align-right" style="font-size: 16px; line-height: 20px;">
+                        {{{layer2content}}}
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col blocks" id="block4">
+            <div class="col container-1200 relative">
+                <div class="col s12 l5 padding-large text4 relative">
+                    <h1 class="col font-jumbo padding-0 color-text-white transition-slow">
+                        <div class="font-bold left color-text-theme title-block4">{{layer3title1}}</div>
+                        <div class="left font-light color-text-black title-block4">{{layer3title2}}</div>
+                    </h1>
+
+                    <div class="col" style="font-size: 16px; line-height: 20px;">
+                        {{{layer3content}}}
+                    </div>
+                </div>
+                <div class="col s12 l7 padding-large">
+                    <img src="public/assets/img/saibamais/notebook4.svg" class="notebook4 col"/>
+                </div>
+            </div>
+        </div>
+
+        <div class="col blocks" id="block5">
+            <div class="col container-1200 relative">
+                <div class="col s12 l6 padding-large relative">
+                    <img src="public/assets/img/saibamais/notebook5.svg"
+                         class="notebook5"/>
+                </div>
+                <div class="col s12 l6 padding-large text5">
+                    <h1 class="col font-jumbo padding-0 color-text-white transition-slow">
+                        <div class="right font-light color-text-black title-block5">{{layer4title1}}</div>
+                        <div class="right font-bold color-text-theme title-block5">{{layer4title2}}</div>
+                    </h1>
+
+                    <div class="col align-right" style="font-size: 16px; line-height: 20px;">{{{layer4content}}}</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col blocks" id="block3">
+            <div class="col container-1200 relative">
+                <div class="col s12 l5 padding-large text3 relative">
+                    <h1 class="col font-jumbo padding-0 color-text-white transition-slow">
+                        <div class="font-bold left color-text-theme title-block3">{{layer5title1}}</div>
+                        <div class="left font-light color-text-black title-block3">{{layer5title2}}</div>
+                    </h1>
+
+                    <div class="col" style="font-size: 16px; line-height: 20px;">
+                        {{{layer5content}}}
+                    </div>
+                </div>
+                <div class="col s12 l7 padding-large">
+                    <img src="public/assets/img/saibamais/notebook3.png" class="notebook3 col"/>
+                </div>
+            </div>
+        </div>
+
+        <div class="col padding-16 footer">
+            <div class="container-1200">
+                <div class="col s12 l4 padding-large">
+                    <h1 class="col padding-0 color-text-white align-center titleLogin titleLogin-bottom transition-slow">
+                        <div class="font-bold left">{{sitename}}</div>
+                        <div class="left font-light">{{web}}</div>
+                    </h1>
+                </div>
+                <div class="col s12 l8 padding-large">
+                    <a href="dashboard.html" data-animation="forward" style="width:235px!important"
+                       class="color-text-theme font-bold loginbtn-bottom loginbtn s-font-large btn pointer relative">
+                        {{botaoAcessar}}
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
