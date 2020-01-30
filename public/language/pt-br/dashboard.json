@@ -7,5 +7,13 @@
   "carregando": "Carregando...",
   "pacientes": "Pacientes",
   "recentes": "Recentes",
-  "botaoAdicionar": "Adicionar paciente"
+  "botaoAdicionar": "Adicionar paciente",
+  "adicionarPaciente": "Adicionar Paciente",
+  "telefone": "Telefone",
+  "nome": "Nome",
+  "enviarConvite": "Enviar Convite",
+  "retornar": "Retornar",
+  "parabens": "Parabéns",
+  "parabensMensagem": "Seu paciente foi adicionado com sucesso.",
+  "modalConcluir": "Concluir"
 }

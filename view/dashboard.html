@@ -35,7 +35,7 @@
 
                     <div class="col padding-8" id="lista-pacientes">
                         <div class="col s12">
-                            <h3 class="align-center font-light color-text-white">Carregando...</h3>
+                            <h3 class="align-center font-light color-text-white">{{carregando}}</h3>
                         </div>
                     </div>
                 </div>
@@ -46,24 +46,24 @@
             <div id="add-paciente-opaco" class="easefadein"></div>
             <div class="padding-small pointer arrowback easefadein" data-fade-delay="500">
                 <i class="material-icons font-xxxlarge left color-text-white">arrow_back</i>
-                <div class="left font-xlarge padding-medium color-text-white">Retornar</div>
+                <div class="left font-xlarge padding-medium color-text-white">{{retornar}}</div>
             </div>
 
             <div class='row font-large' id="cadastro-login">
                 <h1 class="color-text-white align-center easefadein header-new-paciente" data-fade-delay="100">
-                    <div class="font-bold font-xxxlarge s-font-xxlarge" style="margin: auto; float: initial;">Adicionar Paciente</div>
+                    <div class="font-bold font-xxxlarge s-font-xxlarge" style="margin: auto; float: initial;">{{adicionarPaciente}}</div>
                 </h1>
 
                 <div class="col container-900 padding-top margin-top" style="margin-bottom: 40px;">
                     <label class="col easefadein" data-fade-delay="200">
-                        <input id="nome" placeholder="Nome" type="text"
+                        <input id="nome" placeholder="{{nome}}" type="text"
                                class="input-field color-white font-large opacity">
                         <div class="col info-container" style="margin-top: -19px;font-size: 12px;" rel="nome">
                             <span class="rest input-message color-text-white" rel="nome"></span>
                         </div>
                     </label>
                     <label class="col easefadein" data-fade-delay="300">
-                        <input id="telefone" placeholder="Telefone" type="tel"
+                        <input id="telefone" placeholder="{{telefone}}" type="tel"
                                class="input-field color-white font-large tel opacity">
                         <div class="col info-container" style="margin-top: -19px;font-size: 12px;" rel="telefone">
                             <span class="rest input-message color-text-white" rel="telefone"></span>
@@ -73,7 +73,7 @@
 
                 <div class="row col easefadein" data-fade-delay="700">
                     <button onclick="enviarconvite()" id="sendconvite" class="loginbtn s-font-large btn color-white">
-                        Enviar Convite
+                        {{enviarConvite}}
                     </button>
                 </div>
                 <div class="row clear"><br><br><br><br></div>
@@ -83,14 +83,14 @@
             <div id="add-paciente-opaco"></div>
             <div class="padding-small pointer arrowback">
                 <i class="material-icons font-xxxlarge left color-text-white">arrow_back</i>
-                <div class="left font-xlarge padding-medium color-text-white">Retornar</div>
+                <div class="left font-xlarge padding-medium color-text-white">{{retornar}}</div>
             </div>
 
             <div class='row font-large' id="cadastro-login"
                  style="max-width: 500px; margin: auto;position: relative;z-index: 4;">
                 <div class="color-text-white font-xlarge align-center" style="margin: auto;">
-                    <div class="col">Parabéns!</div>
-                    <div class="col">Seu paciente foi adicionado com sucesso.</div>
+                    <div class="col">{{parabens}}!</div>
+                    <div class="col">{{parabensMensagem}}</div>
                 </div>
 
                 <div class="col container-900" style="margin-bottom: 20px;">
@@ -104,7 +104,7 @@
 
                 <div class="col">
                     <button onclick="closeConvite()" class="loginbtn s-font-large btn color-white">
-                        Concluir
+                        {{modalConcluir}}
                     </button>
                 </div>
                 <div class="row clear"><br><br><br><br></div>
