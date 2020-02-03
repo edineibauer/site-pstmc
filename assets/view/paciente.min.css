@@ -3184,9 +3184,25 @@
     margin-left: -12.5%
 }
 
+.dinline {
+    display: inline;
+}
+
+.r-paciente .percent {
+    margin: auto;
+    float: initial;
+    display: block;
+    width: 105px;
+}
+
+.r-paciente .percentName {
+    margin: -5px 0 -10px;
+}
+
 .r-paciente .info-spinner {
-    padding-left: 96px;
-    width: 200px;
+    padding-left: 61px;
+    text-align: center;
+    width: 230px;
     position: absolute;
     left: 25%;
     top: 70px

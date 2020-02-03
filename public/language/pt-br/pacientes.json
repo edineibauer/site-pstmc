@@ -1,8 +1,7 @@
 {
   "pacientes": "Pacientes",
   "selecione": "Selecione um paciente para ver os registros feitos a partir do app Epistemic",
-  "adicionar": "Adicionar",
-  "paciente": "paciente",
+  "botaoAdicionarPaciente": "Adicionar paciente",
   "pesquisar": "Pesquisar",
   "carregando": "Carregando...",
   "retornar": "Retornar",
