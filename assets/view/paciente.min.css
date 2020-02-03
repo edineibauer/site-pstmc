@@ -3276,6 +3276,11 @@
     right: 6%
 }
 
+.r-paciente .paciente-list-img {
+    background-size: cover;
+    background-position: center;
+}
+
 @media (min-width: 663px) {
     .r-paciente #periodo-graficos {
         transform: none;

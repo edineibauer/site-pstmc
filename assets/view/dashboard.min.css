@@ -2,6 +2,11 @@
     vertical-align: baseline
 }
 
+.r-dashboard .paciente-list-img {
+    background-size: cover;
+    background-position: center;
+}
+
 .r-dashboard a, .r-dashboard legend {
     color: inherit
 }

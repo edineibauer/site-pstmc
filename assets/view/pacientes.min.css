@@ -2,6 +2,11 @@
     vertical-align: baseline
 }
 
+.r-pacientes .paciente-list-img {
+    background-size: cover;
+    background-position: center;
+}
+
 .r-pacientes a, .r-pacientes legend {
     color: inherit
 }
