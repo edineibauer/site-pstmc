@@ -2,7 +2,7 @@
     vertical-align: baseline
 }
 
-.r-dashboard .paciente-list-img {
+.r-dashboard .paciente-list-img, .r-dashboard .paciente-update-img {
     background-size: cover;
     background-position: center;
 }
