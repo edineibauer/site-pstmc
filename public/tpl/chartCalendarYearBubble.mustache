@@ -1,37 +1,22 @@
 <div class="col padding-24"></div>
 <div class="col padding-left">
     <div class="col padding-large border">
+        <div class="col align-center padding-tiny font-bold">{{{label}}}</div>
+        <div class="col padding-4"></div>
         <div class="row padding-bottom">
-            <div class="col s1 align-center color-text-theme font-bold opacity">{{jan}}</div>
-            <div class="col s1 align-center color-text-theme font-bold opacity">{{fev}}</div>
-            <div class="col s1 align-center color-text-theme font-bold opacity">{{Mar}}</div>
-            <div class="col s1 align-center color-text-theme font-bold opacity">{{abr}}</div>
-            <div class="col s1 align-center color-text-theme font-bold opacity">{{mai}}</div>
-            <div class="col s1 align-center color-text-theme font-bold opacity">{{jun}}</div>
-            <div class="col s1 align-center color-text-theme font-bold opacity">{{jul}}</div>
-            <div class="col s1 align-center color-text-theme font-bold opacity">{{ago}}</div>
-            <div class="col s1 align-center color-text-theme font-bold opacity">{{set}}</div>
-            <div class="col s1 align-center color-text-theme font-bold opacity">{{out}}</div>
-            <div class="col s1 align-center color-text-theme font-bold opacity">{{nov}}</div>
-            <div class="col s1 align-center color-text-theme font-bold opacity">{{dez}}</div>
-        </div>
+            {{#x}}
+                <div class="col s1 align-center">
+                    <div title="média do mês: {{mediaTitle}}" class="calendarCriseNumber" style="{{media}}">
 
-        {{#x}}
-            <div class="col s1 align-center">
-                <div title="{{title}}" style="
-                        width: 24px;
-                        height: 24px;
-                        border-radius: 50px;
-                        padding: 1px;
-                        margin: auto;
-                    {{style}}
-                        ">
-                    {{dia}}
+                    </div>
+                    <div class="align-center color-text-theme font-bold opacity calendarCriseNumber">{{mes}}</div>
+                    {{#data}}
+                        <div title="{{title}}" class="calendarCriseNumber" style="{{style}}">
+                            {{dia}}
+                        </div>
+                    {{/data}}
                 </div>
-            </div>
-        {{/x}}
-
-        <div class="col padding-12"></div>
-        <div class="col align-center padding-tiny">{{{label}}}</div>
+            {{/x}}
+        </div>
     </div>
 </div>
