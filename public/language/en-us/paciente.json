@@ -1,0 +1,18 @@
+{
+  "carregando": "loading...",
+  "periodo": "Period",
+  "de": "From",
+  "ate": "To",
+  "dia": "Day",
+  "semana": "Week",
+  "mes": "Month",
+  "ano": "Year",
+  "indicadores": "Indicators",
+  "indicadoresMensagem": "Select the indicator you wish to view",
+  "imgMedicamento": "medications",
+  "imgSintomas": "symptoms",
+  "imgSono": "sleep",
+  "imgHumor": "humor",
+  "imgCrises": "seizures",
+  "imgAtividade": "activity"
+}

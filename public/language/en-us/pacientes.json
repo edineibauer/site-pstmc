@@ -1,0 +1,15 @@
+{
+  "pacientes": "Patients",
+  "selecione": "Select a patient whose registries you wish to view",
+  "botaoAdicionarPaciente": "add patient",
+  "pesquisar": "Search",
+  "carregando": "Loading...",
+  "retornar": "Back",
+  "modalAdicionar": "Add Patient",
+  "modalNome": "Name",
+  "modalTelefone": "Telephone",
+  "modalEnviar": "Send Invitation",
+  "parabens": "Congratulations",
+  "parabensMensagem": "Your patient was successfully added.",
+  "modalConcluir": "Finish"
+}

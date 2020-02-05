@@ -1,0 +1,14 @@
+{
+  "sitename": "Epistemic",
+  "web": "web",
+  "passo": "Step 1",
+  "nome": "Name",
+  "data": "Birth Date",
+  "cpf": "Document Number",
+  "crm": "Physician's Registration Number",
+  "email": "E-mail",
+  "senha": "Password",
+  "senha2": "Confirm Password",
+  "telefone": "Telephone",
+  "continuar": "Next"
+}

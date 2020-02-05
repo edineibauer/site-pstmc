@@ -1,0 +1,19 @@
+{
+  "editar": "Edit Profile",
+  "dr": "Dr.",
+  "crm": "Physician's Registration Number",
+  "nascimento": "Birth Date",
+  "cpf": "Id number",
+  "telefone": "Telephone",
+  "email": "E-mail",
+  "endereco1": "Address 1",
+  "endereco2": "Address 2",
+  "retornar": "Back",
+  "editarImagem": "edit",
+  "nome": "Name",
+  "senha": "New Password",
+  "senha2": "Confirm password",
+  "endereco1texto": "Name of Clinic/Hospital",
+  "endereco2texto": "Name of Clinic/Hospital",
+  "salvar": "Save"
+}

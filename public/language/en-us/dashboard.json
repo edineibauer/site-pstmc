@@ -1,0 +1,19 @@
+{
+  "oladr": "Hello, Dr.",
+  "mensagemtutoria": "Select a patient in the <b>Recent Patients</b> tab or click on <b>Patients</b> on the menu above to start previewing.",
+  "atualizacoes": "Latest Updates",
+  "atualizacoesmensagem": "You can find the latest updates from your patients below",
+  "nenhumaAtualizacao": "Ops! Nothing here.",
+  "carregando": "Loading...",
+  "pacientesRecentesFirst": "Recent",
+  "pacientesRecentesSecond": "Patients",
+  "botaoAdicionar": "add patient",
+  "adicionarPaciente": "add Patient",
+  "telefone": "Telephone",
+  "nome": "Name",
+  "enviarConvite": "Send Invitation",
+  "retornar": "Back",
+  "parabens": "Congratulations",
+  "parabensMensagem": "Your patient was successfully added.",
+  "modalConcluir": "Finish"
+}
