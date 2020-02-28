@@ -45,6 +45,10 @@ function apiConexao(data) {
                      */
                     f("Erro");
 
+                } else if (typeof dados.statusCode !== "undefined" && (dados.statusCode === 204 || dados.statusCode === "204")) {
+                    toast("sem permissão de acesso aos dados!", 4500, "toast-warning");
+                    s(0);
+
                 } else if (typeof dados.errorMessage === "string") {
 
                     /**
